@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+static def getCurrentTime(String format) {
+    return new Date().format(format, TimeZone.getDefault())
+}
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+    defaultConfig {
+        applicationId "com.yang.base"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1000
+        versionName "1.0.0.0"
+        //独立混淆相指定文件consumer-rules.pro
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+
+    signingConfigs {
+        config{
+            //加载资源
+            Properties properties = new Properties()
+            InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
+            properties.load( inputStream )
+            //读取字段
+            def storePassword = properties.getProperty('storePassword')
+            def keyAlias = properties.getProperty('keyAlias')
+            def keyPassword = properties.getProperty('keyPassword')
+            inputStream.close()
+        }
+
+        release {
+            storeFile file("../keyfile.jks")
+            storePassword "123456"
+            keyAlias "123456"
+            keyPassword "123456"
+        }
+        debug {
+            storeFile file("../keyfile.jks")
+            storePassword "123456"
+            keyAlias "123456"
+            keyPassword "123456"
+        }
+    }
+
+    buildTypes {
+        debug {
+            //混淆开关
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            //混淆文件,获取默认\sdk\tools\proguard\proguard-android.txt基础混淆配置信息，
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (buildType.name == 'debug') {
+                outputFileName = "BaseApp_debug_android_${getCurrentTime('yyyyMMdd')}.apk"
+            } else {
+                outputFileName = "BaseApp_release_android_${getCurrentTime('yyyyMMddHHmmss')}.apk"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(':base')
+    implementation project(':show')
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+}

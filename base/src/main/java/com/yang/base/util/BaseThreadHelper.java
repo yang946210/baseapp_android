@@ -136,11 +136,9 @@ public class BaseThreadHelper implements RejectedExecutionHandler {
     }
 
     /**
-     * thread factory
+     * 线程factory
      */
     static class DefaultThreadFactory implements ThreadFactory {
-        private static final AtomicInteger poolNumber = new AtomicInteger(1);
-
         private final AtomicInteger threadNumber = new AtomicInteger(1);
         private final String namePrefix;
 
@@ -161,6 +159,9 @@ public class BaseThreadHelper implements RejectedExecutionHandler {
     }
 
 
+    /**
+     * 自定义runable，处理泄漏并做一些拓展操作
+     */
     public abstract static class Task implements Runnable {
 
         private volatile Thread runner;
@@ -212,10 +213,5 @@ public class BaseThreadHelper implements RejectedExecutionHandler {
                 listener = null;
             }
         }
-
-
     }
-
-
-
 }

@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo;
 
 import com.yang.base.util.BaseCrashHelper;
 
+import java.io.File;
+
 /***
  * @desc Base框架入口
  * @time 2020/10/30
@@ -26,7 +28,7 @@ public class BaseSdk {
     /**
      * 内部存储根目录
      */
-    private String rootPath;
+    private File rootPath;
 
     /***
      * 屏幕类型(横竖屏)
@@ -51,7 +53,7 @@ public class BaseSdk {
     public void init(Application application, boolean isDebug) {
         context = application.getApplicationContext();
         debug = isDebug;
-        rootPath= isDebug?context.getExternalFilesDir("debug").getAbsolutePath():context.getFilesDir().getAbsolutePath();
+        rootPath= isDebug?context.getExternalFilesDir("debug"):context.getFilesDir();
         BaseCrashHelper.getInstance().init();
     }
 
@@ -86,7 +88,7 @@ public class BaseSdk {
      * 获取统一内部存储目录
      * @return
      */
-    public String getRootPath(){
+    public File getRootPath(){
         return rootPath;
     }
 

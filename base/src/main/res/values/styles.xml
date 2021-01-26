@@ -1,0 +1,6 @@
+<resources>
+    <style name="base_custom_dialog_style" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item><!--除去title-->
+        <item name="android:windowBackground">@color/base_color_transparent</item><!--除去背景色-->
+    </style>
+</resources>

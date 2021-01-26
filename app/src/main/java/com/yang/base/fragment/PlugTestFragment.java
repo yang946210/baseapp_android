@@ -4,7 +4,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yang.base.base.BaseFragment;
-import com.yang.base.util.BaseToastHelper;
+import com.yang.base.ui.dialog.BaseLoadingDialogHelper;
+import com.yang.base.util.BaseHandlerHelper;
 import com.yang.base.R;
 
 /***
@@ -38,9 +39,16 @@ public class PlugTestFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_toast0:
-                BaseToastHelper.showToast("no need toast");
+                BaseLoadingDialogHelper.showLoadingDialog(getContext());
+                BaseHandlerHelper.getInstance().getHandler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getActivity().finish();
+                    }
+                },2000);
                 break;
             case R.id.bt_toast1:
+                BaseLoadingDialogHelper.dismissLoadingDialog();
                 break;
         }
     }

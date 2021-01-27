@@ -1,13 +1,31 @@
 package com.yang.base;
 
-import android.util.Log;
-import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.yang.base.adapter.BaseAdapterItemClickListener;
+import com.yang.base.adapter.BaseViewHolder;
+import com.yang.base.adapter.MenuAdapter;
 import com.yang.base.base.BaseActivity;
-import com.yang.base.util.BaseThreadHelper;
+import com.yang.base.bean.MenuBean;
+import com.yang.base.fragment.BaseDemoFragment;
+import com.yang.base.fragment.DialogDemoFragment;
+import com.yang.base.fragment.SdkAndAppDemoFragment;
 
-public class MenuActivity extends BaseActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MenuActivity extends BaseActivity implements BaseAdapterItemClickListener<MenuBean> {
+
+    private RecyclerView rv_menu;
+
+    private MenuAdapter adapter;
+
+    private List<MenuBean> menuBeans=new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -16,42 +34,45 @@ public class MenuActivity extends BaseActivity {
 
     @Override
     protected void findViews() {
+        rv_menu=findViewById(R.id.rv_menu);
 
     }
 
     @Override
     protected void init() {
+        adapter=new MenuAdapter(this);
+        rv_menu.setLayoutManager(new LinearLayoutManager(this));
+        rv_menu.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
+        addDate();
+    }
+
+    private void addDate(){
+        SdkAndAppDemoFragment sdkAndAppDemoFragment;
+        menuBeans.add(new MenuBean("SDK,App",sdkAndAppDemoFragment=new SdkAndAppDemoFragment()));
+        menuBeans.add(new MenuBean("Activity",new BaseDemoFragment()));
+        menuBeans.add(new MenuBean("dialogUtil",new DialogDemoFragment()));
+        adapter.setData(menuBeans);
+        replaceFragment(sdkAndAppDemoFragment);
     }
 
 
-    public void thread(View view){
-      start();
+
+
+    @Override
+    public void onItemViewClick(BaseViewHolder holder, int position, MenuBean itemData) {
+        replaceFragment(itemData.getFragment());
     }
 
-    private static void start(){
-        final int[] index = {0};
-        BaseThreadHelper.getInstance().run(new BaseThreadHelper.Task() {
-            @Override
-            public void threadRun() {
-                while (true){
-                    try {
-                        index[0]++;
-                        Log.i("=====","======"+ index[0]);
-                        if (Thread.currentThread()!=null){
-                            Thread.sleep(1000);
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }, 10, new BaseThreadHelper.Task.OnTimeoutListener() {
-            @Override
-            public void onTimeout(Thread thread) {
-                thread.interrupt();
-                Log.i("=====","===========超时");
-            }
-        });
-    }
 
+    /**
+     * 替换fragment展示
+     * @param fragment
+     */
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();   // 开启一个事务
+        transaction.replace(R.id.ft_show, fragment);
+        transaction.commit();
+    }
 }

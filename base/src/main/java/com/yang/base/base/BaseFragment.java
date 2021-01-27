@@ -24,6 +24,10 @@ import java.util.List;
 
 public abstract class BaseFragment extends Fragment {
 
+    /**
+     * 权限请求码
+     */
+    private static final int fragmentRequest =100;
 
     /**
      * 主布局
@@ -34,11 +38,6 @@ public abstract class BaseFragment extends Fragment {
      * 全局context
      */
     protected Context mContext;
-
-    /**
-     * 权限请求码
-     */
-    private static final int fragmentRequest =100;
 
     /**
      * 权限请求回调
@@ -60,13 +59,17 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
+    public <T extends View> T findViewById(int resId){
+        return view.findViewById(resId);
+    }
+
     /***
      * 获取fragment的布局文件
      */
     protected abstract int getFragmentLayoutId();
 
     /**
-     * 处理布局相关
+     * 处理布局
      */
     protected abstract void findViews();
 
@@ -98,7 +101,6 @@ public abstract class BaseFragment extends Fragment {
                        fileList.add(p);
                    }
                }
-
                if (fileList.size()==0){
                    permissionListener.success();
                }else {
@@ -110,9 +112,6 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    public <T extends View> T findViewById(int resId){
-        return view.findViewById(resId);
-    }
 
     @Override
     public void onDestroy() {

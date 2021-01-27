@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -54,8 +55,15 @@ public class BaseCustomDialog extends Dialog{
      */
     private OnDialogClickListener listener;
 
+    /**
+     * 布局
+     */
+    private View view;
+
     public BaseCustomDialog(Context context) {
         super(context, R.style.base_custom_dialog_style);
+        setCanceledOnTouchOutside(false);
+        view= LayoutInflater.from(context).inflate(R.layout.dialog_custom,null);
     }
 
     public BaseCustomDialog(Context context,String message,OnDialogClickListener listener) {
@@ -78,7 +86,7 @@ public class BaseCustomDialog extends Dialog{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_custom);
+        setContentView(view);
         initView();
         init();
     }
@@ -103,17 +111,21 @@ public class BaseCustomDialog extends Dialog{
     }
 
     private void init(){
-        tv_confirm.setOnClickListener(new View.OnClickListener() {
+        tv_confirm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                listener.onDialogClick(true,v);
+                if (listener!=null){
+                    listener.onDialogClick(true,v);
+                }
                 dismiss();
             }
         });
-        tv_cancel.setOnClickListener(new View.OnClickListener() {
+        tv_cancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                listener.onDialogClick(false,v);
+                if (listener!=null){
+                    listener.onDialogClick(false,v);
+                }
                 dismiss();
             }
         });
@@ -160,6 +172,16 @@ public class BaseCustomDialog extends Dialog{
      */
     public BaseCustomDialog setCancel(String cancel) {
         this.cancel = cancel;
+        return this;
+    }
+
+    /**
+     * 设置取消按钮文字
+     * @param clickText
+     */
+    public BaseCustomDialog setSingleClick(String clickText) {
+        this.cancel = clickText;
+        view.findViewById(R.id.tv_confirm).setVisibility(View.GONE);
         return this;
     }
 

@@ -61,7 +61,7 @@ public class BaseLoadingDialogHelper{
             if (lastContext!=null&&context==lastContext.get()&&loadingDialog!=null&&loadingDialog.get()!=null&&loadingDialog.get().isShowing()){
                 return;
             }
-            loadingDialog=new WeakReference<>(new Dialog(context, R.style.base_custom_dialog_style));
+            loadingDialog=new WeakReference<>(new Dialog(context, R.style.base_loading_dialog_style));
             lastContext=new WeakReference<>(context);
             Dialog dialog=loadingDialog.get();
             View view = LayoutInflater.from(lastContext.get()).inflate(R.layout.dialog_loading, null);
@@ -98,7 +98,6 @@ public class BaseLoadingDialogHelper{
                 BaseLoadingDialogHelper._dismissLoadingDialog();
             }
         });
-
     }
 
     private static void _dismissLoadingDialog() {

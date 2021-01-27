@@ -7,7 +7,6 @@ import com.yang.base.BuildConfig;
 
 /***
  * @desc baseApplication
- * @time 2020/10/30
  * @author yang
  */
 

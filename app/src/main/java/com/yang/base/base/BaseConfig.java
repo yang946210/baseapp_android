@@ -2,7 +2,6 @@ package com.yang.base.base;
 
 /***
  * @desc app配置文件。
- * @time 2020/11/2
  * @author yang
  */
 

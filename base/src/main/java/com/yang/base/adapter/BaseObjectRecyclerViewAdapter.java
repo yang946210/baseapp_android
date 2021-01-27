@@ -196,6 +196,11 @@ public abstract class BaseObjectRecyclerViewAdapter<T> extends RecyclerView.Adap
     }
 
     @Override
+    public void setOnItemChildrenClickListener(BaseAdapterItemChildrenClickListener<T> listener) {
+        this.itemChildrenClickListener=listener;
+    }
+
+    @Override
     public void addItemChildViewClickListener(BaseViewHolder holder, int childViewId, int position) {
         addItemChildViewClickListener(holder, holder.getView(childViewId), position);
     }

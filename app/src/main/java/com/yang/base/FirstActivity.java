@@ -12,7 +12,6 @@ import java.util.TimerTask;
 /**
  * @desc 引导页
  * @author yanggq
- * @time 2020/12/29
  */
 
 public class FirstActivity extends BaseActivity {
@@ -41,7 +40,6 @@ public class FirstActivity extends BaseActivity {
     protected void init() {
         tv_time.setText("倒计时："+time);
         threadTest();
-
     }
 
     /**

@@ -12,6 +12,7 @@ import com.yang.base.bean.RecyclerBean;
  */
 
 public class RecyclerBeanAdapter extends BaseObjectRecyclerViewAdapter<RecyclerBean> {
+
     public RecyclerBeanAdapter(Context context) {
         super(context);
     }

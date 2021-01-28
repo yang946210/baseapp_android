@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 
 import com.yang.base.BaseSdk;
 import com.yang.base.BuildConfig;
+import com.yang.base.util.BaseCryptoHelper;
 
 /***
  * @desc baseApplication
@@ -17,6 +18,7 @@ public class BaseApp extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         BaseSdk.getInstance().init(this, BuildConfig.DEBUG, ActivityInfo.SCREEN_ORIENTATION_USER);
+        BaseCryptoHelper.getInstance().init("aabbccddeeffgghh");
     }
 
 }

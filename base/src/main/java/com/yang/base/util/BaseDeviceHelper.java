@@ -22,7 +22,6 @@ public class BaseDeviceHelper {
 
     /**
      * 获取手机型号
-     *
      * @return 手机型号
      */
     public static String getSystemModel() {
@@ -31,7 +30,6 @@ public class BaseDeviceHelper {
 
     /**
      * 获取手机厂商
-     *
      * @return 手机厂商
      */
     public static String getDeviceBrand() {
@@ -41,13 +39,9 @@ public class BaseDeviceHelper {
     /***
      * 判断APP能否被调试
      * @param context  上下文
-     * @param checkDebug 是否检查debug
      * @return
      */
-    public static boolean isAPPCanDebug(Context context, boolean checkDebug) {
-        if (!checkDebug) {
-            return false;
-        }
+    public static boolean isAPPCanDebug(Context context) {
         try {
             return android.os.Debug.isDebuggerConnected() || (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         } catch (Throwable e) {

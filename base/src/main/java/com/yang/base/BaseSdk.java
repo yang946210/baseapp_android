@@ -2,7 +2,6 @@ package com.yang.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 
 import com.yang.base.util.BaseCrashHelper;
 

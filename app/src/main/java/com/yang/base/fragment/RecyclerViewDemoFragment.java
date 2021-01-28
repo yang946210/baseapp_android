@@ -11,6 +11,7 @@ import com.yang.base.R;
 import com.yang.base.adapter.BaseViewHolder;
 import com.yang.base.adapter.OnBaseItemChildrenClickListener;
 import com.yang.base.adapter.OnBaseItemClickListener;
+import com.yang.base.adapter.OnBaseItemLongClickListener;
 import com.yang.base.adapter.RecyclerBeanAdapter;
 import com.yang.base.adapter.RecyclerJsonAdapter;
 import com.yang.base.base.BaseFragment;
@@ -27,7 +28,6 @@ import java.util.List;
  */
 
 public class RecyclerViewDemoFragment extends BaseFragment {
-
 
     private RecyclerView rv_bean,rv_json;
 
@@ -68,6 +68,13 @@ public class RecyclerViewDemoFragment extends BaseFragment {
             }
         });
 
+        beanAdapter.setOnItemLongClickListener(new OnBaseItemLongClickListener<RecyclerBean>() {
+            @Override
+            public void onItemViewLongClick(BaseViewHolder holder, int position, RecyclerBean itemData) {
+                BaseToastHelper.showToast("长按了Item:"+itemData.getName());
+            }
+        });
+
         jsonAdapter.setOnItemChildrenClickListener(new OnBaseItemChildrenClickListener<JSONObject>() {
             @Override
             public void onItemChildViewClick(BaseViewHolder holder, int position, JSONObject itemData, View clickView) {
@@ -79,6 +86,13 @@ public class RecyclerViewDemoFragment extends BaseFragment {
             @Override
             public void onItemViewClick(BaseViewHolder holder, int position, JSONObject itemData) {
                 BaseToastHelper.showToast("点击了item:"+itemData.getString("name"));
+            }
+        });
+
+        jsonAdapter.setOnItemLongClickListener(new OnBaseItemLongClickListener<JSONObject>() {
+            @Override
+            public void onItemViewLongClick(BaseViewHolder holder, int position, JSONObject itemData) {
+                BaseToastHelper.showToast("长按了item:"+itemData.getString("name"));
             }
         });
         addDate();

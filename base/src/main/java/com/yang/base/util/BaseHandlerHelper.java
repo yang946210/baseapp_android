@@ -93,20 +93,28 @@ public class BaseHandlerHelper{
 
     /***
      * 发送消息
+     * @param what 事件ID
+     */
+    public void sendMessage( int what) {
+        mThreadHandler.sendMessage(mThreadHandler.obtainMessage(what));
+    }
+
+    /***
+     * 发送延时消息
      * @param delay 延时 毫秒
      * @param what 事件ID
      */
-    public void sendMessage(int delay, int what) {
+    public void sendMessage(int what,int delay) {
         mThreadHandler.sendMessageDelayed(mThreadHandler.obtainMessage(what), delay);
     }
 
     /***
-     * 发送消息
+     * 发送延时消息
      * @param delay 延时 毫秒
      * @param what 事件ID
      * @param obj 消息传递参数
      */
-    public void sendMessage(int delay, int what, Object obj) {
+    public void sendMessage(int what,int delay,Object obj) {
         mThreadHandler.sendMessageDelayed(mThreadHandler.obtainMessage(what, obj), delay);
     }
 

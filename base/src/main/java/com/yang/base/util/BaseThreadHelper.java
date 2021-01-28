@@ -68,7 +68,7 @@ public class BaseThreadHelper implements RejectedExecutionHandler {
      * 切换至主线程
      * @param runnable
      */
-    public void runOnUiThread(final Runnable runnable) {
+    public void runOnUiThread(Runnable runnable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             runnable.run();
         } else {
@@ -143,7 +143,7 @@ public class BaseThreadHelper implements RejectedExecutionHandler {
 
 
         DefaultThreadFactory() {
-            namePrefix = BaseCommHelper.getAppName(BaseSdk.getInstance().getContext())+"-thread-";
+            namePrefix = "otherThread-"+BaseCommHelper.getAppName(BaseSdk.getInstance().getContext());
         }
 
         @Override
@@ -190,7 +190,7 @@ public class BaseThreadHelper implements RejectedExecutionHandler {
                     @Override
                     public void run() {
                         if (outTime>0) {
-                            outTime--;
+                            outTime=outTime-1000;
                         }else {
                             listener.onTimeout(runner);
                             onDone();

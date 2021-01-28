@@ -12,7 +12,6 @@ import com.yang.base.BaseSdk;
 
 public class BaseToastHelper {
 
-    private static Toast mToast = null;
 
     /**
      * 弹出Toast
@@ -28,7 +27,7 @@ public class BaseToastHelper {
      * @param duration 持续时间（0：短；1：长）
      */
     public static void showToast(String text, int duration) {
-        _showToast(text,duration, Gravity.BOTTOM);
+        _showToast(text,duration, Gravity.CENTER);
     }
 
     /**
@@ -43,12 +42,9 @@ public class BaseToastHelper {
     }
 
     private static void _showToast(String message, int duration, int gravity){
-        if (mToast == null) {
-            mToast = Toast.makeText(BaseSdk.getInstance().getContext(), message, duration);
-        } else {
-            mToast.setText(message);
-            mToast.setDuration(duration);
-        }
+        Toast mToast = Toast.makeText(BaseSdk.getInstance().getContext(), message, duration);
+        mToast.setText(message);
+        mToast.setDuration(duration);
         mToast.setGravity(gravity, 0, 50);
         mToast.show();
     }

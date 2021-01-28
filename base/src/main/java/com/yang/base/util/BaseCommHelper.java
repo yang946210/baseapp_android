@@ -131,6 +131,22 @@ public class BaseCommHelper {
     }
 
     /***
+     * 获取包名
+     * @param context　上下文
+     * @return
+     */
+    public static String getPackageName(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), PackageManager.GET_CONFIGURATIONS);
+            return packageInfo.packageName;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    /***
      * 获取APP应用版本号
      * @param context　上下文
      * @return

@@ -1,5 +1,6 @@
 package com.yang.base.util;
 
+import android.text.TextUtils;
 import android.util.Base64;
 
 import javax.crypto.Cipher;
@@ -38,25 +39,33 @@ public class BaseCryptoHelper {
     /**
      * 初始化
      * @param password 密钥
-     * @param iv 偏移；量
      */
-    public void init(String password,String iv){
+    public void init(String password){
+        if (!(password.length()==16||password.length()==24||password.length()==32)){
+            try {
+                throw new Exception( "AES bad password");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         this.password=password;
-        this.iv=iv;
     }
 
     /**
      * 初始化
      * @param password 密钥
+     * @param iv 偏移；量
      */
-    public void init(String password){
-        this.password=password;
+    public void init(String password,String iv){
+        init(password);
+        this.iv=iv;
     }
+
 
 
     /**
      * 加密
-     * @param  clearString
+     * @param  clearString 原始字符串
      * @return base64字符串
      */
     public String encrypt(String clearString) {
@@ -70,15 +79,13 @@ public class BaseCryptoHelper {
 
     /**
      * 加密
-     * @param  clearByte
+     * @param  clearByte 原始byte
      * @return base64字符串
      */
     public synchronized String encrypt(byte[] clearByte) {
         try {
-            if (password==null){
+            if (TextUtils.isEmpty(password)){
                 throw new Exception( "AES password not init" );
-            }else if (!(password.length()==16||password.length()==24||password.length()==32)){
-                throw new Exception( "AES bad password" );
             }
             IvParameterSpec zeroIv = new IvParameterSpec(iv.getBytes());
             //两个参数，第一个为私钥字节数组， 第二个为加密方式 AES或者DES
@@ -101,7 +108,7 @@ public class BaseCryptoHelper {
      * @param encrypted
      * @return
      */
-    public synchronized   String decrypt(String encrypted) {
+    public synchronized String decrypt(String encrypted) {
         try {
             byte[] byteMi = base64Decode(encrypted);
             IvParameterSpec zeroIv = new IvParameterSpec(iv.getBytes());

@@ -97,7 +97,6 @@ public class BaseDeviceHelper {
         }
         BufferedReader in = null;
         try {
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(localProcess.getOutputStream()));
             in = new BufferedReader(new InputStreamReader(localProcess.getInputStream()));
             while ((line = in.readLine()) != null) {
                 fullResponse.add(line);
@@ -203,8 +202,7 @@ public class BaseDeviceHelper {
         try {
             TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             Method method = manager.getClass().getMethod("getImei", int.class);
-            String imei = (String) method.invoke(manager, slotId);
-            return imei;
+            return (String) method.invoke(manager, slotId);
         } catch (Throwable e) {
             return "";
         }

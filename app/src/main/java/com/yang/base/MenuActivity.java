@@ -44,7 +44,6 @@ public class MenuActivity extends BaseActivity implements OnBaseItemClickListene
     @Override
     protected void findViews() {
         rv_menu=findViewById(R.id.rv_menu);
-
     }
 
     @Override
@@ -59,10 +58,10 @@ public class MenuActivity extends BaseActivity implements OnBaseItemClickListene
 
     private void addDate(){
         SdkAndAppDemoFragment sdkAndAppDemoFragment;
-        menuBeans.add(new MenuBean("SDK,App",sdkAndAppDemoFragment=new SdkAndAppDemoFragment()));
+        menuBeans.add(new MenuBean("baseSdk",sdkAndAppDemoFragment=new SdkAndAppDemoFragment()));
         menuBeans.add(new MenuBean("Activity",new BaseDemoFragment()));
         menuBeans.add(new MenuBean("recyclerView",new RecyclerViewDemoFragment()));
-        menuBeans.add(new MenuBean("handler,thread",new HandlerDemoFragment()));
+        menuBeans.add(new MenuBean("handler/thread",new HandlerDemoFragment()));
         menuBeans.add(new MenuBean("dialogUtil",new DialogDemoFragment()));
         menuBeans.add(new MenuBean("commonHelper",new CommonUtilDemoFragment()));
         menuBeans.add(new MenuBean("加解密",new CryptoDemoFragment()));

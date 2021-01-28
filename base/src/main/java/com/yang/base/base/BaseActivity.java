@@ -13,7 +13,6 @@ import java.util.List;
 
 /***
  * @desc Activity基类
- * @time 2020/11/20
  * @author yangguoq
  */
 

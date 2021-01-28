@@ -10,7 +10,6 @@ import java.io.File;
 
 /***
  * @desc Base框架入口
- * @time 2020/10/30
  * @author yang
  */
 

@@ -46,7 +46,6 @@ import java.util.Map;
 
 /***
  * @desc 图片处理工具类
- * @time 2020-07-01
  * @author hyc
  */
 public class BaseImageHelper {

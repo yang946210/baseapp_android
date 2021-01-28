@@ -20,7 +20,6 @@ import java.lang.ref.WeakReference;
 
 /***
  * @desc 加载等待框
- * @time 2021/1/25
  * @author yangguoq
  */
 

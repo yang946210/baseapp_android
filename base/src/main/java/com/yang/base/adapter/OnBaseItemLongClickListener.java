@@ -3,10 +3,9 @@ package com.yang.base.adapter;
 
 /***
  * @desc 每项长按事件
- * @time 2020-07-01
  * @author yang
  */
-public interface BaseAdapterItemLongClickListener<T> {
+public interface OnBaseItemLongClickListener<T> {
 
     /***
      * 每项点击事件

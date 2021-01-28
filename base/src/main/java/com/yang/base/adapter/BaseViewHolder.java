@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 /***
  * @desc viewHolder
- * @time 2020-07-01
  * @author yang
  */
 public class BaseViewHolder extends RecyclerView.ViewHolder {

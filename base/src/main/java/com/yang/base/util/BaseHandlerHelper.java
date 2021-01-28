@@ -13,7 +13,6 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /***
  * @desc 线程切换工具类，线程间消息通信
- * @time 2020-07-01
  * @author yang
  */
 public class BaseHandlerHelper{

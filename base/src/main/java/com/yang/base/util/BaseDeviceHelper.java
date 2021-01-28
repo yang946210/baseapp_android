@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 /***
  * @desc 设备相关帮助类
- * @time 2020-07-01
  * @author yang
  */
 public class BaseDeviceHelper {

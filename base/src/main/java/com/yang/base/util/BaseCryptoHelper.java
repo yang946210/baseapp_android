@@ -10,7 +10,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 /***
  * @desc 加解密工具
- * @time 2020/12/10
  * @author yangguoq
  */
 

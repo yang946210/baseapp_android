@@ -6,7 +6,6 @@ import java.util.Date;
 
 /***
  * @desc 时间格式工具
- * @time 2020/11/18
  * @author yangguoq
  */
 

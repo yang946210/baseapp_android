@@ -13,7 +13,6 @@ import java.util.Date;
 
 /***
  * @desc 全局异常处理
- * @time 2020/11/17
  * @author yangguoq
  */
 

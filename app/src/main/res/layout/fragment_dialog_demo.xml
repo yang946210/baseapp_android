@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:orientation="vertical">
 
     <TextView
@@ -9,38 +10,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:layout_margin="10dp"
         android:text="选择dialog展示1"
-        android:background="@color/color_7288E5"
-        />
+        android:background="@color/color_7288E5"/>
 
     <TextView
         android:id="@+id/tv_dialog2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
         android:text="选择dialog展示2"
-        android:background="@color/color_7288E5"
-        />
+        android:background="@color/color_7288E5"/>
+
     <TextView
         android:id="@+id/tv_dialog3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
         android:text="选择dialog展示3"
-        android:background="@color/color_7288E5"
-        />
+        android:background="@color/color_7288E5"/>
+
     <TextView
         android:id="@+id/tv_dialog4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
         android:text="加载等待框展示"
-        android:background="@color/color_7288E5"
-        />
+        android:background="@color/color_7288E5"/>
 
 
 </LinearLayout>

@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /***
  * @desc 一个常用线程池，替代new thread。
- * @time 2020/12/22
  * @author yangguoq
  */
 

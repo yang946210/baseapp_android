@@ -7,19 +7,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yang.base.adapter.BaseAdapterItemClickListener;
+import com.yang.base.adapter.OnBaseItemClickListener;
 import com.yang.base.adapter.BaseViewHolder;
 import com.yang.base.adapter.MenuAdapter;
 import com.yang.base.base.BaseActivity;
 import com.yang.base.bean.MenuBean;
 import com.yang.base.fragment.BaseDemoFragment;
 import com.yang.base.fragment.DialogDemoFragment;
+import com.yang.base.fragment.RecyclerViewDemoFragment;
 import com.yang.base.fragment.SdkAndAppDemoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuActivity extends BaseActivity implements BaseAdapterItemClickListener<MenuBean> {
+public class MenuActivity extends BaseActivity implements OnBaseItemClickListener<MenuBean> {
 
     private RecyclerView rv_menu;
 
@@ -51,6 +52,7 @@ public class MenuActivity extends BaseActivity implements BaseAdapterItemClickLi
         SdkAndAppDemoFragment sdkAndAppDemoFragment;
         menuBeans.add(new MenuBean("SDK,App",sdkAndAppDemoFragment=new SdkAndAppDemoFragment()));
         menuBeans.add(new MenuBean("Activity",new BaseDemoFragment()));
+        menuBeans.add(new MenuBean("recyclerView",new RecyclerViewDemoFragment()));
         menuBeans.add(new MenuBean("dialogUtil",new DialogDemoFragment()));
         adapter.setData(menuBeans);
         replaceFragment(sdkAndAppDemoFragment);
@@ -63,7 +65,6 @@ public class MenuActivity extends BaseActivity implements BaseAdapterItemClickLi
     public void onItemViewClick(BaseViewHolder holder, int position, MenuBean itemData) {
         replaceFragment(itemData.getFragment());
     }
-
 
     /**
      * 替换fragment展示

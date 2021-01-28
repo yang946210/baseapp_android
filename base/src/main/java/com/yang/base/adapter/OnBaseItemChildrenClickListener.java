@@ -4,10 +4,9 @@ import android.view.View;
 
 /***
  * @desc 每项点击事件
- * @time 2020-07-01
  * @author yang
  */
-public interface BaseAdapterItemChildrenClickListener<T> {
+public interface OnBaseItemChildrenClickListener<T> {
 
     /***
      * 每项子view点击事件

@@ -27,7 +27,6 @@ import java.util.Random;
 
 /***
  * @desc 公共工具类
- * @time 2020-07-01
  * @author yang
  */
 public class BaseCommHelper {

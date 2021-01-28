@@ -15,7 +15,6 @@ import com.yang.base.R;
 
 /***
  * @desc Recycler的适配器, 数据类型为json
- * @time 2020-07-01
  * @author yang
  */
 public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> implements View.OnClickListener, BaseAdapter<JSONObject>, View.OnLongClickListener {
@@ -32,17 +31,17 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
     /***
      * item函数
      */
-    protected BaseAdapterItemClickListener<JSONObject> itemClickListener;
+    protected OnBaseItemClickListener<JSONObject> itemClickListener;
 
     /***
      * children函数
      */
-    protected BaseAdapterItemChildrenClickListener<JSONObject> itemChildrenClickListener;
+    protected OnBaseItemChildrenClickListener<JSONObject> itemChildrenClickListener;
 
     /***
      * 长按监听器
      */
-    protected BaseAdapterItemLongClickListener<JSONObject> itemLongClickListener;
+    protected OnBaseItemLongClickListener<JSONObject> itemLongClickListener;
 
     /***
      * 构造函数
@@ -50,7 +49,7 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
      * @param data 数据项
      * @param itemClickListener 回调函数
      */
-    public BaseJSONRecyclerViewAdapter(Context context, JSONArray data, @NonNull BaseAdapterItemClickListener<JSONObject> itemClickListener) {
+    public BaseJSONRecyclerViewAdapter(Context context, JSONArray data, @NonNull OnBaseItemClickListener<JSONObject> itemClickListener) {
         this.context = context;
         this.itemClickListener = itemClickListener;
         datas = data;
@@ -183,17 +182,17 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
     }
 
     @Override
-    public void setOnItemClickListener(BaseAdapterItemClickListener<JSONObject> listener) {
+    public void setOnItemClickListener(OnBaseItemClickListener<JSONObject> listener) {
         this.itemClickListener = listener;
     }
 
     @Override
-    public void setOnItemChildrenClickListener(BaseAdapterItemChildrenClickListener<JSONObject> listener) {
+    public void setOnItemChildrenClickListener(OnBaseItemChildrenClickListener<JSONObject> listener) {
         this.itemChildrenClickListener=listener;
     }
 
     @Override
-    public void setOnItemLongClickListener(BaseAdapterItemLongClickListener<JSONObject> listener) {
+    public void setOnItemLongClickListener(OnBaseItemLongClickListener<JSONObject> listener) {
         this.itemLongClickListener = listener;
     }
 

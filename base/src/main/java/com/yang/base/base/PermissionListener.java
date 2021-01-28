@@ -5,7 +5,6 @@ import java.util.List;
 
 /***
  * @desc baseActivity/fragment
- * @time 2020/11/20
  * @author yangguoq
  */
 

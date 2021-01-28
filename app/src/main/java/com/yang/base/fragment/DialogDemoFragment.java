@@ -18,8 +18,6 @@ import com.yang.base.util.BaseToastHelper;
 
 public class DialogDemoFragment extends BaseFragment implements View.OnClickListener {
 
-
-
     @Override
     protected int getFragmentLayoutId() {
         return R.layout.fragment_dialog_demo;
@@ -34,9 +32,7 @@ public class DialogDemoFragment extends BaseFragment implements View.OnClickList
     }
 
     @Override
-    protected void init() {
-
-    }
+    protected void init() {}
 
     @Override
     public void onClick(View v) {

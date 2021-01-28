@@ -4,7 +4,6 @@ import android.view.View;
 
 /***
  * @desc 适配器接口
- * @time 2020-07-01
  * @author yang
  */
 public interface BaseAdapter<T> {
@@ -51,18 +50,18 @@ public interface BaseAdapter<T> {
      * 设置点击事件监听器
      * @param listener 监听器
      */
-    void setOnItemClickListener(BaseAdapterItemClickListener<T> listener);
+    void setOnItemClickListener(OnBaseItemClickListener<T> listener);
 
 
     /**
      * item中的某个布局点击事件监听求
      */
-    void setOnItemChildrenClickListener(BaseAdapterItemChildrenClickListener<T> listener);
+    void setOnItemChildrenClickListener(OnBaseItemChildrenClickListener<T> listener);
     /***
      * 设置长按监听
      * @param listener
      */
-    void setOnItemLongClickListener(BaseAdapterItemLongClickListener<T> listener);
+    void setOnItemLongClickListener(OnBaseItemLongClickListener<T> listener);
 
     /***
      * 设置子view点击事件

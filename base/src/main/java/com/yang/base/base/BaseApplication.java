@@ -6,7 +6,6 @@ import androidx.multidex.MultiDexApplication;
 
 /***
  * @desc application基类
- * @time 2020/10/30
  * @author yang
  */
 

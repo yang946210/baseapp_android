@@ -16,7 +16,6 @@ import java.util.List;
 
 /***
  * @desc RecyclerView 适配器，数据类型味道javabean
- * @time 2020-07-01
  * @author yang
  */
 public abstract class BaseObjectRecyclerViewAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> implements View.OnClickListener, BaseAdapter<T>, View.OnLongClickListener {
@@ -34,17 +33,17 @@ public abstract class BaseObjectRecyclerViewAdapter<T> extends RecyclerView.Adap
     /***
      * item点击回调
      */
-    protected BaseAdapterItemClickListener<T> itemClickListener;
+    protected OnBaseItemClickListener<T> itemClickListener;
 
     /***
      * children函数
      */
-    protected BaseAdapterItemChildrenClickListener<T> itemChildrenClickListener;
+    protected OnBaseItemChildrenClickListener<T> itemChildrenClickListener;
 
     /***
      * item长按回调
      */
-    protected BaseAdapterItemLongClickListener<T> itemLongClickListener;
+    protected OnBaseItemLongClickListener<T> itemLongClickListener;
 
     /***
      * 构造函数
@@ -52,7 +51,7 @@ public abstract class BaseObjectRecyclerViewAdapter<T> extends RecyclerView.Adap
      * @param data 数据项
      * @param itemClickListener 回调函数
      */
-    public BaseObjectRecyclerViewAdapter(Context context, List<T> data, @NonNull BaseAdapterItemClickListener<T> itemClickListener) {
+    public BaseObjectRecyclerViewAdapter(Context context, List<T> data, @NonNull OnBaseItemClickListener<T> itemClickListener) {
         this.context = context;
         this.itemClickListener = itemClickListener;
         this.datas = data;
@@ -186,17 +185,17 @@ public abstract class BaseObjectRecyclerViewAdapter<T> extends RecyclerView.Adap
     }
 
     @Override
-    public void setOnItemClickListener(BaseAdapterItemClickListener<T> listener) {
+    public void setOnItemClickListener(OnBaseItemClickListener<T> listener) {
         this.itemClickListener = listener;
     }
 
     @Override
-    public void setOnItemLongClickListener(BaseAdapterItemLongClickListener<T> listener) {
+    public void setOnItemLongClickListener(OnBaseItemLongClickListener<T> listener) {
         this.itemLongClickListener = listener;
     }
 
     @Override
-    public void setOnItemChildrenClickListener(BaseAdapterItemChildrenClickListener<T> listener) {
+    public void setOnItemChildrenClickListener(OnBaseItemChildrenClickListener<T> listener) {
         this.itemChildrenClickListener=listener;
     }
 

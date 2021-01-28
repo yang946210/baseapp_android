@@ -14,7 +14,6 @@ import com.yang.base.R;
 
 /***
  * @desc 一个公共的dialog展示框。
- * @time 2021/1/25
  * @author yangguoq
  */
 

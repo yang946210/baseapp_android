@@ -13,6 +13,7 @@ import java.io.File;
  */
 
 public class BaseSdk {
+
     /**
      * 全局context
      */
@@ -33,6 +34,11 @@ public class BaseSdk {
      */
     private Integer screenType;
 
+    /**
+     * webView是否生产可调式<debug模式无用>
+     */
+    private boolean webViewDebug=false;
+
     private BaseSdk(){}
 
     private static class BaseSdkHolder{
@@ -48,23 +54,25 @@ public class BaseSdk {
      * @param application  application
      * @param isDebug  是否debug
      */
-    public void init(Application application, boolean isDebug) {
+    public BaseSdk init(Application application, boolean isDebug) {
         context = application.getApplicationContext();
         debug = isDebug;
         rootPath= isDebug?context.getExternalFilesDir("debug"):context.getFilesDir();
         BaseCrashHelper.getInstance().init();
+        return this;
     }
 
-    /**
-     * 初始化sdk
-     * @param application  application
-     * @param isDebug  是否debug
-     * @param screenType 默认横竖屏
+    /***
+     * 初始化屏幕类型
+     * @param screenType ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+     *                   ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+     *                   ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
      */
-    public void init(Application application, boolean isDebug,Integer screenType) {
-        this.screenType=screenType;
-        init(application,isDebug);
+    public BaseSdk intScreenType(Integer screenType) {
+        this.screenType = screenType;
+        return this;
     }
+
 
     /**
      * 获取全局context
@@ -99,12 +107,17 @@ public class BaseSdk {
     }
 
     /***
-     * 设置屏幕类型
-     * @param screenType ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-     *                   ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-     *                   ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+     * 设置BaseWebView是否生产可调式
      */
-    public void setScreenType(Integer screenType) {
-        this.screenType = screenType;
+    public BaseSdk setCanDebugWebView(boolean webViewDebug) {
+        this.webViewDebug = webViewDebug;
+        return this;
+    }
+
+    /***
+     * 设置BaseWebView是否生产可调式
+     */
+    public boolean getCanDebugWebView() {
+        return  webViewDebug;
     }
 }

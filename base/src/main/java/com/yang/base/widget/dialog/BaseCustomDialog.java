@@ -1,4 +1,4 @@
-package com.yang.base.ui.dialog;
+package com.yang.base.widget.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.yang.base.R;
@@ -62,7 +60,7 @@ public class BaseCustomDialog extends Dialog{
     public BaseCustomDialog(Context context) {
         super(context, R.style.base_custom_dialog_style);
         setCanceledOnTouchOutside(false);
-        view= LayoutInflater.from(context).inflate(R.layout.dialog_custom,null);
+        view= LayoutInflater.from(context).inflate(R.layout.base_dialog_custom,null);
     }
 
     public BaseCustomDialog(Context context,String message,OnDialogClickListener listener) {

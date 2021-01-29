@@ -5,7 +5,6 @@ import android.widget.TextView;
 import com.yang.base.BaseSdk;
 import com.yang.base.R;
 import com.yang.base.base.BaseFragment;
-import com.yang.base.ui.dialog.BaseCustomDialog;
 import com.yang.base.util.BaseCommHelper;
 
 /***

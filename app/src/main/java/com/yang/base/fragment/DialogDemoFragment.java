@@ -1,13 +1,12 @@
 package com.yang.base.fragment;
 
 import android.view.View;
-import android.widget.TextView;
 
 import com.yang.base.R;
 import com.yang.base.base.BaseFragment;
-import com.yang.base.ui.dialog.BaseCustomDialog;
-import com.yang.base.ui.dialog.BaseLoadingDialogHelper;
-import com.yang.base.ui.dialog.OnDialogClickListener;
+import com.yang.base.widget.dialog.BaseCustomDialog;
+import com.yang.base.widget.dialog.BaseLoadingDialogHelper;
+import com.yang.base.widget.dialog.OnDialogClickListener;
 import com.yang.base.util.BaseHandlerHelper;
 import com.yang.base.util.BaseToastHelper;
 

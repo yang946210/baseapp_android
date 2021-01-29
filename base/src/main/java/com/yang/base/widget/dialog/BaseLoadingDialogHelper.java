@@ -1,10 +1,7 @@
-package com.yang.base.ui.dialog;
+package com.yang.base.widget.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Looper;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +10,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.yang.base.R;
-import com.yang.base.util.BaseCrashHelper;
 import com.yang.base.util.BaseThreadHelper;
 
 import java.lang.ref.WeakReference;
@@ -30,6 +26,9 @@ public class BaseLoadingDialogHelper{
      */
     private static WeakReference<Dialog> loadingDialog;
 
+    /**
+     * 上次弹出对应的context
+     */
     private static WeakReference<Context> lastContext;
 
     /**
@@ -63,7 +62,7 @@ public class BaseLoadingDialogHelper{
             loadingDialog=new WeakReference<>(new Dialog(context, R.style.base_loading_dialog_style));
             lastContext=new WeakReference<>(context);
             Dialog dialog=loadingDialog.get();
-            View view = LayoutInflater.from(lastContext.get()).inflate(R.layout.dialog_loading, null);
+            View view = LayoutInflater.from(lastContext.get()).inflate(R.layout.base_dialog_loading, null);
             dialog.setContentView(view);
             dialog.show();
             TextView tv_showMessage = dialog.findViewById(R.id.tv_showMessage);

@@ -1,4 +1,4 @@
-package com.yang.base.ui.dialog;
+package com.yang.base.widget.dialog;
 
 import android.view.View;
 

@@ -2,6 +2,7 @@ package com.yang.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 
 import com.yang.base.util.BaseCrashHelper;
 
@@ -32,7 +33,7 @@ public class BaseSdk {
     /***
      * 屏幕类型(横竖屏)
      */
-    private Integer screenType;
+    private int screenType= ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
 
     /**
      * webView是否生产可调式<debug模式无用>

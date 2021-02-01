@@ -38,6 +38,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".BaseTestActivity"/>
+        <activity android:name=".TestWebViewActivity"/>
     </application>
 
 </manifest>

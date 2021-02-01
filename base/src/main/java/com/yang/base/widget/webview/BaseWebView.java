@@ -100,4 +100,12 @@ public class BaseWebView extends LinearLayout {
         setting.setSaveFormData(false);
         setting.setDatabaseEnabled(true);
     }
+
+    /**
+     * 获取webView
+     * @return
+     */
+    public WebView getVebView(){
+        return wv_base;
+    }
 }

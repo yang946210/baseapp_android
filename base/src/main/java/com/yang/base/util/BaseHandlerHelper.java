@@ -6,6 +6,8 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 
+import com.yang.base.BaseSdk;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -36,7 +38,6 @@ public class BaseHandlerHelper{
      * 构造函数
      */
     private BaseHandlerHelper() {
-        Looper.prepare();
         mThreadHandler = new Handler(Looper.getMainLooper()){
             @Override
             public void handleMessage(@NonNull Message msg) {
@@ -53,6 +54,7 @@ public class BaseHandlerHelper{
         };
         mListeners = new ArrayList<HandlerListener>(10);
     }
+
 
     /***
      * 结束
@@ -74,6 +76,7 @@ public class BaseHandlerHelper{
     public static BaseHandlerHelper getInstance() {
         return mInstance;
     }
+
 
     /***
      * 获取主线程handler

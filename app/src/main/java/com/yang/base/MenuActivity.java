@@ -23,6 +23,7 @@ import com.yang.base.fragment.DialogDemoFragment;
 import com.yang.base.fragment.HandlerDemoFragment;
 import com.yang.base.fragment.RecyclerViewDemoFragment;
 import com.yang.base.fragment.SdkAndAppDemoFragment;
+import com.yang.base.fragment.WebViewDemoFragment;
 import com.yang.base.util.BaseHandlerHelper;
 
 import java.util.ArrayList;
@@ -65,6 +66,7 @@ public class MenuActivity extends BaseActivity implements OnBaseItemClickListene
         menuBeans.add(new MenuBean("dialogUtil",new DialogDemoFragment()));
         menuBeans.add(new MenuBean("commonHelper",new CommonUtilDemoFragment()));
         menuBeans.add(new MenuBean("加解密",new CryptoDemoFragment()));
+        menuBeans.add(new MenuBean("webView",new WebViewDemoFragment()));
 
         adapter.setData(menuBeans);
         replaceFragment(sdkAndAppDemoFragment);

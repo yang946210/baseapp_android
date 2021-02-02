@@ -3,6 +3,7 @@ package com.yang.base.fragment;
 import android.content.Intent;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.yang.base.R;
 import com.yang.base.TestWebViewActivity;
 import com.yang.base.base.BaseFragment;

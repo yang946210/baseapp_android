@@ -2,6 +2,7 @@ package com.yang.base.widget.webview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -64,6 +65,14 @@ public class BaseWebView extends LinearLayout {
         initView(context);
         initWebView();
     }
+
+
+    public BaseWebView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initView(context);
+        initWebView();
+    }
+
 
     /**
      * 初始化布局

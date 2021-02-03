@@ -92,7 +92,7 @@ public class BaseWebView extends LinearLayout {
      */
     @SuppressLint("SetJavaScriptEnabled")
     private void initWebView(){
-        wv_base.setWebViewClient(webViewClient=new BaseWebViewClient());
+        wv_base.setWebViewClient(webViewClient=new BaseWebViewClient(this));
         wv_base.setWebChromeClient(webChromeClient=new BaseWebChromeClient());
         wv_base.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         //调试模式开关
@@ -116,5 +116,15 @@ public class BaseWebView extends LinearLayout {
      */
     public WebView getVebView(){
         return wv_base;
+    }
+
+    /**
+     * 加载失败展示页面
+     * @param errorInfo 错误描述
+     */
+    public void showError(String errorInfo){
+        ll_loadFail.setVisibility(VISIBLE);
+        wv_base.setVisibility(GONE);
+        iv_loadFailTest.setText(errorInfo);
     }
 }

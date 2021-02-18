@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yang.mvp" >
+    <application>
+        <activity android:name="com.yang.mvp.MvpActivity"/>
+    </application>
+</manifest>

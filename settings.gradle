@@ -1,2 +1,3 @@
-include ':app', ':base', ':show'
+include ':mvp'
+include ':app', ':base',
 rootProject.name='baseapp'

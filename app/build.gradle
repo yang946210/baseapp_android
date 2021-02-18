@@ -84,7 +84,7 @@ android {
 
 dependencies {
     implementation project(':base')
-    implementation project(':show')
+    implementation project(':mvp')
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

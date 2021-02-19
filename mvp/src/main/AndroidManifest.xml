@@ -2,5 +2,6 @@
     package="com.yang.mvp" >
     <application>
         <activity android:name="com.yang.mvp.MvpActivity"/>
+        <activity android:name="com.yang.mvp.RxAndroidActivity"/>
     </application>
 </manifest>

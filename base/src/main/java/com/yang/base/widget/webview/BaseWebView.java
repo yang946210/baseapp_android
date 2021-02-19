@@ -52,7 +52,9 @@ public class BaseWebView extends LinearLayout {
      */
     private BaseWebViewClient webViewClient;
 
-
+    /**
+     * context
+     */
     private WeakReference<Context> weakReference;
 
 
@@ -118,13 +120,31 @@ public class BaseWebView extends LinearLayout {
         return wv_base;
     }
 
+
+    /**
+     * 加载失败展示页面
+     */
+    public void showError(){
+        ll_loadFail.setVisibility(VISIBLE);
+        wv_base.setVisibility(GONE);
+    }
+
     /**
      * 加载失败展示页面
      * @param errorInfo 错误描述
      */
     public void showError(String errorInfo){
-        ll_loadFail.setVisibility(VISIBLE);
-        wv_base.setVisibility(GONE);
+        showError();
         iv_loadFailTest.setText(errorInfo);
+    }
+
+    /**
+     * 加载失败展示页面
+     * @param errorInfo 错误描述
+     * @param errRes 错误图片
+     */
+    public void showError(String errorInfo,int errRes){
+        showError(errorInfo);
+        iv_loadFailImg.setBackgroundResource(errRes);
     }
 }

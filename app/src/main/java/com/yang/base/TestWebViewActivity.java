@@ -26,7 +26,7 @@ public class TestWebViewActivity extends BaseActivity {
 
     @Override
     protected void init(){
-        bwv_base.getVebView().loadUrl("file:///android_asset/show.html1");
+        bwv_base.getVebView().loadUrl("file:///android_asset/show.html");
     }
 
 }

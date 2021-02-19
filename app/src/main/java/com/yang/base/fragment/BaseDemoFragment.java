@@ -50,9 +50,9 @@ public class BaseDemoFragment extends BaseFragment implements View.OnClickListen
      * 权限demo
      */
     private void getPermission(){
-           String[] permissions = {
-                   Manifest.permission.CAMERA,
-                   Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        String[] permissions = {
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE};
         requestRuntimePermission(permissions, new PermissionListener() {
             @Override
             public void success() {
@@ -65,7 +65,6 @@ public class BaseDemoFragment extends BaseFragment implements View.OnClickListen
                 for(String next:failList){
                     s=s+next; }
                 BaseToastHelper.showToast("全部权限获取失败，一下权限未通过"+s);
-
             }
         });
     }

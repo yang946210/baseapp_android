@@ -121,7 +121,6 @@ public class BaseDeviceHelper {
 
     /**
      * 返回屏幕分辨率的高度  px
-     *
      * @param context 上下文
      * @return
      */

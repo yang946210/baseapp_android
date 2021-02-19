@@ -16,7 +16,7 @@ import java.io.File;
 public class BaseSdk {
 
     /**
-     * 全局context
+     * 全局appContext
      */
     private Context context;
 

@@ -19,6 +19,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -26,15 +30,20 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.13.1'
     debugApi 'com.squareup.leakcanary:leakcanary-android:2.3'   //内存泄漏检测
     api 'androidx.appcompat:appcompat:1.2.0'
     api 'androidx.constraintlayout:constraintlayout:2.0.4'
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api 'androidx.multidex:multidex:2.0.1'
     api 'com.alibaba:fastjson:1.2.75'
+    api 'com.github.bumptech.glide:glide:4.10.0'
     api 'com.squareup.okhttp3:okhttp:4.9.0'
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.7'
-    api 'com.github.bumptech.glide:glide:4.10.0'
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:retrofit-converters:2.4.0'
+    api 'com.squareup.retrofit2:retrofit-adapters:2.4.0'
+    api 'com.squareup.retrofit2:converter-gson:2.4.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 }

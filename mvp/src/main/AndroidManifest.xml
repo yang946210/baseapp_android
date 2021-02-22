@@ -1,7 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yang.mvp" >
+    package="com.yang.mvp">
+
     <application>
-        <activity android:name="com.yang.mvp.MvpActivity"/>
-        <activity android:name="com.yang.mvp.RxAndroidActivity"/>
+        <activity android:name=".RetrofitActivity"/>
+        <activity android:name=".MvpActivity" />
+        <activity android:name=".RxAndroidActivity" />
     </application>
+
 </manifest>

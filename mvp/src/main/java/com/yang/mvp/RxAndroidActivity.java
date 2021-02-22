@@ -19,7 +19,6 @@ import io.reactivex.functions.Function;
 public class RxAndroidActivity extends BaseActivity {
 
 
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_rxandroid;
@@ -132,8 +131,6 @@ public class RxAndroidActivity extends BaseActivity {
      * @param view
      */
     public void testMap(View view){
-
-        //和just功能一样，但可以传10个以上变量
         Observable.just("1","2").map(new Function<String, Integer>() {
             @Override
             public Integer apply(@NonNull String s) throws Exception {

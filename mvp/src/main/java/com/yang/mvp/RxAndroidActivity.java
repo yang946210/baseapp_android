@@ -143,6 +143,7 @@ public class RxAndroidActivity extends BaseActivity {
                 Log.i("===Observer===","===订阅："+d.isDisposed());
             }
 
+
             @Override
             public void onNext(@NonNull Integer  s) {
                 Log.i("===Observer===","===onNext："+s);

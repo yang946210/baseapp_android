@@ -1,10 +1,8 @@
 package com.yang.base.bean;
 
-import org.testng.annotations.AfterTest;
+import org.junit.Test;
 
-import okhttp3.OkHttp;
 
-import static org.junit.Assert.*;
 
 /***
  * @desc
@@ -16,7 +14,7 @@ public class MenuBeanTest {
 
     @Test
     public void getFragment() {
-        OkHttp
+
     }
 
     @Test

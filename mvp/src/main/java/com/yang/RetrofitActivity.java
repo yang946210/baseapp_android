@@ -1,8 +1,10 @@
-package com.yang.mvp;
+package com.yang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.yang.mvp.R;
 
 public class RetrofitActivity extends AppCompatActivity {
 

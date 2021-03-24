@@ -29,6 +29,7 @@ public class BaseCryptoHelper {
      */
     private String iv="9876543210abcdef";
 
+
     /**
      * 密钥
      * //AES固定格式为128/192/256 bits.即：16/24/32bytes。
@@ -62,27 +63,27 @@ public class BaseCryptoHelper {
     }
 
 
-
     /**
-     * 加密
+     * AES加密
      * @param  clearString 原始字符串
      * @return base64字符串
      */
-    public String encrypt(String clearString) {
+    public String AESEncrypt(String clearString) {
         try {
-            return encrypt(clearString.getBytes("UTF-8"));
+            return AESEncrypt(clearString.getBytes("UTF-8"));
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
+
     /**
-     * 加密
+     * AES加密
      * @param  clearByte 原始byte
      * @return base64字符串
      */
-    public synchronized String encrypt(byte[] clearByte) {
+    public String AESEncrypt(byte[] clearByte) {
         try {
             if (TextUtils.isEmpty(password)){
                 throw new Exception( "AES password not init" );
@@ -104,11 +105,11 @@ public class BaseCryptoHelper {
     }
 
     /**
-     * 解密
+     * AES解密
      * @param encrypted
      * @return
      */
-    public synchronized String decrypt(String encrypted) {
+    public String AESDecrypt(String encrypted) {
         try {
             byte[] byteMi = base64Decode(encrypted);
             IvParameterSpec zeroIv = new IvParameterSpec(iv.getBytes());
@@ -124,15 +125,59 @@ public class BaseCryptoHelper {
         }
     }
 
+    /***
+     * 自定义加密数据
+     * @param src 加密内容
+     * @param key 加密密钥
+     * @return
+     */
+    public byte[] encode(byte[] src, byte[] key) {
+        int keyLen = key.length;
+        int appendLen = keyLen - (src.length % keyLen);
+        int len = src.length;
+        if (appendLen > 0) {
+            len += appendLen;
+        }
+        byte[] tmp = new byte[len];
+        System.arraycopy(src, 0, tmp, 0, src.length);
+        if (appendLen > 0) {
+            for (int i = src.length; i < len; i++) {
+                tmp[i] = ' ';
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            byte t = (byte) (key[i % keyLen]);
+            tmp[i] = (byte) (~((tmp[i] ^ t)));
+        }
+        return tmp;
+    }
+
+    /***
+     * 自定义解密数据
+     * @param src 解密数据
+     * @param key 解密密钥
+     * @return
+     */
+    public byte[] decode(byte[] src, byte[] key) {
+        int keyLen = key.length;
+        int srcLen = src.length;
+        for (int i = 0; i < srcLen; i++) {
+            byte t = (byte) (key[i % keyLen]);
+            src[i] = (byte) ((~src[i]) ^ t);
+        }
+        return src;
+    }
+
     /**
-     * 将 Base64解密
+     * Base64解密
      */
     public byte[] base64Decode(String data) {
         return Base64.decode(data, Base64.NO_WRAP);
     }
 
+
     /**
-     * 将 Base64加密
+     * Base64加密
      */
     public  String base64Encode(byte[] data) {
         return Base64.encodeToString(data, Base64.NO_WRAP);

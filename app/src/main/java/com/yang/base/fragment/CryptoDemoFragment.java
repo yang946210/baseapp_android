@@ -40,9 +40,9 @@ public class CryptoDemoFragment extends BaseFragment {
         tv_deBase64.setText("base64解密后 =>" +new String(decode));
 
 
-        String enCrypt=BaseCryptoHelper.getInstance().encrypt(str);
+        String enCrypt=BaseCryptoHelper.getInstance().AESEncrypt(str);
         //String enCrypt=BaseCryptoHelper.encrypt(str.getBytes());
         tv_encrypt.setText("AES加密后 =>"+ enCrypt);
-        tv_decrypt.setText("AES解密后 =>"+ BaseCryptoHelper.getInstance().decrypt(enCrypt));
+        tv_decrypt.setText("AES解密后 =>"+ BaseCryptoHelper.getInstance().AESDecrypt(enCrypt));
     }
 }

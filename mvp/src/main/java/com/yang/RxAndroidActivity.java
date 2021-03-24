@@ -1,9 +1,10 @@
-package com.yang.mvp;
+package com.yang;
 
 import android.util.Log;
 import android.view.View;
 
 import com.yang.base.base.BaseActivity;
+import com.yang.mvp.R;
 
 import org.reactivestreams.Subscriber;
 

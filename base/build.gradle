@@ -37,10 +37,10 @@ dependencies {
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api 'androidx.multidex:multidex:2.0.1'
     api 'com.alibaba:fastjson:1.2.75'
+    api 'com.orhanobut:logger:2.2.0'
     api 'com.github.bumptech.glide:glide:4.10.0'
     //okHttp
     api 'com.squareup.okhttp3:okhttp:4.9.0'
-    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     //rxjava2
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.7'
@@ -50,8 +50,4 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.4.0'
     api 'com.squareup.retrofit2:converter-gson:2.4.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    //rxjava防止内存泄漏
-    api 'com.uber.autodispose:autodispose:0.7.0'
-    api 'com.uber.autodispose:autodispose-android:0.7.0'
-    api 'com.uber.autodispose:autodispose-android-archcomponents:0.7.0'
 }

@@ -1,7 +1,7 @@
 package com.yang.mvp.aboutus;
 
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.yang.base.base.mvp.BaseMvpActivity;
 import com.yang.mvp.R;
@@ -36,7 +36,7 @@ public class AboutUsActivity extends BaseMvpActivity<AboutUsPresenter> implement
 
     @Override
     public void onSuccess(String body) {
-        Log.i("=====",body+"=");
+        Toast.makeText(this,body,Toast.LENGTH_LONG).show();
     }
 
 

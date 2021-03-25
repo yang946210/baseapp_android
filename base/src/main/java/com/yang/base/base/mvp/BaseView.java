@@ -1,7 +1,6 @@
 package com.yang.base.base.mvp;
 
 
-import com.uber.autodispose.AutoDisposeConverter;
 
 public interface BaseView {
 

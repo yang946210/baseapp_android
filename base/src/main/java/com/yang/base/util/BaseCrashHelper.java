@@ -61,9 +61,9 @@ public class BaseCrashHelper implements Thread.UncaughtExceptionHandler {
                 exCause =exCause.getCause();
             }
             //文件名称
-            String fileName = "crash" + System.currentTimeMillis() +BaseCommHelper.getRandomString(10)+ ".log";
+            String fileName = "crash-" + BaseTimeHelper.getTime(new Date(System.currentTimeMillis()),"yyyy-MM-dd")+ ".log";
             //文件存储位置
-            File fl = BaseSdk.getInstance().getContext().getExternalFilesDir("crash");
+            File fl = BaseSdk.getInstance().getContext().getExternalFilesDir("log");
 
             fileOutputStream = new FileOutputStream(new File(fl,fileName));
             fileOutputStream.write(writer.toString().getBytes());

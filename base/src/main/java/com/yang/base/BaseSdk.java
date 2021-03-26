@@ -6,6 +6,9 @@ import android.content.pm.ActivityInfo;
 
 import com.yang.base.util.BaseCrashHelper;
 import com.yang.base.util.logger.AndroidLogAdapter;
+import com.yang.base.util.logger.CsvFormatStrategy;
+import com.yang.base.util.logger.DiskLogAdapter;
+import com.yang.base.util.logger.FormatStrategy;
 import com.yang.base.util.logger.Logger;
 
 import java.io.File;
@@ -69,7 +72,8 @@ public class BaseSdk {
      * 初始化log相关
      * @return
      */
-    public BaseSdk initLog(){
+    public BaseSdk initLog(String tag){
+        FormatStrategy formatStrategy= CsvFormatStrategy.newBuilder().build();
         Logger.addLogAdapter(new AndroidLogAdapter());
         return this;
     }

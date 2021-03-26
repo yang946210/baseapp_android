@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.yang.base.base.BaseActivity;
+import com.yang.base.util.logger.Logger;
 import com.yang.mvp.R;
 import com.yang.mvp.aboutus.AboutUsActivity;
 
@@ -26,6 +27,8 @@ public class ModelIndexActivity extends BaseActivity {
     }
 
     public void mvpTest(View view){
+        Logger.d("logger.d");
+        Logger.e("logger.e message","args1","args2","args3");
         startActivity(new Intent(this, AboutUsActivity.class));
     }
 

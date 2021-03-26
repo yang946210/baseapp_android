@@ -16,7 +16,8 @@ public class BaseApp extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        BaseSdk.getInstance().init(this, BuildConfig.DEBUG);
+        BaseSdk.getInstance().init(this, BuildConfig.DEBUG).
+                initLog("tag");
         BaseCryptoHelper.getInstance().init("aabbccddeeffgghh");
     }
 

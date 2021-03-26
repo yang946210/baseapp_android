@@ -6,10 +6,8 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 

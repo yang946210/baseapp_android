@@ -49,7 +49,7 @@ public class BaseCrashHelper implements Thread.UncaughtExceptionHandler {
         try {
             Writer writer = new StringWriter();
             printWriter = new PrintWriter(writer);
-            printWriter.append("Debug:"+BaseSdk.getInstance().isDebug()+"\n");
+            printWriter.append("Debug:"+ BaseSdk.getInstance().isDebug()+"\n");
             printWriter.append("AppName:"+BaseCommHelper.getAppName(BaseSdk.getInstance().getContext())+"\n");
             printWriter.append("AppVersion:"+BaseCommHelper.getAppVersion(BaseSdk.getInstance().getContext())+"\n");
             printWriter.append("ProcessName:"+BaseCommHelper.getProcessName(0)+"\n");

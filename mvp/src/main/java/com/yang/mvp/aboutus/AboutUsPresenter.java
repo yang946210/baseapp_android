@@ -4,8 +4,8 @@ package com.yang.mvp.aboutus;
 import android.annotation.SuppressLint;
 
 import com.yang.base.base.mvp.BasePresenter;
-import com.yang.base.base.mvp.pai.InterceptorConsumer;
-import com.yang.base.base.mvp.pai.RxScheduler;
+import com.yang.mvp.pai.InterceptorConsumer;
+import com.yang.mvp.pai.RxScheduler;
 
 import io.reactivex.functions.Consumer;
 import okhttp3.ResponseBody;

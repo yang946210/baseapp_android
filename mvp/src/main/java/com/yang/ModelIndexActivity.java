@@ -4,8 +4,6 @@ package com.yang;
 import android.content.Intent;
 import android.view.View;
 
-import com.yang.RetrofitActivity;
-import com.yang.RxAndroidActivity;
 import com.yang.base.base.BaseActivity;
 import com.yang.mvp.R;
 import com.yang.mvp.aboutus.AboutUsActivity;

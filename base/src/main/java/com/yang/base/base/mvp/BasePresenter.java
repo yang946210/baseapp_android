@@ -5,7 +5,7 @@ package com.yang.base.base.mvp;
 import java.lang.ref.WeakReference;
 
 
-public abstract class BasePresenter<M extends BaseModel,V extends BaseView>{
+public abstract class BasePresenter<M,V extends BaseView>{
 
 
     /**

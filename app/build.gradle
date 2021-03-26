@@ -9,7 +9,7 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
     defaultConfig {
-        applicationId "com.yang.base"
+        applicationId "com.yang.baseapp"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1000

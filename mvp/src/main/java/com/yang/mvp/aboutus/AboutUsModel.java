@@ -1,7 +1,7 @@
 package com.yang.mvp.aboutus;
 
 
-import com.yang.base.base.mvp.pai.RetrofitClient;
+import com.yang.mvp.pai.RetrofitClient;
 
 import io.reactivex.Flowable;
 import okhttp3.ResponseBody;

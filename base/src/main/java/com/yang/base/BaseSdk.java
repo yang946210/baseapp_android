@@ -4,9 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.Logger;
 import com.yang.base.util.BaseCrashHelper;
+import com.yang.base.util.logger.AndroidLogAdapter;
+import com.yang.base.util.logger.Logger;
 
 import java.io.File;
 
@@ -62,6 +62,14 @@ public class BaseSdk {
         debug = isDebug;
         rootPath= isDebug?context.getExternalFilesDir("debug"):context.getFilesDir();
         BaseCrashHelper.getInstance().init();
+        return this;
+    }
+
+    /**
+     * 初始化log相关
+     * @return
+     */
+    public BaseSdk initLog(){
         Logger.addLogAdapter(new AndroidLogAdapter());
         return this;
     }

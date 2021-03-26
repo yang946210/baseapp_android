@@ -2,23 +2,17 @@ package com.yang.base.util;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
 
 import com.yang.base.BaseSdk;
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /***

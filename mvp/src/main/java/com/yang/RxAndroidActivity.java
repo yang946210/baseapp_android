@@ -6,8 +6,6 @@ import android.view.View;
 import com.yang.base.base.BaseActivity;
 import com.yang.mvp.R;
 
-import org.reactivestreams.Subscriber;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;

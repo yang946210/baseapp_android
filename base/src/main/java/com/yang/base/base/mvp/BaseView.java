@@ -5,16 +5,6 @@ package com.yang.base.base.mvp;
 public interface BaseView {
 
     /**
-     * 显示加载中
-     */
-    void onShowLoading();
-
-    /**
-     * 隐藏加载
-     */
-    void onHideLoading();
-
-    /**
      * 数据获取失败
      * @param throwable
      */

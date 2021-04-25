@@ -9,6 +9,10 @@ import com.yang.mvp.R;
 
 public class AboutUsActivity extends BaseMvpActivity<AboutUsPresenter> implements AboutUsContract.View {
 
+    /**
+     * 点击事件
+     * @param view
+     */
     public void getData(View view){
         presenter.loadData();
     }
@@ -40,21 +44,10 @@ public class AboutUsActivity extends BaseMvpActivity<AboutUsPresenter> implement
     }
 
 
-    @Override
-    public void onShowLoading() {
-
-    }
-
-    @Override
-    public void onHideLoading() {
-
-    }
 
     @Override
     public void onError(Throwable throwable) {
 
     }
-
-
 
 }

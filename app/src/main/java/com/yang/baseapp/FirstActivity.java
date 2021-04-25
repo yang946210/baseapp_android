@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.yang.base.base.BaseActivity;
 import com.yang.base.util.BaseThreadHelper;
+import com.yang.base.util.log.Logger;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,12 +20,18 @@ public class FirstActivity extends BaseActivity {
     /**
      * 倒计时时间
      */
-    private int time=0;
+    private int time=3;
 
     /**
      * 倒计时控件
      */
     private TextView tv_time;
+    private Timer timer;
+
+    @Override
+    protected void beforeSetView() {
+        super.beforeSetView();
+    }
 
     @Override
     protected int getLayoutId() {
@@ -39,6 +46,12 @@ public class FirstActivity extends BaseActivity {
     @Override
     protected void init() {
         tv_time.setText("倒计时："+time);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         threadTest();
     }
 
@@ -46,7 +59,7 @@ public class FirstActivity extends BaseActivity {
      * 倒计时
      */
     public  void threadTest(){
-        Timer timer=new Timer();
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -55,6 +68,7 @@ public class FirstActivity extends BaseActivity {
                     public void run() {
                         if (time<0){
                             timer.cancel();
+                            Logger.d("调用了");
                             startActivity(new Intent(FirstActivity.this,MainActivity.class));
                             finish();
                         }else {
@@ -67,6 +81,9 @@ public class FirstActivity extends BaseActivity {
         }, 0, 1000);
     }
 
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
+    }
 }

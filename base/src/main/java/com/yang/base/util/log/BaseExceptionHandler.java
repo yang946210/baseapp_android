@@ -1,8 +1,10 @@
-package com.yang.base.util;
+package com.yang.base.util.log;
 
 import androidx.annotation.NonNull;
 
 import com.yang.base.BaseSdk;
+import com.yang.base.util.BaseCommHelper;
+import com.yang.base.util.BaseTimeHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,22 +18,7 @@ import java.util.Date;
  * @author yangguoq
  */
 
-public class BaseCrashHelper implements Thread.UncaughtExceptionHandler {
-
-
-    private BaseCrashHelper(){}
-
-    private static class BaseCrashHolder{
-        private static final BaseCrashHelper instance=new BaseCrashHelper();
-    }
-
-    public static BaseCrashHelper getInstance(){
-        return BaseCrashHolder.instance;
-    }
-
-    public void init(){
-        Thread.setDefaultUncaughtExceptionHandler(getInstance());
-    }
+public class BaseExceptionHandler implements Thread.UncaughtExceptionHandler {
 
 
     @Override
@@ -50,10 +37,10 @@ public class BaseCrashHelper implements Thread.UncaughtExceptionHandler {
             Writer writer = new StringWriter();
             printWriter = new PrintWriter(writer);
             printWriter.append("Debug:"+ BaseSdk.getInstance().isDebug()+"\n");
-            printWriter.append("AppName:"+BaseCommHelper.getAppName(BaseSdk.getInstance().getContext())+"\n");
+            printWriter.append("AppName:"+ BaseCommHelper.getAppName(BaseSdk.getInstance().getContext())+"\n");
             printWriter.append("AppVersion:"+BaseCommHelper.getAppVersion(BaseSdk.getInstance().getContext())+"\n");
             printWriter.append("ProcessName:"+BaseCommHelper.getProcessName(0)+"\n");
-            printWriter.append("Date:"+BaseTimeHelper.getTime(new Date(System.currentTimeMillis()),"yyyy-MM-dd HH:mm:ss")+"\n");
+            printWriter.append("Date:"+ BaseTimeHelper.getTime(new Date(System.currentTimeMillis()),"yyyy-MM-dd HH:mm:ss")+"\n");
             ex.printStackTrace(printWriter);
             Throwable exCause = ex.getCause();
             while (exCause != null) {
@@ -73,7 +60,26 @@ public class BaseCrashHelper implements Thread.UncaughtExceptionHandler {
             BaseCommHelper.closeStream(fileOutputStream);
             BaseCommHelper.closeStream(printWriter);
         }
+    }
 
-
+    /***
+     * 获取异常信息
+     * @param throwable 异常
+     * @return 异常信息
+     */
+    public static String getThrowableMessage(Throwable throwable) {
+        PrintWriter pw = null;
+        try {
+            Writer writer = new StringWriter();
+            pw = new PrintWriter(writer);
+            throwable.printStackTrace(pw);
+            return writer.toString();
+        } catch (Exception e) {
+            return "";
+        } finally {
+            if (pw != null) {
+                pw.close();
+            }
+        }
     }
 }

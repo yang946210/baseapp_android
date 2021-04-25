@@ -4,12 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 
-import com.yang.base.util.BaseCrashHelper;
-import com.yang.base.util.logger.AndroidLogAdapter;
-import com.yang.base.util.logger.CsvFormatStrategy;
-import com.yang.base.util.logger.DiskLogAdapter;
-import com.yang.base.util.logger.FormatStrategy;
-import com.yang.base.util.logger.Logger;
+import com.yang.base.util.log.BaseExceptionHandler;
+import com.yang.base.util.log.Logger;
 
 import java.io.File;
 
@@ -38,7 +34,7 @@ public class BaseSdk {
     /***
      * 屏幕类型(横竖屏)
      */
-    private int screenType= ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
+    private Integer screenType;
 
     /**
      * webView是否生产可调式<debug模式无用>
@@ -64,7 +60,6 @@ public class BaseSdk {
         context = application.getApplicationContext();
         debug = isDebug;
         rootPath= isDebug?context.getExternalFilesDir("debug"):context.getFilesDir();
-        BaseCrashHelper.getInstance().init();
         return this;
     }
 
@@ -72,23 +67,31 @@ public class BaseSdk {
      * 初始化log相关
      * @return
      */
-    public BaseSdk initLog(String tag){
-        FormatStrategy formatStrategy= CsvFormatStrategy.newBuilder().build();
-        Logger.addLogAdapter(new AndroidLogAdapter());
+    public BaseSdk initLog(String tag,boolean isLoggable){
+        Logger.init(tag,isLoggable);
+        Thread.setDefaultUncaughtExceptionHandler(new BaseExceptionHandler());
         return this;
     }
 
     /***
      * 初始化屏幕类型
-     * @param screenType ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-     *                   ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-     *                   ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+     * @param screenType
+     * ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+     * ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+     * ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
      */
     public BaseSdk intScreenType(Integer screenType) {
         this.screenType = screenType;
         return this;
     }
 
+    /***
+     * 设置BaseWebView是否生产可调式
+     */
+    public BaseSdk initDebugWebView(boolean webViewDebug) {
+        this.webViewDebug = webViewDebug;
+        return this;
+    }
 
     /**
      * 获取全局context
@@ -125,15 +128,10 @@ public class BaseSdk {
     /***
      * 设置BaseWebView是否生产可调式
      */
-    public BaseSdk setCanDebugWebView(boolean webViewDebug) {
-        this.webViewDebug = webViewDebug;
-        return this;
-    }
-
-    /***
-     * 设置BaseWebView是否生产可调式
-     */
     public boolean getCanDebugWebView() {
         return  webViewDebug;
     }
+
+
+
 }

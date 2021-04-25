@@ -9,12 +9,16 @@
         <button onclick="confirm('confirm')">confirm</button>
         <button onclick="alert('alert')">alert</button>
         <button onclick="prompt('prompt')">prompt</button>
-        <button onclick="test()">log</button>
+        <button onclick="log()">log</button>
     </body>
     <script type="text/javascript">
         function log(){
-            console.log("console.log");
-            console.warn("warning");
+        var s="123"
+        if(s==123){
+          console.log("true");
+        }else{
+          console.log("false");
+        }
         };
         function test(){
             alert("test方法")

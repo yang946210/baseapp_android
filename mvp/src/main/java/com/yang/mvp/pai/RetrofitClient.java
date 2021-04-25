@@ -3,7 +3,7 @@ package com.yang.mvp.pai;
 
 
 
-import com.yang.base.util.logger.Logger;
+import com.yang.base.util.log.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -135,8 +135,6 @@ public class RetrofitClient {
                 String bodyClone = responseBuffer.clone().readString(StandardCharsets.UTF_8);
                 message.append("\ndata:").append(bodyClone);
                 Logger.i(message.toString());
-                //Logger.json("lalala");
-
                 return response;
             }
         };

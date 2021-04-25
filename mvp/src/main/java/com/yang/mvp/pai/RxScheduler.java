@@ -12,8 +12,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * description：RXjava 线程调度
- *
+ * description：线程调度
  */
 public class RxScheduler {
 

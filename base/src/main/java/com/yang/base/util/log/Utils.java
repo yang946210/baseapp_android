@@ -1,4 +1,4 @@
-package com.yang.base.util.logger;
+package com.yang.base.util.log;
 
 
 import androidx.annotation.NonNull;
@@ -9,12 +9,12 @@ import java.io.StringWriter;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
-import static com.yang.base.util.logger.Logger.ASSERT;
-import static com.yang.base.util.logger.Logger.DEBUG;
-import static com.yang.base.util.logger.Logger.ERROR;
-import static com.yang.base.util.logger.Logger.INFO;
-import static com.yang.base.util.logger.Logger.VERBOSE;
-import static com.yang.base.util.logger.Logger.WARN;
+import static com.yang.base.util.log.Logger.ASSERT;
+import static com.yang.base.util.log.Logger.DEBUG;
+import static com.yang.base.util.log.Logger.ERROR;
+import static com.yang.base.util.log.Logger.INFO;
+import static com.yang.base.util.log.Logger.VERBOSE;
+import static com.yang.base.util.log.Logger.WARN;
 
 /**
  * Provides convenient methods to some common operations

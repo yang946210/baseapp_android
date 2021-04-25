@@ -1,41 +1,23 @@
-package com.yang.base.util.logger;
+package com.yang.base.util.log;
+
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import static com.yang.base.util.logger.Utils.checkNotNull;
 
+import com.yang.base.BaseSdk;
+
+
+import static com.yang.base.util.log.Utils.checkNotNull;
 
 
 /**
- * Draws borders around the given log message along with additional information such as :
- *
- * <ul>
- *   <li>Thread information</li>
- *   <li>Method stack trace</li>
- * </ul>
- *
- * <pre>
- *  ┌──────────────────────────
- *  │ Method stack history
- *  ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
- *  │ Thread information
- *  ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
- *  │ Log message
- *  └──────────────────────────
- * </pre>
- *
- * <h3>Customize</h3>
- * <pre><code>
- *   FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
- *       .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true
- *       .methodCount(0)         // (Optional) How many method line to show. Default 2
- *       .methodOffset(7)        // (Optional) Hides internal method calls up to offset. Default 5
- *       .logStrategy(customLog) // (Optional) Changes the log strategy to print out. Default LogCat
- *       .tag("My custom tag")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
- *       .build();
- * </code></pre>
+ * @desc  log日志控制台打印策略
+ * @author yanggq
  */
-public class PrettyFormatStrategy implements FormatStrategy {
+public class LogcatStrategy {
 
   /**
    * Android's max limit for a log entry is ~4076 bytes,
@@ -65,16 +47,15 @@ public class PrettyFormatStrategy implements FormatStrategy {
   private final int methodCount;
   private final int methodOffset;
   private final boolean showThreadInfo;
-  @NonNull private final LogStrategy logStrategy;
+
   @Nullable private final String tag;
 
-  private PrettyFormatStrategy(@NonNull Builder builder) {
+  private LogcatStrategy(@NonNull Builder builder) {
     checkNotNull(builder);
 
     methodCount = builder.methodCount;
     methodOffset = builder.methodOffset;
     showThreadInfo = builder.showThreadInfo;
-    logStrategy = builder.logStrategy;
     tag = builder.tag;
   }
 
@@ -82,15 +63,13 @@ public class PrettyFormatStrategy implements FormatStrategy {
     return new Builder();
   }
 
-  @Override public void log(int priority, @Nullable String onceOnlyTag, @NonNull String message) {
+  public void log(int priority, @Nullable String onceOnlyTag, @NonNull String message) {
     checkNotNull(message);
-
     String tag = formatTag(onceOnlyTag);
+
 
     logTopBorder(priority, tag);
     logHeaderContent(priority, tag, methodCount);
-
-    //get bytes of message with system's default charset (which is UTF-8 for Android)
     byte[] bytes = message.getBytes();
     int length = bytes.length;
     if (length <= CHUNK_SIZE) {
@@ -106,7 +85,6 @@ public class PrettyFormatStrategy implements FormatStrategy {
     }
     for (int i = 0; i < length; i += CHUNK_SIZE) {
       int count = Math.min(length - i, CHUNK_SIZE);
-      //create a new String with system's default charset (which is UTF-8 for Android)
       logContent(priority, tag, new String(bytes, i, count));
     }
     logBottomBorder(priority, tag);
@@ -172,10 +150,10 @@ public class PrettyFormatStrategy implements FormatStrategy {
     }
   }
 
+  //打印一行
   private void logChunk(int priority, @Nullable String tag, @NonNull String chunk) {
     checkNotNull(chunk);
-
-    logStrategy.log(priority, tag, chunk);
+    Log.println(priority, tag, chunk);
   }
 
   private String getSimpleClassName(@NonNull String name) {
@@ -197,7 +175,7 @@ public class PrettyFormatStrategy implements FormatStrategy {
     for (int i = MIN_STACK_OFFSET; i < trace.length; i++) {
       StackTraceElement e = trace[i];
       String name = e.getClassName();
-      if (!name.equals(LoggerPrinter.class.getName()) && !name.equals(Logger.class.getName())) {
+      if (!name.equals(Printer.class.getName()) && !name.equals(Logger.class.getName())) {
         return --i;
       }
     }
@@ -215,8 +193,6 @@ public class PrettyFormatStrategy implements FormatStrategy {
     int methodCount = 2;
     int methodOffset = 0;
     boolean showThreadInfo = true;
-    @Nullable
-    LogStrategy logStrategy;
     @Nullable String tag = "PRETTY_LOGGER";
 
     private Builder() {
@@ -237,21 +213,13 @@ public class PrettyFormatStrategy implements FormatStrategy {
       return this;
     }
 
-    @NonNull public Builder logStrategy(@Nullable LogStrategy val) {
-      logStrategy = val;
-      return this;
-    }
-
     @NonNull public Builder tag(@Nullable String tag) {
       this.tag = tag;
       return this;
     }
 
-    @NonNull public PrettyFormatStrategy build() {
-      if (logStrategy == null) {
-        logStrategy = new LogcatLogStrategy();
-      }
-      return new PrettyFormatStrategy(this);
+    @NonNull public LogcatStrategy build() {
+      return new LogcatStrategy(this);
     }
   }
 

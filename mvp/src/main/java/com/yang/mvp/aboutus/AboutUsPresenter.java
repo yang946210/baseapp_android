@@ -28,17 +28,13 @@ public class AboutUsPresenter extends BasePresenter<AboutUsContract.Model,AboutU
         }
         model.loadData("keji","4c52313fc9247e5b4176aed5ddd56ad7")
                 .compose(RxScheduler.Flo_io_main())
-                .subscribe(new InterceptorConsumer<ResponseBody>() {
+                .subscribe(new Consumer<ResponseBody>() {
                     @Override
-                    public void onSuccess(ResponseBody body) throws Exception {
-                        mView.get().onSuccess(body.string());
-                    }
-                }, new Consumer<Throwable>() {
+                    public void accept(ResponseBody responseBody) throws Exception {
+                    }}, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        mView.get().onError(throwable);
-                    }
-                });
+                    }});
     }
 
 

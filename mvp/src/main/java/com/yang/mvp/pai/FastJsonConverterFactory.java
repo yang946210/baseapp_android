@@ -4,7 +4,6 @@ import retrofit2.Converter;
 
 /***
  * @desc
- * @time 2021/4/23
  * @author yangguoq
  */
 

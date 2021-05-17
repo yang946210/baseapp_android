@@ -4,6 +4,7 @@ package com.yang.baseapp;
 import android.Manifest;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.yang.base.base.BaseActivity;
 import com.yang.base.base.PermissionListener;
 import com.yang.base.util.BaseToastHelper;
@@ -40,7 +41,6 @@ public class BaseTestActivity extends BaseActivity implements View.OnClickListen
                 break;
         }
     }
-
 
     /**
      * 权限demo

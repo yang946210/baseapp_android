@@ -92,6 +92,7 @@ public class RxAndroidActivity extends BaseActivity {
                 Log.i("===Observer===","===onComplete");
             }
         });
+
     }
 
     /**

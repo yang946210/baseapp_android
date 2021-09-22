@@ -15,8 +15,6 @@ android {
         targetSdkVersion 30
         versionCode 1000
         versionName "1.0.0.0"
-        //独立混淆相指定文件consumer-rules.pro
-        consumerProguardFiles 'consumer-rules.pro'
     }
 
     lintOptions {
@@ -90,9 +88,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(':base')
     implementation project(':mvp')
 }

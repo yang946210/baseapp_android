@@ -26,7 +26,7 @@ public class RecyclerBeanAdapter extends BaseObjectRecyclerViewAdapter<RecyclerB
 
     @Override
     public void onItemViewBind(BaseViewHolder holder, int position, RecyclerBean itemData) {
-        TextView tv_name=(TextView)holder.getView(R.id.tv_name);
+        TextView tv_name=holder.getView(R.id.tv_name);
         tv_name.setText(itemData.getName());
         addItemChildViewClickListener(holder,tv_name,position);
     }

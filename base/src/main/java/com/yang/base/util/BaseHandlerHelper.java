@@ -6,6 +6,8 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 
+import com.yang.base.util.log.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -36,6 +38,7 @@ public class BaseHandlerHelper{
      * 构造函数
      */
     private BaseHandlerHelper() {
+        Logger.d("=======BaseHandlerHelper");
         mThreadHandler = new Handler(Looper.getMainLooper()){
             @Override
             public void handleMessage(@NonNull Message msg) {

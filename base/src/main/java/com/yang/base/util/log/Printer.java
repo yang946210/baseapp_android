@@ -2,6 +2,8 @@ package com.yang.base.util.log;
 
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +29,7 @@ import static com.yang.base.util.log.Logger.ASSERT;
 import static com.yang.base.util.log.Logger.DEBUG;
 import static com.yang.base.util.log.Logger.ERROR;
 import static com.yang.base.util.log.Logger.INFO;
+import static com.yang.base.util.log.Logger.SIMPLE;
 import static com.yang.base.util.log.Logger.WARN;
 
 
@@ -36,7 +39,7 @@ public class Printer {
   /**
    * tag
    */
-  private String localTag = "defLogTag";
+  private String localTag = "baseTag";
 
 
   /**
@@ -59,7 +62,9 @@ public class Printer {
     this.localTag=localTag;
     return this;
   }
-
+  public void simple(@Nullable Object object) {
+    log(SIMPLE, getTag(), Utils.toString(object),null);
+  }
 
   public void d(@Nullable Object object) {
     log(DEBUG, getTag(), Utils.toString(object),null);
@@ -138,8 +143,13 @@ public class Printer {
     if (Utils.isEmpty(message)) {
       message = "Empty/NULL log message";
     }
+
     if (isLoggable) {
-      logcatStrategy.log(priority, tag, message);
+      if (priority==Logger.SIMPLE){
+        Log.d(tag, message);
+      }else {
+        logcatStrategy.log(priority, tag, message);
+      }
       logFileStrategy.writeLog(priority, tag, message);
     }
   }

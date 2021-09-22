@@ -1,3 +1,5 @@
+include ':appplugin'
 include ':mvp'
-include ':app', ':base',
+include ':app'
+include ':base'
 rootProject.name='baseapp'

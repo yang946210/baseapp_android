@@ -31,10 +31,8 @@ public class SdkAndAppDemoFragment extends BaseFragment {
     protected void init() {
         boolean debug=BaseSdk.getInstance().isDebug();
         String rootPath=BaseSdk.getInstance().getRootPath().getAbsolutePath();
-        int type=BaseSdk.getInstance().getScreenType();
 
         tv_debug.setText("当前debug状态："+debug);
         tv_rootPath.setText("当前存储根目录："+rootPath);
-        tv_type.setText("当前设置的全局横竖屏状态码："+type);
     }
 }

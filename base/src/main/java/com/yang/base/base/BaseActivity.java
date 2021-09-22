@@ -41,9 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 在初始化渲染之前调用，设置横竖屏等使用
      */
     protected void beforeSetView(){
-        if (BaseSdk.getInstance().getScreenType()!=null){
-            setRequestedOrientation(BaseSdk.getInstance().getScreenType());
-        }
     }
 
     /***
@@ -66,7 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param permissions  权限
      * @param permissionListener  回调
      */
-    public void requestRuntimePermission(String[] permissions, PermissionListener permissionListener) {
+    protected void requestRuntimePermission(String[] permissions, PermissionListener permissionListener) {
         this.permissionListener=permissionListener;
         BasePermissionHelper.requestPermissions(this,permissions, activityRequest);
     }

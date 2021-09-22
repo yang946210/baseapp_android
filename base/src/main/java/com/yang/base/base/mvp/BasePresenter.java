@@ -5,13 +5,13 @@ package com.yang.base.base.mvp;
 import java.lang.ref.WeakReference;
 
 
-public abstract class BasePresenter<M,V extends BaseView>{
+public abstract class BasePresenter<M,V>{
 
 
     /**
      * view
      */
-    protected WeakReference<V> mView;
+    protected WeakReference<V> view;
 
     /***
      * model
@@ -20,7 +20,7 @@ public abstract class BasePresenter<M,V extends BaseView>{
 
 
     public void attachView(V view) {
-        mView =new WeakReference<>(view);
+        this.view =new WeakReference<>(view);
         model=createModel();
     }
 
@@ -28,9 +28,9 @@ public abstract class BasePresenter<M,V extends BaseView>{
      * 释放view索引
      */
     public void detachView() {
-        if (mView != null) {
-            mView.clear();
-            mView = null;
+        if (view != null) {
+            view.clear();
+            view = null;
         }
     }
 
@@ -40,7 +40,7 @@ public abstract class BasePresenter<M,V extends BaseView>{
      * @return
      */
     public boolean isViewAttached() {
-        return mView != null;
+        return view != null;
     }
 
     /**
@@ -55,6 +55,6 @@ public abstract class BasePresenter<M,V extends BaseView>{
      * @return
      */
     public V getView() {
-        return mView.get();
+        return view.get();
     }
 }

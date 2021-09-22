@@ -2,11 +2,10 @@ package com.yang.base.util.log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import static com.yang.base.util.log.Utils.checkNotNull;
 
 
 public final class Logger {
-
+  public static final int SIMPLE = 1;
   public static final int VERBOSE = 2;
   public static final int DEBUG = 3;
   public static final int INFO = 4;
@@ -31,6 +30,10 @@ public final class Logger {
    */
   public static Printer t(@Nullable String tag) {
     return printer.t(tag);
+  }
+
+  public static void simple(@Nullable Object object) {
+    printer.simple(object);
   }
 
   public static void d(@Nullable Object object) {

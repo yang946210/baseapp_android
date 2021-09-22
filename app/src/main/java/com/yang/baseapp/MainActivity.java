@@ -1,11 +1,22 @@
 package com.yang.baseapp;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.view.View;
+
+import com.yang.base.BaseSdk;
 import com.yang.base.base.BaseActivity;
 import com.yang.base.base.PermissionListener;
 import com.yang.base.util.BaseToastHelper;
 import com.yang.ModelIndexActivity;
+import com.yang.base.util.log.Logger;
+import com.yang.baseapp.util.JsonUtil;
+import com.yang.study.LevelMenuActivity;
+import com.yang.study.ServiceActivity;
+import com.yang.study.ServiceAbout;
 
 import java.util.List;
 
@@ -34,15 +45,16 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void init(){
         getPermission();
+        Logger.d(BaseSdk.getInstance().getRootPath());
+        getJson();
+
     }
 
     /**
      * 权限demo
      */
     private void getPermission(){
-        String[] permissions =new String[]{
-                "android.permission.CALL_PHONE"
-        };
+        String[] permissions =new String[]{"android.permission.CALL_PHONE"};
 
         requestRuntimePermission(permissions, new PermissionListener() {
             @Override
@@ -66,6 +78,16 @@ public class MainActivity extends BaseActivity {
 
     public void mvp(View view){
         startActivity(new Intent(this, ModelIndexActivity.class));
+    }
+
+    public void Level(View view){
+        startActivity(new Intent(this, LevelMenuActivity.class));
+    }
+
+
+
+    private void getJson(){
+        JsonUtil.getJson();
     }
 
 }

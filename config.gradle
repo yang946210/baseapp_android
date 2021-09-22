@@ -1,0 +1,5 @@
+ext{
+    dependencies=[
+            zxing                     : "com.google.zxing:core:3.9.9"
+    ]
+}

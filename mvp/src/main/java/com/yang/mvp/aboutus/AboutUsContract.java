@@ -7,12 +7,14 @@ import io.reactivex.Flowable;
 import okhttp3.ResponseBody;
 
 public interface AboutUsContract {
-    interface Model {
+    interface AboutModel {
         Flowable<ResponseBody> loadData(String type,String key);
+
+
     }
 
     interface View extends BaseView {
-        void onSuccess(String body);
+         void onNext();
     }
 
     interface Presenter {

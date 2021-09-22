@@ -2,7 +2,6 @@ package com.yang.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 
 import com.yang.base.util.log.BaseExceptionHandler;
 import com.yang.base.util.log.Logger;
@@ -30,11 +29,6 @@ public class BaseSdk {
      * 内部存储根目录
      */
     private File rootPath;
-
-    /***
-     * 屏幕类型(横竖屏)
-     */
-    private Integer screenType;
 
     /**
      * webView是否生产可调式<debug模式无用>
@@ -74,18 +68,6 @@ public class BaseSdk {
     }
 
     /***
-     * 初始化屏幕类型
-     * @param screenType
-     * ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-     * ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-     * ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-     */
-    public BaseSdk intScreenType(Integer screenType) {
-        this.screenType = screenType;
-        return this;
-    }
-
-    /***
      * 设置BaseWebView是否生产可调式
      */
     public BaseSdk initDebugWebView(boolean webViewDebug) {
@@ -117,13 +99,6 @@ public class BaseSdk {
         return rootPath;
     }
 
-    /***
-     * 获取屏幕类型
-     * @return
-     */
-    public Integer getScreenType() {
-        return screenType;
-    }
 
     /***
      * 设置BaseWebView是否生产可调式

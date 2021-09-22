@@ -13,6 +13,8 @@ import com.yang.base.BaseSdk;
 public class BaseToastHelper {
 
 
+    private static Toast mToast;
+
     /**
      * 弹出Toast
      * @param text    提示的文本
@@ -42,7 +44,10 @@ public class BaseToastHelper {
     }
 
     private static void _showToast(String message, int duration, int gravity){
-        Toast mToast = Toast.makeText(BaseSdk.getInstance().getContext(), message, duration);
+        if (mToast!=null){
+            mToast.cancel();
+        }
+        mToast = Toast.makeText(BaseSdk.getInstance().getContext(), message, duration);
         mToast.setText(message);
         mToast.setDuration(duration);
         mToast.setGravity(gravity, 0, 50);

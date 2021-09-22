@@ -46,7 +46,6 @@ public class FirstActivity extends BaseActivity {
     @Override
     protected void init() {
         tv_time.setText("倒计时："+time);
-
     }
 
     @Override
@@ -78,7 +77,7 @@ public class FirstActivity extends BaseActivity {
                     }
                 });
             }
-        }, 0, 1000);
+        }, 0, 200);
     }
 
     @Override

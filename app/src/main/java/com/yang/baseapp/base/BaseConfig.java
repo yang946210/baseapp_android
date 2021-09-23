@@ -9,10 +9,9 @@ package com.yang.baseapp.base;
 public class BaseConfig {
 
     /**
-     * webview是否生产可调式
+     * webView是否生产可调式
      */
-    public final static boolean DEBUG_WEBVIEW_RELEASE=false;
-
+    public final static boolean DEBUG_WEB_VIEW_RELEASE=false;
 
     /**
      * handler标志

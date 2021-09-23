@@ -27,17 +27,14 @@ public class BroadCastActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_sendStatic:
-                Intent intent1=new Intent();
-                intent1.setComponent(new ComponentName("com.yang.appdemo","com.yang.appdemo.receive.StaticReceive"));
-                sendBroadcast(intent1);
-                break;
-            case R.id.tv_sendDynaMic:
-                Intent intent2=new Intent("com.yang.dynaMic");
-                sendBroadcast(intent2);
-                break;
+        int resId=v.getId();
+        if (resId== R.id.tv_sendStatic) {
+            Intent intent1=new Intent();
+            intent1.setComponent(new ComponentName("com.yang.appdemo","com.yang.appdemo.receive.StaticReceive"));
+            sendBroadcast(intent1);
+        }else if (resId==R.id.tv_sendDynaMic){
+            Intent intent2=new Intent("com.yang.dynaMic");
+            sendBroadcast(intent2);
         }
     }
-
 }

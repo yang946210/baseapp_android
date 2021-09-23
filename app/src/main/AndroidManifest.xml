@@ -16,7 +16,7 @@
 
     <application
         android:name=".base.BaseApp"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network"
@@ -41,7 +41,8 @@
         <activity android:name="com.yang.study.BroadCastActivity"/>
         <activity android:name="com.yang.study.LevelMenuActivity" />
         <activity android:name="com.yang.study.ServiceActivity" />
-        <activity android:name="com.yang.study.ServiceNextActivity" /> <!-- exported 是否被其他应用隐式调用 默认更具service中有无intent-filter -->
+        <activity android:name="com.yang.study.ServiceNextActivity" />
+        <!-- exported 是否被其他应用隐式调用 默认更具service中有无intent-filter -->
         <!-- permission 权限声明 -->
         <!-- process ":remote" 单独进程 -->
         <!-- isolatedProcess 会在一个特殊的进程运行，只能通过start和bind通行 -->

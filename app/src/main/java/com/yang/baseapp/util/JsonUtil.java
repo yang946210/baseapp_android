@@ -34,21 +34,18 @@ public class JsonUtil {
                 "97197079","38775758"};
 
         JSONArray array=new JSONArray();
-        for (int i = 0; i < other.length; i++) {
-            JSONObject object=new JSONObject();
-            object.put("userId",other[i]);
-            object.put("info","other");
+        for (String value : other) {
+            JSONObject object = new JSONObject();
+            object.put("userId", value);
+            object.put("info", "other");
             array.add(object);
         }
-        for (int i = 0; i < secretary.length; i++) {
-            JSONObject object=new JSONObject();
-            object.put("userId",secretary[i]);
-            object.put("info","secretary");
+        for (String value : secretary) {
+            JSONObject object = new JSONObject();
+            object.put("userId", value);
+            object.put("info", "secretary");
             array.add(object);
         }
-
-        String s=array.toJSONString();
-        String s1=s;
     }
 
 }

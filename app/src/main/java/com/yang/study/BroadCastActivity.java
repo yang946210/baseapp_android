@@ -30,7 +30,7 @@ public class BroadCastActivity extends BaseActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.tv_sendStatic:
                 Intent intent1=new Intent();
-                intent1.setComponent(new ComponentName("com.yang.appplugin","com.yang.appplugin.receive.StaticReceive"));
+                intent1.setComponent(new ComponentName("com.yang.appdemo","com.yang.appdemo.receive.StaticReceive"));
                 sendBroadcast(intent1);
                 break;
             case R.id.tv_sendDynaMic:

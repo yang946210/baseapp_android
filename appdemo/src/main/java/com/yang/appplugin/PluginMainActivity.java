@@ -1,9 +1,9 @@
-package com.yang.appplugin;
+package com.yang.appdemo;
 
 
 import android.content.IntentFilter;
 
-import com.yang.appplugin.receive.DynaMicReceive;
+import com.yang.appdemo.receive.DynaMicReceive;
 import com.yang.base.base.BaseActivity;
 
 public class PluginMainActivity extends BaseActivity {

@@ -1,4 +1,4 @@
-package com.yang.appplugin.receive;
+package com.yang.appdemo.receive;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,14 +7,14 @@ import android.util.Log;
 
 
 /***
- * @desc 静态广播接收者
+ * @desc 动态广播接收者
  * @time 2021/9/22
  * @author yangguoq
  */
 
-public class StaticReceive extends BroadcastReceiver {
+public class DynaMicReceive extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i("baseTag","StaticReceive onReceive" +intent.getDataString());
+        Log.i("baseTag","DynaMicReceive onReceive" + intent.getDataString());
     }
 }

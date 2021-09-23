@@ -30,4 +30,5 @@ public class RecyclerBeanAdapter extends BaseObjectRecyclerViewAdapter<RecyclerB
         tv_name.setText(itemData.getName());
         addItemChildViewClickListener(holder,tv_name,position);
     }
+
 }

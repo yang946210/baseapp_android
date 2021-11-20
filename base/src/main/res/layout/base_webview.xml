@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,31 +7,17 @@
     <WebView
         android:id="@+id/wv_base"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent"/>
 
-    <LinearLayout
-        android:id="@+id/ll_loadFail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:gravity="center">
+    <TextView
+        android:id="@+id/tv_loadFail"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="加载失败"
+        android:visibility="visible"
+        android:drawableTop="@drawable/icon_web_bad" />
 
-        <ImageView
-            android:id="@+id/iv_loadFailImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_web_bad"
-            />
-
-        <TextView
-            android:id="@+id/iv_loadFailTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="加载失败"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

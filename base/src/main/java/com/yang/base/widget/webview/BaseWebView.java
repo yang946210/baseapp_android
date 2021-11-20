@@ -30,17 +30,8 @@ public class BaseWebView extends LinearLayout {
     /**
      * 加载失败布局
      */
-    private LinearLayout  ll_loadFail;
+    private TextView  tv_loadFail;
 
-    /**
-     * 加载失败布局图片
-     */
-    private ImageView iv_loadFailImg;
-
-    /**
-     * 加载失败布局文字
-     */
-    private TextView iv_loadFailTest;
 
     /**
      * 自定义ChromeClient
@@ -84,9 +75,7 @@ public class BaseWebView extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.base_webview,this);
         weakReference=new WeakReference<>(context);
         wv_base=findViewById(R.id.wv_base);
-        ll_loadFail=findViewById(R.id.ll_loadFail);
-        iv_loadFailImg=findViewById(R.id.iv_loadFailImg);
-        iv_loadFailTest=findViewById(R.id.iv_loadFailTest);
+        tv_loadFail=findViewById(R.id.tv_loadFail);
     }
 
     /**
@@ -125,7 +114,7 @@ public class BaseWebView extends LinearLayout {
      * 加载失败展示页面
      */
     public void showError(){
-        ll_loadFail.setVisibility(VISIBLE);
+        tv_loadFail.setVisibility(VISIBLE);
         wv_base.setVisibility(GONE);
     }
 
@@ -135,16 +124,6 @@ public class BaseWebView extends LinearLayout {
      */
     public void showError(String errorInfo){
         showError();
-        iv_loadFailTest.setText(errorInfo);
-    }
-
-    /**
-     * 加载失败展示页面
-     * @param errorInfo 错误描述
-     * @param errRes 错误图片
-     */
-    public void showError(String errorInfo,int errRes){
-        showError(errorInfo);
-        iv_loadFailImg.setBackgroundResource(errRes);
+        tv_loadFail.setText(errorInfo);
     }
 }

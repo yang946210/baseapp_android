@@ -1,5 +1,6 @@
 package com.yang.baseapp.fragment;
 
+import android.annotation.SuppressLint;
 import android.widget.TextView;
 
 import com.yang.base.BaseSdk;
@@ -33,6 +34,7 @@ public class CommonUtilDemoFragment extends BaseFragment {
         tv_package=findViewById(R.id.tv_package);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void init() {
         tv_nameAgent.setText("当前agent："+ BaseCommHelper.getUserAgent());

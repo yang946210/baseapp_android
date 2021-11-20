@@ -18,6 +18,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 /***
@@ -32,20 +33,16 @@ public class BaseCommHelper {
      */
     public static String getUserAgent() {
         String userAgent = "";
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            try {
-                userAgent = WebSettings.getDefaultUserAgent(BaseSdk.getInstance().getContext());
-            } catch (Throwable e) {
-                userAgent = System.getProperty("http.agent");
-            }
-        } else {
+        try {
+            userAgent = WebSettings.getDefaultUserAgent(BaseSdk.getInstance().getContext());
+        } catch (Throwable e) {
             userAgent = System.getProperty("http.agent");
         }
         if (TextUtils.isEmpty(userAgent)) {
             return "Mozilla/5.0 (Linux; Base; Android 8.0.0; LON-AL00-PD Build/HUAWEILON-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.90 Mobile Safari/537.36";
         }
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0, length = userAgent.length(); i < length; i++) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0, length = Objects.requireNonNull(userAgent).length(); i < length; i++) {
             char c = userAgent.charAt(i);
             if (c <= '\u001f' || c >= '\u007f') {
                 sb.append(String.format("\\u%04x", (int) c));

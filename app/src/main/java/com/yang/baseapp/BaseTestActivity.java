@@ -4,7 +4,6 @@ package com.yang.baseapp;
 import android.Manifest;
 import android.view.View;
 
-import com.bumptech.glide.Glide;
 import com.yang.base.base.BaseActivity;
 import com.yang.base.base.PermissionListener;
 import com.yang.base.util.BaseToastHelper;
@@ -57,9 +56,9 @@ public class BaseTestActivity extends BaseActivity implements View.OnClickListen
 
             @Override
             public void fail(List<String> failList) {
-                String s="";
+                StringBuilder s= new StringBuilder();
                 for(String next:failList){
-                    s=s+next; }
+                    s.append(next); }
                 BaseToastHelper.showToast("全部权限获取失败，一下权限未通过"+s);
             }
         });

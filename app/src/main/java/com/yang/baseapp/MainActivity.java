@@ -64,9 +64,9 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void fail(List<String> failList) {
-                String s="";
+                StringBuilder s= new StringBuilder();
                 for(String next:failList){
-                    s=s+next; }
+                    s.append(next); }
                 BaseToastHelper.showToast("全部权限获取失败，一下权限未通过"+s);
             }
         });

@@ -1,10 +1,7 @@
 package com.yang.baseapp;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 
 import com.yang.base.BaseSdk;
@@ -15,8 +12,6 @@ import com.yang.ModelIndexActivity;
 import com.yang.base.util.log.Logger;
 import com.yang.baseapp.util.JsonUtil;
 import com.yang.study.LevelMenuActivity;
-import com.yang.study.ServiceActivity;
-import com.yang.study.ServiceAbout;
 
 import java.util.List;
 
@@ -47,7 +42,12 @@ public class MainActivity extends BaseActivity {
         getPermission();
         Logger.d(BaseSdk.getInstance().getRootPath());
         getJson();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("==========main",""+getTaskId());
     }
 
     /**

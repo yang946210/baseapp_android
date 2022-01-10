@@ -27,14 +27,22 @@
 
         <activity
             android:name=".FirstActivity"
-            android:theme="@style/AppSplash">
+            android:theme="@style/AppSplash"
+            android:taskAffinity=".taskOne">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+
+        <activity
+            android:name=".FirstActivity2"
+            android:theme="@style/AppSplash"
+            android:exported="true"
+            android:label="first2"
+            android:taskAffinity=".taskTwo">
+        </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".MenuActivity" />
         <activity android:name=".BaseTestActivity" />
         <activity android:name=".TestWebViewActivity" />

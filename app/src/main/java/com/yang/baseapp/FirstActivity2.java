@@ -16,7 +16,7 @@ import java.util.TimerTask;
  * @author yanggq
  */
 
-public class FirstActivity extends BaseActivity {
+public class FirstActivity2 extends BaseActivity {
 
     /**
      * 倒计时时间
@@ -75,7 +75,7 @@ public class FirstActivity extends BaseActivity {
                         if (time<0){
                             timer.cancel();
                             Logger.d("调用了");
-                            Intent intent=new Intent(FirstActivity.this,MainActivity.class);
+                            Intent intent=new Intent(FirstActivity2.this,MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();

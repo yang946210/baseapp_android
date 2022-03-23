@@ -1,6 +1,7 @@
 package com.yang.appdemo;
 
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -41,14 +42,14 @@ public class PluginMainActivity extends BaseActivity implements View.OnClickList
         unregisterReceiver(dynaMicReceive);
     }
 
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_into:
-                intoApp();
-                break;
+        if (v.getId() == R.id.tv_into) {
+            intoApp();
         }
     }
+
 
     private void intoApp(){
         Intent intent = new Intent();

@@ -1,5 +1,5 @@
-include ':appdemo'
+include ':appservice'
 include ':mvp'
-include ':app'
+include ':appclient'
 include ':base'
 rootProject.name='baseapp'

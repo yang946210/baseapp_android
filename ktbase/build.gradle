@@ -1,11 +1,16 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
 
 android {
-    compileSdk rootProject.ext.android.compileSdk
+    compileSdkVersion rootProject.ext.android.compileSdk
 
     defaultConfig {
         minSdk rootProject.ext.android.minSdk
         targetSdk rootProject.ext.android.targetSdk
+
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -18,8 +23,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    implementation project(':base')
+    api 'androidx.core:core-ktx:1.7.0'
+    api 'androidx.appcompat:appcompat:1.3.0'
+    api 'com.google.android.material:material:1.4.0'
 }

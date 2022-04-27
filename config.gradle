@@ -1,5 +1,25 @@
 ext{
-    dependencies=[
-            zxing                     : "com.google.zxing:core:3.9.9"
+
+    //基础属性
+    android=[
+
+            compileSdk: 30, //sdk编译版本
+            minSdk: 21,     //最低安装版本
+            targetSdk: 30,  //适配版本
+
     ]
+
+    //远程依赖
+    dependencies=[
+            zxing: "com.google.zxing:core:3.9.9" //....后续以来都应该放在这里做统一版本管理
+    ]
+
+
+    //签名信息
+    sign=[
+            storePassword: "123456",
+            keyAlias: "123456",
+            keyPassword: "123456"
+    ]
+
 }

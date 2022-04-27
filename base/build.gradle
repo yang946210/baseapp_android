@@ -1,14 +1,13 @@
-apply plugin: 'com.android.library'
+      apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
-
+    compileSdk rootProject.ext.android.compileSdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        consumerProguardFiles 'consumer-rules.pro'
+        minSdk rootProject.ext.android.minSdk
+        targetSdk rootProject.ext.android.targetSdk
+
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {

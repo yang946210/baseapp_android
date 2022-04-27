@@ -1,5 +1,5 @@
-include ':appservice'
 include ':mvp'
 include ':appclient'
 include ':base'
-rootProject.name='baseapp'
+include ':ktbase'
+include ':appkt'

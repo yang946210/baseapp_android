@@ -7,15 +7,18 @@ static def getCurrentTime(String format) {
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdk rootProject.ext.android.compileSdk
+
     defaultConfig {
+        minSdk rootProject.ext.android.minSdk
+        targetSdk rootProject.ext.android.targetSdk
+
         applicationId "com.yang.baseapp"
-        minSdkVersion 21
-        targetSdkVersion 30
         versionCode 1000
         versionName "1.0.0.0"
+        consumerProguardFiles "consumer-rules.pro"
     }
+    compileSdk rootProject.ext.android.compileSdk
 
     lintOptions {
         disable 'GoogleAppIndexingWarning'
@@ -85,6 +88,7 @@ android {
             includeAndroidResources = true
         }
     }
+    buildToolsVersion '30.0.2'
 }
 
 dependencies {

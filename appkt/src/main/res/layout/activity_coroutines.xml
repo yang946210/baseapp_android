@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CoroutinesActivity">
 
     <TextView
-        android:id="@+id/tv_Coroutines"
+        android:id="@+id/tv_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="50dp"
         android:paddingVertical="10dp"
-        android:text="协程"
+        android:text="开启协程"
         android:textSize="18sp"
         android:background="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,11 +2,9 @@ ext{
 
     //基础属性
     android=[
-
-            compileSdk: 30, //sdk编译版本
+            compileSdk: 31, //sdk编译版本
             minSdk: 21,     //最低安装版本
-            targetSdk: 30,  //适配版本
-
+            targetSdk: 31,  //适配版本
     ]
 
     //远程依赖

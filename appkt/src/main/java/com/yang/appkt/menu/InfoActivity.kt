@@ -17,8 +17,8 @@ class InfoActivity : AppCompatActivity() {
      * data函数
      */
     private fun dataClass() {
-        BaseInfo.dataClassTest
-        BaseInfo.objectTest
+        BaseInfo.dataClassTest()
+        BaseInfo.objectTest()
     }
 
 

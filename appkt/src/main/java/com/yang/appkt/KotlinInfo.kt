@@ -149,11 +149,11 @@ object BaseInfo {
         var name: String = "text"
 
         fun getCar() {
-            println("单例，getCar")
+            mLogInfo("单例，getCar")
         }
     }
 
-    val objectTest = {
+    fun objectTest () {
         SigHelper.getCar()
     }
 
@@ -162,7 +162,7 @@ object BaseInfo {
      */
     data class Children(val name: String, var age: String)
 
-    val dataClassTest = {
+    fun dataClassTest () {
         val children = Children("张三", "18")
         mLogInfo(children.copy(name = "李四").toString())
     }

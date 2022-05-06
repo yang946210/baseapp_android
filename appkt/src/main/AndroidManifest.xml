@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp">
         <activity
-            android:name=".CoroutinesActivity"
+            android:name=".menu.InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu.CoroutinesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

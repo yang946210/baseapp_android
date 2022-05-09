@@ -1,6 +1,8 @@
 package com.yang.appkt
 
+import android.util.FloatProperty
 import android.util.Log
+import kotlin.random.Random
 
 
 object BaseInfo {
@@ -9,37 +11,128 @@ object BaseInfo {
         Log.d("===info===", msg)
     }
 
+
     /**
-     *  *************** 基本类型 ***************
+     * 基本类型
      */
-    var aByte: Byte = -128
+    var aByte: Byte = -128                  //byte 8位
     var aShort: Short = 0b01010101_01010101 //short 16位
-    var aInt = 10_9999_2121                 //int 32位
-    var aLong = 1222L        //double 64位
-    var aDouble = 122.7       //double 64位
-    var aFloat = 12.22F      //float 32位
+    var aInt: Int = 10_9999_2121             //int 32位
+    var aLong: Long = 1222L                  //long 64位
+    var aFloat: Float = 12.22F               //float 32位
+    var aDouble: Float = 122.72F             //double 64位
+
     var aBoolean = false     //boolean
     var aChar = 'a'          //字符
-    var aIntRange = 1..8
-    var aString = "sds"      //字符串
-    var aString2 = String(charArrayOf('s', 'd', 's'))
+    private var nString = if (Random.nextBoolean()) "lalala" else null
+    private var aString = "sds"      //字符串
+    var aString2 = String(charArrayOf('s', 'd', 's')) //字符
     var aString3 = """
-            \n
-            \t
-         //ss//   
-        """.trimIndent() //原始字符串
+         //ss   //    
+        """.trimIndent()    //原始字符串
+
+    /**
+     * range
+     */
+    var aString4: String = "${aString}字符串模板"  //字符串
+    private var aIntRange = 1..8  //1到 8的数组
+    private var bIntRange = 1 until 9 step 2  //1到 8的数组(不包含8)2步起跳
 
 
     /**
-     *    *************** 函数 ***************
+     * let also
+     * run apply
+     * with
      */
-    fun aFun(aInt: Int, bInt: Int): Int {
-        return aInt + bInt
+    private var nullString: String? = if (Random.nextBoolean()) "justString" else null
+
+    fun letTest() {
+        nullString?.let {
+            mLogInfo( it.length.toString())
+            mLogInfo(it)
+            "return"
+        } //为null就不执,默认返回最后一行。
+
+        nullString?.also{
+            mLogInfo( it.length.toString())
+            mLogInfo(it)
+            "not return,return the nullString"
+        } //和let用法差不多，但是返回的时nullString对象
+
+        nullString?.run {
+            mLogInfo(length.toString())
+            mLogInfo(this)
+            "return"
+        }//为null就不执,默认返回最后一行。
+        nullString?.apply {
+            mLogInfo(length.toString())
+            mLogInfo(this)
+            "not return,return the nullString"
+        }
+        with(nullString){
+            mLogInfo(this?.length.toString())
+        }
     }
 
+
+    /**
+     * null处理
+     */
+    private var len = nString?.length             //不为空才调用
+    private var len1 = nString?.length ?: "lalala"  //null时给与默认值
+    //private var len2=nString!!.length           //直接空指针
+
+    fun infoTest() {
+        mLogInfo("len==${len ?: "2"}  len1=$len1")
+        bIntRange.forEach { mLogInfo(it.toString()) }
+        aString4.also { }
+    }
+
+    /**
+     * vararg 可变参数
+     * in  是否在某个区间内
+     * is  类似instanceOf
+     * when 类似switch
+     */
+    fun varargTest(vararg string: String, indexStr: String, indexInt: Int) {
+        for (s in string) {
+            mLogInfo(s)
+        }
+        if (indexStr in string) {
+            mLogInfo(indexStr)
+        }
+
+        if (indexInt in 1..10) {
+            mLogInfo(indexInt.toString())
+        }
+
+        val s = when (indexStr) {
+            "a" -> "aaa"
+            "b" -> "aac"
+            else -> "bbb"
+        }
+        mLogInfo(s)
+
+    }
+
+    /**
+     *  函数
+     *
+     */
     fun bFun(aInt: Int, bInt: Int): Int = aInt + bInt
     var cInt = { aInt: Int, bInt: Int -> aInt + bInt }
     var dFun: (aInt: Int, bInt: Int) -> Int = { aInt, bInt -> aInt + bInt }
+
+    private fun maxOf(aInt: Int, bInt: Int = 2) = if (aInt > bInt) aInt else bInt
+
+    fun funTest() {
+        mLogInfo(maxOf(4).toString())
+    }
+
+
+    /**
+     *
+     */
 
 
     /**
@@ -88,10 +181,6 @@ object BaseInfo {
 
         open fun run() {
             print("Student is run")
-        }
-
-        fun daze() {
-            print("Student is talk")
         }
     }
 
@@ -153,7 +242,7 @@ object BaseInfo {
         }
     }
 
-    fun objectTest () {
+    fun objectTest() {
         SigHelper.getCar()
     }
 
@@ -162,7 +251,7 @@ object BaseInfo {
      */
     data class Children(val name: String, var age: String)
 
-    fun dataClassTest () {
+    fun dataClassTest() {
         val children = Children("张三", "18")
         mLogInfo(children.copy(name = "李四").toString())
     }

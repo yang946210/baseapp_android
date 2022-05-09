@@ -29,9 +29,23 @@
         android:text="协程"
         android:textSize="18sp"
         android:background="@color/teal_700"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_liveData"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info" />
+
+    <TextView
+        android:id="@+id/tv_liveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="10dp"
+        android:text="协程"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_info" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Coroutines" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

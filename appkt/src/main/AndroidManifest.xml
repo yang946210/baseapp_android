@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp">
         <activity
+            android:name=".menu.LiveDataActivity"
+            android:exported="false"
+            android:label="@string/title_activity_live_data" />
+        <activity
             android:name=".menu.InfoActivity"
             android:exported="false" />
         <activity

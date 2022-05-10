@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.yang.appkt.databinding.FragmentDashboardBinding
+import com.yang.appkt.menu.bean.LoginData
 
 class DashboardFragment : Fragment() {
 
@@ -17,20 +20,24 @@ class DashboardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var dashboardViewModel: DashboardViewModel
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
+        val root: View = binding.root
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+
+        dashboardViewModel=ViewModelProvider(this).get(DashboardViewModel::class.java)
+        dashboardViewModel.login.observe(viewLifecycleOwner) { textView.text = it.name }
+
+        binding.btChange.setOnClickListener {
+            dashboardViewModel.login.postValue( LoginData("li",23,"girl"))
         }
         return root
     }

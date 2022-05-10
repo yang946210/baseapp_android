@@ -12,9 +12,9 @@ class CoroutinesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coroutines)
-        //findViewById<TextView>(R.id.tv_launchStart).setOnClickListener { launchStart() }
-        //findViewById<TextView>(R.id.tv_asyncStart).setOnClickListener { asyncStart() }
-        //findViewById<TextView>(R.id.tv_runBlockingStart).setOnClickListener { runBlockingStart() }
+        findViewById<TextView>(R.id.tv_launchStart).setOnClickListener { launchStart() }
+        findViewById<TextView>(R.id.tv_asyncStart).setOnClickListener { asyncStart() }
+        findViewById<TextView>(R.id.tv_runBlockingStart).setOnClickListener { runBlockingStart() }
 
     }
 
@@ -80,8 +80,6 @@ class CoroutinesActivity : AppCompatActivity() {
         Thread.sleep(1000)
         return "result 2"
     }
-
-
 }
 
 

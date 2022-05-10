@@ -5,6 +5,7 @@ apply plugin: 'org.jetbrains.kotlin.android'
 android {
 
     buildFeatures {
+        dataBinding true
         viewBinding true
     }
 }

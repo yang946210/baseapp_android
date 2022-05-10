@@ -1,13 +1,11 @@
 package com.yang.appkt.menu.ui.dashboard
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
+import com.yang.appkt.menu.bean.LoginData
 class DashboardViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-    val text: LiveData<String> = _text
+    var login = MutableLiveData(LoginData("zhangSan",12,"boy"))
+
+
 }

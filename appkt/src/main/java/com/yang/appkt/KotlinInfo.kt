@@ -51,7 +51,7 @@ object BaseInfo {
             mLogInfo( it.length.toString())
             mLogInfo(it)
             "return"
-        } //为null就不执,默认返回最后一行。
+        } //?表示为null就不执,默认返回最后一行。
 
         nullString?.also{
             mLogInfo( it.length.toString())
@@ -128,12 +128,6 @@ object BaseInfo {
     fun funTest() {
         mLogInfo(maxOf(4).toString())
     }
-
-
-    /**
-     *
-     */
-
 
     /**
      *

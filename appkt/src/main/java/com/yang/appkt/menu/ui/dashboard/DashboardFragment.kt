@@ -1,16 +1,17 @@
 package com.yang.appkt.menu.ui.dashboard
 
+import OkHttpApi
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.yang.appkt.databinding.FragmentDashboardBinding
-import com.yang.appkt.menu.bean.LoginData
+import com.yang.base.HttpApi
+import com.yang.base.IHttpCallback
+import kotlin.math.log
 
 class DashboardFragment : Fragment() {
 
@@ -31,14 +32,30 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-        val textView: TextView = binding.textDashboard
 
         dashboardViewModel=ViewModelProvider(this).get(DashboardViewModel::class.java)
-        dashboardViewModel.login.observe(viewLifecycleOwner) { textView.text = it.name }
+
+
+        dashboardViewModel.login.observe(viewLifecycleOwner) { binding.textDashboard.text = it.name }
+
+        binding.dashViewModel=dashboardViewModel
 
         binding.btChange.setOnClickListener {
-            dashboardViewModel.login.postValue( LoginData("li",23,"girl"))
+            var map:Map<String,String> = mapOf("key" to "free","appid" to "0","msg" to "hello")
+            var httpApi:HttpApi=OkHttpApi()
+            httpApi.get(map,"api.php",object :IHttpCallback{
+                override fun onSuccess(data: Any) {
+                    Log.d("=success",data.toString())
+                }
+
+                override fun onFail(error: Any) {
+                    Log.d("=fail",error.toString())
+                }
+
+            })
         }
+
+
         return root
     }
 

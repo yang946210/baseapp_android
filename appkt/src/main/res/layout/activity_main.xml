@@ -41,11 +41,26 @@
         android:background="@color/teal_700"
         android:paddingHorizontal="50dp"
         android:paddingVertical="10dp"
-        android:text="jetpach"
+        android:text="jetPack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_frame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Coroutines" />
+
+    <TextView
+        android:id="@+id/tv_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="10dp"
+        android:text="框架"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Coroutines" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_liveData"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
-include ':mvp'
-include ':appclient'
-include ':base'
+//include ':mvp'
+//include ':appclient'
+//include ':base'
 include ':ktbase'
 include ':appkt'

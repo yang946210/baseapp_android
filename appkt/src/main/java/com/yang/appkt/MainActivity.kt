@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.yang.appkt.menu.CoroutinesActivity
+import com.yang.appkt.menu.FrameActivity
 import com.yang.appkt.menu.InfoActivity
 import com.yang.appkt.menu.LiveDataActivity
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_info).setOnClickListener{ infoButton() }
         findViewById<TextView>(R.id.tv_Coroutines).setOnClickListener { coroutinesButton() }
         findViewById<TextView>(R.id.tv_liveData).setOnClickListener{ liveDataButton() }
-
+        findViewById<TextView>(R.id.tv_frame).setOnClickListener{ frameButton() }
     }
 
 
@@ -39,11 +40,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * livedata
+     * jetpack
      */
     private fun liveDataButton(){
         startActivity(Intent(this@MainActivity, LiveDataActivity::class.java))
+    }
 
+    /**
+     * 框架
+     */
+    private fun frameButton(){
+        startActivity(Intent(this@MainActivity, FrameActivity::class.java))
     }
 
 

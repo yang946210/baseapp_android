@@ -9,7 +9,7 @@ ext{
 
     //远程依赖
     dependencies=[
-            zxing: "com.google.zxing:core:3.9.9" //....后续以来都应该放在这里做统一版本管理
+            //zxing: "com.google.zxing:core:3.9.9" //....后续以来都应该放在这里做统一版本管理
     ]
 
 

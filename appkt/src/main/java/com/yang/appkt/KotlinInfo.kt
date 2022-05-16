@@ -40,9 +40,13 @@ object BaseInfo {
 
 
     /**
-     * let also
-     * run apply
-     * with
+     * let let函数：返回值 = 最后一行 / return的表达式
+     * also also函数：返回值 = 传入的对象的本身
+     *
+     * run let函数：返回值 = 最后一行 / return的表达式
+     * apply also函数：返回值 = 传入的对象的本身
+     *
+     * with 本身作用域获取
      */
     private var nullString: String? = if (Random.nextBoolean()) "justString" else null
 
@@ -71,7 +75,13 @@ object BaseInfo {
         }
         with(nullString){
             mLogInfo(this?.length.toString())
+            mLogInfo(this.toString())
         }
+
+//        val people = People("carson", 25)
+//        with(people) {
+//            println("my name is $name, I am $age years old")
+//        }
     }
 
 

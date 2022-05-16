@@ -1,4 +1,4 @@
-package com.yang.base
+
 
 /**
  * 网络请求接口回调

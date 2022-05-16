@@ -28,7 +28,8 @@
         <activity
             android:name=".FirstActivity"
             android:theme="@style/AppSplash"
-            android:taskAffinity=".taskOne">
+            android:taskAffinity=".taskOne"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

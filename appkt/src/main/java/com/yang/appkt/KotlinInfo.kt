@@ -1,6 +1,5 @@
 package com.yang.appkt
 
-import android.util.FloatProperty
 import android.util.Log
 import kotlin.random.Random
 
@@ -10,7 +9,6 @@ object BaseInfo {
     private fun mLogInfo(msg: String) {
         Log.d("===info===", msg)
     }
-
 
     /**
      * 基本类型

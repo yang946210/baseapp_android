@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.yang.appkt">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,19 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp">
         <activity
-            android:name=".menu.FrameActivity"
-            android:exported="false"
-            android:label="@string/title_activity_frame"
-            android:theme="@style/Theme.Baseapp.NoActionBar" />
-        <activity
-            android:name=".menu.LiveDataActivity"
-            android:exported="false"
-            android:label="@string/title_activity_live_data" />
-        <activity
-            android:name=".menu.InfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.CoroutinesActivity"
+            android:name=".menu.RecyclerActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -37,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".menu.CoroutinesActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

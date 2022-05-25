@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JsonArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yang.base.R;
 
@@ -27,7 +27,7 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
     /***
      * 数据集合
      */
-    protected JSONArray datas;
+    protected JsonArray datas;
     /***
      * item函数
      */
@@ -49,7 +49,7 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
      * @param data 数据项
      * @param itemClickListener 回调函数
      */
-    public BaseJSONRecyclerViewAdapter(Context context, JSONArray data, @NonNull OnBaseItemClickListener<JSONObject> itemClickListener) {
+    public BaseJSONRecyclerViewAdapter(Context context, JsonArray data, @NonNull OnBaseItemClickListener<JSONObject> itemClickListener) {
         this.context = context;
         this.itemClickListener = itemClickListener;
         datas = data;
@@ -61,7 +61,7 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
      * @param context 上下文
      * @param data  数据项
      */
-    public BaseJSONRecyclerViewAdapter(Context context, JSONArray data) {
+    public BaseJSONRecyclerViewAdapter(Context context, JsonArray data) {
         this(context, data, null);
     }
 
@@ -70,7 +70,7 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
      * @param context 上下文
      */
     public BaseJSONRecyclerViewAdapter(Context context) {
-        this(context, new JSONArray(), null);
+        this(context, new JsonArray(), null);
     }
 
 
@@ -78,9 +78,9 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
      * 设置数据
      * @param dataList
      */
-    public void setData(JSONArray dataList) {
+    public void setData(JsonArray dataList) {
         if (dataList == null) {
-            this.datas = new JSONArray();
+            this.datas = new JsonArray();
         } else {
             this.datas = dataList;
         }
@@ -156,7 +156,7 @@ public abstract class BaseJSONRecyclerViewAdapter extends RecyclerView.Adapter<B
      * 添加数据
      * @param data 数据项
      */
-    public void addData(JSONArray data) {
+    public void addData(JsonArray data) {
         if (data == null || data.size() == 0) {
             return;
         }

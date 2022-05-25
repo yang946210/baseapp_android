@@ -1,6 +1,6 @@
 package com.yang.baseapp.util;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JsonArray;
 import com.alibaba.fastjson.JSONObject;
 
 /***
@@ -33,7 +33,7 @@ public class JsonUtil {
                 "02508606","10402134","73109109","67763266","16606536",
                 "97197079","38775758"};
 
-        JSONArray array=new JSONArray();
+        JsonArray array=new JsonArray();
         for (String value : other) {
             JSONObject object = new JSONObject();
             object.put("userId", value);

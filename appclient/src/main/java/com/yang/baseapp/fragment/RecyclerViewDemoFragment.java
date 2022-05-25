@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JsonArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yang.baseapp.R;
 import com.yang.base.adapter.BaseViewHolder;
@@ -99,7 +99,7 @@ public class RecyclerViewDemoFragment extends BaseFragment {
     }
 
     private void addDate(){
-        JSONArray array=new JSONArray();
+        JsonArray array=new JsonArray();
         List<RecyclerBean> list=new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             JSONObject object=new JSONObject();

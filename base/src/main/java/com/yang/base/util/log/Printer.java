@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.yang.base.BaseSdk;
 
-import org.json.JSONArray;
+import org.json.JsonArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -104,8 +104,8 @@ public class Printer {
         return;
       }
       if (json.startsWith("[")) {
-        JSONArray jsonArray = new JSONArray(json);
-        String message = jsonArray.toString(2);
+        JsonArray JsonArray = new JsonArray(json);
+        String message = JsonArray.toString(2);
         d(message);
         return;
       }

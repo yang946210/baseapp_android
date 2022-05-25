@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">appkt</string>
     <string name="title_activity_live_data">LiveDataActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">聊天</string>
+    <string name="title_notifications">我的</string>
     <string name="not_init_livedata">not init liveData</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_frame">FrameActivity</string>
@@ -16,4 +16,5 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="get_login">getLogin</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>

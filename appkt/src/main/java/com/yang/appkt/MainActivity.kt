@@ -1,59 +1,35 @@
 package com.yang.appkt
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.arch.core.executor.ArchTaskExecutor
+import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.CoroutinesActivity
-import com.yang.appkt.menu.FrameActivity
-import com.yang.appkt.menu.InfoActivity
-import com.yang.appkt.menu.LiveDataActivity
+import com.yang.appkt.menu.RecyclerActivity
+import com.yang.ktbase.LiveDataBus
+import com.yang.ktbase.base.BaseActivity
+import com.yang.ktbase.base.BaseViewModel
+import com.yang.ktbase.ext.logD
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<BaseViewModel, ActivityMainBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setView()
+    override fun initView(savedInstanceState: Bundle?) {
+        LiveDataBus.with<String>("TestLiveDataBus").observer(this) {
+            it.logD()
+        }
+
+        binding.run {
+            tvLiveData.setOnClickListener {
+                LiveDataBus.with<String>("TestLiveDataBus").postData("1212")
+            }
+            tvFrame.setOnClickListener {
+                startActivity(Intent(this@MainActivity, RecyclerActivity::class.java))
+            }
+            tvInfo.setOnClickListener {  }
+            tvCoroutines.setOnClickListener {
+                startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
+            }
+        }
+
     }
-
-    private fun setView(){
-        findViewById<TextView>(R.id.tv_info).setOnClickListener{ infoButton() }
-        findViewById<TextView>(R.id.tv_Coroutines).setOnClickListener { coroutinesButton() }
-        findViewById<TextView>(R.id.tv_liveData).setOnClickListener{ liveDataButton() }
-        findViewById<TextView>(R.id.tv_frame).setOnClickListener{ frameButton() }
-    }
-
-
-    /**
-     * 基本信息
-     */
-    private fun infoButton(){
-        startActivity(Intent(this@MainActivity, InfoActivity::class.java))
-    }
-
-    /**
-     * 协程
-     */
-    private fun coroutinesButton(){
-        startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
-    }
-
-    /**
-     * jetpack
-     */
-    private fun liveDataButton(){
-        startActivity(Intent(this@MainActivity, LiveDataActivity::class.java))
-    }
-
-    /**
-     * 框架
-     */
-    private fun frameButton(){
-        startActivity(Intent(this@MainActivity, FrameActivity::class.java))
-    }
-
-
-
-
 }

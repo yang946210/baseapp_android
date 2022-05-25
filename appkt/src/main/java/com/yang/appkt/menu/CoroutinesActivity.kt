@@ -15,7 +15,6 @@ class CoroutinesActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_launchStart).setOnClickListener { launchStart() }
         findViewById<TextView>(R.id.tv_asyncStart).setOnClickListener { asyncStart() }
         findViewById<TextView>(R.id.tv_runBlockingStart).setOnClickListener { runBlockingStart() }
-
     }
 
 

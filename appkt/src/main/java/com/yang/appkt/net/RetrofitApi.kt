@@ -14,7 +14,6 @@ object RetrofitApi {
     private const val url = "http://www.wanandroid.com/"
 
     private val api by lazy {
-
         val loggingInterceptor =HttpLoggingInterceptor{
             it.logD("===appKt============${it}")
         }.apply {

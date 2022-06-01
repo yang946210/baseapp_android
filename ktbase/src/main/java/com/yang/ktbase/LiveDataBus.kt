@@ -1,6 +1,5 @@
 package com.yang.ktbase
 
-import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.lifecycle.*
 import java.util.concurrent.ConcurrentHashMap
 
@@ -40,7 +39,7 @@ object LiveDataBus {
         fun observer(owner: LifecycleOwner, observer: Observer<in T>) {
             //容器销毁时移除liveData
             owner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
-                if (event == Lifecycle.Event.ON_DESTROY && !hasObservers()) {
+                if (event == Lifecycle.Event.ON_DESTROY && !hasActiveObservers()) {
                     liveDataMap.remove(eventName)
                 }
             })
@@ -49,7 +48,8 @@ object LiveDataBus {
         }
 
         /**
-         * 使用反射将mLastVersion的值改为和mVersion相同，就可以解决粘性数据问题
+         * 解决粘性数据问题
+         * 使用反射将mLastVersion的值改为和mVersion相同
          */
         private fun solveStick(observer: Observer<in T>) {
             val liveDataClass = LiveData::class.java

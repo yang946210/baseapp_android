@@ -7,45 +7,56 @@
     android:padding="20dp"
     tools:context=".menu.CoroutinesActivity">
 
+    <ImageView
+        android:id="@+id/iv_title"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_launchStart"/>
+
     <TextView
         android:id="@+id/tv_launchStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="50dp"
-        android:paddingVertical="10dp"
-        android:text="launch启动"
-        android:textSize="18sp"
         android:background="@color/teal_700"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:text="启动"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/iv_title"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/tv_asyncStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/teal_700"
-        android:paddingHorizontal="50dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginStart="10dp"
         android:paddingVertical="10dp"
-        android:text="aync启动"
+        android:text="启动2"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_runBlockingStart"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_launchStart"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_launchStart" />
+        app:layout_constraintStart_toEndOf="@+id/tv_launchStart"
+        app:layout_constraintTop_toTopOf="@+id/tv_launchStart" />
 
     <TextView
         android:id="@+id/tv_runBlockingStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/teal_700"
-        android:paddingHorizontal="50dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
-        android:text="runBlocking启动"
+        android:layout_marginStart="10dp"
+        android:text="启动3"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_launchStart" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_asyncStart"
+        app:layout_constraintStart_toEndOf="@+id/tv_asyncStart"
+        app:layout_constraintTop_toTopOf="@+id/tv_asyncStart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

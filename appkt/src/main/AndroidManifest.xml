@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp">
         <activity
-            android:name=".menu.RecyclerActivity"
+            android:name=".menu.RoomActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".menu.RecyclerActivity"
+            android:exported="false" />
         <activity
             android:name=".menu.CoroutinesActivity"
             android:exported="false" />

@@ -2,7 +2,7 @@ package com.yang.ktbase.ext
 
 import android.util.Log
 
-const val TAG = "ktApp log"
+const val TAG = "======ktApp log====="
 
 
 var logAble = true

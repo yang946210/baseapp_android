@@ -1,8 +1,10 @@
 apply plugin:'com.android.library'
 apply from:'../dependencies.gradle'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
 }
 
 dependencies {
+
 }

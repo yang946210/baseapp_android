@@ -13,14 +13,20 @@ interface UserDao {
     @Update
     fun updateUser(user: User)
 
-    @Query("SELECT * FROM user_info")
+    @Query("select * from user_info")
     fun queryUser():List<User>
+
+    @Query("select * from user_info where name=:name")
+    fun queryUserByName(name:String):List<User>
+
+    @Query("select * from user_info")
+    fun queryUserByName2():LiveData<List<User>>
 
     @Delete
     fun deleteUser(user: User)
 
-    @Query("DELETE FROM user_info WHERE name=:yang")
-    fun deleteUserByName(yang:String)
+    @Query("delete from user_info where name=:name")
+    fun deleteUserByName(name:String)
 
     /**
      * Transaction 和 suspend结合使用

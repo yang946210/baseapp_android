@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.yang.appkt.databinding.ActivityCoroutinesBinding
+import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.ext.logD
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flow
 
-class CoroutinesActivity : AppCompatActivity(),CoroutineScope by MainScope() {
+class CoroutinesActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private lateinit var binding: ActivityCoroutinesBinding
 
@@ -21,9 +24,14 @@ class CoroutinesActivity : AppCompatActivity(),CoroutineScope by MainScope() {
 
 
     private fun init() {
+        launch { }//CoroutineScope by MainScope() 将此activity声明为一个作用域
         binding.tvRunBlockingStart.setOnClickListener { start() }
         binding.tvLaunchStart.setOnClickListener { launchStart() }
-        binding.tvAsyncStart.setOnClickListener { asyncStart() }
+        binding.tvAsyncStart.setOnClickListener { flow() }
+
+        LiveDataBus.with<String>("test1").observe(this){
+            it.logD()
+        }
     }
 
 
@@ -50,11 +58,11 @@ class CoroutinesActivity : AppCompatActivity(),CoroutineScope by MainScope() {
         "end 21==== $s2".logD()
 
 
-        var s3=lifecycleScope.launch {
+        var s3 = lifecycleScope.launch {
             "end 3".logD()
-            val a1=
+            val a1 =
                 withContext(Dispatchers.Default) { getResult1() }
-            val a2=
+            val a2 =
                 withContext(Dispatchers.Default) { getResult1() }
 
             "end 3$a1======$a2".logD()
@@ -66,16 +74,39 @@ class CoroutinesActivity : AppCompatActivity(),CoroutineScope by MainScope() {
      * 不阻塞线程
      */
     private fun launchStart() {
+        binding.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
+        LiveDataBus.with<String>("test").postData("2222")
     }
 
     /**
-     * async,与launch返回值不通
-     * 不阻塞线程,支持并发
+     * flow
      */
-    private fun asyncStart() {
-        binding.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
+    private fun flow() {
+        var s=flow<String> {
+            emit("send")
+        }
+
+        lifecycleScope.launch{
+            simple().collect{
+                it.logD()
+            }
+
+            s.collect{
+                it.logD()
+            }
+        }
+
+        (1..4).asFlow()
+
+
+
     }
 
+    private fun simple() = flow<String> {
+        for (i in 1..20) {
+            emit("flow emit send${i}")
+        }
+    }
 
     private suspend fun getResult1(): String {
         delay(2000)
@@ -90,6 +121,9 @@ class CoroutinesActivity : AppCompatActivity(),CoroutineScope by MainScope() {
     private suspend fun getImage(imageUrl: String) = withContext(Dispatchers.IO) {
 
     }
+
+
+
 
 }
 

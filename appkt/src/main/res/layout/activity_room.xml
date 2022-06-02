@@ -6,22 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".menu.RoomActivity">
 
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
     <Button
         android:id="@+id/tv_insert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="insert"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_show"/>
 
     <Button
         android:id="@+id/tv_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="delete"
         android:layout_marginStart="20dp"
+        android:text="delete"
         app:layout_constraintStart_toEndOf="@+id/tv_insert"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tv_insert" />
 
     <Button
         android:id="@+id/tv_quern"
@@ -30,5 +40,14 @@
         android:layout_marginStart="20dp"
         android:text="quern"
         app:layout_constraintStart_toEndOf="@+id/tv_delete"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tv_delete" />
+
+    <Button
+        android:id="@+id/tv_quernLivedata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="quernLivedata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_insert" />
 </androidx.constraintlayout.widget.ConstraintLayout>

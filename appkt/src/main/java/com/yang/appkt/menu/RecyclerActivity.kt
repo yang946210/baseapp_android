@@ -33,7 +33,7 @@ class RecyclerActivity : BaseActivity<FrameViewModel, ActivityRecyclerBinding>()
         }
 
         viewModel.getData()
-        LiveDataBus.with<String>("TestLiveDataBus").observer(this) {
+        LiveDataBus.with<String>("test").observe(this) {
             it.logD()
         }
     }

@@ -3,6 +3,7 @@ package com.yang.appkt
 import android.content.Intent
 import android.os.Bundle
 import androidx.arch.core.executor.ArchTaskExecutor
+import androidx.lifecycle.ViewModelProvider
 import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.CoroutinesActivity
 import com.yang.appkt.menu.RecyclerActivity
@@ -16,12 +17,13 @@ class MainActivity : BaseActivity<BaseViewModel, ActivityMainBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
 
+
         binding.run {
-            tvInfo.setOnClickListener {
+            tvRoom.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RoomActivity::class.java))
             }
             tvLiveData.setOnClickListener {
-                LiveDataBus.with<String>("TestLiveDataBus").postData("1212")
+                LiveDataBus.with<String>("test").postData("1212")
             }
             tvFrame.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RecyclerActivity::class.java))
@@ -30,6 +32,10 @@ class MainActivity : BaseActivity<BaseViewModel, ActivityMainBinding>() {
             tvCoroutines.setOnClickListener {
                 startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
             }
+        }
+
+        LiveDataBus.with<String>("test").observe(this){
+            it.logD()
         }
 
     }

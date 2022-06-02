@@ -1,6 +1,7 @@
 package com.yang.ktbase
 
 import androidx.lifecycle.*
+import com.yang.ktbase.ext.logD
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -12,7 +13,7 @@ object LiveDataBus {
      * 事件集合
      */
     private val liveDataMap by lazy {
-         ConcurrentHashMap<String, BusLiveData<*>>()
+        ConcurrentHashMap<String, BusLiveData<*>>()
     }
 
     fun <T> with(eventName: String): BusLiveData<T> {
@@ -32,19 +33,20 @@ object LiveDataBus {
             postValue(t)
         }
 
-        override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
-            observer(owner, observer)
-        }
-
         fun observer(owner: LifecycleOwner, observer: Observer<in T>) {
             //容器销毁时移除liveData
             owner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
                 if (event == Lifecycle.Event.ON_DESTROY && !hasActiveObservers()) {
                     liveDataMap.remove(eventName)
+                    "=========没有和活跃的".logD()
                 }
             })
             super.observe(owner, observer)
             solveStick(observer)
+        }
+
+        override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
+            observer(owner, observer)
         }
 
         /**

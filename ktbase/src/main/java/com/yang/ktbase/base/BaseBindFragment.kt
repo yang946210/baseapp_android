@@ -13,29 +13,36 @@ import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.ext.getVmClazz
 import com.yang.ktbase.ext.inflateBindingWithGeneric
 
-abstract class BaseVmFragment<B: ViewBinding>:Fragment() {
+abstract class BaseBindFragment<B : ViewBinding> : Fragment() {
 
     private var _binding: B? = null
 
     protected val binding: B get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initView(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding  = inflateBindingWithGeneric(inflater,container,false)
+        _binding = inflateBindingWithGeneric(inflater, container, false)
         return binding.root
     }
+
+    /**
+     * 初始化布局
+     */
+    abstract fun initView(savedInstanceState: Bundle?)
 
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
-
 
 
 }

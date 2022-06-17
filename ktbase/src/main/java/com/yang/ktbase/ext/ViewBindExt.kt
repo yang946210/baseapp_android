@@ -13,12 +13,13 @@ fun <B : ViewBinding> AppCompatActivity.inflateBindingWithGeneric(layoutInflater
     withGenericBindingClass<B>(this) { clazz ->
         clazz.getMethod("inflate", LayoutInflater::class.java).invoke(null, layoutInflater) as B
     }
+
 fun <B : ViewBinding> Fragment.inflateBindingWithGeneric(
     layoutInflater: LayoutInflater,
     parent: ViewGroup?,
     attachToParent: Boolean
 ): B =
-    withGenericBindingClass<B>(this) { clazz ->
+    withGenericBindingClass(this) { clazz ->
         clazz.getMethod(
             "inflate",
             LayoutInflater::class.java,
@@ -31,7 +32,10 @@ fun <B : ViewBinding> Fragment.inflateBindingWithGeneric(
 /**
  * 根据泛型获取实列类
  */
-private fun <B : ViewBinding> withGenericBindingClass(genericOwner: Any, block: (Class<B>) -> B): B {
+private fun <B : ViewBinding> withGenericBindingClass(
+    genericOwner: Any,
+    block: (Class<B>) -> B
+): B {
     var genericSuperclass = genericOwner.javaClass.genericSuperclass
     var superclass = genericOwner.javaClass.superclass
     while (superclass != null) {
@@ -46,7 +50,8 @@ private fun <B : ViewBinding> withGenericBindingClass(genericOwner: Any, block: 
                     while (tagException is InvocationTargetException) {
                         tagException = e.cause
                     }
-                    throw tagException ?: IllegalArgumentException("ViewBinding generic was found, but creation failed.")
+                    throw tagException
+                        ?: IllegalArgumentException("ViewBinding generic was found, but creation failed.")
                 }
             }
         }

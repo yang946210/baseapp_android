@@ -6,20 +6,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.ext.getVmClazz
 
-abstract class BaseFragment<M:BaseViewModel,B: ViewBinding> :BaseVmFragment<B>() {
+abstract class BaseFragment<M : BaseViewModel, B : ViewBinding> : BaseBindFragment<B>() {
 
     protected lateinit var viewModel: M
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel=createViewModel()
-        initView(savedInstanceState)
+        viewModel = createViewModel()
     }
 
-    /**
-     * 初始化布局
-     */
-    abstract fun initView(savedInstanceState: Bundle?)
     /**
      * 创建viewModel
      */

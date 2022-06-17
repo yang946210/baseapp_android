@@ -70,7 +70,7 @@ fun View.px2dp(px: Int): Int {
     return (px / scale + 0.5f).toInt()
 }
 
-fun px2dp2(v:View,px:Int):Int{
+fun px2dp2(v: View, px: Int): Int {
     val scale = v.resources.displayMetrics.density
     return (px / scale + 0.5f).toInt()
 }

@@ -23,12 +23,12 @@ import kotlin.concurrent.thread
  */
 fun <T> BaseViewModel.request(
     block: suspend () -> ResponseResult<T>,
-    success:  (T?) -> Unit,
-    error:  (t: Throwable) -> Unit,
+    success: (T?) -> Unit,
+    error: (t: Throwable) -> Unit,
     showLoading: Boolean = false,
     loadingMsg: String = "加载中..."
 ): Job {
-    return viewModelScope.launch (){
+    return viewModelScope.launch() {
         runCatching {
             block()
         }.onSuccess {

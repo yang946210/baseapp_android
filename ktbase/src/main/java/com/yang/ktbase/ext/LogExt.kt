@@ -13,12 +13,16 @@ private enum class LEVEL {
 
 fun String.logV(tag: String = TAG) =
     log(LEVEL.V, tag, this)
+
 fun String.logD(tag: String = TAG) =
     log(LEVEL.D, tag, this)
+
 fun String.logI(tag: String = TAG) =
     log(LEVEL.I, tag, this)
+
 fun String.logW(tag: String = TAG) =
     log(LEVEL.W, tag, this)
+
 fun String.logE(tag: String = TAG) =
     log(LEVEL.E, tag, this)
 

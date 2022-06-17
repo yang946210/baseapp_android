@@ -1,24 +1,34 @@
 package com.yang.ktbase.base
 
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.yang.ktbase.ext.getVmClazz
+import androidx.viewbinding.ViewBinding
+import com.yang.ktbase.ext.inflateBindingWithGeneric
 
-abstract class BaseVmActivity<M : BaseViewModel> : AppCompatActivity() {
-
+/**
+ * activity基类，实现viewBind功能
+ * 如果某个activity不需要viewModel功能，就可以直接继承这个基类
+ * @param B: ViewBinding
+ * @property binding B
+ */
+abstract class BaseBindActivity<B : ViewBinding> : AppCompatActivity() {
 
     /**
-     * 初始化ViewModel
+     * 初始化viewBind
      */
-    protected val viewModel by lazy{
-        createViewModel()
+    protected val binding by lazy {
+        inflateBindingWithGeneric<B>(layoutInflater)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        initView(savedInstanceState)
     }
 
     /**
-     * 创建viewModel
+     * 初始化
      */
-    private fun createViewModel(): M {
-        return ViewModelProvider(this).get(getVmClazz(this))
-    }
+    abstract fun initView(savedInstanceState: Bundle?)
 
 }

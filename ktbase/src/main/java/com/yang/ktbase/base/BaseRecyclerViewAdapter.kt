@@ -8,21 +8,26 @@ abstract class BaseRecyclerViewAdapter<E : Any, V : ViewBinding> :
     RecyclerView.Adapter<BaseViewHolder<V>>() {
 
     open var data: MutableList<E> = mutableListOf()
-    set(value) {
-        field=value
-        notifyItemRangeChanged(0,value.size)
-    }
+        set(value) {
+            field = value
+            notifyItemRangeChanged(0, value.size)
+        }
 
     //不想用反射，所以只能暴露出去多写一部
     abstract override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<V>
 
-    override fun getItemCount(): Int =data.size
+    override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: BaseViewHolder<V>, position: Int) {
-        onBindViewHolder(holder,holder.absoluteAdapterPosition,holder.binding,data[holder.absoluteAdapterPosition])
+        onBindViewHolder(
+            holder,
+            holder.absoluteAdapterPosition,
+            holder.binding,
+            data[holder.absoluteAdapterPosition]
+        )
     }
 
-    abstract fun onBindViewHolder(holder: BaseViewHolder<V>,position: Int,binding: V,bean:E)
+    abstract fun onBindViewHolder(holder: BaseViewHolder<V>, position: Int, binding: V, bean: E)
 
 }
 

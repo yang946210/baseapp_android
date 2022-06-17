@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="h">欢迎</h1>
+<button onclick="confirm('confirm')">confirm</button>
+<button onclick="alert('alert')">alert</button>
+<button onclick="prompt('prompt')">prompt</button>
+<br><br>
+<button onclick="androidLog()">prompt原生交互</button>
+<button onclick="androidLog2()">addJs原生交互</button>
+</body>
+<script type="text/javascript">
+
+        function androidLog(){
+            window.native.nativeLog("H5调用");
+        }
+
+        function androidLog2(){
+          //window.native.nativeLog("H5调用");
+        }
+
+
+        function androidClick(){
+            alert("这是一个Web弹窗")
+        }
+
+        function test(){
+            console.log("这是一个Web弹窗2")
+        }
+
+</script>
+</html>  

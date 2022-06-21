@@ -3,35 +3,57 @@ package com.yang.appkt.menu
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import coil.load
 import com.yang.appkt.databinding.ActivityCoroutinesBinding
+import com.yang.appkt.viewmodel.CoroutineModel
 import com.yang.ktbase.LiveDataBus
+import com.yang.ktbase.base.BaseActivity
+import com.yang.ktbase.base.BaseViewModel
 import com.yang.ktbase.ext.logD
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
+import okhttp3.internal.wait
 
-class CoroutinesActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
 
-    private lateinit var binding: ActivityCoroutinesBinding
+    CoroutineScope by MainScope() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityCoroutinesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        init()
-    }
+    override fun initView(savedInstanceState: Bundle?) {
 
+        GlobalScope.launch {
+            for (index in 1..10000) {
+                delay(1000)
+                "000GlobalScope ===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
+            }
+        }
+        launch {
+            for (index in 1..10000) {
+                delay(1000)
+                launch(Dispatchers.Default){
+                    "111main ===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
+                }
+                "111main ===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
+            }
+        }
 
-    private fun init() {
-        launch { }//CoroutineScope by MainScope() 将此activity声明为一个作用域
+        lifecycleScope.launch {
+            for (index in 1..10000) {
+                delay(1000)
+                "222viewModelScope===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
+            }
+        }
+
+        viewModel.viewModelScope.launch {
+            for (index in 1..10000) {
+                delay(1000)
+                "333viewModelScope===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
+            }
+        }
         binding.tvRunBlockingStart.setOnClickListener { start() }
         binding.tvLaunchStart.setOnClickListener { launchStart() }
         binding.tvAsyncStart.setOnClickListener { flow() }
-
-        LiveDataBus.with<String>("test1").observe(this){
-            it.logD()
-        }
     }
 
 
@@ -82,22 +104,21 @@ class CoroutinesActivity : AppCompatActivity(), CoroutineScope by MainScope() {
      * flow
      */
     private fun flow() {
-        var s=flow<String> {
+        var s = flow<String> {
             emit("send")
         }
 
-        lifecycleScope.launch{
-            simple().collect{
+        lifecycleScope.launch {
+            simple().collect {
                 it.logD()
             }
 
-            s.collect{
+            s.collect {
                 it.logD()
             }
         }
 
         (1..4).asFlow()
-
 
 
     }
@@ -122,9 +143,9 @@ class CoroutinesActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     }
 
-
-
-
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
 
 

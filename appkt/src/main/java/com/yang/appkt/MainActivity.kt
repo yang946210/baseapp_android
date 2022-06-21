@@ -9,8 +9,10 @@ import com.yang.appkt.menu.RoomActivity
 import com.yang.appkt.menu.WebViewActivity
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseBindActivity
+import kotlinx.coroutines.*
 
-class MainActivity : BaseBindActivity<ActivityMainBinding>() {
+class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
+
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.run {
@@ -34,6 +36,5 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>() {
                 startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
             }
         }
-
     }
 }

@@ -5,9 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yang.appkt.adapter.BannerJsonAdapter
 import com.yang.appkt.databinding.ActivityRecyclerBinding
 import com.yang.appkt.viewmodel.FrameViewModel
-import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity
-import com.yang.ktbase.ext.logD
 
 
 class RecyclerActivity : BaseActivity<FrameViewModel, ActivityRecyclerBinding>() {

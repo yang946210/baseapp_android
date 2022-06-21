@@ -50,13 +50,13 @@ object BaseInfo {
 
     fun letTest() {
         nullString?.let {
-            mLogInfo( it.length.toString())
+            mLogInfo(it.length.toString())
             mLogInfo(it)
             "return"
         } //?表示为null就不执,默认返回最后一行。
 
-        nullString?.also{
-            mLogInfo( it.length.toString())
+        nullString?.also {
+            mLogInfo(it.length.toString())
             mLogInfo(it)
             "not return,return the nullString"
         } //和let用法差不多，但是返回的时nullString对象
@@ -71,7 +71,7 @@ object BaseInfo {
             mLogInfo(this)
             "not return,return the nullString"
         }
-        with(nullString){
+        with(nullString) {
             mLogInfo(this?.length.toString())
             mLogInfo(this.toString())
         }
@@ -258,6 +258,32 @@ object BaseInfo {
         mLogInfo(children.copy(name = "李四").toString())
     }
 
+    /**
+     * 委托 by
+     */
+    interface Base {
+        fun print();
+    }
+    class  BaseImp(private var la:String):Base{
+
+        val s:String by lazy { "3232" }
+
+        override fun print() {
+           println("$s$la")
+        }
+    }
+
+    class Device(b:Base):Base by b
+
+    class Main {
+        companion object{
+            @JvmStatic
+            fun main(args: Array<String>) {
+                var baseImp=BaseImp("100")
+                Device(baseImp).print()  //输出100
+            }
+        }
+    }
 
 }
 

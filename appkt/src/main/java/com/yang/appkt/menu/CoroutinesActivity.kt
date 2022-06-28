@@ -1,7 +1,6 @@
 package com.yang.appkt.menu
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import coil.load
@@ -9,12 +8,10 @@ import com.yang.appkt.databinding.ActivityCoroutinesBinding
 import com.yang.appkt.viewmodel.CoroutineModel
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity
-import com.yang.ktbase.base.BaseViewModel
 import com.yang.ktbase.ext.logD
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
-import okhttp3.internal.wait
 
 class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
 
@@ -104,9 +101,7 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
      * flow
      */
     private fun flow() {
-        var s = flow<String> {
-            emit("send")
-        }
+        val s = flow<String> { emit("send") }
 
         lifecycleScope.launch {
             simple().collect {

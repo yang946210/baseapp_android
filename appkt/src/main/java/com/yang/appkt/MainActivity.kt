@@ -3,10 +3,7 @@ package com.yang.appkt
 import android.content.Intent
 import android.os.Bundle
 import com.yang.appkt.databinding.ActivityMainBinding
-import com.yang.appkt.menu.CoroutinesActivity
-import com.yang.appkt.menu.RecyclerActivity
-import com.yang.appkt.menu.RoomActivity
-import com.yang.appkt.menu.WebViewActivity
+import com.yang.appkt.menu.*
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
@@ -16,6 +13,15 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.run {
+
+            tvLaunch.setOnClickListener {
+                startActivity(Intent(this@MainActivity, LaunchActivity::class.java))
+            }
+
+            tvHandler.setOnClickListener {
+                startActivity(Intent(this@MainActivity, HandlerActivity::class.java))
+            }
+
             tvWebView.setOnClickListener {
                 startActivity(Intent(this@MainActivity, WebViewActivity::class.java))
             }

@@ -9,8 +9,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_launch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="10dp"
+            android:text="launch启动流程"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:background="@color/teal_700"/>
+
+        <TextView
+            android:id="@+id/tv_handler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="10dp"
+            android:text="handler"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:background="@color/teal_700"/>
 
         <TextView
             android:id="@+id/tv_webView"

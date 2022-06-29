@@ -15,13 +15,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/tv_start"
+        android:id="@+id/tv_sengBusMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="sendMain"
+        android:text="icpTest"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_show" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_show"/>
 
 
     <Button
@@ -30,8 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="sendMain"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_start"
-        app:layout_constraintStart_toEndOf="@+id/tv_start"
-        app:layout_constraintTop_toTopOf="@+id/tv_start" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_sengBusMsg"
+        app:layout_constraintStart_toEndOf="@+id/tv_sengBusMsg"
+        app:layout_constraintTop_toTopOf="@+id/tv_sengBusMsg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

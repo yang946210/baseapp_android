@@ -67,13 +67,24 @@
             android:background="@color/teal_700" />
 
         <TextView
+            android:id="@+id/tv_lifecycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="10dp"
+            android:text="lifecycle"
+            android:layout_margin="10dp"
+            android:textSize="18sp"/>
+
+        <TextView
             android:id="@+id/tv_liveData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/teal_700"
             android:paddingHorizontal="50dp"
             android:paddingVertical="10dp"
-            android:text="jetPack"
+            android:text="liveData"
             android:layout_margin="10dp"
             android:textSize="18sp"/>
 

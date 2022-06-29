@@ -1,5 +1,6 @@
 package com.yang.ktbase.base
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.ext.getVmClazz
@@ -7,11 +8,11 @@ import com.yang.ktbase.ext.getVmClazz
 
 /**
  * activity基类
- * @param M:BaseViewModel
+ * @param M:ViewModel
  * @param B:ViewBinding
  * @property viewModel M
  */
-abstract class BaseActivity<M : BaseViewModel, B : ViewBinding> : BaseBindActivity<B>() {
+abstract class BaseActivity<M : ViewModel, B : ViewBinding> : BaseBindActivity<B>() {
 
     /**
      * 初始化ViewModel

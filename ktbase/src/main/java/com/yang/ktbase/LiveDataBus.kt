@@ -16,6 +16,11 @@ object LiveDataBus {
         ConcurrentHashMap<String, BusLiveData<*>>()
     }
 
+    /**
+     * 调用类
+     * @param eventName String 事件id
+     * @return BusLiveData<T> 返回
+     */
     fun <T> with(eventName: String): BusLiveData<T> {
         var liveData = liveDataMap[eventName]
         if (liveData == null) {
@@ -26,7 +31,10 @@ object LiveDataBus {
     }
 
     /**
-     * LiveData包装类
+     *
+     * @param T
+     * @property eventName String
+     * @constructor
      */
     class BusLiveData<T>(private var eventName: String) : MutableLiveData<T>() {
         fun postData(t: T) {

@@ -10,12 +10,12 @@ import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
 
 
-const val busTag:String="launch"
+const val busTag: String = "launch"
 
 class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
 
     override fun initView(savedInstanceState: Bundle?) {
-        LiveDataBus.with<String>(busTag).observer(this){
+        LiveDataBus.with<String>(busTag).observer(this) {
             ToastUtils.showLong(it)
         }
 
@@ -23,36 +23,27 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvLaunch.setOnClickListener {
                 startActivity(Intent(this@MainActivity, LaunchActivity::class.java))
             }
-
             tvHandler.setOnClickListener {
                 startActivity(Intent(this@MainActivity, HandlerActivity::class.java))
             }
-
             tvWebView.setOnClickListener {
                 startActivity(Intent(this@MainActivity, WebViewActivity::class.java))
             }
-
             tvRoom.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RoomActivity::class.java))
             }
-
             tvLifecycle.setOnClickListener {
                 startActivity(Intent(this@MainActivity, LifecycleActivity::class.java))
             }
-
             tvLiveData.setOnClickListener {
-                LiveDataBus.with<String>(busTag).postData("1212")
+                startActivity(Intent(this@MainActivity, VmActivity::class.java))
             }
-
             tvFrame.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RecyclerActivity::class.java))
             }
-
             tvCoroutines.setOnClickListener {
                 startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
             }
         }
-
-
     }
 }

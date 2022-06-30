@@ -19,11 +19,6 @@ abstract class BaseBindFragment<B : ViewBinding> : Fragment() {
 
     protected val binding: B get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initView(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,6 +26,11 @@ abstract class BaseBindFragment<B : ViewBinding> : Fragment() {
     ): View? {
         _binding = inflateBindingWithGeneric(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView(savedInstanceState)
     }
 
     /**

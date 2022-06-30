@@ -13,9 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp">
         <activity
-            android:name=".menu.LifecycleActivity"
+            android:name=".menu.VmActivity"
+            android:exported="false"
+            android:label="@string/title_activity_vm" />
+
+        <activity
+            android:name=".menu.LiveDataActivity"
             android:exported="false" />
-        <!-- android:process=":launch" -->
+        <activity
+            android:name=".menu.LifecycleActivity"
+            android:exported="false" /> <!-- android:process=":launch" -->
         <activity
             android:name=".menu.LaunchActivity"
             android:exported="false" />

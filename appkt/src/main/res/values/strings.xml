@@ -17,4 +17,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="get_login">getLogin</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_mvvm">MvvmActivity</string>
+    <string name="title_activity_vm">VmActivity</string>
 </resources>

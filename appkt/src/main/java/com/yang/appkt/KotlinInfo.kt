@@ -36,6 +36,10 @@ object BaseInfo {
     private var aIntRange = 1..8  //1到 8的数组
     private var bIntRange = 1 until 9 step 2  //1到 8的数组(不包含8)2步起跳
 
+    var name ="三加五除二等于${3+5/2}"
+
+
+     fun founction(aStr:String):Int{ return 0}
 
     /**
      * let let函数：返回值 = 最后一行 / return的表达式
@@ -133,9 +137,13 @@ object BaseInfo {
 
     private fun maxOf(aInt: Int, bInt: Int = 2) = if (aInt > bInt) aInt else bInt
 
+    data class Bean(val name: String, var age: String)
     fun funTest() {
         mLogInfo(maxOf(4).toString())
     }
+
+
+
 
     /**
      *
@@ -254,7 +262,7 @@ object BaseInfo {
     data class Children(val name: String, var age: String)
 
     fun dataClassTest() {
-        val children = Children("张三", "18")
+         val children = Children("张三", "18")
         mLogInfo(children.copy(name = "李四").toString())
     }
 

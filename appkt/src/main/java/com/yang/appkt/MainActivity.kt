@@ -7,17 +7,30 @@ import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.ext.logD
 import kotlinx.coroutines.*
 
 
 const val busTag: String = "launch"
 
-class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
+val bs:BaseInfo.Bean by lazy {
+    BaseInfo.Bean("","")
+}
 
+class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
     override fun initView(savedInstanceState: Bundle?) {
         LiveDataBus.with<String>(busTag).observer(this) {
             ToastUtils.showLong(it)
         }
+
+
+
+        var b= BaseInfo.Bean("32", "32")
+
+        b.copy(name = "23232")
+
+        b.age.logD()
+
 
         binding.run {
             tvLaunch.setOnClickListener {

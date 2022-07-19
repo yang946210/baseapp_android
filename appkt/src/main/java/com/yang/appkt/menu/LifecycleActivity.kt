@@ -15,11 +15,8 @@ class LifecycleActivity : BaseActivity<LifecycleViewModel,ActivityLifecycleBindi
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        ViewModelProvider(this).get(LifecycleViewModel::class.java)
 
-        viewModel.data.observe(this){
-
-        }
+        lifecycle.currentState.toString().logD()
 
         lifecycle.addObserver(MLifecycleObserver())
 

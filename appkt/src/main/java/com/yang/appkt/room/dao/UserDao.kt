@@ -3,6 +3,7 @@ package com.yang.appkt.room.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.yang.appkt.room.entity.User
+import java.util.concurrent.Flow
 
 @Dao
 interface UserDao {

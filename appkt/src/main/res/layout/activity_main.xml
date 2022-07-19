@@ -61,7 +61,7 @@
             android:background="@color/teal_700"
             android:paddingHorizontal="50dp"
             android:paddingVertical="10dp"
-            android:text="liveData"
+            android:text="viewModel+liveData"
             android:layout_margin="10dp"
             android:textSize="18sp"/>
 

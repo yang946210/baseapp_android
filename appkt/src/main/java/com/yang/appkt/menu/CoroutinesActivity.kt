@@ -1,6 +1,10 @@
 package com.yang.appkt.menu
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
+import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import coil.load
@@ -14,10 +18,15 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 
 class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
-
     CoroutineScope by MainScope() {
 
+    var tv:TextView?=null
+
+
     override fun initView(savedInstanceState: Bundle?) {
+
+
+
 
         GlobalScope.launch {
             for (index in 1..10000) {
@@ -54,10 +63,18 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
     }
 
 
+    object dataClass{
+        var name="name"
+    }
+
+
     /**
      * 启动协程
      */
     private fun start() {
+
+
+
         val s1 = runBlocking {
             getResult1().logD()
             getResult2().logD()

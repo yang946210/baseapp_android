@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -10,92 +11,72 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!---java相关-->
+        <TextView
+            android:id="@+id/tv_java"
+            style="@style/menuTitle"
+            android:text="Java" />
+
+        <TextView
+            android:id="@+id/tv_javaBase"
+            style="@style/menuText"
+            android:text="Java内存区域" />
+
+        <TextView
+            android:id="@+id/tv_android"
+            style="@style/menuTitle"
+            android:text="Android" />
+
+        <TextView
+            android:id="@+id/tv_activity"
+            style="@style/menuText"
+            android:text="activity" />
+
+        <TextView
+            android:id="@+id/tv_other"
+            style="@style/menuTitle"
+            android:text="其它" />
+
         <TextView
             android:id="@+id/tv_launch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="launch启动流程"
-            android:textSize="18sp"
-            android:layout_margin="10dp"
-            android:background="@color/teal_700"/>
+            style="@style/menuText"
+            android:text="launch启动流程" />
 
         <TextView
             android:id="@+id/tv_handler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="handler"
-            android:textSize="18sp"
-            android:layout_margin="10dp"
-            android:background="@color/teal_700"/>
+            style="@style/menuText"
+            android:text="handler" />
 
         <TextView
             android:id="@+id/tv_webView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="webView"
-            android:textSize="18sp"
-            android:layout_margin="10dp"
-            android:background="@color/teal_700"/>
+            style="@style/menuText"
+            android:text="webView" />
 
         <TextView
             android:id="@+id/tv_lifecycle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="lifecycle"
-            android:layout_margin="10dp"
-            android:textSize="18sp"/>
+            style="@style/menuText"
+            android:text="lifecycle" />
 
         <TextView
             android:id="@+id/tv_liveData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="viewModel+liveData"
-            android:layout_margin="10dp"
-            android:textSize="18sp"/>
+            style="@style/menuText"
+            android:text="viewModel+liveData" />
 
         <TextView
             android:id="@+id/tv_Coroutines"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="协程"
-            android:textSize="18sp"
-            android:layout_margin="10dp"
-            android:background="@color/teal_700" />
+            style="@style/menuText"
+            android:text="协程" />
 
         <TextView
             android:id="@+id/tv_room"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="room"
-            android:textSize="18sp"
-            android:layout_margin="10dp"
-            android:background="@color/teal_700"/>
+            style="@style/menuText"
+            android:text="room" />
 
         <TextView
             android:id="@+id/tv_frame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="10dp"
-            android:text="recyclerView"
-            android:layout_margin="10dp"
-            android:textSize="18sp"/>
+            style="@style/menuText"
+            android:text="recyclerView" />
     </LinearLayout>
-</ScrollView>
+
+
+</androidx.core.widget.NestedScrollView>

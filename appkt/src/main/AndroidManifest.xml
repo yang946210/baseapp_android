@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp">
         <activity
+            android:name=".menu.JavaMemoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu.ActivityActivity"
+            android:exported="false" />
+        <activity
             android:name=".menu.VmActivity"
             android:exported="false"
             android:label="@string/title_activity_vm" />

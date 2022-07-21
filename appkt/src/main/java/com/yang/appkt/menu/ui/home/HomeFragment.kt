@@ -19,9 +19,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         logLifeCycle()
 
         scope.launch {
-
-
-
         }
 
         scope.cancel()
@@ -41,7 +38,5 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     }
 }
 
-
-com
 
 

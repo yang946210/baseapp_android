@@ -1,33 +1,45 @@
 # Java
+
 # Android
 
+## activity
+
 ## Handler
+
 + 作用：线程切换
 + Handler：负责发送处理消息(持有Looper,MessageQueue的引用)
-+ Looper: 负责循环取出消息给Handler处理(会初始化一个ThreadLocal，MessageQueue,Looper)，通过死循环获取消息再调用handler的dispatchMessage方法分发
++ Looper: 负责循环取出消息给Handler处理(会初始化一个ThreadLocal，MessageQueue,Looper)
+  ，通过死循环获取消息再调用handler的dispatchMessage方法分发
 + MessageQueue：消息队列，负责存储消息
 + ThreadLocal: 线程数据存储区，在每个线程中存放各自对应的一个Looper
 + 注意：
-  1. 一个线程可以有多个handler,但是只有一个Looper,
-  2. 使用Looper必须手动开启循环(Looper.loop())，主线程Looper在activityThread中已经初始化过了，子线程Handler必须手动调用。
-  
+    1. 一个线程可以有多个handler,但是只有一个Looper,
+    2. 使用Looper必须手动开启循环(Looper.loop())，主线程Looper在activityThread中已经初始化过了，子线程Handler必须手动调用。
+
+## 事件分发
+
++ 事件分发主要由以下三个方法完成:
+    1. public boolean dispatchTouchEvent（event）：用于进行点击事件的分发
+    2. public boolean onInterceptTouchEvent（event）：用于进行点击事件的拦截(viewGroup专用)
+    3. public boolean onTouchEvent（event）：用于处理点击事件
++ ![]()
+
 ## 启动流程
 
 + 步骤:
-  1. init进程创建zygote进程，zygote进程fork出SystemServer进程(AMS,WMS,PMS所在)
-  2. launcher进程启动(先不管)
-  3. 点击桌面图标时:Launcher -> startActivityActivity() -> mInstrumentation.execStartActivity(ActivityThread.getApplicationThread()) <br>
-     getApplicationThread是ActivityThread的内部类ApplicationThread，这是一个Binder对象，之后AMS通过此对象与App的通信。
-  4. AMS启动Activity并通知Launcher进入Paused状态
-  5. 新的进程启动，ActivityThread的main函数入口(进入第二部)
-  6. 创建activity(performLaunchActivity)并做如下操作：
-     1. 创建要启动activity的上下文环境
-     2. 通过Instrumentation的newActivity方法，以反射形式创建activity实例
-     3. 如果Application不存在的话会创建Application并调用Application的onCreate方法
-     4. 初始化Activity，创建Window对象（PhoneWindow）并实现Activity和Window相关联
-     5. 通过Instrumentation调用Activity的onCreate方法
-
-## activity
+    1. init进程创建zygote进程，zygote进程fork出SystemServer进程(AMS,WMS,PMS所在)
+    2. launcher进程启动(先不管)
+    3. 点击桌面图标时:Launcher -> startActivityActivity() -> mInstrumentation.execStartActivity(
+       ActivityThread.getApplicationThread()) <br>
+       getApplicationThread是ActivityThread的内部类ApplicationThread，这是一个Binder对象，之后AMS通过此对象与App的通信。
+    4. AMS启动Activity并通知Launcher进入Paused状态
+    5. 新的进程启动，ActivityThread的main函数入口(进入第二部)
+    6. 创建activity(performLaunchActivity)并做如下操作：
+        1. 创建要启动activity的上下文环境
+        2. 通过Instrumentation的newActivity方法，以反射形式创建activity实例
+        3. 如果Application不存在的话会创建Application并调用Application的onCreate方法
+        4. 初始化Activity，创建Window对象（PhoneWindow）并实现Activity和Window相关联
+        5. 通过Instrumentation调用Activity的onCreate方法
 
 ## jetpack
 

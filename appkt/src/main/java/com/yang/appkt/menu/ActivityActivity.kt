@@ -8,8 +8,8 @@ class ActivityActivity : BaseBindActivity<ActivityActivityBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.tvAcContent.text="""
-           
-            
+          
+  
         """.trimIndent()
 
     }

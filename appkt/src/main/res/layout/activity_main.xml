@@ -76,6 +76,11 @@
             android:id="@+id/tv_frame"
             style="@style/menuText"
             android:text="recyclerView" />
+
+        <TextView
+            android:id="@+id/tv_bluetooth"
+            style="@style/menuText"
+            android:text="bluetooth" />
     </LinearLayout>
 
 

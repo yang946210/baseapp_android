@@ -1,4 +1,5 @@
 # 一.Java
+
 #### 虚拟机原理
 
 1. 程序技术区(线程私有)：一块较小的内存空间，当前线程所执行的字节码行号指示器
@@ -10,52 +11,85 @@
 ![](image/jvm.png)
 
 #### 设计模式
+
 + 观察者：Android当前运用最多的设计模式
 + 单例：一个进程只有单一实例。懒汉，饿汉，双锁，静态内部类，枚举...object。
 + 工厂：
 + 代理模式：by
 + 构建者： builder
 
+#### 数组和集合
 
++ 集合可分为 Collection 和 Map 两种体系：
+    + Collection
+        + list(有序可重复)
+          1.ArrayList 线程不安全，动态数组结构，查询快，新删慢 2.LinkedList 线程不安全，链表结构，查询慢，增删快 3.Vector 线程安全(开销大点)
+          ，其他同ArrayList
+        + set(不重复集合，链表结构)
+            + HashSet 线程不安全，无序不重复 <----LinkedHashSet有序不重复
+    + Map(建值对，建不能重复，值可以)
+        + HashMap 底层数组+链表实现，无论key还是value都不能为null，线程安全 <----LinkHashMap使用entry新增的两个参数来维护元素之间的关系。
+        + HashTab 底层数组+链表+红黑树实现，可以存储null键和null值，线程不安全
 
+#### String,StringBuffer,StringBuilder
+
++ String 字符串常量，字符串长度不可变
++ StringBuffer 字符串变量（Synchronized，线程安全）效率高
++ StringBuffer 字符串变量（线程不安全）效率更高一点
 
 # 二.Android
 
 #### 网络编程
+
 + http/http(1应用层):
-  1. HTTPS是加密传输协议，HTTP是明文传输协议
-  2. HTTPS需要用到SSL证书，而HTTP不用
-  3. HTTPS标准端口443，HTTP标准端口80，等
+    1. HTTPS是加密传输协议，HTTP是明文传输协议
+    2. HTTPS需要用到SSL证书，而HTTP不用
+    3. HTTPS标准端口443，HTTP标准端口80，等
 + tcp(2传输层):面向链接的通信协议，安全可靠。即先通过三次握手建立链接，再进行数据传输，最后四次挥手释放链接
 + udp(2传输层):无链接通信协议，不可靠。收的只管收，发的只管发
 + ip（3网络层）
++ MQTT协议，工作在TCP/IP协议族上，是基于发布/订阅模式的物联网通信协议，凭借简单易实现、支持 QoS、报文小等特点，占据了物联网协议的半壁江山。
 
-#### activity
+#### Activity
+
 + 启动模式：
-  1. standard 默认启动模式
-  2. singleTop(FLAG_ACTIVITY_SINGLE_TOP) 栈顶单例
-  3. singleTask(FLAG_ACTIVITY_NEW_TASK) 栈内单例，复用
-  4. singleInstance 单独任务栈。
+    1. standard 默认启动模式
+    2. singleTop(FLAG_ACTIVITY_SINGLE_TOP) 栈顶单例
+    3. singleTask(FLAG_ACTIVITY_NEW_TASK) 栈内单例，复用
+    4. singleInstance 单独任务栈。
 + 生命周期：
+
+#### Service:
+
++ 启动服务：onCreate()->onStartCommend()->onDestroy()
++ 绑定服务：onCreate()->onBind()->onUnbind()->onDestroy()
 
 #### 线程和线程池
 
++ 线程的生命周期
+
+  1. 新建：当一个Thread类或其子类的对象被声明并创建时，新生的线程对象处于新建状态
+  2. 就绪：处于新建状态的线程被start()后，将进入线程队列等待CPU时间片，此时它已具备了运行的条件，只是没分配到CPU资源
+  3. 运行：当就绪的线程被调度并获得CPU资源时,便进入运行状态，run()方法定义了线程的操作和功能
+  4. 阻塞：在某种特殊情况下，被人为挂起或执行输入输出操作时，让出CPU并临时中止自己的执行，进入阻塞状态
+  5. 死亡：线程完成了它的全部工作或线程被提前强制性地中止或出现异常导致结束
+
 + 线程切换的方法
-  1. Thread.start()(可能存在内存泄露)
-  2. 线程池开启线程
-  3. Handler双向切换线程
-  4. runOnUiThread()
-  5. view.post()
-  6. 协程
-  7. RxJava/Android
+    1. Thread.start()(可能存在内存泄露)
+    2. 线程池开启线程
+        1. Handler双向切换线程
+        2. runOnUiThread()
+        3. view.post()
+        4. 协程
+        5. RxJava/Android
 + 线程池ThreadPoolExecutor
-  1. corePoolSize 核心线程数(一直存活)
-  2. maximumPoolSize 最大线程数：减去核心线程数为非核心线程数(超过keepAliveTime时间会自动销毁)
-  3. maximumPoolSize 非核心线程闲置销毁时间
-  4. workQueue 消息队列，可以设置最大最小数，
-  5. unit 时间单位
-  6. threadFactory 线程创建工厂
-  7. handler 拒绝策略
+    1. corePoolSize 核心线程数(一直存活)
+    2. maximumPoolSize 最大线程数：减去核心线程数为非核心线程数(超过keepAliveTime时间会自动销毁)
+    3. maximumPoolSize 非核心线程闲置销毁时间
+    4. workQueue 消息队列，可以设置最大最小数，
+    5. unit 时间单位
+    6. threadFactory 线程创建工厂
+    7. handler 拒绝策略
 
 #### Handler
 
@@ -81,7 +115,8 @@
 #### 启动流程
 
 + 步骤:
-    1. init进程创建zygote进程，zygote进程fork出SystemServer进程(AMS,WMS,PMS所在)
+    1. 加载BootLoader --> 初始化内核 --> 启动init进程 --> init进程fork出Zygote进程 --> Zygote进程fork出SystemServer进程(
+       AMS,WMS,PMS所在)
     2. launcher进程启动(先不管)
     3. 点击桌面图标时:Launcher -> startActivityActivity() -> mInstrumentation.execStartActivity(
        ActivityThread.getApplicationThread()) <br>

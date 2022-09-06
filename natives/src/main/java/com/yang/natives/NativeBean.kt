@@ -1,6 +1,6 @@
 package com.yang.natives
 
-object NativeBean {v
+object NativeBean {
 
     init {
         System.loadLibrary("ndkdemo")

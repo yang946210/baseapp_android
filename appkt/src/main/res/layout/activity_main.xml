@@ -81,6 +81,11 @@
             android:id="@+id/tv_bluetooth"
             style="@style/menuText"
             android:text="bluetooth" />
+
+        <TextView
+            android:id="@+id/tv_ndk"
+            style="@style/menuText"
+            android:text="NDK" />
     </LinearLayout>
 
 

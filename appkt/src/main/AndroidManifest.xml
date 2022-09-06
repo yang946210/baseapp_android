@@ -3,16 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yang.appkt">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!--是否可以使用蓝牙-->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-
-    <!--蓝牙扫描-->
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-
-    <!--低功耗蓝牙required=true/false ==>只能在支持低功耗蓝牙设备安装/自行判断是否支持低功耗-->
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 是否可以使用蓝牙 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 蓝牙扫描 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 低功耗蓝牙required=true/false ==>只能在支持低功耗蓝牙设备安装/自行判断是否支持低功耗 -->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -24,8 +20,12 @@
         android:theme="@style/Theme.Baseapp"
         tools:targetApi="n">
         <activity
+            android:name=".menu.NdkActivity"
+            android:exported="false" />
+        <activity
             android:name=".menu.BluetoothActivity"
             android:exported="false" />
+
         <service
             android:name=".service.BindService"
             android:enabled="false"

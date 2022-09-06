@@ -47,6 +47,9 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvBluetooth.setOnClickListener {
                 startActivity(Intent(this@MainActivity, BluetoothActivity::class.java))
             }
+            tvNdk.setOnClickListener {
+                startActivity(Intent(this@MainActivity, NdkActivity::class.java))
+            }
         }
     }
 }

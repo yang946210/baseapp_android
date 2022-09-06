@@ -7,9 +7,6 @@ import com.yang.ktbase.base.BaseBindActivity
 class ActivityActivity : BaseBindActivity<ActivityActivityBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.tvAcContent.text="""
-         
-        """.trimIndent()
-
+        binding.tvAcContent.text="232"
     }
 }

@@ -11,6 +11,9 @@ android {
             }
         }
     }
+
+    flavorDimensions("product")
+
 }
 
 dependencies {

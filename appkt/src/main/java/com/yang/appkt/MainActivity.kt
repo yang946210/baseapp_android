@@ -8,16 +8,16 @@ import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
 
 
-
 class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
+
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        binding.apply{
+        binding.apply {
             tvJavaBase.setOnClickListener {
                 startActivity(Intent(this@MainActivity, JavaMemoryActivity::class.java))
             }
-            tvActivity.setOnClickListener{
+            tvActivity.setOnClickListener {
                 startActivity(Intent(this@MainActivity, ActivityActivity::class.java))
             }
             tvLaunch.setOnClickListener {
@@ -51,5 +51,10 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
                 startActivity(Intent(this@MainActivity, NdkActivity::class.java))
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cancel()
     }
 }

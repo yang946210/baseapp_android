@@ -15,9 +15,6 @@ class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled")
     override fun initView(savedInstanceState: Bundle?) {
 
-
-        
-
         binding.apply {
 
             vwMain.apply {
@@ -29,6 +26,7 @@ class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
                     javaScriptEnabled = true
                 }
             }
+
             btNativeClick1.setOnClickListener {
                 vwMain.apply {
                     if ( Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT)
@@ -63,6 +61,15 @@ class MyWebChromeClient : WebChromeClient() {
     ): Boolean {
         ToastUtils.showLong("native log :$url $message")
         return true
+    }
+
+    override fun onJsAlert(
+        view: WebView?,
+        url: String?,
+        message: String?,
+        result: JsResult?
+    ): Boolean {
+        return super.onJsAlert(view, url, message, result)
     }
 
 }

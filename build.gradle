@@ -1,6 +1,6 @@
  apply from: "config.gradle"
 
-
+//test
 buildscript {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }

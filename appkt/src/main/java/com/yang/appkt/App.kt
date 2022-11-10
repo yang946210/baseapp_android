@@ -1,10 +1,12 @@
 package com.yang.appkt
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 
-class App : Application() , ViewModelStoreOwner {
+object App : Application() , ViewModelStoreOwner {
+
 
     var string="shi shi shi"
 

@@ -1,6 +1,12 @@
 package com.yang.appkt
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Context.LOCATION_SERVICE
 import android.content.Intent
+import android.location.Location
+import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -52,14 +58,11 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvBluetooth.text=android.os.Build.MODEL
             tvNdk.setOnClickListener {
                 //startActivity(Intent(this@MainActivity, NdkActivity::class.java))
-                textView.notNull {
-                    textView= TextView(this@MainActivity)
-                    textView!!.text="11"
-                }
-                textView.apply {
-                    Toast.makeText(this@MainActivity,textView?.text,Toast.LENGTH_LONG).show()
-                }
+                val intent=Intent(Intent.ACTION_VIEW, Uri.parse("com-cntaiping-life-tpsl-pre://?outerDataSource=\"GFSecurities\"&authCode=\"EBE6324E19BA36C5EF3F2A60C33D8542\"&busiNums=\"010015348506001\"&recordStatus=\"W\""));
+                startActivity(intent)
             }
+
+            tvNdk.text= "${isLocationProviderEnabled(applicationContext)}+${getLocationByNetWork(applicationContext)}"
         }
     }
 
@@ -78,3 +81,35 @@ inline fun <reified T> T.notNull(nullAction: () -> Unit = {}): T {
     }
     return this
 }
+
+
+fun isLocationProviderEnabled(context: Context): Boolean {
+    var result = false
+    val locationManager = context
+        .getSystemService(LOCATION_SERVICE) as LocationManager ?: return false
+    if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager
+            .isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    ) {
+        result = true
+    }
+    return result
+}
+
+@SuppressLint("MissingPermission")
+private fun getLocationByNetWork(context: Context): Location? {
+    var location: Location? = null
+    val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+    try {
+        if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        }
+    } catch (ex: SecurityException) {
+        ex.printStackTrace()
+    }
+    return location
+}
+
+
+
+

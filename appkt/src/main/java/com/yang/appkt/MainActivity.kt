@@ -2,6 +2,8 @@ package com.yang.appkt
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
+import android.widget.Toast
 import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.base.BaseBindActivity
@@ -10,7 +12,7 @@ import kotlinx.coroutines.*
 
 class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
 
-
+    var textView:TextView?=null
     override fun initView(savedInstanceState: Bundle?) {
 
         binding.apply {
@@ -28,7 +30,7 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             }
             tvWebView.setOnClickListener {
                 startActivity(Intent(this@MainActivity, WebViewActivity::class.java))
-            }
+            }  
             tvRoom.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RoomActivity::class.java))
             }
@@ -47,8 +49,16 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvBluetooth.setOnClickListener {
                 startActivity(Intent(this@MainActivity, BluetoothActivity::class.java))
             }
+            tvBluetooth.text=android.os.Build.MODEL
             tvNdk.setOnClickListener {
-                startActivity(Intent(this@MainActivity, NdkActivity::class.java))
+                //startActivity(Intent(this@MainActivity, NdkActivity::class.java))
+                textView.notNull {
+                    textView= TextView(this@MainActivity)
+                    textView!!.text="11"
+                }
+                textView.apply {
+                    Toast.makeText(this@MainActivity,textView?.text,Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
@@ -57,4 +67,14 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
         super.onDestroy()
         cancel()
     }
+}
+
+/**
+ * 判断是否为空 并传入相关操作
+ */
+inline fun <reified T> T.notNull(nullAction: () -> Unit = {}): T {
+    if (this == null) {
+        nullAction.invoke()
+    }
+    return this
 }

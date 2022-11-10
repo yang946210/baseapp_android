@@ -11,7 +11,8 @@ import com.yang.ktbase.ext.logD
 
 
 
-class LifecycleActivity : BaseActivity<LifecycleViewModel,ActivityLifecycleBinding>() {
+class LifecycleActivity : BaseActivity<LifecycleViewModel,ActivityLifecycleBinding>(),
+    LifecycleObserver {
 
     override fun initView(savedInstanceState: Bundle?) {
 
@@ -19,6 +20,8 @@ class LifecycleActivity : BaseActivity<LifecycleViewModel,ActivityLifecycleBindi
         lifecycle.currentState.toString().logD()
 
         lifecycle.addObserver(MLifecycleObserver())
+
+        lifecycle.addObserver(this)
 
         lifecycle.addObserver(LifecycleEventObserver{ _, event->
             val eventTag="==event======"

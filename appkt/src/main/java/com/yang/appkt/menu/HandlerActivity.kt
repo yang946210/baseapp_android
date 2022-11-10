@@ -61,12 +61,6 @@ class HandlerActivity : BaseBindActivity<ActivityHandlerBinding>(), CoroutineSco
                 }, 2000)
             }
 
-            tvPost.setOnClickListener {
-                mainHandler.post {
-                    tvShow.text = "====post${Thread.currentThread()}"
-                }
-            }
-
 
             tvSendMsg2.setOnClickListener {
                 ioHandler.sendMessage(Message().apply {
@@ -85,14 +79,27 @@ class HandlerActivity : BaseBindActivity<ActivityHandlerBinding>(), CoroutineSco
                 }
             }
 
-            tvPost2.setOnClickListener {
-                ioHandler.post {
-                    "====${Thread.currentThread()}".let {
-                        runOnUiThread {
-                            tvShow.text = it
+            tvPost.setOnClickListener {
+                var index =0;
+
+                var runnable = object: Runnable {
+                    override fun run() {
+                        if (index == 16) {
+                            return
                         }
+                        Thread.currentThread().toString().logD("${index++}")
+                        mainHandler.postDelayed(this, 300)
                     }
                 }
+                mainHandler.postDelayed(runnable, 300)
+            }
+
+
+
+            tvPost2.setOnClickListener {
+                mainHandler.postDelayed({
+                    "1000post".logD("post")
+                },1000)
             }
         }
     }

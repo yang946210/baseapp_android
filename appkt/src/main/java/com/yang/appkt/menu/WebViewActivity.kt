@@ -74,6 +74,8 @@ class MyWebChromeClient : WebChromeClient() {
 
 }
 
+
+
 class JavaScriptInterface{
 
     @JavascriptInterface

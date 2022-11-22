@@ -62,7 +62,9 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
                 startActivity(intent)
             }
 
-            tvNdk.text= "${isLocationProviderEnabled(applicationContext)}+${getLocationByNetWork(applicationContext)}"
+
+
+
         }
     }
 

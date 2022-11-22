@@ -20,6 +20,10 @@
         android:theme="@style/Theme.Baseapp"
         tools:targetApi="n">
         <activity
+            android:name=".menu.VideoAndVoiceActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".menu.NdkActivity"
             android:exported="false" />
         <activity

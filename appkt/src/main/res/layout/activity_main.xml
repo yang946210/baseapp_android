@@ -74,7 +74,7 @@
 
         <TextView
             android:id="@+id/tv_frame"
-            style="@style/menuText"
+             style="@style/menuText"
             android:text="recyclerView" />
 
         <TextView
@@ -91,6 +91,11 @@
             android:id="@+id/tv_voice"
             style="@style/menuText"
             android:text="音视频及合成" />
+
+        <TextView
+            android:id="@+id/tv_okHttp"
+            style="@style/menuText"
+            android:text="OkHttp" />
     </LinearLayout>
 
 

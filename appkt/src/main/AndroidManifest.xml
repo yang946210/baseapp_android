@@ -20,9 +20,15 @@
         android:theme="@style/Theme.Baseapp"
         tools:targetApi="n">
         <activity
-            android:name=".menu.VideoAndVoiceActivity"
+            android:name=".menu.OkHttpActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
+        <activity
+            android:name=".menu.VideoAndVoiceActivity"
+            android:exported="false"/>
         <activity
             android:name=".menu.NdkActivity"
             android:exported="false" />

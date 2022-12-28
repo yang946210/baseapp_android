@@ -9,18 +9,18 @@ import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
+import java.io.File
 
 
 class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
 
     var textView:TextView?=null
-    override fun initView(savedInstanceState: Bundle?) {
 
+    override fun initView(savedInstanceState: Bundle?) {
         binding.apply {
             tvJavaBase.setOnClickListener {
                 startActivity(Intent(this@MainActivity, JavaMemoryActivity::class.java))
@@ -58,13 +58,19 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvBluetooth.text=android.os.Build.MODEL
             tvNdk.setOnClickListener {
                 //startActivity(Intent(this@MainActivity, NdkActivity::class.java))
-                val intent=Intent(Intent.ACTION_VIEW, Uri.parse("com-cntaiping-life-tpsl-pre://?outerDataSource=\"GFSecurities\"&authCode=\"EBE6324E19BA36C5EF3F2A60C33D8542\"&busiNums=\"010015348506001\"&recordStatus=\"W\""));
+                val intent=Intent(Intent.ACTION_VIEW, Uri.parse("com-cntaiping-life-tpsl://?outerDataSource=GFSecurities&authCode=C670A2123962E687F52A37651BFDE655"))
                 startActivity(intent)
             }
+            tvVoice.setOnClickListener {
+                val intent=Intent(Intent.ACTION_VIEW, Uri.parse("com-cntaiping-life-tpsl://?outerDataSource=GFSecurities&authCode=96125295124AD5D41878784DEE0DFA21"))
+                startActivity(intent)
+                //startActivity(Intent(this@MainActivity, VideoAndVoiceActivity::class.java))
+            }
+            tvOkHttp.setOnClickListener {
 
+            }
 
-
-
+            var file=File("")
         }
     }
 
@@ -83,6 +89,7 @@ inline fun <reified T> T.notNull(nullAction: () -> Unit = {}): T {
     }
     return this
 }
+
 
 
 fun isLocationProviderEnabled(context: Context): Boolean {

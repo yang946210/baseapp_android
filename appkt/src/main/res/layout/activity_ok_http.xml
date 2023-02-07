@@ -1,8 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menu.OkHttpActivity">
+
+    <Button
+        android:id="@+id/tv_flowable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Flowable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_text_flowable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送0个N个的数据，支持Reactive-Streams和背压"
+        android:layout_marginStart="20dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_flowable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_flowable"
+        app:layout_constraintTop_toTopOf="@+id/tv_flowable" />
+
+    <Button
+        android:id="@+id/tv_Observable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Observable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_flowable" />
+
+    <TextView
+        android:id="@+id/tv_text_Observable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送0个N个的数据，不支持背压，"
+        android:layout_marginStart="20dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Observable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_Observable"
+        app:layout_constraintTop_toTopOf="@+id/tv_Observable" />
+
+    <Button
+        android:id="@+id/tv_Single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Single"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Observable" />
+
+    <TextView
+        android:id="@+id/tv_text_Single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="只能发送单个数据或者一个错误"
+        android:layout_marginStart="20dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Single"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_Single"
+        app:layout_constraintTop_toTopOf="@+id/tv_Single" />
+
+    <Button
+        android:id="@+id/tv_Completable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Completable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Single" />
+
+    <TextView
+        android:id="@+id/tv_text_Completable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constrainedWidth="true"
+        android:text="没有发送任何数据，但只处理 onComplete 和 onError 事件。"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Completable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_Completable"
+        app:layout_constraintTop_toTopOf="@+id/tv_Completable" />
+
+    <Button
+        android:id="@+id/tv_Maybe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Maybe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Completable" />
+
+    <TextView
+        android:id="@+id/tv_text_Maybe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="能够发射0或者1个数据，要么成功，要么失败。"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Maybe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_Maybe"
+        app:layout_constraintTop_toTopOf="@+id/tv_Maybe" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

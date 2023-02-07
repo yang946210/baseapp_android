@@ -33,11 +33,6 @@
             android:text="activity" />
 
         <TextView
-            android:id="@+id/tv_other"
-            style="@style/menuTitle"
-            android:text="其它" />
-
-        <TextView
             android:id="@+id/tv_launch"
             style="@style/menuText"
             android:text="launch启动流程" />
@@ -90,12 +85,28 @@
         <TextView
             android:id="@+id/tv_voice"
             style="@style/menuText"
-            android:text="音视频及合成" />
+            android:text="VoiceAndVideo" />
 
         <TextView
             android:id="@+id/tv_okHttp"
             style="@style/menuText"
             android:text="OkHttp" />
+
+        <TextView
+            style="@style/menuTitle"
+            android:text="其他" />
+
+        <TextView
+            android:id="@+id/tv_rxJava"
+            style="@style/menuText"
+            android:text="RxJava" />
+
+        <TextView
+            android:id="@+id/tv_watermark"
+            style="@style/menuText"
+            android:text="水印" />
+
+
     </LinearLayout>
 
 

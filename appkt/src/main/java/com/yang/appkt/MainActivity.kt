@@ -55,22 +55,23 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvBluetooth.setOnClickListener {
                 startActivity(Intent(this@MainActivity, BluetoothActivity::class.java))
             }
-            tvBluetooth.text=android.os.Build.MODEL
             tvNdk.setOnClickListener {
-                //startActivity(Intent(this@MainActivity, NdkActivity::class.java))
-                val intent=Intent(Intent.ACTION_VIEW, Uri.parse("com-cntaiping-life-tpsl://?outerDataSource=GFSecurities&authCode=C670A2123962E687F52A37651BFDE655"))
-                startActivity(intent)
+                startActivity(Intent(this@MainActivity, NdkActivity::class.java))
             }
             tvVoice.setOnClickListener {
-                val intent=Intent(Intent.ACTION_VIEW, Uri.parse("com-cntaiping-life-tpsl://?outerDataSource=GFSecurities&authCode=96125295124AD5D41878784DEE0DFA21"))
-                startActivity(intent)
-                //startActivity(Intent(this@MainActivity, VideoAndVoiceActivity::class.java))
+                startActivity(Intent(this@MainActivity, VideoAndVoiceActivity::class.java))
             }
             tvOkHttp.setOnClickListener {
 
             }
+            tvRxJava.setOnClickListener {
+                startActivity(Intent(this@MainActivity, RxJavaActivity::class.java))
+            }
+            tvWatermark.setOnClickListener {
+                startActivity(Intent(this@MainActivity, WaterMarkActivity::class.java))
 
-            var file=File("")
+            }
+
         }
     }
 

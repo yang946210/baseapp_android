@@ -20,15 +20,21 @@
         android:theme="@style/Theme.Baseapp"
         tools:targetApi="n">
         <activity
-            android:name=".menu.OkHttpActivity"
+            android:name=".menu.WaterMarkActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
+            android:name=".menu.RxJavaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu.OkHttpActivity"
+            android:exported="false" />
+        <activity
             android:name=".menu.VideoAndVoiceActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".menu.NdkActivity"
             android:exported="false" />

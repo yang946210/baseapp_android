@@ -2,4 +2,3 @@
 //include ':base'
 include ':ktbase'
 include ':appkt'
-include ':natives'

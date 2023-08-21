@@ -1,6 +1,7 @@
 package com.yang.appkt.menu
 
 import android.os.Bundle
+import com.example.mpeg.NativeLib
 import com.yang.appkt.databinding.ActivityNdkBinding
 import com.yang.ktbase.base.BaseBindActivity
 
@@ -13,12 +14,9 @@ class NdkActivity : BaseBindActivity<ActivityNdkBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.apply {
-            //tvGetString.text= stringFromJNI()
+            tvGetString.text= NativeLib.stringFromJNI()
         }
 
     }
-
-
-
 
 }

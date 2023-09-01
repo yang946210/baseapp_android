@@ -1,27 +1,94 @@
-# For more information about using CMake with Android Studio, read the
-# documentation: https://d.android.com/studio/projects/add-native-code.html
-
-# Sets the minimum version of CMake required to build the native library.
 
 cmake_minimum_required(VERSION 3.22.1)
 
-# Declares and names the project.
-
 project("mpeg")
 
-# Creates and names a library, sets it as either STATIC
-# or SHARED, and provides the relative paths to its source code.
-# You can define multiple libraries, and CMake builds them for you.
-# Gradle automatically packages shared libraries with your APK.
-
-add_library( # Sets the name of the library.
+add_library(
         mpeg
-
-        # Sets the library as a shared library.
         SHARED
-
-        # Provides a relative path to your source file(s).
         mpeg.cpp)
+
+
+
+# 111. 定义so库和头文件所在目录，方面后面使用
+set(ffmpeg_lib_dir ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+# 设置so文件输出到jniLibs目录中
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
+
+## 导入 ffmpeg 相关的动态库
+## 1、导入 avcodec
+## add_library
+## 参数1：库的名称
+## 参数2：表示共享库
+## 参数3：表示导入
+#add_library(avcodec
+#        SHARED
+#        IMPORTED)
+## set_target_properties
+## 参数1：库的名称
+## 参数2：表示设置路径的属性，就是导入本地路径
+## 参数3：本地路径
+#set_target_properties(avcodec
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libavcodec.so)
+#
+## 2、导入 avdevice
+#add_library(avdevice
+#        SHARED
+#        IMPORTED)
+#set_target_properties(avdevice
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libavdevice.so)
+#
+## 3、导入 avfilter
+#add_library(avfilter
+#        SHARED
+#        IMPORTED)
+#set_target_properties(avfilter
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libavfilter.so)
+#
+## 4、导入 avformat
+#add_library(avformat
+#        SHARED
+#        IMPORTED)
+#set_target_properties(avformat
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libavformat.so)
+
+# 5、导入 avutil
+add_library(avutil
+        SHARED
+        IMPORTED)
+set_target_properties(avutil
+        PROPERTIES IMPORTED_LOCATION
+        ${ffmpeg_lib_dir}/libavutil.so)
+
+## 6、导入 postproc
+#add_library(postproc
+#        SHARED
+#        IMPORTED)
+#set_target_properties(postproc
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libpostproc-53.so)
+#
+## 7、导入 swresample
+#add_library(swresample
+#        SHARED
+#        IMPORTED)
+#set_target_properties(swresample
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libswresample.so)
+## 8、导入 swscale
+#add_library(swscale
+#        SHARED
+#        IMPORTED)
+#set_target_properties(swscale
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libswscale.so)
+
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -43,6 +110,7 @@ find_library( # Sets the name of the path variable.
 target_link_libraries( # Specifies the target library.
         mpeg
 
+        avutil
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})

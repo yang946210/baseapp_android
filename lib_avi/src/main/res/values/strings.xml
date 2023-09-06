@@ -1,1 +1,6 @@
-<resources></resources>
+<resources>
+    <string name="recording">录音</string>
+    <string name="mediaRecorder">MediaRecorder</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+</resources>

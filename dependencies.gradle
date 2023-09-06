@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.30.5'
 
     //图片加载框架
-    implementation"io.coil-kt:coil:2.1.0"
+    implementation "io.coil-kt:coil:2.1.0"
 
     //room
     //kapt "androidx.room:room-compiler:2.4.2"
@@ -74,4 +74,8 @@ dependencies {
 
     //内存泄漏检测
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+
+    //rxjava
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
 }

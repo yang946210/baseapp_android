@@ -1,0 +1,12 @@
+apply plugin:'com.android.library'
+apply from:'../dependencies.gradle'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    namespace 'com.example.lib_avi'
+}
+
+dependencies {
+    implementation project(':lib_base')
+    //...in dependencies.gradle
+}

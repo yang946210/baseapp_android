@@ -40,7 +40,7 @@
         <TextView
             android:id="@+id/tv_launch"
             style="@style/menuText"
-            android:text="launch启动流程" />
+            android:text="launch" />
 
         <TextView
             android:id="@+id/tv_handler"
@@ -86,6 +86,11 @@
             android:id="@+id/tv_ndk"
             style="@style/menuText"
             android:text="NDK" />
+
+        <TextView
+            android:id="@+id/tv_avi"
+            style="@style/menuText"
+            android:text="Avi" />
     </LinearLayout>
 
 

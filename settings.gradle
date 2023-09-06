@@ -1,5 +1,6 @@
 //include ':mvp'
 //include ':base'
-include ':ktbase'
+include ':lib_base'
 include ':appkt'
-include ':mpeg'
+include ':lib_mpeg'
+include ':lib_avi'

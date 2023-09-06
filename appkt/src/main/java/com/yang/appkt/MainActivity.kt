@@ -2,6 +2,7 @@ package com.yang.appkt
 
 import android.content.Intent
 import android.os.Bundle
+import com.example.avi.AviMenuActivity
 import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.base.BaseBindActivity
@@ -50,6 +51,10 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
             tvNdk.setOnClickListener {
                 startActivity(Intent(this@MainActivity, NdkActivity::class.java))
             }
+            tvAvi.setOnClickListener {
+                startActivity(Intent(this@MainActivity, AviMenuActivity::class.java))
+            }
+
         }
     }
 

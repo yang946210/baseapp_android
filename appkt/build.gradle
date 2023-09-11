@@ -33,5 +33,4 @@ android {
 dependencies {
     implementation project(':lib_base')
     implementation project(':lib_mpeg')
-    implementation project(':lib_avi')
 }

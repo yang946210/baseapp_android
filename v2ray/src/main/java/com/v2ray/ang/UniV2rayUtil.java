@@ -14,7 +14,6 @@ import com.v2ray.ang.service.V2RayServiceManager;
 import com.v2ray.ang.util.AngConfigManager;
 import com.v2ray.ang.util.MessageUtil;
 import com.v2ray.ang.util.MmkvManager;
-import com.v2ray.ang.util.UiUtil;
 import com.v2ray.ang.util.Utils;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,9 @@ import java.util.List;
 public class UniV2rayUtil {
 
     private final static String TAG= "UniV2rayUtil";
+    private final static String SERVICE_CACHE= "serviceCache";
+
+    public static int REQUEST_START=1002;
 
     /**
      * 服务配置持久化
@@ -40,7 +42,6 @@ public class UniV2rayUtil {
      * 节点索引集合
      */
     private List<ServersCache> serversCache=new ArrayList<>();
-
     /**
      * 节点
      */
@@ -59,11 +60,17 @@ public class UniV2rayUtil {
      * 初始化，使用之前必须且调用一次
      * @param context
      */
-    public void v2RayInit(Context context,String applicationId){
-        subStorage= MMKV.mmkvWithID(MmkvManager.ID_SUB, MMKV.MULTI_PROCESS_MODE);
-        mainStorage= MMKV.mmkvWithID(MmkvManager.ID_MAIN, MMKV.MULTI_PROCESS_MODE);
-        settingsStorage= MMKV.mmkvWithID(MmkvManager.ID_SETTING, MMKV.MULTI_PROCESS_MODE);
-        UiUtil.INSTANCE.copyAssets(context);
+    public ResultBean v2RayInit(Context context) {
+        try {
+            MMKV.initialize(context);
+            subStorage= MMKV.mmkvWithID(MmkvManager.ID_SUB, MMKV.MULTI_PROCESS_MODE);
+            mainStorage= MMKV.mmkvWithID(MmkvManager.ID_MAIN, MMKV.MULTI_PROCESS_MODE);
+            settingsStorage= MMKV.mmkvWithID(MmkvManager.ID_SETTING, MMKV.MULTI_PROCESS_MODE);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResultBean("-1","v2ray ini fail"+e.getMessage());
+        }
+        return new ResultBean("200","v2ray ini success");
     }
 
     /**
@@ -72,23 +79,37 @@ public class UniV2rayUtil {
      * @param name
      * @param context
      */
-    public void setService(final String url, String name, final Context context){
-        SubscriptionItem subItemBean=new SubscriptionItem();
-        subItemBean.setRemarks(name);
-        subItemBean.setUrl(url);
-        subItemBean.setEnabled(true);
-        uuid=Utils.INSTANCE.getUuid();
-        subStorage.encode(uuid,new Gson().toJson(subItemBean));
+    public void setService(final String url, String name, final Context context, final OnV2RayListener listener){
+        try {
+            SubscriptionItem subItemBean=new SubscriptionItem();
+            subItemBean.setRemarks(name);
+            subItemBean.setUrl(url);
+            subItemBean.setEnabled(true);
+            uuid= Utils.INSTANCE.getUuid();
+            subStorage.encode(uuid,new Gson().toJson(subItemBean));
 
-        BaseThreadHelper.getInstance().run(() -> {
-            try {
-                final String configText=Utils.INSTANCE.getUrlContentWithCustomUserAgent(url);
-                BaseThreadHelper.getInstance().runOnUiThread(() -> importBatchConfig(configText, uuid));
-            }catch (Exception e){
-                e.printStackTrace();
+            BaseThreadHelper.getInstance().run(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final String configText= Utils.INSTANCE.getUrlContentWithCustomUserAgent(url);
+                        BaseThreadHelper.getInstance().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                importBatchConfig(configText, uuid,context,listener);
+                            }
+                        });
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        listener.callback("-1","r2var setService fail:"+e.getMessage());
+                    }
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+            listener.callback("-1","r2var setService fail:"+e.getMessage());
+        }
 
-            }
-        });
     }
 
     /**
@@ -102,11 +123,15 @@ public class UniV2rayUtil {
             if (intent == null) {
                 startV2Ray(context);
             } else {
-                ((Activity)context).startActivityForResult(intent,10000);
+                ((Activity)context).startActivityForResult(intent,REQUEST_START);
             }
         } else {
             startV2Ray(context);
         }
+    }
+
+    public void stop(Context context){
+        Utils.INSTANCE.stopVService(context);
     }
 
     public void startV2Ray(Context context){
@@ -123,8 +148,7 @@ public class UniV2rayUtil {
     }
 
 
-
-    private void importBatchConfig(String server, String subid) {
+    private void importBatchConfig(String server, String subid,Context context,OnV2RayListener listener) {
         boolean append = TextUtils.isEmpty(subid);
         int  count = AngConfigManager.INSTANCE.importBatchConfig(server, subid, append);
         if (count <= 0) {
@@ -132,20 +156,22 @@ public class UniV2rayUtil {
         }
         if (count > 0) {
             Log.d(AppConfig.ANG_PACKAGE, "v2ray importBatchConfig: success");
-            serverList=MmkvManager.INSTANCE.decodeServerList();
+            serverList= MmkvManager.INSTANCE.decodeServerList();
             for (String guid:serverList){
                 ServerConfig config = MmkvManager.INSTANCE.decodeServerConfig(guid);
                 if (config!=null){
                     serversCache.add(new ServersCache(guid,config));
                 }
             }
+            Gson gson = new Gson();
+            subStorage.encode(SERVICE_CACHE,gson.toJson(serversCache));
+            listener.callback("200","v2ray importBatchConfig: fail count"+count);
+
             mainStorage.encode(MmkvManager.KEY_SELECTED_SERVER, serverList.get(0));
         } else {
             Log.d(AppConfig.ANG_PACKAGE, "v2ray importBatchConfig: fail");
+            listener.callback("-1","v2ray importBatchConfig: fail count=0");
         }
     }
-
-
-
 
 }

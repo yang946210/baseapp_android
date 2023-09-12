@@ -3,6 +3,36 @@ apply from:'../dependencies.gradle'
 apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
+    namespace 'com.v2ray.ang'
+    compileSdk 33
+    defaultConfig {
+        applicationId "com.v2ray.ang"
+        minSdk 21
+        targetSdk 31
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        //dataBinding true
+        viewBinding true
+    }
+
 
     signingConfigs {
         release {
@@ -28,9 +58,11 @@ android {
         }
     }
 
+
+
 }
 
 dependencies {
     implementation project(':lib_base')
-    implementation project(':lib_mpeg')
+    implementation project(':v2ray')
 }

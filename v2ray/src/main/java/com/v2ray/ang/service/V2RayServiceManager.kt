@@ -60,10 +60,9 @@ object V2RayServiceManager {
 
     fun startV2Ray(context: Context) {
         if (settingsStorage?.decodeBool(AppConfig.PREF_PROXY_SHARING) == true) {
-            Toast.makeText(context,"Allow connections from the LAN, Make sure you are in a trusted network", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.toast_warning_pref_proxysharing_short, Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(context,"services start", Toast.LENGTH_SHORT).show()
-
+            Toast.makeText(context, R.string.toast_services_start, Toast.LENGTH_SHORT).show()
         }
         val intent = if (settingsStorage?.decodeString(AppConfig.PREF_MODE) ?: "VPN" == "VPN") {
             Intent(context.applicationContext, V2RayVpnService::class.java)
@@ -150,10 +149,10 @@ object V2RayServiceManager {
 
             if (v2rayPoint.isRunning) {
                 MessageUtil.sendMsg2UI(service, AppConfig.MSG_STATE_START_SUCCESS, "")
-                //showNotification()
+                showNotification()
             } else {
                 MessageUtil.sendMsg2UI(service, AppConfig.MSG_STATE_START_FAILURE, "")
-                //cancelNotification()
+                cancelNotification()
             }
         }
     }
@@ -172,7 +171,7 @@ object V2RayServiceManager {
         }
 
         MessageUtil.sendMsg2UI(service, AppConfig.MSG_STATE_STOP_SUCCESS, "")
-        //cancelNotification()
+        cancelNotification()
 
         try {
             service.unregisterReceiver(mMsgReceive)
@@ -237,64 +236,68 @@ object V2RayServiceManager {
                 }
             }
             val result = if (time == -1L) {
-                "Fail to detect internet connection: %s$errstr"
+                Log.i("content===", "measureV2rayDelay: $errstr")
+                service.getString(R.string.connection_test_error, errstr)
             } else {
-                ">Success: HTTP connection took %dms$time"
+                Log.i("content===", "measureV2rayDelay: $time")
+                service.getString(R.string.connection_test_available, time)
             }
 
             MessageUtil.sendMsg2UI(service, AppConfig.MSG_MEASURE_DELAY_SUCCESS, result)
         }
     }
 
-//    private fun showNotification() {
-//        val service = serviceControl?.get()?.getService() ?: return
-//        val startMainIntent = Intent(service, MainActivity::class.java)
-//        val contentPendingIntent = PendingIntent.getActivity(service,
-//                NOTIFICATION_PENDING_INTENT_CONTENT, startMainIntent,
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-//            } else {
-//                PendingIntent.FLAG_UPDATE_CURRENT
-//            })
-//
-//        val stopV2RayIntent = Intent(AppConfig.BROADCAST_ACTION_SERVICE)
-//        stopV2RayIntent.`package` = ANG_PACKAGE
-//        stopV2RayIntent.putExtra("key", AppConfig.MSG_STATE_STOP)
-//
-//        val stopV2RayPendingIntent = PendingIntent.getBroadcast(service,
-//                NOTIFICATION_PENDING_INTENT_STOP_V2RAY, stopV2RayIntent,
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-//            } else {
-//                PendingIntent.FLAG_UPDATE_CURRENT
-//            })
-//
-//        val channelId =
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                    createNotificationChannel()
-//                } else {
-//                    // If earlier version channel ID is not used
-//                    // https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html#NotificationCompat.Builder(android.content.Context)
-//                    ""
-//                }
-//
-//        mBuilder = NotificationCompat.Builder(service, channelId)
-//                .setSmallIcon(R.drawable.ic_stat_name)
-//                .setContentTitle(currentConfig?.remarks)
-//                .setPriority(NotificationCompat.PRIORITY_MIN)
-//                .setOngoing(true)
-//                .setShowWhen(false)
-//                .setOnlyAlertOnce(true)
-//                .setContentIntent(contentPendingIntent)
-//                .addAction(R.drawable.ic_close_grey_800_24dp,
-//                        service.getString(R.string.notification_action_stop_v2ray),
-//                        stopV2RayPendingIntent)
-//        //.build()
-//
-//        //mBuilder?.setDefaults(NotificationCompat.FLAG_ONLY_ALERT_ONCE)  //取消震动,铃声其他都不好使
-//
-//        service.startForeground(NOTIFICATION_ID, mBuilder?.build())
-//    }
+    private fun showNotification() {
+        val service = serviceControl?.get()?.getService() ?: return
+        //val startMainIntent = Intent(service, MainActivity::class.java)
+        val startMainIntent = Intent()
+        startMainIntent.action="com.example.main";
+        val contentPendingIntent = PendingIntent.getActivity(service,
+                NOTIFICATION_PENDING_INTENT_CONTENT, startMainIntent,
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            } else {
+                PendingIntent.FLAG_UPDATE_CURRENT
+            })
+
+        val stopV2RayIntent = Intent(AppConfig.BROADCAST_ACTION_SERVICE)
+        stopV2RayIntent.`package` = ANG_PACKAGE
+        stopV2RayIntent.putExtra("key", AppConfig.MSG_STATE_STOP)
+
+        val stopV2RayPendingIntent = PendingIntent.getBroadcast(service,
+                NOTIFICATION_PENDING_INTENT_STOP_V2RAY, stopV2RayIntent,
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            } else {
+                PendingIntent.FLAG_UPDATE_CURRENT
+            })
+
+        val channelId =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    createNotificationChannel()
+                } else {
+                    // If earlier version channel ID is not used
+                    // https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html#NotificationCompat.Builder(android.content.Context)
+                    ""
+                }
+
+        mBuilder = NotificationCompat.Builder(service, channelId)
+                .setSmallIcon(R.drawable.ic_stat_name)
+                .setContentTitle(currentConfig?.remarks)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setOngoing(true)
+                .setShowWhen(false)
+                .setOnlyAlertOnce(true)
+                .setContentIntent(contentPendingIntent)
+                .addAction(R.drawable.ic_close_grey_800_24dp,
+                        service.getString(R.string.notification_action_stop_v2ray),
+                        stopV2RayPendingIntent)
+        //.build()
+
+        //mBuilder?.setDefaults(NotificationCompat.FLAG_ONLY_ALERT_ONCE)  //取消震动,铃声其他都不好使
+
+        service.startForeground(NOTIFICATION_ID, mBuilder?.build())
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(): String {
@@ -317,20 +320,20 @@ object V2RayServiceManager {
         mSubscription = null
     }
 
-//    private fun updateNotification(contentText: String?, proxyTraffic: Long, directTraffic: Long) {
-//        if (mBuilder != null) {
-//            if (proxyTraffic < NOTIFICATION_ICON_THRESHOLD && directTraffic < NOTIFICATION_ICON_THRESHOLD) {
-//                mBuilder?.setSmallIcon(R.drawable.ic_stat_name)
-//            } else if (proxyTraffic > directTraffic) {
-//                mBuilder?.setSmallIcon(R.drawable.ic_stat_proxy)
-//            } else {
-//                mBuilder?.setSmallIcon(R.drawable.ic_stat_direct)
-//            }
-//            mBuilder?.setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
-//            mBuilder?.setContentText(contentText) // Emui4.1 need content text even if style is set as BigTextStyle
-//            getNotificationManager()?.notify(NOTIFICATION_ID, mBuilder?.build())
-//        }
-//    }
+    private fun updateNotification(contentText: String?, proxyTraffic: Long, directTraffic: Long) {
+        if (mBuilder != null) {
+            if (proxyTraffic < NOTIFICATION_ICON_THRESHOLD && directTraffic < NOTIFICATION_ICON_THRESHOLD) {
+                mBuilder?.setSmallIcon(R.drawable.ic_stat_name)
+            } else if (proxyTraffic > directTraffic) {
+                mBuilder?.setSmallIcon(R.drawable.ic_stat_proxy)
+            } else {
+                mBuilder?.setSmallIcon(R.drawable.ic_stat_direct)
+            }
+            mBuilder?.setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
+            mBuilder?.setContentText(contentText) // Emui4.1 need content text even if style is set as BigTextStyle
+            getNotificationManager()?.notify(NOTIFICATION_ID, mBuilder?.build())
+        }
+    }
 
     private fun getNotificationManager(): NotificationManager? {
         if (mNotificationManager == null) {
@@ -371,7 +374,7 @@ object V2RayServiceManager {
                             }
                             appendSpeedString(text, TAG_DIRECT, directUplink / sinceLastQueryInSeconds,
                                     directDownlink / sinceLastQueryInSeconds)
-                            //updateNotification(text.toString(), proxyTotal, directDownlink + directUplink)
+                            updateNotification(text.toString(), proxyTotal, directDownlink + directUplink)
                         }
                         lastZeroSpeed = zeroSpeed
                         lastQueryTime = queryTime
@@ -393,7 +396,7 @@ object V2RayServiceManager {
         if (mSubscription != null) {
             mSubscription?.unsubscribe() //stop queryStats
             mSubscription = null
-            //updateNotification(currentConfig?.remarks, 0, 0)
+            updateNotification(currentConfig?.remarks, 0, 0)
         }
     }
 }

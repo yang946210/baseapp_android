@@ -2,7 +2,8 @@ package com.yang.appkt
 
 import android.content.Intent
 import android.os.Bundle
-import com.yang.appkt.databinding.ActivityMainBinding
+import com.v2ray.ang.UniV2rayUtil
+import com.v2ray.ang.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
@@ -45,15 +46,16 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
                 startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
             }
             tvBluetooth.setOnClickListener {
-                startActivity(Intent(this@MainActivity, BluetoothActivity::class.java))
+                //startActivity(Intent(this@MainActivity, NdkActivity::class.java))
+                UniV2rayUtil.getInstance().v2RayInit(this@MainActivity)
+                UniV2rayUtil.getInstance().setService("https://s.sdncimcin.xyz/link/FaxucwZFLGdEgYu4?sub=3", "lala", this@MainActivity)
             }
             tvNdk.setOnClickListener {
-                startActivity(Intent(this@MainActivity, NdkActivity::class.java))
+                UniV2rayUtil.getInstance().Start(this@MainActivity)
             }
             tvAvi.setOnClickListener {
-
+                UniV2rayUtil.getInstance().testCurrentServerRealPing(this@MainActivity)
             }
-
         }
     }
 

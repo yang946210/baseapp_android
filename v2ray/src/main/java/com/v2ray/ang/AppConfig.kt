@@ -5,7 +5,7 @@ package com.v2ray.ang
  * App Config Const
  */
 object AppConfig {
-    const val ANG_PACKAGE = "com.v2ray.ang"
+    const val ANG_PACKAGE ="com.android.UniRay"
     const val DIR_ASSETS = "assets"
     const val VERSION_NAME = "1.8.5"
 

@@ -3,17 +3,14 @@ package com.yang.appkt
 import android.app.Application
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import com.tencent.mmkv.MMKV
 
-class App : Application() , ViewModelStoreOwner {
+class App : Application() {
 
-    var string="shi shi shi"
 
-    private val appViewModelStore: ViewModelStore by lazy {
-         ViewModelStore()
-    }
-
-    override fun getViewModelStore(): ViewModelStore {
-        return appViewModelStore
+    override fun onCreate() {
+        super.onCreate()
+        MMKV.initialize(this)
     }
 
 

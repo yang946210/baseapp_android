@@ -3,7 +3,7 @@ package com.yang.appkt.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.google.gson.JsonObject
-import com.yang.appkt.databinding.ItemBannerBinding
+import com.v2ray.ang.databinding.ItemBannerBinding
 import com.yang.ktbase.base.BaseRecyclerViewJsonAdapter
 import com.yang.ktbase.base.BaseViewHolder
 

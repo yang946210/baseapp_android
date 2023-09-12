@@ -2,6 +2,6 @@
 //include ':base'
 include ':lib_base'
 include ':appkt'
-include ':lib_mpeg'
+
 
 include ':v2ray'

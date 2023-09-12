@@ -5,11 +5,10 @@ plugins {
 
 android {
     namespace 'com.v2ray.ang'
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         minSdk 21
-
     }
 
     buildTypes {
@@ -22,6 +21,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }

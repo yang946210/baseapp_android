@@ -11,6 +11,7 @@ import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.v2ray.ang.AppConfig
 import com.v2ray.ang.R
+import com.v2ray.ang.R.*
 import com.v2ray.ang.util.MessageUtil
 import com.v2ray.ang.util.Utils
 import java.lang.ref.SoftReference
@@ -21,10 +22,12 @@ class QSTileService : TileService() {
     fun setState(state: Int) {
         if (state == Tile.STATE_INACTIVE) {
             qsTile?.state = Tile.STATE_INACTIVE
-            qsTile?.label ="appname"
+            qsTile?.label = getString(string.app_name)
+            qsTile?.icon = Icon.createWithResource(applicationContext, drawable.ic_stat_name)
         } else if (state == Tile.STATE_ACTIVE) {
             qsTile?.state = Tile.STATE_ACTIVE
             qsTile?.label = V2RayServiceManager.currentConfig?.remarks
+            qsTile?.icon = Icon.createWithResource(applicationContext, drawable.ic_stat_name)
         }
 
         qsTile?.updateTile()

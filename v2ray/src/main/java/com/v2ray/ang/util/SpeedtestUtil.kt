@@ -116,7 +116,7 @@ object SpeedtestUtil {
             val elapsed = SystemClock.elapsedRealtime() - start
 
             if (code == 204 || code == 200 && conn.responseLength == 0L) {
-                result = "Success: HTTP connection took %dms$elapsed"
+                result = context.getString(R.string.connection_test_available, elapsed)
             } else {
                 throw IOException(context.getString(R.string.connection_test_error_status_code, code))
             }

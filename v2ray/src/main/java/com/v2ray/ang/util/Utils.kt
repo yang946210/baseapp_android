@@ -7,9 +7,8 @@ import android.util.Base64
 import java.util.*
 import android.content.ClipData
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.res.Configuration.UI_MODE_NIGHT_MASK
-import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.net.Uri
 import android.os.Build
 import android.os.LocaleList
@@ -20,6 +19,8 @@ import android.widget.Toast
 import com.tencent.mmkv.MMKV
 import com.v2ray.ang.AppConfig
 import com.v2ray.ang.AppConfig.ANG_PACKAGE
+import com.v2ray.ang.BuildConfig
+import com.v2ray.ang.R
 import java.net.*
 import com.v2ray.ang.service.V2RayServiceManager
 import java.io.IOException
@@ -176,7 +177,7 @@ object Utils {
             //CIDR
             if (addr.indexOf("/") > 0) {
                 val arr = addr.split("/")
-                if (arr.count() == 2 && Integer.parseInt(arr[1]) > -1) {
+                if (arr.count() == 2 && Integer.parseInt(arr[1]) > 0) {
                     addr = arr[0]
                 }
             }
@@ -246,7 +247,7 @@ object Utils {
 
     fun startVServiceFromToggle(context: Context): Boolean {
         if (mainStorage?.decodeString(MmkvManager.KEY_SELECTED_SERVER).isNullOrEmpty()) {
-            Toast.makeText(context,"first user",Toast.LENGTH_SHORT);
+            Toast.makeText(context,R.string.app_tile_first_use,Toast.LENGTH_SHORT).show()
             return false
         }
         V2RayServiceManager.startV2Ray(context)
@@ -257,7 +258,7 @@ object Utils {
      * stopVService
      */
     fun stopVService(context: Context) {
-        Toast.makeText(context,"service stop",Toast.LENGTH_SHORT);
+        Toast.makeText(context,R.string.toast_services_stop,Toast.LENGTH_SHORT).show()
         MessageUtil.sendMsg2Service(context, AppConfig.MSG_STATE_STOP, "")
     }
 
@@ -354,7 +355,7 @@ object Utils {
 
     fun getDarkModeStatus(context: Context): Boolean {
         val mode = context.resources.configuration.uiMode and UI_MODE_NIGHT_MASK
-        return mode != UI_MODE_NIGHT_NO
+        return mode == UI_MODE_NIGHT_YES
     }
 
     fun getIpv6Address(address: String): String {
@@ -398,9 +399,5 @@ object Utils {
         return URL(url.protocol, IDN.toASCII(url.host, IDN.ALLOW_UNASSIGNED), url.port, url.file)
             .toExternalForm()
     }
-
-    fun isTv(context: Context): Boolean =
-        context.packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
-
 }
 

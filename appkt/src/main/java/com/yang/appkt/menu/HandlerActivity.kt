@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import com.yang.appkt.databinding.ActivityHandlerBinding
+import com.v2ray.ang.databinding.ActivityHandlerBinding
 import com.yang.ktbase.base.BaseBindActivity
 import com.yang.ktbase.ext.logD
 import com.yang.ktbase.ext.notNull

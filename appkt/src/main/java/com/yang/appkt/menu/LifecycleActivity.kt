@@ -2,16 +2,16 @@ package com.yang.appkt.menu
 
 import android.os.Bundle
 import androidx.lifecycle.*
+import com.v2ray.ang.databinding.ActivityLifecycleBinding
 
 
-import com.yang.appkt.databinding.ActivityLifecycleBinding
 import com.yang.appkt.viewmodel.LifecycleViewModel
 import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.ext.logD
 
 
 
-class LifecycleActivity : BaseActivity<LifecycleViewModel,ActivityLifecycleBinding>() {
+class LifecycleActivity : BaseActivity<LifecycleViewModel, ActivityLifecycleBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
 

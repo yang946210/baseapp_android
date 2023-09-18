@@ -1,7 +1,7 @@
 package com.yang.appkt.menu
 
 import android.os.Bundle
-import com.yang.appkt.databinding.ActivityLaunchBinding
+import com.v2ray.ang.databinding.ActivityLaunchBinding
 import com.yang.ktbase.base.BaseBindActivity
 
 

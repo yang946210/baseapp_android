@@ -2,7 +2,7 @@ package com.yang.appkt.menu
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import com.yang.appkt.databinding.ActivityRoomBinding
+import com.v2ray.ang.databinding.ActivityRoomBinding
 import com.yang.appkt.viewmodel.RoomViewModel
 import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.ext.logD

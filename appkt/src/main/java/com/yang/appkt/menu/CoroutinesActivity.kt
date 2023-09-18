@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import coil.load
-import com.yang.appkt.databinding.ActivityCoroutinesBinding
+import com.v2ray.ang.databinding.ActivityCoroutinesBinding
 import com.yang.appkt.viewmodel.CoroutineModel
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity

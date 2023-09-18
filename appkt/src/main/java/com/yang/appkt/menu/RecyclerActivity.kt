@@ -2,8 +2,8 @@ package com.yang.appkt.menu
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.v2ray.ang.databinding.ActivityRecyclerBinding
 import com.yang.appkt.adapter.BannerJsonAdapter
-import com.yang.appkt.databinding.ActivityRecyclerBinding
 import com.yang.appkt.viewmodel.FrameViewModel
 import com.yang.ktbase.base.BaseActivity
 

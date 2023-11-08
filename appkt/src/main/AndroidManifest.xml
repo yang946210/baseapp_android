@@ -45,7 +45,6 @@
         <activity android:name=".menu.RoomActivity" />
         <activity android:name=".menu.RecyclerActivity" />
         <activity android:name=".menu.CoroutinesActivity" />
-        <activity android:name="com.example.avi.AviMenuActivity" />
 
         <service
             android:name=".service.BindService"

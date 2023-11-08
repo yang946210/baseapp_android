@@ -4,4 +4,5 @@
     <string name="start">start</string>
     <string name="stop">stop</string>
     <string name="media_recorder">MediaRecorder</string>
+    <string name="image">Image</string>
 </resources>

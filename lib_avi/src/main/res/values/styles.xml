@@ -33,4 +33,14 @@
         <item name="android:background">#e0e0e0</item>
     </style>
 
+    <style name="itemText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">#e0e0e0</item>
+        <item name="android:textColor">#e1e1e1</item>
+    </style>
+
 </resources>

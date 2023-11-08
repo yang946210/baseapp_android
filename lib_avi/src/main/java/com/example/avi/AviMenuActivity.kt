@@ -1,6 +1,5 @@
 package com.example.avi
 
-import android.content.Intent
 import android.os.Bundle
 import com.example.lib_avi.databinding.ActivityAviMenuBinding
 import com.yang.ktbase.base.BaseBindActivity

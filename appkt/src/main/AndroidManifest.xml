@@ -11,8 +11,8 @@
         android:required="true" />
 
     <application
-        android:allowBackup="true"
         android:name=".App"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -20,12 +20,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Baseapp"
         tools:targetApi="n">
+
         <activity
-            android:name=".menu.NdkActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.BluetoothActivity"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".menu.NdkActivity" />
+        <activity android:name=".menu.BluetoothActivity" />
+        <activity android:name=".menu.ServiceActivity" />
+        <activity android:name=".menu.JavaMemoryActivity" />
+        <activity android:name=".menu.ActivityActivity" />
+        <activity android:name=".menu.VmActivity" />
+        <activity android:name=".menu.LifecycleActivity" />
+        <activity android:name=".menu.LaunchActivity" />
+        <activity android:name=".menu.HandlerActivity" />
+        <activity android:name=".menu.WebViewActivity" />
+        <activity android:name=".menu.RoomActivity" />
+        <activity android:name=".menu.RecyclerActivity" />
+        <activity android:name=".menu.CoroutinesActivity" />
+        <activity android:name="com.example.avi.AviMenuActivity" />
 
         <service
             android:name=".service.BindService"
@@ -35,56 +55,6 @@
             android:name=".service.StartService"
             android:enabled="false"
             android:exported="true" />
-
-        <activity
-            android:name=".menu.ServiceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.JavaMemoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.ActivityActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.VmActivity"
-            android:exported="false"
-            android:label="@string/title_activity_vm" />
-        <activity
-            android:name=".menu.LifecycleActivity"
-            android:exported="false" /> <!-- android:process=":launch" -->
-        <activity
-            android:name=".menu.LaunchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.HandlerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.WebViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.RoomActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTask"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.example.main"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
-            </intent-filter>
-
-        </activity>
-        <activity
-            android:name=".menu.RecyclerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".menu.CoroutinesActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

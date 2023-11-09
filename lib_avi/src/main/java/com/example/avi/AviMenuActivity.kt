@@ -1,6 +1,7 @@
 package com.example.avi
 import android.content.Intent
 import android.os.Bundle
+import com.example.avi.menu.AudioActivity
 import com.example.avi.menu.PicShowActivity
 import com.example.lib_avi.databinding.ActivityAviMenuBinding
 import com.yang.ktbase.base.BaseBindActivity
@@ -13,6 +14,7 @@ class AviMenuActivity : BaseBindActivity<ActivityAviMenuBinding>(), CoroutineSco
                 startActivity(Intent(this@AviMenuActivity, PicShowActivity::class.java))
             }
             tvRecording.setOnClickListener {
+                startActivity(Intent(this@AviMenuActivity, AudioActivity::class.java))
             }
         }
     }

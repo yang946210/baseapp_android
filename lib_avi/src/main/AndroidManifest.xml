@@ -8,9 +8,8 @@
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application>
-        <activity
-            android:name="com.example.avi.menu.PicShowActivity"
-            android:exported="false" />
+        <activity android:name="com.example.avi.menu.PicShowActivity" />
+        <activity android:name="com.example.avi.menu.AudioActivity" />
 
         <activity android:name="com.example.avi.AviMenuActivity"/>
     </application>

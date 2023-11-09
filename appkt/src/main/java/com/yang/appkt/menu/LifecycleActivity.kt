@@ -2,7 +2,7 @@ package com.yang.appkt.menu
 
 import android.os.Bundle
 import androidx.lifecycle.*
-import com.v2ray.ang.databinding.ActivityLifecycleBinding
+import com.yang.appkt.databinding.ActivityLifecycleBinding
 
 
 import com.yang.appkt.viewmodel.LifecycleViewModel

@@ -3,6 +3,6 @@
     <string name="mediaRecorder">MediaRecorder</string>
     <string name="start">start</string>
     <string name="stop">stop</string>
-    <string name="media_recorder">MediaRecorder</string>
     <string name="image">Image</string>
+    <string name="Audio">Audio</string>
 </resources>

@@ -16,7 +16,9 @@ class PicShowActivity : BaseBindActivity<ActivityPicShowBinding>() {
             //image加载图片
             imageBitmap = BitmapFactory.decodeStream(assets.open("image_info.webp"))
             picBitmap = BitmapFactory.decodeStream(assets.open("pic1.jpg"))
-        }.onFailure {  }
+        }.onFailure {
+
+        }
 
 
         binding.apply {

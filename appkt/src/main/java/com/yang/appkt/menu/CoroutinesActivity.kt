@@ -1,14 +1,11 @@
 package com.yang.appkt.menu
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
-import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import coil.load
-import com.v2ray.ang.databinding.ActivityCoroutinesBinding
+import com.yang.appkt.databinding.ActivityCoroutinesBinding
 import com.yang.appkt.viewmodel.CoroutineModel
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity

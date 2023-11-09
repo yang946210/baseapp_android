@@ -1,15 +1,10 @@
 package com.yang.appkt.menu.ui.home
 
 import android.os.Bundle
-import androidx.lifecycle.LifecycleCoroutineScope
-import androidx.lifecycle.lifecycleScope
-import com.v2ray.ang.databinding.FragmentHomeBinding
+import com.yang.appkt.databinding.FragmentHomeBinding
 import com.yang.appkt.ext.logLifeCycle
 import com.yang.ktbase.base.BaseFragment
-import com.yang.ktbase.ext.logD
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 

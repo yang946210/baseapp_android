@@ -14,7 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.ToastUtils
-import com.v2ray.ang.databinding.ActivityBluetoothBinding
+import com.yang.appkt.databinding.ActivityBluetoothBinding
 import com.yang.ktbase.base.BaseBindActivity
 
 

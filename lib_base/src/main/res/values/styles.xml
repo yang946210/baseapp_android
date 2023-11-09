@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="base_custom_dialog_style" parent="android:Theme.Dialog">
         <item name="android:windowNoTitle">true</item><!--除去title-->
         <item name="android:backgroundDimAmount">0.5</item>
@@ -9,5 +9,64 @@
         <item name="android:windowNoTitle">true</item><!--除去title-->
         <item name="android:backgroundDimAmount">0</item>
         <item name="android:windowBackground">@color/base_color_transparent</item><!--除去背景色-->
+    </style>
+
+
+    <style name="itemTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">#e0e0e0</item>
+    </style>
+
+    <style name="itemButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">#e0e0e0</item>
+    </style>
+
+    <style name="itemText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">#e0e0e0</item>
+        <item name="android:textColor">#e1e1e1</item>
+    </style>
+
+
+    <style name="menuText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingVertical" tools:ignore="NewApi">10dp</item>
+        <item name="android:paddingHorizontal" tools:ignore="NewApi">50dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="menuTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:background">@color/E66E6E</item>
+    </style>
+
+    <style name="button_blue10" parent="ButtonView.Blue">
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">5dp</item>
     </style>
 </resources>

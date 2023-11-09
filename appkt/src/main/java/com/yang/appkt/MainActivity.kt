@@ -3,7 +3,7 @@ package com.yang.appkt
 import com.example.avi.AviMenuActivity
 import android.content.Intent
 import android.os.Bundle
-import com.v2ray.ang.databinding.ActivityMainBinding
+import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*

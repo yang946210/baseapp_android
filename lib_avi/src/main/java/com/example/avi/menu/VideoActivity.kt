@@ -6,13 +6,12 @@ import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.example.lib_avi.R
 import com.example.lib_avi.databinding.ActivityCameraBinding
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
-class CameraActivity :  BaseBindActivity<ActivityCameraBinding>(), CoroutineScope by MainScope() {
+class VideoActivity :  BaseBindActivity<ActivityCameraBinding>(), CoroutineScope by MainScope() {
 
     override fun initView(savedInstanceState: Bundle?) {
 

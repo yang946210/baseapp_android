@@ -5,8 +5,8 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.v2ray.ang.R
-import com.v2ray.ang.databinding.ActivityVmBinding
+import com.yang.appkt.R
+import com.yang.appkt.databinding.ActivityVmBinding
 import com.yang.appkt.viewmodel.LifecycleViewModel
 import com.yang.appkt.viewmodel.VmViewModel
 import com.yang.ktbase.base.BaseActivity

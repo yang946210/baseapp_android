@@ -3,7 +3,7 @@ package com.yang.appkt.menu.ui.vm
 import android.os.Bundle
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import com.v2ray.ang.databinding.FragmentModelBinding
+import com.yang.appkt.databinding.FragmentModelBinding
 import com.yang.appkt.ext.logLifeCycle
 import com.yang.appkt.viewmodel.VmViewModel
 import com.yang.ktbase.base.BaseFragment

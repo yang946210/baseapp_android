@@ -1,46 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-
-
-    <style name="menuTitle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:paddingStart">20dp</item>
-        <item name="android:layout_marginTop">1dp</item>
-        <item name="android:background">@color/C3D1E1</item>
-    </style>
-
-    <style name="itemTitle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_margin">10dp</item>
-        <item name="android:background">#e0e0e0</item>
-    </style>
-
-    <style name="itemButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_margin">10dp</item>
-        <item name="android:background">#e0e0e0</item>
-    </style>
-
-    <style name="itemText">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_margin">10dp</item>
-        <item name="android:background">#e0e0e0</item>
-        <item name="android:textColor">#e1e1e1</item>
-    </style>
-
 </resources>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.avi.menu.AudioActivity">
+
+    tools:context="com.example.avi.menu.audio.AudioActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,25 +17,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/itemText"/>
-        <com.xuexiang.xui.widget.button.ButtonView
+        <TextView
             android:id="@+id/tv_getPermission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button_blue10"
+            style="@style/ButtonBg.blue10"
             android:text="获取权限"/>
 
-        <com.xuexiang.xui.widget.button.ButtonView
+        <TextView
             android:id="@+id/tv_start1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button_blue10"
+            style="@style/ButtonBg.blue10"
             android:text="MediaRecorder开始"/>
 
-        <com.xuexiang.xui.widget.button.ButtonView
+        <TextView
             android:id="@+id/tv_end1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button_blue10"
+            style="@style/ButtonBg.blue10"
             android:text="MediaRecorder结束"/>
 
     </LinearLayout>

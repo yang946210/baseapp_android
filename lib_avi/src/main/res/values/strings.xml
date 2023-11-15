@@ -5,4 +5,6 @@
     <string name="stop">stop</string>
     <string name="image">Image</string>
     <string name="Audio">Audio</string>
+    <string name="camera2">camera2</string>
+    <string name="getCameraInfo">CameraInfo</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.avi.menu
+package com.example.avi.menu.image
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

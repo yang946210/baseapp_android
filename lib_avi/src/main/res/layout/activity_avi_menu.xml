@@ -12,12 +12,22 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/tv_image"
-            style="@style/itemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBg.blue10"
             android:text="@string/image" />
         <TextView
             android:id="@+id/tv_Recording"
-            style="@style/itemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBg.blue10"
             android:text="@string/Audio" />
+        <TextView
+            android:id="@+id/tv_camera2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBg.blue10"
+            android:text="@string/camera2" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    val stateFlow= MutableStateFlow(0)
+    private val stateFlow= MutableStateFlow(0)
 
     fun add (){
         stateFlow.value++

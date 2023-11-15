@@ -24,11 +24,14 @@ abstract class BaseBindActivity<B : ViewBinding> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initView(savedInstanceState)
+        initData(savedInstanceState)
     }
 
     /**
      * 初始化
      */
     abstract fun initView(savedInstanceState: Bundle?)
+    open fun initData(savedInstanceState: Bundle?){
 
+    }
 }

@@ -9,11 +9,4 @@ android {
 dependencies {
     implementation project(':lib_base')
 
-
-    //cameraX相关
-    def camerax_version = "1.0.0-beta06"
-    implementation "androidx.camera:camera-camera2:$camerax_version"    // CameraX 核心库
-    implementation "androidx.camera:camera-lifecycle:$camerax_version"  // CameraX 生命周期
-    implementation "androidx.camera:camera-view:1.0.0-alpha10"          // CameraX view 集合，比如 cameraview，preview等
-
 }

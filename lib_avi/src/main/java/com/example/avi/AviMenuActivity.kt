@@ -3,6 +3,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.avi.menu.audio.AudioActivity
 import com.example.avi.menu.camera2.Camera2Activity
+import com.example.avi.menu.camerax.CameraXActivity
 import com.example.avi.menu.image.PicShowActivity
 import com.example.lib_avi.databinding.ActivityAviMenuBinding
 import com.yang.ktbase.base.BaseBindActivity
@@ -19,6 +20,9 @@ class AviMenuActivity : BaseBindActivity<ActivityAviMenuBinding>(), CoroutineSco
             }
             tvCamera2.setOnClickListener {
                 startActivity(Intent(this@AviMenuActivity, Camera2Activity::class.java))
+            }
+            tvCameraX.setOnClickListener {
+                startActivity(Intent(this@AviMenuActivity, CameraXActivity::class.java))
             }
         }
     }

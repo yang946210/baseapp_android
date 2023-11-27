@@ -7,53 +7,23 @@ import com.yang.appkt.databinding.ActivityMainBinding
 import com.yang.appkt.menu.*
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
+import java.util.function.Function
 
 
 class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
 
 
     override fun initView(savedInstanceState: Bundle?) {
-
         binding.apply {
-            tvJavaBase.setOnClickListener {
-                startActivity(Intent(this@MainActivity, JavaMemoryActivity::class.java))
-            }
-            tvActivity.setOnClickListener {
-                startActivity(Intent(this@MainActivity, ActivityActivity::class.java))
-            }
-            tvLaunch.setOnClickListener {
-                startActivity(Intent(this@MainActivity, LaunchActivity::class.java))
-            }
-            tvHandler.setOnClickListener {
-                startActivity(Intent(this@MainActivity, HandlerActivity::class.java))
-            }
-            tvWebView.setOnClickListener {
-                startActivity(Intent(this@MainActivity, WebViewActivity::class.java))
-            }
-            tvRoom.setOnClickListener {
-                startActivity(Intent(this@MainActivity, RoomActivity::class.java))
-            }
-            tvLifecycle.setOnClickListener {
-                startActivity(Intent(this@MainActivity, LifecycleActivity::class.java))
-            }
-            tvLiveData.setOnClickListener {
-                startActivity(Intent(this@MainActivity, VmActivity::class.java))
-            }
-            tvFrame.setOnClickListener {
-                startActivity(Intent(this@MainActivity, RecyclerActivity::class.java))
-            }
-            tvCoroutines.setOnClickListener {
-                startActivity(Intent(this@MainActivity, CoroutinesActivity::class.java))
-            }
-            tvBluetooth.setOnClickListener {
-                startActivity(Intent(this@MainActivity, NdkActivity::class.java))
-            }
-            tvNdk.setOnClickListener {
+            tvAndroidBase.setOnClickListener {
+                startActivity(Intent(this@MainActivity, AndroidMenuActivity::class.java))
             }
             tvAvi.setOnClickListener {
                 startActivity(Intent(this@MainActivity, AviMenuActivity::class.java))
             }
         }
+
+
     }
 
     override fun onDestroy() {

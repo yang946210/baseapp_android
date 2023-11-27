@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".menu.AndroidMenuActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!---java相关-->
+        <TextView
+            android:id="@+id/tv_java"
+            style="@style/menuTitle"
+            android:text="Java" />
+
+        <TextView
+            android:id="@+id/tv_javaBase"
+            style="@style/menuText"
+            android:text="Java内存区域" />
+
+        <TextView
+            android:id="@+id/tv_android"
+            style="@style/menuTitle"
+            android:text="Android" />
+
+        <TextView
+            android:id="@+id/tv_activity"
+            style="@style/menuText"
+            android:text="activity" />
+
+        <TextView
+            android:id="@+id/tv_other"
+            style="@style/menuTitle"
+            android:text="其它" />
+
+        <TextView
+            android:id="@+id/tv_launch"
+            style="@style/menuText"
+            android:text="launch" />
+
+        <TextView
+            android:id="@+id/tv_handler"
+            style="@style/menuText"
+            android:text="handler" />
+
+        <TextView
+            android:id="@+id/tv_webView"
+            style="@style/menuText"
+            android:text="webView" />
+
+        <TextView
+            android:id="@+id/tv_lifecycle"
+            style="@style/menuText"
+            android:text="lifecycle" />
+
+        <TextView
+            android:id="@+id/tv_liveData"
+            style="@style/menuText"
+            android:text="viewModel+liveData" />
+
+        <TextView
+            android:id="@+id/tv_Coroutines"
+            style="@style/menuText"
+            android:text="协程" />
+
+        <TextView
+            android:id="@+id/tv_room"
+            style="@style/menuText"
+            android:text="room" />
+
+        <TextView
+            android:id="@+id/tv_frame"
+            style="@style/menuText"
+            android:text="recyclerView" />
+
+        <TextView
+            android:id="@+id/tv_bluetooth"
+            style="@style/menuText"
+            android:text="bluetooth" />
+
+        <TextView
+            android:id="@+id/tv_ndk"
+            style="@style/menuText"
+            android:text="NDK" />
+
+        <TextView
+            android:id="@+id/tv_avi"
+            style="@style/menuText"
+            android:text="Avi" />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

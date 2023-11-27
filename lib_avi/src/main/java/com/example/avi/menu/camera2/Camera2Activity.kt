@@ -15,7 +15,7 @@ class Camera2Activity : BaseBindActivity<ActivityCameraBinding>() {
         binding.apply {
             //获取对应摄像头的基本信息
             tvGetInfo.setOnClickListener {
-                cameraManager.getCameraInfo()
+                cameraManager.getCameraInfo(this@Camera2Activity)
             }
             //打开相机并开启预览
             tvPreview.setOnClickListener {

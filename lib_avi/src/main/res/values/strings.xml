@@ -7,4 +7,5 @@
     <string name="Audio">Audio</string>
     <string name="camera2">camera2</string>
     <string name="getCameraInfo">CameraInfo</string>
+    <string name="camerax">cameraX</string>
 </resources>

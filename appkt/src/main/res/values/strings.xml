@@ -16,4 +16,6 @@
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_mvvm">MvvmActivity</string>
     <string name="title_activity_vm">VmActivity</string>
+    <string name="android_base">Android Base</string>
+    <string name="video_audi">Video-Audi</string>
 </resources>

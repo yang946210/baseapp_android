@@ -1,6 +1,8 @@
 package com.example.avi.menu.camera2
 
 import android.Manifest
+import android.R.attr.height
+import android.R.attr.width
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.ImageFormat
@@ -15,19 +17,22 @@ import android.media.ImageReader
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
-import android.util.Log
 import android.view.Surface
 import android.view.TextureView
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
-import coil.util.Logger
 import com.blankj.utilcode.util.LogUtils
 import com.tbruyelle.rxpermissions3.RxPermissions
 import java.io.File
 import java.util.Arrays
-import kotlin.math.log
 
 
-//camera2管理类
+/**
+ * camera2管理类 参考：
+ * https://www.jianshu.com/p/9a2e66916fcb
+ * https://www.jianshu.com/p/23e8789fbc10
+ * https://www.jianshu.com/p/067889611ae7
+ */
 class Camera2Manager(val context: Context) {
 
     //相机管理类
@@ -35,7 +40,7 @@ class Camera2Manager(val context: Context) {
     //抽象相机类
     private var mCameraDevice: CameraDevice? = null
 
-    //相机抽象请求类
+    //相机抽象事物类
     private var mCaptureSession: CameraCaptureSession? = null
     //相机预览请求配置类
     private var mPreCaptureRequestBuilder: CaptureRequest.Builder? = null
@@ -56,7 +61,7 @@ class Camera2Manager(val context: Context) {
 
 
     //获取相机数据并初始化
-    fun getCameraInfo(){
+    fun getCameraInfo(context: Context){
         var info:StringBuffer = StringBuffer("相关信息：\n")
         //找到后置摄像头id
         for (id in mCameraManager.cameraIdList) {
@@ -68,22 +73,30 @@ class Camera2Manager(val context: Context) {
             }
         }
 
-        //相机特性类
+        /**
+         * 封装相机特性的只读类包括不限于：
+         * 相机朝向 LENS_FACING
+         * 判断闪光灯是否可用 FLASH_INFO_AVAILABLE
+         * 获取所有可用 AE模式 CONTROL_AE_AVAILABLE_MODES
+         * 等等。。。
+         */
         val cameraCharacteristics = mCameraManager.getCameraCharacteristics(mCameraId!!)
 
         //摄像头儿支持等级
         val supportLevel = cameraCharacteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)
+        if (supportLevel == null || supportLevel == CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY){
+              Toast.makeText(context, "您的手机不支持Camera2的高级特效", Toast.LENGTH_SHORT).show()
+        }
+
 
 
         //摄像头儿支持的所有输出格式和尺寸
         val configurationMap = cameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
         val savePicSize = configurationMap?.getOutputSizes(ImageFormat.JPEG)
         val previewSize = configurationMap?.getOutputSizes(SurfaceTexture::class.java)
-
         info.append("相机支持等级$supportLevel\n")
         info.append("保存图片支持的尺寸集合${Arrays.toString(savePicSize)}\n")
         info.append("预览图片支持的尺寸集合${Arrays.toString(previewSize)}\n")
-
         LogUtils.d(info)
     }
 
@@ -151,11 +164,14 @@ class Camera2Manager(val context: Context) {
     }
 
 
-    //创建一个预览的会话请求
+    /**
+     * 配置了目标 Surface 的 Pipeline 实例
+     * 一个 CameraDevice 一次只能开启一个 CameraCaptureSession
+     */
     @SuppressLint("Recycle")
     fun createPreviewSession(mTextureView: TextureView){
         //初始化mImageReader
-        mImageReader=ImageReader.newInstance(mTextureView.width, mTextureView.height, ImageFormat.JPEG, 1)
+        mImageReader=ImageReader.newInstance(mTextureView.width, mTextureView.height, ImageFormat.JPEG, 2)
         mImageReader?.setOnImageAvailableListener({
             val image: Image = it.acquireNextImage()
             LogUtils.d("OnImageAvailable===>${image.width}")

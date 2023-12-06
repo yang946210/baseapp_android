@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application>
-        <activity android:name="com.example.avi.menu.camerax.CameraXActivity"/>
-        <activity android:name="com.example.avi.menu.camera2.Camera2Activity"/>
-        <activity android:name="com.example.avi.menu.image.PicShowActivity"/>
-        <activity android:name="com.example.avi.menu.audio.AudioActivity"/>
-        <activity android:name="com.example.avi.AviMenuActivity"/>
+        <activity android:name="com.example.avi.menu.mediaExtractor.MediaExtractorActivity" />
+        <activity android:name="com.example.avi.menu.audioRecord.AudioRecordActivity" />
+        <activity android:name="com.example.avi.menu.camerax.CameraXActivity" />
+        <activity android:name="com.example.avi.menu.camera2.Camera2Activity" />
+        <activity android:name="com.example.avi.menu.image.PicShowActivity" />
+        <activity android:name="com.example.avi.menu.mediaRecorder.MediaRecorderActivity" />
+        <activity android:name="com.example.avi.AviMenuActivity" />
     </application>
 
 </manifest>

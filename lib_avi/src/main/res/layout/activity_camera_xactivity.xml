@@ -53,6 +53,20 @@
                     android:text="stopVideo"
                     style="@style/ButtonBg.blue10"/>
 
+                <TextView
+                    android:id="@+id/tv_getYuv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="getYuv"
+                    style="@style/ButtonBg.blue10"/>
+
+                <TextView
+                    android:id="@+id/tv_stopGetYuv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stopGetYuv"
+                    style="@style/ButtonBg.blue10"/>
+
 
 
 

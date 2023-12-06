@@ -11,19 +11,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
-            android:text="@string/image" />
+
 
         <TextView
             android:id="@+id/tv_Recording"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ButtonBg.blue10"
-            android:text="@string/Audio" />
+            android:text="@string/mediaRecorder" />
+
+
+        <TextView
+            android:id="@+id/tv_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBg.blue10"
+            android:text="@string/audio" />
 
         <TextView
             android:id="@+id/tv_camera2"
@@ -38,6 +41,13 @@
             android:layout_height="wrap_content"
             style="@style/ButtonBg.blue10"
             android:text="@string/camerax" />
+
+        <TextView
+            android:id="@+id/tv_mediaExtractor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBg.blue10"
+            android:text="MediaExtractor解封装" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

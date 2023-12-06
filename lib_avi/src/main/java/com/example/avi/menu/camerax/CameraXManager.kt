@@ -32,19 +32,29 @@ import java.util.concurrent.Executors
 
 class CameraXManager(var context: FragmentActivity) {
 
-    //预览实例
+    /**
+     * 预览实例
+     */
     private lateinit var preview: Preview
 
-    //摄像头选择实例
+    /**
+     * 摄像头选择实例
+     */
     private lateinit var cameraSelector: CameraSelector
 
-    //图片分析实例
+    /**
+     * 图片分析实例
+     */
     private lateinit var imageAnalyzer: ImageAnalysis
 
-    //拍照实例
+    /**
+     * 拍照实例
+     */
     private lateinit var imageCapture: ImageCapture
 
-    //视频录制
+    /**
+     * 视频录制
+     */
     private lateinit var videoCapture: VideoCapture<Recorder>
 
     /**
@@ -66,7 +76,7 @@ class CameraXManager(var context: FragmentActivity) {
                 initImageCapture()
                 initRecording()
                 val recorder = Recorder.Builder()
-                    .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
+                    .setQualitySelector(QualitySelector.from(Quality.HD))
                     .build()
                 videoCapture= VideoCapture.withOutput(recorder)
                 //开启预览
@@ -111,11 +121,11 @@ class CameraXManager(var context: FragmentActivity) {
         }.build().apply {
             setAnalyzer(Executors.newSingleThreadExecutor()) {
                 val imgInfoLog = StringBuffer()
+
                 //imgInfoLog.append("format ${it.format==PixelFormat.RGBA_8888}\n")
                 imgInfoLog.append("format is yuv_420_888:${it.format==ImageFormat.YUV_420_888}\n")
                 imgInfoLog.append("size ${it.width}:${it.height}\n")
                 imgInfoLog.append("imageInfo： ${it.imageInfo}\n")
-
                 LogUtils.d(imgInfoLog)
                 //val bt=it.toBitmap()
                 //it.close()

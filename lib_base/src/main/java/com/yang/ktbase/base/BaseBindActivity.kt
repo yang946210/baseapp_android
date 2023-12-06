@@ -11,7 +11,7 @@ import com.yang.ktbase.ext.inflateBindingWithGeneric
  * @param B: ViewBinding
  * @property binding B
  */
-abstract class BaseBindActivity<B : ViewBinding> : AppCompatActivity() {
+abstract class BaseBindActivity<B : ViewBinding> : AppCompatActivity()  {
 
     /**
      * 初始化viewBind

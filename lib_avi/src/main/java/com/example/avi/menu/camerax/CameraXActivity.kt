@@ -21,7 +21,6 @@ val note="""
 class CameraXActivity : BaseBindActivity<ActivityCameraXactivityBinding>() {
 
 
-
     @SuppressLint("CheckResult")
     override fun initView(savedInstanceState: Bundle?) {
         //自定义相机管理类
@@ -34,12 +33,6 @@ class CameraXActivity : BaseBindActivity<ActivityCameraXactivityBinding>() {
             tvPreview.setOnClickListener {
                 cameraXManager.bindPreview(pvMainView)
             }
-            tvTakeVideo.setOnClickListener {
-                cameraXManager.takeVideo()
-            }
-            tvStopVideo.setOnClickListener {
-                cameraXManager.stopVideo()
-            }
 
             //拍照
             tvTakePic.setOnClickListener {
@@ -51,7 +44,27 @@ class CameraXActivity : BaseBindActivity<ActivityCameraXactivityBinding>() {
                 }
             }
 
-        }
+            //录像
+            tvTakeVideo.setOnClickListener {
+                cameraXManager.takeVideo()
+            }
 
+            //录像
+            tvStopVideo.setOnClickListener {
+                cameraXManager.stopVideo()
+            }
+
+            //采集yuv视频数据
+            tvGetYuv.setOnClickListener {
+
+            }
+
+            //停止采集yuv视频数据
+            tvStopGetYuv.setOnClickListener {
+
+            }
+
+
+        }
     }
 }

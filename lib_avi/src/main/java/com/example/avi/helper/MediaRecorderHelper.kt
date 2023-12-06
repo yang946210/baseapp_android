@@ -4,22 +4,26 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.media.MediaRecorder
 import android.os.Build
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.example.lib_avi.databinding.ActivityRecordingBinding
-import com.tbruyelle.rxpermissions3.Permission
 import com.tbruyelle.rxpermissions3.RxPermissions
 import com.yang.ktbase.BaseHelper
 import java.io.File
-import java.util.function.Consumer
+import java.util.Timer
+import kotlin.concurrent.timerTask
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 object MediaRecorderHelper {
 
-    private var mMediaRecorder: MediaRecorder = MediaRecorder();
+    private var mMediaRecorder: MediaRecorder = MediaRecorder()
+
+    private val timer=Timer()
+
+    private lateinit var fileName:File
 
     init {
         try {
@@ -33,8 +37,7 @@ object MediaRecorderHelper {
             /* ②设置音频文件的编码：AAC/AMR_NB/AMR_MB/Default 声音的（波形）的采样 */
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
 
-            val fileName =
-                File(BaseHelper.getContext().externalCacheDir, "${System.currentTimeMillis()}.m4a")
+            fileName = File(BaseHelper.getApplicationContext().externalCacheDir, "${System.currentTimeMillis()}.m4a")
 
             LogUtils.d("=========fileName${fileName}")
             /* ③准备 */
@@ -67,9 +70,14 @@ object MediaRecorderHelper {
     /**
      * 开始
      */
-    fun start() {
+    fun start(showSize:TextView?) {
         ToastUtils.showLong("开始")
-        mMediaRecorder.start();
+        mMediaRecorder.start()
+        timer.schedule(timerTask {
+           showSize?.post {
+               showSize?.text= "文件长度${fileName.length()}"
+           }
+        },1000,1000)
     }
 
     /**
@@ -77,12 +85,11 @@ object MediaRecorderHelper {
      */
     fun stop() {
         ToastUtils.showLong("结束")
-        try {
+        kotlin.runCatching {
             mMediaRecorder.stop()
             mMediaRecorder.release()
-        } catch (e: RuntimeException) {
-            mMediaRecorder.reset()
-            mMediaRecorder.release()
+            timer.cancel()
         }
+
     }
 }

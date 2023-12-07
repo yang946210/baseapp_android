@@ -10,7 +10,7 @@ object BaseHelper {
         this.application=application
     }
 
-    fun getApplicationContext():Application{
+    fun getACtx():Application{
         return application;
     }
 

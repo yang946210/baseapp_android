@@ -48,6 +48,13 @@
             android:layout_height="wrap_content"
             style="@style/ButtonBg.blue10"
             android:text="MediaExtractor解封装" />
+
+        <TextView
+            android:id="@+id/tv_mediaCodec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBg.blue10"
+            android:text="MediaCodec硬编/硬解码" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

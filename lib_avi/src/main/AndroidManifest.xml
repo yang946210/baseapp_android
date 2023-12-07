@@ -12,12 +12,13 @@
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application>
-        <activity android:name="com.example.avi.menu.mediaExtractor.MediaExtractorActivity" />
-        <activity android:name="com.example.avi.menu.audioRecord.AudioRecordActivity" />
-        <activity android:name="com.example.avi.menu.camerax.CameraXActivity" />
-        <activity android:name="com.example.avi.menu.camera2.Camera2Activity" />
-        <activity android:name="com.example.avi.menu.image.PicShowActivity" />
-        <activity android:name="com.example.avi.menu.mediaRecorder.MediaRecorderActivity" />
+        <activity android:name="com.example.avi.menusdkapi.mediacodec.MediaCodecActivity" />
+        <activity android:name="com.example.avi.menusdkapi.mediaextractor.MediaExtractorActivity" />
+        <activity android:name="com.example.avi.menusdkapi.audiorecord.AudioRecordActivity" />
+        <activity android:name="com.example.avi.menusdkapi.camerax.CameraXActivity" />
+        <activity android:name="com.example.avi.menusdkapi.camera2.Camera2Activity" />
+        <activity android:name="com.example.avi.menusdkapi.image.PicShowActivity" />
+        <activity android:name="com.example.avi.menusdkapi.mediarecorder.MediaRecorderActivity" />
         <activity android:name="com.example.avi.AviMenuActivity" />
     </application>
 

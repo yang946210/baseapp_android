@@ -1,12 +1,12 @@
 package com.example.avi
 import android.content.Intent
 import android.os.Bundle
-import com.example.avi.menu.audioRecord.AudioRecordActivity
-import com.example.avi.menu.mediaRecorder.MediaRecorderActivity
-import com.example.avi.menu.camera2.Camera2Activity
-import com.example.avi.menu.camerax.CameraXActivity
-import com.example.avi.menu.image.PicShowActivity
-import com.example.avi.menu.mediaExtractor.MediaExtractorActivity
+import com.example.avi.menusdkapi.audiorecord.AudioRecordActivity
+import com.example.avi.menusdkapi.mediarecorder.MediaRecorderActivity
+import com.example.avi.menusdkapi.camera2.Camera2Activity
+import com.example.avi.menusdkapi.camerax.CameraXActivity
+import com.example.avi.menusdkapi.mediacodec.MediaCodecActivity
+import com.example.avi.menusdkapi.mediaextractor.MediaExtractorActivity
 import com.example.lib_avi.databinding.ActivityAviMenuBinding
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.CoroutineScope
@@ -49,6 +49,13 @@ class AviMenuActivity : BaseBindActivity<ActivityAviMenuBinding>(), CoroutineSco
              */
             tvMediaExtractor.setOnClickListener {
                 startActivity(Intent(this@AviMenuActivity, MediaExtractorActivity::class.java))
+            }
+
+            /**
+             * mediaCodec 编/解码
+             */
+            tvMediaExtractor.setOnClickListener {
+                startActivity(Intent(this@AviMenuActivity, MediaCodecActivity::class.java))
             }
 
         }

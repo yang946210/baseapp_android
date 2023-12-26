@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".menu.BluetoothActivity">
+    tools:context=".menu.base.BluetoothActivity">
     <Button
         android:id="@+id/bt_init"
         android:layout_width="wrap_content"

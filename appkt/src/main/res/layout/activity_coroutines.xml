@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".menu.CoroutinesActivity">
+    tools:context=".menu.base.CoroutinesActivity">
 
     <ImageView
         android:id="@+id/iv_title"

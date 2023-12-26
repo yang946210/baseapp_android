@@ -4,10 +4,9 @@ import com.example.avi.AviMenuActivity
 import android.content.Intent
 import android.os.Bundle
 import com.yang.appkt.databinding.ActivityMainBinding
-import com.yang.appkt.menu.*
+import com.yang.appkt.menu.base.AndroidMenuActivity
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
-import java.util.function.Function
 
 
 class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by MainScope() {
@@ -22,8 +21,6 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
                 startActivity(Intent(this@MainActivity, AviMenuActivity::class.java))
             }
         }
-
-
     }
 
     override fun onDestroy() {

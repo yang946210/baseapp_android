@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".menu.RecyclerActivity">
+    tools:context=".menu.base.RecyclerActivity">
 
     <TextView
         android:id="@+id/tv_Title"

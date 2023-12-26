@@ -30,7 +30,7 @@ android {
 
 dependencies {
     implementation project(':lib_base')
-    implementation project(':lib_avi')
     implementation project(':lib_mpeg')
-
+    implementation project(':module_va')
+    implementation project(':module_jetpack')
 }

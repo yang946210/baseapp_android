@@ -22,7 +22,7 @@
         tools:targetApi="n">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".VmActivity"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
@@ -32,20 +32,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".menu.NdkActivity" />
-        <activity android:name=".menu.BluetoothActivity" />
-        <activity android:name=".menu.ServiceActivity" />
-        <activity android:name=".menu.JavaMemoryActivity" />
-        <activity android:name=".menu.ActivityActivity" />
+        <activity android:name=".menu.base.NdkActivity" />
+        <activity android:name=".menu.base.BluetoothActivity" />
+        <activity android:name=".menu.base.ServiceActivity" />
+        <activity android:name=".menu.base.JavaMemoryActivity" />
+        <activity android:name=".menu.base.ActivityActivity" />
         <activity android:name=".menu.VmActivity" />
-        <activity android:name=".menu.LifecycleActivity" />
-        <activity android:name=".menu.LaunchActivity" />
-        <activity android:name=".menu.HandlerActivity" />
-        <activity android:name=".menu.WebViewActivity" />
-        <activity android:name=".menu.RoomActivity" />
-        <activity android:name=".menu.RecyclerActivity" />
-        <activity android:name=".menu.CoroutinesActivity" />
-        <activity android:name=".menu.AndroidMenuActivity" />
+        <activity android:name=".menu.base.LifecycleActivity" />
+        <activity android:name=".menu.base.LaunchActivity" />
+        <activity android:name=".menu.base.HandlerActivity" />
+        <activity android:name=".menu.base.WebViewActivity" />
+        <activity android:name=".menu.base.RoomActivity" />
+        <activity android:name=".menu.base.RecyclerActivity" />
+        <activity android:name=".menu.base.CoroutinesActivity" />
+        <activity android:name=".menu.base.AndroidMenuActivity" />
 
         <service
             android:name=".service.BindService"

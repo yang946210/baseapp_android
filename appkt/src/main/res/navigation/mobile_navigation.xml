@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.yang.appkt.menu.ui.home.HomeFragment"
+        android:name="com.yang.appkt.menu.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_data"
-        android:name="com.yang.appkt.menu.ui.live.LiveDataFragment"
+        android:name="com.yang.appkt.menu.LiveDataFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_data" />
 
     <fragment
         android:id="@+id/navigation_model"
-        android:name="com.yang.appkt.menu.ui.vm.ViewModelFragment"
+        android:name="com.yang.appkt.menu.ViewModelFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_model" />
 </navigation>

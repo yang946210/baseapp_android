@@ -4,7 +4,9 @@ import android.util.Log
 
 const val TAG = "======ktApp log====="
 
-
+/**
+ * 是否开启log
+ */
 var logAble = true
 
 private enum class LEVEL {
@@ -14,7 +16,7 @@ private enum class LEVEL {
 fun String.logV(tag: String = TAG) =
     log(LEVEL.V, tag, this)
 
-fun String.logD(tag: String = TAG) =
+fun String. logD(tag: String = TAG) =
     log(LEVEL.D, tag, this)
 
 fun String.logI(tag: String = TAG) =

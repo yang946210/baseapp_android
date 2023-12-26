@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <application>
+
+        <activity android:name="com.example.jetpack.activity.NdkActivity" />
+        <activity android:name="com.example.jetpack.activity.BluetoothActivity" />
+        <activity android:name="com.example.jetpack.activity.ServiceActivity" />
+        <activity android:name="com.example.jetpack.activity.JavaMemoryActivity" />
+        <activity android:name="com.example.jetpack.activity.ActivityActivity" />
+        <activity android:name="com.example.jetpack.activity.LifecycleActivity" />
+        <activity android:name="com.example.jetpack.activity.LaunchActivity" />
+        <activity android:name="com.example.jetpack.activity.HandlerActivity" />
+        <activity android:name="com.example.jetpack.activity.WebViewActivity" />
+        <activity android:name="com.example.jetpack.activity.RoomActivity" />
+        <activity android:name="com.example.jetpack.activity.RecyclerActivity" />
+        <activity android:name="com.example.jetpack.activity.CoroutinesActivity" />
+        <activity android:name="com.example.jetpack.activity.AndroidMenuActivity" />
+
+        <service
+            android:name="com.example.jetpack.service.BindService"
+            android:enabled="false"
+            android:exported="false"/>
+        <service
+            android:name="com.example.jetpack.service.StartService"
+            android:enabled="false"
+            android:exported="false" />
+    </application>
 
 </manifest>

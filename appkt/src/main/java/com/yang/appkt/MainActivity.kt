@@ -4,7 +4,6 @@ import com.example.avi.AviMenuActivity
 import android.content.Intent
 import android.os.Bundle
 import com.yang.appkt.databinding.ActivityMainBinding
-import com.yang.appkt.menu.base.AndroidMenuActivity
 import com.yang.ktbase.base.BaseBindActivity
 import kotlinx.coroutines.*
 
@@ -15,10 +14,10 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(), CoroutineScope by 
     override fun initView(savedInstanceState: Bundle?) {
         binding.apply {
             tvAndroidBase.setOnClickListener {
-                startActivity(Intent(this@MainActivity, AndroidMenuActivity::class.java))
+                //startActivity(Intent(this@MainActivity, AndroidMenuActivity::class.java))
             }
             tvAvi.setOnClickListener {
-                startActivity(Intent(this@MainActivity, AviMenuActivity::class.java))
+                //startActivity(Intent(this@MainActivity, AviMenuActivity::class.java))
             }
         }
     }

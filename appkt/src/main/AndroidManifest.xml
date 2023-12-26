@@ -32,29 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".menu.base.NdkActivity" />
-        <activity android:name=".menu.base.BluetoothActivity" />
-        <activity android:name=".menu.base.ServiceActivity" />
-        <activity android:name=".menu.base.JavaMemoryActivity" />
-        <activity android:name=".menu.base.ActivityActivity" />
-        <activity android:name=".menu.VmActivity" />
-        <activity android:name=".menu.base.LifecycleActivity" />
-        <activity android:name=".menu.base.LaunchActivity" />
-        <activity android:name=".menu.base.HandlerActivity" />
-        <activity android:name=".menu.base.WebViewActivity" />
-        <activity android:name=".menu.base.RoomActivity" />
-        <activity android:name=".menu.base.RecyclerActivity" />
-        <activity android:name=".menu.base.CoroutinesActivity" />
-        <activity android:name=".menu.base.AndroidMenuActivity" />
-
-        <service
-            android:name=".service.BindService"
-            android:enabled="false"
-            android:exported="true" />
-        <service
-            android:name=".service.StartService"
-            android:enabled="false"
-            android:exported="true" />
     </application>
 
 </manifest>

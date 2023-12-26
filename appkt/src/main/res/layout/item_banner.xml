@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".menu.base.RecyclerActivity">
+    tools:context="com.example.jetpack.activity.RecyclerActivity">
 
     <TextView
         android:id="@+id/tv_Title"

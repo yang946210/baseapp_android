@@ -1,7 +1,11 @@
 apply plugin:'com.android.library'
-apply from:'../common.gradle'
 apply plugin: 'org.jetbrains.kotlin.android'
+apply from:'../common.gradle'
 
 android {
     namespace 'com.example.lib_jetpack'
+}
+
+dependencies {
+    implementation project(':lib_base')
 }

@@ -4,8 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseRecyclerViewAdapter<E : Any, V : ViewBinding> :
-    RecyclerView.Adapter<BaseViewHolder<V>>() {
+abstract class BaseRecyclerViewAdapter<E : Any, V : ViewBinding> : RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseViewHolder<V>>() {
 
     open var data: MutableList<E> = mutableListOf()
         set(value) {
@@ -29,6 +28,7 @@ abstract class BaseRecyclerViewAdapter<E : Any, V : ViewBinding> :
 
     abstract fun onBindViewHolder(holder: BaseViewHolder<V>, position: Int, binding: V, bean: E)
 
+    open class BaseViewHolder<V : ViewBinding>(val binding: V) : RecyclerView.ViewHolder(binding.root)
+
 }
 
-open class BaseViewHolder<V : ViewBinding>(val binding: V) : RecyclerView.ViewHolder(binding.root)

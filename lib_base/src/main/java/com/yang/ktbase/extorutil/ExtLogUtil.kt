@@ -1,4 +1,4 @@
-package com.yang.ktbase.ext
+package com.yang.ktbase.extorutil
 
 import android.util.Log
 
@@ -9,25 +9,23 @@ const val TAG = "======ktApp log====="
  */
 var logAble = true
 
+
+/**
+ * log等级
+ */
 private enum class LEVEL {
     V, D, I, W, E
 }
 
-fun String.logV(tag: String = TAG) =
-    log(LEVEL.V, tag, this)
+fun String.logV(tag: String = TAG) = log(LEVEL.V, tag, this)
+fun String.logD(tag: String = TAG) = log(LEVEL.D, tag, this)
+fun String.logI(tag: String = TAG) = log(LEVEL.I, tag, this)
+fun String.logW(tag: String = TAG) = log(LEVEL.W, tag, this)
+fun String.logE(tag: String = TAG) = log(LEVEL.E, tag, this)
 
-fun String. logD(tag: String = TAG) =
-    log(LEVEL.D, tag, this)
-
-fun String.logI(tag: String = TAG) =
-    log(LEVEL.I, tag, this)
-
-fun String.logW(tag: String = TAG) =
-    log(LEVEL.W, tag, this)
-
-fun String.logE(tag: String = TAG) =
-    log(LEVEL.E, tag, this)
-
+/**
+ * 打印日志
+ */
 private fun log(level: LEVEL, tag: String, message: String) {
     if (!logAble) return
     when (level) {

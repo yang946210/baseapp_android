@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.tbruyelle.rxpermissions3.RxPermissions
-import com.yang.ktbase.BaseHelper
+import com.yang.ktbase.base.BaseApp
 import java.io.File
 import java.util.Timer
 import kotlin.concurrent.timerTask
@@ -37,7 +37,7 @@ object MediaRecorderHelper {
             /* ②设置音频文件的编码：AAC/AMR_NB/AMR_MB/Default 声音的（波形）的采样 */
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
 
-            fileName = File(BaseHelper.getACtx().externalCacheDir, "${System.currentTimeMillis()}.m4a")
+            fileName = File( BaseApp.getAppCtx().externalCacheDir, "${System.currentTimeMillis()}.m4a")
 
             LogUtils.d("=========fileName$fileName")
             /* ③准备 */

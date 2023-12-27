@@ -1,7 +1,7 @@
 package com.yang.ktbase
 
 import androidx.lifecycle.*
-import com.yang.ktbase.ext.logD
+import com.yang.ktbase.extorutil.logD
 import java.util.concurrent.ConcurrentHashMap
 
 /**

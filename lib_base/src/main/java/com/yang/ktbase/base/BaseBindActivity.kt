@@ -3,7 +3,7 @@ package com.yang.ktbase.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.ext.inflateBindingWithGeneric
+import com.yang.ktbase.extorutil.inflateBindingWithGeneric
 
 /**
  * activity基类，实现viewBind功能

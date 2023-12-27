@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.example.lib_avi.databinding.ActivityMediaExtractorBinding
 import com.yang.ktbase.base.BaseBindActivity
-import com.yang.ktbase.util.BaseFileUtil
+import com.yang.ktbase.extorutil.getFilePath
 
 
 /**
@@ -51,8 +51,7 @@ class MediaExtractorActivity : BaseBindActivity<ActivityMediaExtractorBinding>()
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10086 && resultCode == RESULT_OK) {
-            val uri = data?.data
-            val filePath =BaseFileUtil.getFilePathFromUri(uri!!,this@MediaExtractorActivity)
+            val filePath =data?.data?.getFilePath(this@MediaExtractorActivity)
             val info=getInfoByFilePath(filePath!!)
             binding.tvInfo.text="当前信息：${info}"
         }

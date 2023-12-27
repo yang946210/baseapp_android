@@ -1,18 +1,13 @@
 package com.yang.appkt
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.yang.appkt.databinding.ActivityVmBinding
 import com.yang.ktbase.base.BaseBindActivity
-import com.yang.ktbase.ext.logD
-
 
 
 class VmActivity : BaseBindActivity<ActivityVmBinding>() {
-
 
     override fun initView(savedInstanceState: Bundle?) {
         initNavigation()

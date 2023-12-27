@@ -9,7 +9,7 @@ import com.example.lib_jetpack.databinding.ActivityCoroutinesBinding
 import com.yang.appkt.viewmodel.CoroutineModel
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity
-import com.yang.ktbase.ext.logD
+import com.yang.ktbase.extorutil.logD
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow

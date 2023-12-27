@@ -1,11 +1,5 @@
 package com.yang.appkt
 
-import android.app.Application
-import com.yang.ktbase.BaseHelper
+import com.yang.ktbase.base.BaseApp
 
-class App : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        BaseHelper.init(this)
-    }
-}
+class App : BaseApp()

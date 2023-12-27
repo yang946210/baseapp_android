@@ -1,4 +1,4 @@
-package com.yang.ktbase.ext
+package com.yang.ktbase.extorutil
 
 
 import androidx.lifecycle.viewModelScope
@@ -6,9 +6,6 @@ import com.yang.ktbase.base.BaseViewModel
 import com.yang.ktbase.net.ResponseResult
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import okhttp3.internal.http2.ErrorCode
-import java.lang.reflect.ParameterizedType
-import kotlin.concurrent.thread
 
 
 /**

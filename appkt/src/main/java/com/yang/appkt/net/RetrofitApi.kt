@@ -1,6 +1,6 @@
 package com.yang.appkt.net
 
-import com.yang.ktbase.ext.logD
+import com.yang.ktbase.extorutil.logD
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -7,7 +7,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 
 abstract class BaseRecyclerViewJsonAdapter<V : ViewBinding> :
-    RecyclerView.Adapter<BaseViewHolder<V>>() {
+    RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseViewHolder<V>>() {
 
     open var data: JsonArray = JsonArray()
         set(value) {
@@ -16,11 +16,11 @@ abstract class BaseRecyclerViewJsonAdapter<V : ViewBinding> :
         }
 
     //不想用反射，所以只能暴露出去多写一部
-    abstract override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<V>
+    abstract override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseRecyclerViewAdapter.BaseViewHolder<V>
 
     override fun getItemCount(): Int = data.size()
 
-    override fun onBindViewHolder(holder: BaseViewHolder<V>, position: Int) {
+    override fun onBindViewHolder(holder: BaseRecyclerViewAdapter.BaseViewHolder<V>, position: Int) {
         onBindViewHolder(
             holder, holder.absoluteAdapterPosition, holder.binding,
             data.get(holder.absoluteAdapterPosition) as JsonObject
@@ -28,7 +28,7 @@ abstract class BaseRecyclerViewJsonAdapter<V : ViewBinding> :
     }
 
     abstract fun onBindViewHolder(
-        holder: BaseViewHolder<V>,
+        holder: BaseRecyclerViewAdapter.BaseViewHolder<V>,
         position: Int,
         binding: V,
         jsonObject: JsonObject

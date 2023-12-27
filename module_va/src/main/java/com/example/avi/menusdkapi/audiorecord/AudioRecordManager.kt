@@ -10,7 +10,7 @@ import android.media.AudioRecord
 import android.media.AudioTrack
 import android.media.MediaRecorder
 import com.blankj.utilcode.util.LogUtils
-import com.yang.ktbase.BaseHelper
+import com.yang.ktbase.base.BaseApp
 import java.io.File
 
 
@@ -44,7 +44,7 @@ class AudioRecordManager(val context: Context) {
             audioFormat
         ),  //内部的音频缓冲区的大小，该缓冲区的值不能低于一帧“音频帧”（Frame）的大小
         outFile: File = File(
-            BaseHelper.getACtx().externalCacheDir,
+            BaseApp.getAppCtx().externalCacheDir,
             "audio_${System.currentTimeMillis()}.pcm"
         )
     ) {
@@ -135,7 +135,7 @@ class AudioRecordManager(val context: Context) {
             var len: Int
 
             //val ins = FileInputStream(outFile)
-            val input =BaseHelper.getACtx().assets.open(assentFileName)
+            val input =  BaseApp.getAppCtx().assets.open(assentFileName)
 
             while (input.read(buffer).also { len = it } > 0) {
                 audioTrack.write(buffer, 0, len)

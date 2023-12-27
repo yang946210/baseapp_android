@@ -7,7 +7,7 @@ import com.example.lib_jetpack.databinding.ActivityLifecycleBinding
 
 import com.yang.appkt.viewmodel.LifecycleViewModel
 import com.yang.ktbase.base.BaseActivity
-import com.yang.ktbase.ext.logD
+import com.yang.ktbase.extorutil.logD
 
 
 

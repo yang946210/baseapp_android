@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.lib_avi.databinding.ActivityAudioRecordBinding
 import com.yang.ktbase.base.BaseBindActivity
-import com.yang.ktbase.util.getFileUnitSize
+import com.yang.ktbase.extorutil.getSizeWithUnit
 import kotlinx.coroutines.launch
 import java.io.File
 import java.util.Timer
@@ -30,7 +30,7 @@ class AudioRecordActivity : BaseBindActivity<ActivityAudioRecordBinding>() {
                 mTimer=Timer().apply {
                     schedule(timerTask {
                         lifecycleScope.launch() {
-                            tvFileSize.text = "文件长度：${getFileUnitSize(file.length())}"
+                            tvFileSize.text = "文件长度：${file.getSizeWithUnit()}"
                         }
                     },1000,1000)
                 }

@@ -14,6 +14,8 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 
+
+
 class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
     CoroutineScope by MainScope() {
 
@@ -21,9 +23,9 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
 
 
     override fun initView(savedInstanceState: Bundle?) {
-
-
-
+        binding.tvRunBlockingStart.setOnClickListener { start() }
+        binding.tvLaunchStart.setOnClickListener { launchStart() }
+        binding.tvAsyncStart.setOnClickListener { flow() }
 
         GlobalScope.launch {
             for (index in 1..10000) {
@@ -54,9 +56,7 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
                 "333viewModelScope===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
             }
         }
-        binding.tvRunBlockingStart.setOnClickListener { start() }
-        binding.tvLaunchStart.setOnClickListener { launchStart() }
-        binding.tvAsyncStart.setOnClickListener { flow() }
+
     }
 
 
@@ -69,7 +69,6 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
      * 启动协程
      */
     private fun start() {
-
 
 
         val s1 = runBlocking {

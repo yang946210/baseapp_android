@@ -84,6 +84,4 @@ dependencies {
     // CameraX View class[可选]最佳实践，最好用里面的PreviewView，它会自行判断用SurfaceView还是TextureView来实现
     implementation 'androidx.camera:camera-view:1.2.2'
 
-
-
 }

@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">appKt</string>
     <string name="title_activity_live_data">LiveDataActivity</string>
-    <string name="title_home">flow</string>
-    <string name="title_dashboard">data</string>
-    <string name="title_notifications">model</string>
+    <string name="title_jetpack">JetPack</string>
+    <string name="title_va">V-a</string>
+    <string name="title_pending">Pending</string>
     <string name="not_init_livedata">not init liveData</string>
     <string name="title_activity_frame">FrameActivity</string>
     <string name="first_fragment_label">First Fragment</string>
@@ -18,4 +18,7 @@
     <string name="title_activity_vm">VmActivity</string>
     <string name="android_base">Android Base</string>
     <string name="video_audi">Video-Audi</string>
+    <string name="scope">Scope</string>
+    <string name="flow">Flow</string>
+    <string name="viewModel">ViewModel</string>
 </resources>

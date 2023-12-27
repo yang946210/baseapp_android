@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_jetpack">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.yang.appkt.menu.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_jetpack"
+        android:name="com.yang.appkt.menu.JetPackFragment"
+        android:label="@string/title_jetpack"
+        tools:layout="@layout/fragment_jetpack" />
 
     <fragment
-        android:id="@+id/navigation_data"
-        android:name="com.yang.appkt.menu.LiveDataFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_data" />
+        android:id="@+id/navigation_va"
+        android:name="com.yang.appkt.menu.VaFragment"
+        android:label="@string/title_va"
+        tools:layout="@layout/fragment_va" />
 
     <fragment
-        android:id="@+id/navigation_model"
-        android:name="com.yang.appkt.menu.ViewModelFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_model" />
+        android:id="@+id/navigation_pending"
+        android:name="com.yang.appkt.menu.PendingFragment"
+        android:label="@string/title_pending"
+        tools:layout="@layout/fragment_pending" />
 </navigation>

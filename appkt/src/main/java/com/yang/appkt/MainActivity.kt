@@ -7,7 +7,7 @@ import com.yang.appkt.databinding.ActivityVmBinding
 import com.yang.ktbase.base.BaseBindActivity
 
 
-class VmActivity : BaseBindActivity<ActivityVmBinding>() {
+class MainActivity : BaseBindActivity<ActivityVmBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         initNavigation()

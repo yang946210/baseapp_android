@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import com.example.lib_jetpack.databinding.ActivityLifecycleBinding
 
 
-import com.yang.appkt.viewmodel.LifecycleViewModel
 import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.extorutil.logD
 
@@ -15,11 +14,8 @@ class LifecycleActivity : BaseActivity<LifecycleViewModel, ActivityLifecycleBind
 
     override fun initView(savedInstanceState: Bundle?) {
 
-
         lifecycle.currentState.toString().logD()
-
         lifecycle.addObserver(MLifecycleObserver())
-
         lifecycle.addObserver(LifecycleEventObserver{ _, event->
             val eventTag="==event======"
             when(event){

@@ -21,4 +21,6 @@
     <string name="scope">Scope</string>
     <string name="flow">Flow</string>
     <string name="viewModel">ViewModel</string>
+    <string name="lifecycle">lifecycle</string>
+    <string name="livedata">LiveData</string>
 </resources>

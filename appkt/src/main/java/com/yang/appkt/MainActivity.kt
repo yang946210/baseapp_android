@@ -18,7 +18,7 @@ class MainActivity : BaseBindActivity<ActivityVmBinding>() {
      */
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment_activity_vm)
-        binding.navView.apply {
+        mViewBind.navView.apply {
             itemIconTintList=null
             setupWithNavController(navController)
         }

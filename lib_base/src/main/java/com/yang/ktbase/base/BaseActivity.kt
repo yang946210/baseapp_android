@@ -14,7 +14,7 @@ abstract class BaseActivity<M : ViewModel, B : ViewBinding> : BaseBindActivity<B
     /**
      * 初始化ViewModel
      */
-    protected val viewModel by lazy {
+    protected val mViewModel by lazy {
         createViewModel()
     }
 

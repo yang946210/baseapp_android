@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-
+        <activity
+            android:name="com.example.jetpack.activity.ViewModelActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.jetpack.activity.LiveDataActivity"
+            android:exported="false" />
         <activity android:name="com.example.jetpack.activity.NdkActivity" />
         <activity android:name="com.example.jetpack.activity.CoroutinesActivity" />
         <activity android:name="com.example.jetpack.activity.ServiceActivity" />
@@ -16,7 +21,7 @@
         <service
             android:name="com.example.jetpack.service.BindService"
             android:enabled="false"
-            android:exported="false"/>
+            android:exported="false" />
         <service
             android:name="com.example.jetpack.service.StartService"
             android:enabled="false"

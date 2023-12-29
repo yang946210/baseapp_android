@@ -13,7 +13,7 @@ import com.yang.ktbase.base.BaseBindActivity
 class MediaCodecActivity : BaseBindActivity<ActivityMediaCodecBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.apply {
+        mViewBind.apply {
         }
     }
 }

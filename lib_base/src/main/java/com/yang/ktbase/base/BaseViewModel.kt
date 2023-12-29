@@ -1,5 +1,16 @@
 package com.yang.ktbase.base
 
 import androidx.lifecycle.ViewModel
+import com.yang.ktbase.extorutil.logD
 
-abstract class BaseViewModel : ViewModel()
+
+/**
+ * ViewModel基类
+ */
+abstract class BaseViewModel : ViewModel(){
+    override fun onCleared() {
+        super.onCleared()
+        "ViewModel onCleared :${this::class.java.simpleName}".logD()
+    }
+
+}

@@ -15,7 +15,7 @@ class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled")
     override fun initView(savedInstanceState: Bundle?) {
 
-        binding.apply {
+        mViewBind.apply {
 
             vwMain.apply {
                 loadUrl("file:///android_asset/show.html")

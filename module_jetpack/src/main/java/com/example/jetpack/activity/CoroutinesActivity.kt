@@ -5,8 +5,8 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import coil.load
+import com.example.jetpack.vm.CoroutineModel
 import com.example.lib_jetpack.databinding.ActivityCoroutinesBinding
-import com.yang.appkt.viewmodel.CoroutineModel
 import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.extorutil.logD
@@ -23,9 +23,9 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
 
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.tvRunBlockingStart.setOnClickListener { start() }
-        binding.tvLaunchStart.setOnClickListener { launchStart() }
-        binding.tvAsyncStart.setOnClickListener { flow() }
+        mViewBind.tvRunBlockingStart.setOnClickListener { start() }
+        mViewBind.tvLaunchStart.setOnClickListener { launchStart() }
+        mViewBind.tvAsyncStart.setOnClickListener { flow() }
 
         GlobalScope.launch {
             for (index in 1..10000) {
@@ -50,7 +50,7 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
             }
         }
 
-        viewModel.viewModelScope.launch {
+        mViewModel.viewModelScope.launch {
             for (index in 1..10000) {
                 delay(1000)
                 "333viewModelScope===${Thread.currentThread()}=== ${System.currentTimeMillis()}".logD()
@@ -106,7 +106,7 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
      * 不阻塞线程
      */
     private fun launchStart() {
-        binding.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
+        mViewBind.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
         LiveDataBus.with<String>("test").postData("2222")
     }
 

@@ -39,7 +39,7 @@ class HandlerActivity : BaseBindActivity<ActivityHandlerBinding>(), CoroutineSco
                     super.handleMessage(msg)
                     "${msg.obj}====${Thread.currentThread()}".also {
                         runOnUiThread {
-                            binding.tvShow.text = it
+                            mViewBind.tvShow.text = it
                         }
                     }
                 }
@@ -47,7 +47,7 @@ class HandlerActivity : BaseBindActivity<ActivityHandlerBinding>(), CoroutineSco
             Looper.loop()
         }
 
-        binding.apply {
+        mViewBind.apply {
 //            tvSendMsg.setOnClickListener {
 //                mainHandler.sendMessage(Message().apply {
 //                    this.what = msgWhat

@@ -20,7 +20,7 @@ class MediaRecorderActivity :  BaseBindActivity<ActivityRecordingBinding>(), Cor
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun initView(savedInstanceState: Bundle?) {
-        binding.apply {
+        mViewBind.apply {
 
             tvTitle.text=title
 

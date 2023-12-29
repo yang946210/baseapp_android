@@ -1,8 +1,6 @@
-package com.yang.appkt.viewmodel
+package com.example.jetpack.vm
 
-import com.yang.ktbase.base.BaseViewModel
+import androidx.lifecycle.ViewModel
 
-class CoroutineModel: BaseViewModel() {
-
-
+class CoroutineModel: ViewModel() {
 }

@@ -3,8 +3,9 @@ package com.example.jetpack.activity
 import android.os.Bundle
 import com.example.lib_jetpack.databinding.ActivityRoomBinding
 import com.yang.ktbase.base.BaseActivity
+import com.yang.ktbase.base.BaseBindActivity
 
-class RoomActivity : BaseActivity<RoomViewModel, ActivityRoomBinding>() {
+class RoomActivity : BaseBindActivity<ActivityRoomBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
 //        viewModel.roomData.observe(this){

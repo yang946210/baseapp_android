@@ -2,7 +2,7 @@ package com.yang.ktbase.extorutil
 
 import android.util.Log
 
-public const val TAG = "======ktApp log====="
+public const val TAG = "======"
 
 /**
  * 是否开启log

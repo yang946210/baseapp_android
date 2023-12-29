@@ -1,7 +1,6 @@
 package com.example.jetpack.activity
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.webkit.*
 import com.blankj.utilcode.util.ToastUtils
@@ -29,19 +28,13 @@ class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
 
             btNativeClick1.setOnClickListener {
                 vwMain.apply {
-                    if ( Build.VERSION.SDK_INT>= Build.VERSION_CODES.KITKAT)
-                        evaluateJavascript("javascript:androidClick()") { it.logD() }
-                    else
-                        loadUrl("javascript:test()")
+                    evaluateJavascript("javascript:androidClick()") { it.logD() }
                 }
             }
 
             btNativeClick2.setOnClickListener {
                 vwMain.apply {
-                    if ( Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT)
-                        evaluateJavascript("javascript:test()") { it.logD() }
-                    else
-                        loadUrl("javascript:test()")
+                    evaluateJavascript("javascript:test()") { it.logD() }
                 }
             }
         }

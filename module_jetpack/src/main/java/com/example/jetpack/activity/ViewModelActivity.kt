@@ -3,14 +3,11 @@ package com.example.jetpack.activity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import com.example.lib_jetpack.databinding.ActivityViewModelBinding
 import com.example.jetpack.vm.VmViewModel
 import com.yang.ktbase.base.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 
 
 class ViewModelActivity : BaseActivity<VmViewModel, ActivityViewModelBinding>() ,CoroutineScope by MainScope() {

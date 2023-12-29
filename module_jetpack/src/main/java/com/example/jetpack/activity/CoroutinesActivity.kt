@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.flow
 
 
 class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
-    CoroutineScope by MainScope() {
+    CoroutineScope by MainScope(){
 
     var tv:TextView?=null
 

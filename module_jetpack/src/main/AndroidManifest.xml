@@ -3,6 +3,9 @@
 
     <application>
         <activity
+            android:name="com.example.jetpack.activity.ExampleMvvmActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.jetpack.activity.ViewModelActivity"
             android:exported="false" />
         <activity

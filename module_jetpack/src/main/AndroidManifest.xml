@@ -2,15 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity
-            android:name="com.example.jetpack.activity.ExampleMvvmActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.jetpack.activity.ViewModelActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.jetpack.activity.LiveDataActivity"
-            android:exported="false" />
+        <activity android:name="com.example.jetpack.activity.FlowActivity" />
+        <activity android:name="com.example.jetpack.activity.ExampleMvvmActivity"/>
+        <activity android:name="com.example.jetpack.activity.ViewModelActivity" />
+        <activity android:name="com.example.jetpack.activity.LiveDataActivity"/>
         <activity android:name="com.example.jetpack.activity.NdkActivity" />
         <activity android:name="com.example.jetpack.activity.CoroutinesActivity" />
         <activity android:name="com.example.jetpack.activity.ServiceActivity" />

@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.avi.menusdkapi.mediaextractor.MediaExtractorActivity
 import com.example.avi.menusdkapi.mediarecorder.MediaRecorderActivity
 import com.example.jetpack.activity.CoroutinesActivity
+import com.example.jetpack.activity.FlowActivity
 import com.example.jetpack.activity.LifecycleActivity
 import com.example.jetpack.activity.LiveDataActivity
 import com.example.jetpack.activity.ViewModelActivity
@@ -18,7 +19,7 @@ class JetPackFragment : BaseBindFragment<FragmentJetpackBinding>() {
                 startActivity(Intent(context,CoroutinesActivity::class.java))
             }
             btnFlow.setOnClickListener {
-                startActivity(Intent(context,LifecycleActivity::class.java))
+                startActivity(Intent(context,FlowActivity::class.java))
             }
             btnLifecycle.setOnClickListener {
                 startActivity(Intent(context,LifecycleActivity::class.java))

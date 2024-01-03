@@ -1,4 +1,5 @@
 <resources>
     <string name="postValue">postValue</string>
     <string name="setValue">setValue</string>
+    <string name="emit1">emit1</string>
 </resources>

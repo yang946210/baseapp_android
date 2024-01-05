@@ -12,6 +12,49 @@
         android:id="@+id/btn_emit1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/emit1"/>
+    <Button
+        android:id="@+id/btn_emit8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:text="@string/emit1"/>
 
 </com.google.android.flexbox.FlexboxLayout>

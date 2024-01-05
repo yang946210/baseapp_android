@@ -1,4 +1,4 @@
-package com.yang.appkt.net
+package com.example.jetpack.net
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -6,7 +6,7 @@ import com.yang.ktbase.net.ResponseResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface IApi {
+interface ApiService {
 
     @GET("banner/json")
     suspend fun getBanner(): ResponseResult<JsonArray>

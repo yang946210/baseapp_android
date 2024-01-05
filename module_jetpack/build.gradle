@@ -4,11 +4,17 @@ apply from:'../common.gradle'
 
 android {
     namespace 'com.example.lib_jetpack'
+
+    buildTypes {
+        release {
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
+        }
+    }
 }
 
 dependencies {
     implementation project(':lib_base')
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }

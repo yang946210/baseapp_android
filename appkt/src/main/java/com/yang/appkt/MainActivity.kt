@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.yang.appkt.databinding.ActivityVmBinding
+import com.example.jetpack.net.RetrofitApi
 import com.yang.ktbase.base.BaseBindActivity
 
 
@@ -13,6 +14,7 @@ class MainActivity : BaseBindActivity<ActivityVmBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         initNavigation()
+
     }
 
     /**

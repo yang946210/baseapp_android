@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.example.lib_jetpack.databinding.ActivityWebViewBinding
 import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.base.BaseViewModel
-import com.yang.ktbase.extorutil.logD
+import com.yang.ktbase.util.logD
 
 class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
 

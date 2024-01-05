@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.lib_avi.databinding.ActivityAudioRecordBinding
 import com.yang.ktbase.base.BaseBindActivity
-import com.yang.ktbase.extorutil.getSizeWithUnit
+import com.yang.ktbase.util.getSizeWithUnit
 import kotlinx.coroutines.launch
 import java.io.File
 import java.util.Timer

@@ -6,8 +6,8 @@ import android.os.Looper
 import android.os.Message
 import com.example.lib_jetpack.databinding.ActivityHandlerBinding
 import com.yang.ktbase.base.BaseBindActivity
-import com.yang.ktbase.extorutil.logD
-import com.yang.ktbase.extorutil.notNull
+import com.yang.ktbase.util.logD
+import com.yang.ktbase.util.notNull
 import kotlinx.coroutines.*
 
 

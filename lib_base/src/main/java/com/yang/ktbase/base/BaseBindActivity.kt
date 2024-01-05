@@ -2,7 +2,7 @@ package com.yang.ktbase.base
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.extorutil.inflateBindingWithGeneric
+import com.yang.ktbase.util.inflateBindingWithGeneric
 
 /**
  * UI相关基类，

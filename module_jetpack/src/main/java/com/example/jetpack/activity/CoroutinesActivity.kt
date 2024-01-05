@@ -7,9 +7,8 @@ import androidx.lifecycle.viewModelScope
 import coil.load
 import com.example.jetpack.vm.CoroutineModel
 import com.example.lib_jetpack.databinding.ActivityCoroutinesBinding
-import com.yang.ktbase.LiveDataBus
 import com.yang.ktbase.base.BaseActivity
-import com.yang.ktbase.extorutil.logD
+import com.yang.ktbase.util.logD
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
@@ -106,7 +105,6 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
      */
     private fun launchStart() {
         mBinding.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
-        LiveDataBus.with<String>("test").postData("2222")
     }
 
     /**

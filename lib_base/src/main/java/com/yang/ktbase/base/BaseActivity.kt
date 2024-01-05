@@ -3,7 +3,7 @@ package com.yang.ktbase.base
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.extorutil.getVmClazz
+import com.yang.ktbase.util.getVmClazz
 
 
 /**

@@ -1,7 +1,7 @@
 package com.yang.ktbase.base
 
 import androidx.lifecycle.ViewModel
-import com.yang.ktbase.extorutil.logD
+import com.yang.ktbase.util.logD
 
 
 /**

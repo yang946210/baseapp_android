@@ -1,4 +1,4 @@
-package com.yang.ktbase.extorutil
+package com.yang.ktbase.util
 
 
 import android.content.ContentResolver

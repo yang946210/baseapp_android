@@ -10,20 +10,24 @@ android {
             storeFile file("../keyfile.jks")
             storePassword '123456'
         }
+        debug {
+            keyAlias '123456'
+            keyPassword '123456'
+            storeFile file("../keyfile.jks")
+            storePassword '123456'
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            zipAlignEnabled true
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
         }
         debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-            zipAlignEnabled true
+            signingConfig signingConfigs.debug
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
         }
     }
 }

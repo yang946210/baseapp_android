@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.example.lib_avi.databinding.ActivityMediaExtractorBinding
 import com.yang.ktbase.base.BaseBindActivity
-import com.yang.ktbase.extorutil.getFilePath
+import com.yang.ktbase.util.getFilePath
 
 
 /**

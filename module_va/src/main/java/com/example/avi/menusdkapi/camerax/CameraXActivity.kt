@@ -26,7 +26,7 @@ class CameraXActivity : BaseBindActivity<ActivityCameraXactivityBinding>() {
         //自定义相机管理类
         val cameraXManager=CameraXManager(this@CameraXActivity)
 
-        mViewBind.apply {
+        mBinding.apply {
             tvNote.text = note
 
             //初始化及预览

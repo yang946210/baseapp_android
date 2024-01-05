@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 class AviMenuActivity : BaseBindActivity<ActivityAviMenuBinding>(), CoroutineScope by MainScope()  {
     override fun initView(savedInstanceState: Bundle?) {
-        mViewBind.apply {
+        mBinding.apply {
 
             /**
              * 音频采集(MediaRecorder)

@@ -21,7 +21,7 @@ class PicShowActivity : BaseBindActivity<ActivityPicShowBinding>() {
         }
 
 
-        mViewBind.apply {
+        mBinding.apply {
             ivShow.setImageBitmap(imageBitmap)
         }
 

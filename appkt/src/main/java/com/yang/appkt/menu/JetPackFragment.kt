@@ -1,20 +1,21 @@
 package com.yang.appkt.menu
 import android.content.Intent
 import android.os.Bundle
-import com.example.avi.menusdkapi.mediaextractor.MediaExtractorActivity
-import com.example.avi.menusdkapi.mediarecorder.MediaRecorderActivity
+import androidx.lifecycle.ViewModel
 import com.example.jetpack.activity.CoroutinesActivity
 import com.example.jetpack.activity.FlowActivity
 import com.example.jetpack.activity.LifecycleActivity
 import com.example.jetpack.activity.LiveDataActivity
 import com.example.jetpack.activity.ViewModelActivity
+import com.yang.appkt.JetPackViewModel
 import com.yang.appkt.databinding.FragmentJetpackBinding
-import com.yang.ktbase.base.BaseBindFragment
+import com.yang.ktbase.base.BaseFragment
 
-class JetPackFragment : BaseBindFragment<FragmentJetpackBinding>() {
+class JetPackFragment : BaseFragment<JetPackViewModel,FragmentJetpackBinding>() {
+
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.apply {
+        mBinding.apply {
             btnScope.setOnClickListener {
                 startActivity(Intent(context,CoroutinesActivity::class.java))
             }
@@ -30,8 +31,9 @@ class JetPackFragment : BaseBindFragment<FragmentJetpackBinding>() {
             btnLiveData.setOnClickListener {
                 startActivity(Intent(context,LiveDataActivity::class.java))
             }
-
-
+        }
+        mViewModel.apply {
+            // TODO: 写点啥吧
         }
 
     }

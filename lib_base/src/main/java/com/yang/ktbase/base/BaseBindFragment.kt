@@ -9,18 +9,20 @@ import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.extorutil.inflateBindingWithGeneric
 
 
-/**
- * 构造viewBinding 的base类
+/***
+ *  UI相关Fragment基类
+ *  创建默认viewBind
+ *  ...其他UI相关公共逻辑
  */
-abstract class BaseBindFragment<B : ViewBinding> : Fragment() {
+abstract class BaseBindFragment<B : ViewBinding> : BaseCommonFragment() {
 
     private var _binding: B? = null
 
-    protected val binding: B get() = _binding!!
+    protected val mBinding: B get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = inflateBindingWithGeneric(inflater, container, false)
-        return binding.root
+        return mBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +36,9 @@ abstract class BaseBindFragment<B : ViewBinding> : Fragment() {
     abstract fun initView(savedInstanceState: Bundle?)
 
 
+    /**
+     * 跟着就销毁了
+     */
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

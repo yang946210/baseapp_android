@@ -18,7 +18,7 @@ import com.yang.ktbase.extorutil.getFilePath
 class MediaExtractorActivity : BaseBindActivity<ActivityMediaExtractorBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
-        mViewBind.apply {
+        mBinding.apply {
             tvChoose.setOnClickListener {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.type = "*/*" // 设置文件类型，这里设置为任意类型的文件
@@ -53,7 +53,7 @@ class MediaExtractorActivity : BaseBindActivity<ActivityMediaExtractorBinding>()
         if (requestCode == 10086 && resultCode == RESULT_OK) {
             val filePath =data?.data?.getFilePath(this@MediaExtractorActivity)
             val info=getInfoByFilePath(filePath!!)
-            mViewBind.tvInfo.text="当前信息：${info}"
+            mBinding.tvInfo.text="当前信息：${info}"
         }
     }
 }

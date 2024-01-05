@@ -41,7 +41,7 @@ class LiveDataActivity : BaseActivity<LiveDataViewModel,ActivityLiveDataBinding>
 
 
 
-        mViewBind.apply {
+        mBinding.apply {
             btnPost.setOnClickListener {
                 lifecycleScope.launch (Dispatchers.IO){
                     //post可以在任何线程

@@ -21,7 +21,7 @@ class AudioRecordActivity : BaseBindActivity<ActivityAudioRecordBinding>() {
 
         var mTimer:Timer?=null
 
-        mViewBind.apply {
+        mBinding.apply {
 
             tvStart.setOnClickListener {
                 val file=File(externalCacheDir,"audio_${System.currentTimeMillis()}.pcm")

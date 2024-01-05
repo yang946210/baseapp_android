@@ -8,7 +8,7 @@ class JavaMemoryActivity : BaseBindActivity<ActivityJavaMemoryBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        mViewBind.apply {
+        mBinding.apply {
         }
 
     }

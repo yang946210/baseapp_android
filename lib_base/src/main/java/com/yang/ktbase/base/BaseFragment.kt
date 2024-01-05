@@ -8,14 +8,17 @@ import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.extorutil.getVmClazz
 
 /***
- *  构造viewModel,ViewBinding 的base类
+ *  vm相关Fragment基类
+ *  创建默认viewModel
+ *  ...其他vm相关公共逻辑
  */
 abstract class BaseFragment<M : ViewModel, B : ViewBinding> : BaseBindFragment<B>() {
 
-    protected lateinit var viewModel: M
+    protected lateinit var mViewModel: M
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = createViewModel()
+        mViewModel = createViewModel()
         super.onViewCreated(view, savedInstanceState)
     }
 

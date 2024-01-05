@@ -18,6 +18,7 @@ class FlowViewModel : BaseViewModel() {
     var flow3 = flow { emit(1) }
     var flow4 = channelFlow { send(1) }
 
+
     //flow冷流，channelFlow热流
     suspend fun emit1() {
         "emit1 thread==>${Thread.currentThread().name}==>".logD()

@@ -7,7 +7,9 @@ import com.yang.ktbase.extorutil.getVmClazz
 
 
 /**
- * 构造viewModel,ViewBinding 的base类
+ * vm相关基类
+ * 实现viewModel相关功能
+ * ...其他vm相关逻辑实现
  */
 abstract class BaseActivity<M : ViewModel, B : ViewBinding> : BaseBindActivity<B>() {
 

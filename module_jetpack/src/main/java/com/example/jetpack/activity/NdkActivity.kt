@@ -11,7 +11,7 @@ import com.yang.ktbase.base.BaseBindActivity
 class NdkActivity : BaseBindActivity<ActivityNdkBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
-        mViewBind.apply {
+        mBinding.apply {
             //tvGetString.text= NativeLib.stringFromJNI()
         }
     }

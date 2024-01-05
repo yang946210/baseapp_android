@@ -1,37 +1,36 @@
 package com.yang.ktbase.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.extorutil.inflateBindingWithGeneric
 
 /**
- * activity基类，实现viewBind功能
- * 如果某个activity不需要viewModel功能，就可以直接继承这个基类
+ * UI相关基类，
+ * 实现viewBind功能
+ * ...其他UI相关的公共逻辑也可以在这里
+ *
  * @param B: ViewBinding
- * @property mViewBind B
+ * @property mBinding B
  */
-abstract class BaseBindActivity<B : ViewBinding> : AppCompatActivity()  {
+abstract class BaseBindActivity<B : ViewBinding> : BaseCommonActivity()  {
 
     /**
      * 初始化viewBind
      */
-    protected val mViewBind by lazy {
+    protected val mBinding by lazy {
         inflateBindingWithGeneric<B>(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(mViewBind.root)
+        setContentView(mBinding.root)
         initView(savedInstanceState)
-        initData(savedInstanceState)
     }
 
     /**
-     * 初始化
+     * UI初始化/绑定相关
      */
     abstract fun initView(savedInstanceState: Bundle?)
-    open fun initData(savedInstanceState: Bundle?){
 
-    }
+
 }

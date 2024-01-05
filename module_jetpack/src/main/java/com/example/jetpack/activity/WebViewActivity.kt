@@ -14,7 +14,7 @@ class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled")
     override fun initView(savedInstanceState: Bundle?) {
 
-        mViewBind.apply {
+        mBinding.apply {
 
             vwMain.apply {
                 loadUrl("file:///android_asset/show.html")
@@ -42,7 +42,7 @@ class WebViewActivity : BaseActivity<BaseViewModel, ActivityWebViewBinding>() {
 }
 
 
-class MyWebViewClient : WebViewClient()
+ class MyWebViewClient : WebViewClient()
 
 class MyWebChromeClient : WebChromeClient() {
     override fun onJsPrompt(

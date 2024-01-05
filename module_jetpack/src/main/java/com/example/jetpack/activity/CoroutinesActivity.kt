@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 
 
-
 class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
     CoroutineScope by MainScope(){
 
@@ -23,9 +22,9 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
 
 
     override fun initView(savedInstanceState: Bundle?) {
-        mViewBind.tvRunBlockingStart.setOnClickListener { start() }
-        mViewBind.tvLaunchStart.setOnClickListener { launchStart() }
-        mViewBind.tvAsyncStart.setOnClickListener { flow() }
+        mBinding.tvRunBlockingStart.setOnClickListener { start() }
+        mBinding.tvLaunchStart.setOnClickListener { launchStart() }
+        mBinding.tvAsyncStart.setOnClickListener { flow() }
 
         GlobalScope.launch {
             for (index in 1..10000) {
@@ -106,7 +105,7 @@ class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBindin
      * 不阻塞线程
      */
     private fun launchStart() {
-        mViewBind.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
+        mBinding.ivTitle.load("https://t7.baidu.com/it/u=2168645659,3174029352&fm=193&f=GIF")
         LiveDataBus.with<String>("test").postData("2222")
     }
 

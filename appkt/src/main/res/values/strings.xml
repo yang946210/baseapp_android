@@ -23,4 +23,5 @@
     <string name="viewModel">ViewModel</string>
     <string name="lifecycle">lifecycle</string>
     <string name="livedata">LiveData</string>
+    <string name="net_mvvm_demo">net mvvm demo</string>
 </resources>

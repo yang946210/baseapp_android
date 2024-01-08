@@ -2,4 +2,6 @@
     <string name="postValue">postValue</string>
     <string name="setValue">setValue</string>
     <string name="emit1">emit1</string>
+    <string name="exp1">方式1：请求响应分开</string>
+    <string name="exp_2">方式2：链式返回结果</string>
 </resources>

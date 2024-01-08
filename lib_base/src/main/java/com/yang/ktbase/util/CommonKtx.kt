@@ -12,7 +12,7 @@ fun <M> getVmClazz(obj: Any): M {
 
 
 /**
- * 判断是否为空 并传入相关操作
+ * 判断是否为空 并传入相关操作(用taskIf了)
  */
 inline fun <reified T> T?.notNull(notNullAction: (T) -> Unit, nullAction: () -> Unit = {}) {
     if (this != null) {

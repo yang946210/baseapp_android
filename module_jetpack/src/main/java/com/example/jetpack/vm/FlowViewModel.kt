@@ -1,4 +1,4 @@
-package com.example.jetpack.viewmodel
+package com.example.jetpack.vm
 
 import com.yang.ktbase.vm.BaseViewModel
 

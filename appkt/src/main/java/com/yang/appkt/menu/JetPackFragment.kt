@@ -2,6 +2,7 @@ package com.yang.appkt.menu
 import android.content.Intent
 import android.os.Bundle
 import com.example.jetpack.activity.CoroutinesActivity
+import com.example.jetpack.activity.ExampleMvvmActivity
 import com.example.jetpack.activity.FlowActivity
 import com.example.jetpack.activity.LifecycleActivity
 import com.example.jetpack.activity.LiveDataActivity
@@ -29,6 +30,9 @@ class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>()
             }
             btnLiveData.setOnClickListener {
                 startActivity(Intent(context,LiveDataActivity::class.java))
+            }
+            btnNetDemo.setOnClickListener {
+                startActivity(Intent(context,ExampleMvvmActivity::class.java))
             }
         }
         mViewModel.apply {

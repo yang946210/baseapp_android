@@ -1,4 +1,4 @@
-package com.yang.ktbase.base
+package com.yang.ktbase.activity
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

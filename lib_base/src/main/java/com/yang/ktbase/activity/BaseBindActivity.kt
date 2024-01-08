@@ -1,4 +1,4 @@
-package com.yang.ktbase.base
+package com.yang.ktbase.activity
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding

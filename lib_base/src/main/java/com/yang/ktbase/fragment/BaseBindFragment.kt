@@ -1,4 +1,4 @@
-package com.yang.ktbase.base
+package com.yang.ktbase.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

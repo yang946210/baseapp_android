@@ -1,4 +1,4 @@
-package com.yang.ktbase.base
+package com.yang.ktbase.fragment
 
 import androidx.fragment.app.Fragment
 

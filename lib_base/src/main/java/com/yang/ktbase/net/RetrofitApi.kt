@@ -1,6 +1,6 @@
-package com.example.jetpack.net
+package com.yang.ktbase.net
 
-import com.example.lib_jetpack.BuildConfig
+import com.yang.base.BuildConfig
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

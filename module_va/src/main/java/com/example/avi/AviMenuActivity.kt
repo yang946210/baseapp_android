@@ -8,7 +8,7 @@ import com.example.avi.menusdkapi.camerax.CameraXActivity
 import com.example.avi.menusdkapi.mediacodec.MediaCodecActivity
 import com.example.avi.menusdkapi.mediaextractor.MediaExtractorActivity
 import com.example.lib_avi.databinding.ActivityAviMenuBinding
-import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.activity.BaseBindActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 class AviMenuActivity : BaseBindActivity<ActivityAviMenuBinding>(), CoroutineScope by MainScope()  {

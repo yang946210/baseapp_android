@@ -2,7 +2,7 @@ package com.example.jetpack.vm
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import com.yang.ktbase.base.BaseViewModel
+import com.yang.ktbase.vm.BaseViewModel
 
 
 class LiveDataViewModel : BaseViewModel() {

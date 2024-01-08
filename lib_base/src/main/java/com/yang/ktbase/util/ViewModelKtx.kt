@@ -2,7 +2,7 @@ package com.yang.ktbase.util
 
 
 import androidx.lifecycle.viewModelScope
-import com.yang.ktbase.base.BaseViewModel
+import com.yang.ktbase.vm.BaseViewModel
 import com.yang.ktbase.net.ResponseResult
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

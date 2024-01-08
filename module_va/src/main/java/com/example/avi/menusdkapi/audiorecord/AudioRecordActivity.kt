@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.lib_avi.databinding.ActivityAudioRecordBinding
-import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.activity.BaseBindActivity
 import com.yang.ktbase.util.getSizeWithUnit
 import kotlinx.coroutines.launch
 import java.io.File

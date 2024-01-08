@@ -4,6 +4,15 @@ apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'com.yang.base'
+
+    buildTypes {
+        release {
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
+        }
+    }
 }
 dependencies {
 }

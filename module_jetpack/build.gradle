@@ -4,15 +4,6 @@ apply from:'../common.gradle'
 
 android {
     namespace 'com.example.lib_jetpack'
-
-    buildTypes {
-        release {
-            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
-        }
-        debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
-        }
-    }
 }
 
 dependencies {

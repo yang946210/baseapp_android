@@ -5,7 +5,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import com.example.lib_avi.databinding.ActivityCameraXactivityBinding
 import com.tbruyelle.rxpermissions3.RxPermissions
-import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.activity.BaseBindActivity
 import java.io.File
 
 

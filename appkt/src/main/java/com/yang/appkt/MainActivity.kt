@@ -1,13 +1,10 @@
 package com.yang.appkt
 
 import android.os.Bundle
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.yang.appkt.databinding.ActivityVmBinding
-import com.example.jetpack.net.RetrofitApi
-import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.activity.BaseBindActivity
 
 
 class MainActivity : BaseBindActivity<ActivityVmBinding>() {

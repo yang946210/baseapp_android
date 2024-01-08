@@ -2,7 +2,7 @@ package com.example.avi.menusdkapi.mediacodec
 
 import android.os.Bundle
 import com.example.lib_avi.databinding.ActivityMediaCodecBinding
-import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.activity.BaseBindActivity
 
 
 /**

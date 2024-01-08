@@ -3,7 +3,7 @@ package com.example.avi.menusdkapi.camera2
 import android.os.Bundle
 
 import com.example.lib_avi.databinding.ActivityCameraBinding
-import com.yang.ktbase.base.BaseBindActivity
+import com.yang.ktbase.activity.BaseBindActivity
 
 class Camera2Activity : BaseBindActivity<ActivityCameraBinding>() {
 

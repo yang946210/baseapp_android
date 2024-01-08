@@ -1,4 +1,4 @@
-package com.yang.ktbase.base
+package com.yang.ktbase.vm
 
 import androidx.lifecycle.ViewModel
 import com.yang.ktbase.util.logD
@@ -12,5 +12,6 @@ abstract class BaseViewModel : ViewModel(){
         super.onCleared()
         "ViewModel onCleared :${this::class.java.simpleName}".logD()
     }
+
 
 }

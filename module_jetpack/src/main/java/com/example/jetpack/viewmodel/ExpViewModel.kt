@@ -1,9 +1,9 @@
 package com.example.jetpack.viewmodel
 
-import com.yang.ktbase.base.BaseViewModel
+import com.yang.ktbase.vm.BaseViewModel
 
 /**
  * 示例的viewModel层
  */
-class ExpViewModel:BaseViewModel() {
+class ExpViewModel: BaseViewModel() {
 }

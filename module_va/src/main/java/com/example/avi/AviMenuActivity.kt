@@ -8,10 +8,10 @@ import com.example.avi.menusdkapi.camerax.CameraXActivity
 import com.example.avi.menusdkapi.mediacodec.MediaCodecActivity
 import com.example.avi.menusdkapi.mediaextractor.MediaExtractorActivity
 import com.example.lib_avi.databinding.ActivityAviMenuBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
-class AviMenuActivity : BaseBindActivity<ActivityAviMenuBinding>(), CoroutineScope by MainScope()  {
+class AviMenuActivity : BaseActivity<ActivityAviMenuBinding>(), CoroutineScope by MainScope()  {
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.apply {
 

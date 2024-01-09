@@ -4,14 +4,14 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.lib_avi.databinding.ActivityAudioRecordBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import com.yang.ktbase.util.getSizeWithUnit
 import kotlinx.coroutines.launch
 import java.io.File
 import java.util.Timer
 import kotlin.concurrent.timerTask
 
-class AudioRecordActivity : BaseBindActivity<ActivityAudioRecordBinding>() {
+class AudioRecordActivity : BaseActivity<ActivityAudioRecordBinding>() {
 
     @SuppressLint("SetTextI18n")
     override fun initView(savedInstanceState: Bundle?) {

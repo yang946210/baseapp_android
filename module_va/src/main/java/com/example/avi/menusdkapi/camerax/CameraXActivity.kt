@@ -5,7 +5,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import com.example.lib_avi.databinding.ActivityCameraXactivityBinding
 import com.tbruyelle.rxpermissions3.RxPermissions
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import java.io.File
 
 
@@ -18,7 +18,7 @@ val note="""
 /**
  * camerax 笔记
  */
-class CameraXActivity : BaseBindActivity<ActivityCameraXactivityBinding>() {
+class CameraXActivity : BaseActivity<ActivityCameraXactivityBinding>() {
 
 
     @SuppressLint("CheckResult")

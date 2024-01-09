@@ -7,7 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.example.lib_avi.databinding.ActivityMediaExtractorBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import com.yang.ktbase.util.getFilePath
 
 
@@ -15,7 +15,7 @@ import com.yang.ktbase.util.getFilePath
  * 音视频解封装
  *
  */
-class MediaExtractorActivity : BaseBindActivity<ActivityMediaExtractorBinding>() {
+class MediaExtractorActivity : BaseActivity<ActivityMediaExtractorBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.apply {

@@ -6,11 +6,11 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 
 import com.example.lib_avi.databinding.ActivityRecordingBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
-class MediaRecorderActivity :  BaseBindActivity<ActivityRecordingBinding>(), CoroutineScope by MainScope() {
+class MediaRecorderActivity :  BaseActivity<ActivityRecordingBinding>(), CoroutineScope by MainScope() {
 
     private val title="""
         音频采集方式：

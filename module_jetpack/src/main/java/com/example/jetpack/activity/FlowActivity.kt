@@ -3,7 +3,7 @@ package com.example.jetpack.activity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.lib_jetpack.databinding.ActivityFlowBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import com.yang.ktbase.util.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-class FlowActivity : BaseBindActivity<ActivityFlowBinding>() {
+class FlowActivity : BaseActivity<ActivityFlowBinding>() {
     var flow1:Flow<Int>?=null
     var flow2:Flow<Int>?=null
 

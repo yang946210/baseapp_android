@@ -3,9 +3,9 @@ package com.example.avi.menusdkapi.camera2
 import android.os.Bundle
 
 import com.example.lib_avi.databinding.ActivityCameraBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 
-class Camera2Activity : BaseBindActivity<ActivityCameraBinding>() {
+class Camera2Activity : BaseActivity<ActivityCameraBinding>() {
 
 
     //自定义camera2 管理类

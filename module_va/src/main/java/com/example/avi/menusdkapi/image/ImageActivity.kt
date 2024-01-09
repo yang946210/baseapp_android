@@ -4,13 +4,13 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import com.example.lib_avi.databinding.ActivityPicShowBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 
 var imageBitmap: Bitmap? = null
 
 var picBitmap: Bitmap? = null
 
-class PicShowActivity : BaseBindActivity<ActivityPicShowBinding>() {
+class PicShowActivity : BaseActivity<ActivityPicShowBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         kotlin.runCatching {
             //image加载图片

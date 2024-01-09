@@ -20,7 +20,7 @@ object RetrofitApi {
             .connectTimeout(5, TimeUnit.SECONDS)  //与服务器建立连接时长
             .readTimeout(5, TimeUnit.SECONDS)  //读取服务器返回数据时长
             .writeTimeout(5, TimeUnit.SECONDS)  //像服务器写入数据时长
-            .retryOnConnectionFailure(true)  //允许超时重连
+            .retryOnConnectionFailure(false)  //允许超时重连
             .followRedirects(true)  //允许重定向
             .cache(Cache(File("sdcard/cache", "okhttp"), 1024))
             .addInterceptor(HttpLoggingInterceptor().apply {
@@ -47,6 +47,6 @@ object RetrofitApi {
     /**
      * 获取service实例
      */
-    val getApi: ApiService get() =  retrofit.create(ApiService::class.java)
+    val api: ApiService get() =  retrofit.create(ApiService::class.java)
 
 }

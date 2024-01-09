@@ -1,11 +1,13 @@
 package com.example.jetpack.activity
 
 import android.os.Bundle
+import android.view.View
 import com.blankj.utilcode.util.ToastUtils
 import com.example.jetpack.vm.NetExpViewModel
 import com.example.lib_jetpack.databinding.ActivityExampleMvvmBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.activity.BaseVmActivity
 import com.yang.ktbase.network.netutil.collectIn
+import com.yang.ktbase.network.netutil.executeHttp
 import com.yang.ktbase.network.netutil.launchAndCollect
 import com.yang.ktbase.network.netutil.launchIn
 
@@ -18,11 +20,11 @@ import com.yang.ktbase.network.netutil.launchIn
  * 5.下载
  * 6.上传
  */
-class ExampleMvvmActivity : BaseActivity<NetExpViewModel, ActivityExampleMvvmBinding>() {
+class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvvmBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
-
         mBinding.run {
+
             /**
              * 1.标准封装请求
              */
@@ -32,6 +34,7 @@ class ExampleMvvmActivity : BaseActivity<NetExpViewModel, ActivityExampleMvvmBin
                 launchIn(showLoading = true) {
                     mViewModel.getBanner1()
                 }
+
             }
 
 
@@ -44,22 +47,15 @@ class ExampleMvvmActivity : BaseActivity<NetExpViewModel, ActivityExampleMvvmBin
                     showLoading = true,
                 ) {
                     onSuccess = {
-                        tvShowTitle.text = it?.toString()
+                        tvShowTitle.text = it.toString()
                     }
-                    onFailed ={ code,msg->{
-
-                    }
-
-                    }
+                    onFailed ={ _,msg->ToastUtils.showLong(msg) }
                     onError = {
                         ToastUtils.showLong(it.message)
                     }
                 }
             }
         }
-
-
-
 
         /**
          * 接收1的数据
@@ -69,8 +65,12 @@ class ExampleMvvmActivity : BaseActivity<NetExpViewModel, ActivityExampleMvvmBin
                 mBinding.tvShowTitle.text=it.toString()
             }
             onFailed={ _,msg->
-                mBinding.tvShowTitle.text=msg
+                ToastUtils.showLong(msg)
             }
+            onError ={
+                ToastUtils.showLong(it.message)
+            }
+
         }
 
     }

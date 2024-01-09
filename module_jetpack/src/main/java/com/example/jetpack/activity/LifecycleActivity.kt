@@ -5,12 +5,12 @@ import androidx.lifecycle.*
 import com.example.lib_jetpack.databinding.ActivityLifecycleBinding
 
 
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 import com.yang.ktbase.util.logD
 
 
 
-class LifecycleActivity : BaseBindActivity<ActivityLifecycleBinding>() {
+class LifecycleActivity : BaseActivity<ActivityLifecycleBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
 

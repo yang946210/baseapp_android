@@ -1,30 +1,61 @@
 package com.yang.ktbase.activity
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.app.ProgressDialog
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.util.getVmClazz
-
+import com.yang.ktbase.network.netutil.Request
+import com.yang.ktbase.util.inflateBindingWithGeneric
 
 /**
- * vm相关基类
- * 实现viewModel相关功能
- * ...其他vm相关逻辑实现
+ * UI相关基类，
+ * 实现viewBind功能
+ * ...其他UI相关的公共逻辑也可以在这里
+ *
+ * @param B: ViewBinding
+ * @property mBinding B
  */
-abstract class BaseActivity<M : ViewModel, B : ViewBinding> : BaseBindActivity<B>() {
+abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), Request {
 
     /**
-     * 初始化ViewModel
+     * viewBind
      */
-    protected val mViewModel by lazy {
-        createViewModel()
+    protected val mBinding by lazy {
+        inflateBindingWithGeneric<B>(layoutInflater)
     }
 
     /**
-     * 创建viewModel
+     * 网络请求加载弹窗
      */
-    private fun createViewModel(): M {
-        return ViewModelProvider(this)[getVmClazz(this)]
+    private val progressDialog: ProgressDialog by lazy {
+        ProgressDialog(this)
+    }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(mBinding.root)
+        initView(savedInstanceState)
+    }
+
+    /**
+     * UI初始化/绑定相关
+     */
+    abstract fun initView(savedInstanceState: Bundle?)
+
+
+    /**
+     * 展示一般加载中弹窗
+     */
+    override fun showLoading() {
+        progressDialog.show()
+    }
+
+    /**
+     * 关闭一般加载中弹窗
+     */
+    override fun hideLoading() {
+        progressDialog.takeIf { it.isShowing }?.dismiss()
     }
 
 

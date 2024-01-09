@@ -3,17 +3,17 @@
 
     <application>
         <activity android:name="com.example.jetpack.activity.FlowActivity" />
-        <activity android:name="com.example.jetpack.activity.ExampleMvvmActivity"/>
-        <activity android:name="com.example.jetpack.activity.ViewModelActivity" />
-        <activity android:name="com.example.jetpack.activity.LiveDataActivity"/>
+        <activity android:name="com.example.jetpack.activity.ExampleMvvmVmActivity"/>
+        <activity android:name="com.example.jetpack.activity.ViewModelVmActivity" />
+        <activity android:name="com.example.jetpack.activity.LiveDataVmActivity"/>
         <activity android:name="com.example.jetpack.activity.NdkActivity" />
-        <activity android:name="com.example.jetpack.activity.CoroutinesActivity" />
+        <activity android:name="com.example.jetpack.activity.CoroutinesVmActivity" />
         <activity android:name="com.example.jetpack.activity.ServiceActivity" />
         <activity android:name="com.example.jetpack.activity.JavaMemoryActivity" />
         <activity android:name="com.example.jetpack.activity.LifecycleActivity" />
         <activity android:name="com.example.jetpack.activity.LaunchActivity" />
         <activity android:name="com.example.jetpack.activity.HandlerActivity" />
-        <activity android:name="com.example.jetpack.activity.WebViewActivity" />
+        <activity android:name="com.example.jetpack.activity.WebViewVmActivity" />
         <activity android:name="com.example.jetpack.activity.RoomActivity" />
 
         <service

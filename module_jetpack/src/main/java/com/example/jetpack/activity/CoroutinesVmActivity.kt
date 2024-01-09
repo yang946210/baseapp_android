@@ -7,14 +7,14 @@ import androidx.lifecycle.viewModelScope
 import coil.load
 import com.example.jetpack.vm.CoroutineModel
 import com.example.lib_jetpack.databinding.ActivityCoroutinesBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.activity.BaseVmActivity
 import com.yang.ktbase.util.logD
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 
 
-class CoroutinesActivity : BaseActivity<CoroutineModel, ActivityCoroutinesBinding>(),
+class CoroutinesVmActivity : BaseVmActivity<CoroutineModel, ActivityCoroutinesBinding>(),
     CoroutineScope by MainScope(){
 
     var tv:TextView?=null

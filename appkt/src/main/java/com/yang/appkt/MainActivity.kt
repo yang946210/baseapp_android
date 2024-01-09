@@ -4,10 +4,10 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.yang.appkt.databinding.ActivityVmBinding
-import com.yang.ktbase.activity.BaseBindActivity
+import com.yang.ktbase.activity.BaseActivity
 
 
-class MainActivity : BaseBindActivity<ActivityVmBinding>() {
+class MainActivity : BaseActivity<ActivityVmBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         initNavigation()

@@ -1,6 +1,6 @@
 package com.yang.ktbase.network
 
-import com.aisier.network.entity.ApiResponse
+import com.yang.ktbase.network.entity.ApiResponse
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import retrofit2.http.GET

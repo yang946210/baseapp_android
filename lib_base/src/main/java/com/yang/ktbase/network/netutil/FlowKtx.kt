@@ -4,11 +4,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.aisier.network.entity.ApiResponse
+import com.yang.ktbase.network.entity.ApiResponse
 import com.yang.ktbase.network.ResultListener
 import com.yang.ktbase.network.`interface`.UiView
 import com.yang.ktbase.network.parseData
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
@@ -17,24 +18,29 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 
-
-fun UiView.launchIn(requestBlock: suspend () -> Unit) {
+/**
+ * 标准请求
+ */
+fun UiView.launchIn(showLoading: Boolean = false,requestBlock: suspend () -> Unit) {
     lifecycleScope.launch {
+        delay(2000)
         flow {
             emit(requestBlock())
         }.onStart {
-            showLoading()
+            if (showLoading)showLoading()
         }.onCompletion {
-            hideLoading()
+            if (showLoading)hideLoading()
         }.collect()
     }
 }
 
-
+/**
+ * 标准返回
+ */
 fun <T> Flow<ApiResponse<T>>.collectIn(
     lifecycleOwner: LifecycleOwner,
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
-    listenerBuilder: ResultListener<T>.() -> Unit,
+    listenerBuilder: ResultListener<T>.() -> Unit
 ): Job = lifecycleOwner.lifecycleScope.launch {
     flowWithLifecycle(
         lifecycleOwner.lifecycle,
@@ -45,13 +51,12 @@ fun <T> Flow<ApiResponse<T>>.collectIn(
 }
 
 
-
 /**
- * 请求带Loading&&不需要声明LiveData
+ * 简易请求，返回链式调用
  */
 fun <T> UiView.launchAndCollect(
-    showLoading: Boolean = false,
     requestBlock: suspend () -> ApiResponse<T>,
+    showLoading: Boolean = false,
     listenerBuilder: ResultListener<T>.() -> Unit,
 ) {
     lifecycleScope.launch {

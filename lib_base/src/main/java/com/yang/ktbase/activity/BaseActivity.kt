@@ -4,7 +4,7 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.network.netutil.Request
+import com.yang.ktbase.network.netutil.RequestExt
 import com.yang.ktbase.util.inflateBindingWithGeneric
 
 /**
@@ -15,7 +15,7 @@ import com.yang.ktbase.util.inflateBindingWithGeneric
  * @param B: ViewBinding
  * @property mBinding B
  */
-abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), Request {
+abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),RequestExt {
 
     /**
      * viewBind

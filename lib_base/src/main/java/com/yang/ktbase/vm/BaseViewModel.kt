@@ -1,14 +1,13 @@
 package com.yang.ktbase.vm
 
 import androidx.lifecycle.ViewModel
-import com.yang.ktbase.network.netutil.Response
 import com.yang.ktbase.util.logD
 
 
 /**
  * ViewModel基类
  */
-abstract class BaseViewModel : ViewModel(),Response{
+abstract class BaseViewModel : ViewModel(){
 
 
     override fun onCleared() {

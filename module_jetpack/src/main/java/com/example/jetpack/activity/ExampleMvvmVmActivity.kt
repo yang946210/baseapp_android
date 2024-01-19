@@ -56,7 +56,9 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
              */
             btnGetNet2.setOnClickListener {
                 requestAndCollect(
-                    { mViewModel.getPage(1) },
+                    {
+                        mViewModel.getPage(1)
+                    },
                     showLoading = true,
                 ) {
                     onSuccess = {

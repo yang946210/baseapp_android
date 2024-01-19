@@ -1,8 +1,6 @@
 package com.yang.ktbase.network
 
-import com.yang.ktbase.TagConfig
 import com.yang.ktbase.util.logD
-import com.yang.ktbase.util.logE
 
 /**
  *

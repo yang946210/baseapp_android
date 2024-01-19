@@ -1,22 +1,22 @@
 package com.yang.ktbase.network
 
 
-enum class Error(private val code: Int, private val err: String) {
+/**
+ * 异常处理类封装
+ */
+data class NetException(var code: Int, override var message:String):Throwable(){
+    constructor(error: Error) : this(error.code,error.msg)
+
+}
+
+
+
+enum class Error( val code: Int,  val msg: String) {
 
     /**
      * 返回数据为null
      */
-    TIMEOUT_NULL(1001, "返回数据为null");
-
-
-    fun getKey(): Int {
-        return code
-    }
-
-    fun getValue(): String {
-        return err
-    }
-
+    DATA_NULL(1001, "返回数据为null");
 
 
 }

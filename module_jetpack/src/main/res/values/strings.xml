@@ -4,4 +4,5 @@
     <string name="emit1">emit1</string>
     <string name="exp1">方式1：请求响应分开</string>
     <string name="exp_2">方式2：链式返回结果</string>
+    <string name="type3">方式3：所有请求相关封装到viewModel</string>
 </resources>

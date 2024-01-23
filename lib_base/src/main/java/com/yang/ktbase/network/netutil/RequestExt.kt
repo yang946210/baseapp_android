@@ -29,7 +29,7 @@ import kotlinx.coroutines.launch
 /**
  * 请求挂载组件，哪个类要用请求就继承这个
  */
-public interface RequestExt : LifecycleOwner {
+interface RequestExt : LifecycleOwner {
 
     fun showLoading()
 
@@ -122,10 +122,10 @@ suspend fun <T> ViewModel.execute(block: suspend () -> BaseResponse<T>): BaseRes
  */
 fun <T> BaseViewModel.request(
     block: suspend () -> BaseResponse<T>,
-    success: (T) -> Unit,
-    error: (NetException) -> Unit = {},
-    isShowDialog: Boolean = false,
-    loadingMessage: String = "请求网络中..."
+    showDialog: Boolean = false,
+    loadingMsg: String = "请求网络中...",
+    onError: (NetException) -> Unit = {},
+    onSuccess: (T) -> Unit
 ): Job {
     return viewModelScope.launch {
         runCatching {
@@ -139,7 +139,7 @@ fun <T> BaseViewModel.request(
             val data = it.data
             val isSuccess = it.isSuccess
             if (isSuccess) {
-                success(data!!)
+                onSuccess(data!!)
             } else throw NetException(it.errorCode, it.errorMsg)
 
         }.onFailure {
@@ -147,11 +147,10 @@ fun <T> BaseViewModel.request(
             it.message?.logD(tag = "okhttp==>>")
             //网络请求异常 关闭弹窗
             //loadingChange.dismissDialog.postValue(false)
-
             if (it is NetException) {
-                error(it)
+                onError(it)
             } else {
-                error(NetException(-1, it.message.toString()))
+                onError(NetException(-1, it.message.toString()))
             }
         }
     }

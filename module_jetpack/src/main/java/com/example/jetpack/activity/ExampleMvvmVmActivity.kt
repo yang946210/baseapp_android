@@ -57,7 +57,7 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
             btnGetNet2.setOnClickListener {
                 requestAndCollect(
                     {
-                        mViewModel.getPage(1)
+                        mViewModel.getBanner2()
                     },
                     showLoading = true,
                 ) {
@@ -69,6 +69,15 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
                         ToastUtils.showLong(it.message)
                     }
                 }
+            }
+
+            /**
+             * 请求3 get
+             */
+            btnGetNet3.setOnClickListener {
+                mViewModel.getBanner3()
+
+
             }
         }
 

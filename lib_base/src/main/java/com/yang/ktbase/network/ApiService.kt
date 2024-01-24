@@ -8,13 +8,13 @@ import retrofit2.http.Path
 interface ApiService {
 
     @GET("banner/json")
-    suspend fun getBanner(): BaseResponse<JsonArray>
+    suspend fun getBanner(): ResponseData<JsonArray>
 
     @GET("user/lg/private_articles/{page}/json")
-    suspend fun getData(@Path("page") pageId:Int): BaseResponse<JsonArray>
+    suspend fun getData(@Path("page") pageId:Int): ResponseData<JsonArray>
 
     @GET("article/list/{page}/json")
-    suspend fun getAnt(@Path("page") pageNo: Int): BaseResponse<JsonObject>
+    suspend fun getAnt(@Path("page") pageNo: Int): ResponseData<JsonObject>
 
 
 }

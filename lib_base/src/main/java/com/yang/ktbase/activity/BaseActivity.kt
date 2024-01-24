@@ -4,7 +4,7 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.network.netutil.RequestExt
+import com.yang.ktbase.network.ReqOwner
 import com.yang.ktbase.util.inflateBindingWithGeneric
 
 /**
@@ -15,7 +15,7 @@ import com.yang.ktbase.util.inflateBindingWithGeneric
  * @param B: ViewBinding
  * @property mBinding B
  */
-abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),RequestExt {
+abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), ReqOwner {
 
     /**
      * viewBind
@@ -47,7 +47,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),RequestExt {
     /**
      * 展示一般加载中弹窗
      */
-    override fun showLoading() {
+    override fun showLoading(msg: String) {
         progressDialog.show()
     }
 

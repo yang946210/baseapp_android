@@ -5,9 +5,9 @@ import com.blankj.utilcode.util.ToastUtils
 import com.example.jetpack.vm.NetExpViewModel
 import com.example.lib_jetpack.databinding.ActivityExampleMvvmBinding
 import com.yang.ktbase.activity.BaseVmActivity
-import com.yang.ktbase.network.netutil.collectIn
-import com.yang.ktbase.network.netutil.request
-import com.yang.ktbase.network.netutil.requestAndCollect
+import com.yang.ktbase.network.collectIn
+import com.yang.ktbase.network.request
+import com.yang.ktbase.network.requestAndCollect
 
 /**
  * 网络封装示例
@@ -27,9 +27,13 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
              * 请求1
              */
             btnGetNet1.setOnClickListener {
-                //launchIn (requestBlock = mViewModel::getBanner1)
-                //launchIn  (requestBlock = { mViewModel.getBanner1()})
-                request(showLoading = true) {
+                request (
+                    reqCall = mViewModel::getBanner1,
+                    showLoading = true,
+                )
+                request(reqCall = {mViewModel.getBanner1()})
+
+                request{
                     mViewModel.getBanner1()
                 }
 
@@ -38,17 +42,15 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
             /**
              * 接收1的数据
              */
-            mViewModel.titleData.collectIn(this@ExampleMvvmVmActivity){
-                onSuccess={
-                    mBinding.tvShowTitle.text=it.toString()
-                }
-                onFailed={ _,msg->
-                    ToastUtils.showLong(msg)
-                }
-                onError ={
-                    ToastUtils.showLong(it.message)
-                }
+            mViewModel.titleData.collectIn(
+                this@ExampleMvvmVmActivity,
+                //如果你想自己处理错误就添加这个参数
+                onError = {}
+            ){
+                tvShowTitle.text=it.toString()
             }
+
+
 
 
             /**
@@ -56,34 +58,16 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
              */
             btnGetNet2.setOnClickListener {
                 requestAndCollect(
-                    {
-                        mViewModel.getBanner2()
-                    },
+                    { mViewModel.getBanner2() },
                     showLoading = true,
-                ) {
-                    onSuccess = {
-                        tvShowTitle.text = it.toString()
-                    }
-                    onFailed ={ _,msg->ToastUtils.showLong(msg) }
                     onError = {
-                        ToastUtils.showLong(it.message)
+                        ToastUtils.showLong("请求失败:${it.message}${it.code}")
                     }
+                ) {
+                    tvShowTitle.text = it.toString()
                 }
-            }
-
-            /**
-             * 请求3 get
-             */
-            btnGetNet3.setOnClickListener {
-                mViewModel.getBanner3()
-
 
             }
         }
-
-
-
     }
-
-
 }

@@ -5,8 +5,8 @@
     <string name="play">play</string>
     <string name="getCameraInfo">CameraInfo</string>
     <string name="image">Image</string>
-    <string name="camera2">camera2采集视频</string>
-    <string name="camerax">cameraX采集视频</string>
-    <string name="mediaRecorder">MediaRecorder 录制音频</string>
-    <string name="audio">AudioRecorder 录制音频/播放</string>
+    <string name="camera2">camera2</string>
+    <string name="camerax">cameraX</string>
+    <string name="mediaRecorder">MediaRecorder录制音频</string>
+    <string name="audio">AudioRecorder录制音频/播放</string>
 </resources>

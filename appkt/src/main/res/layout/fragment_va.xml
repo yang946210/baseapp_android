@@ -4,57 +4,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="10dp"
     android:layout_height="match_parent"
     tools:context=".menu.VaFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:orientation="vertical">
 
-
-
-        <TextView
+        <Button
             android:id="@+id/tv_Recording"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
             android:text="@string/mediaRecorder" />
 
 
-        <TextView
+        <Button
             android:id="@+id/tv_audio"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
             android:text="@string/audio" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_camera2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
             android:text="@string/camera2" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_cameraX"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
             android:text="@string/camerax" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_mediaExtractor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
             android:text="MediaExtractor解封装" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_mediaCodec"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ButtonBg.blue10"
             android:text="MediaCodec硬编/硬解码" />
+
+
+
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

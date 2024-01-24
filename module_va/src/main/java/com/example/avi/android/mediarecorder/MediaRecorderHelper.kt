@@ -70,12 +70,12 @@ object MediaRecorderHelper {
     /**
      * 开始
      */
-    fun start(showSize:TextView?) {
+    fun start(showSize:TextView) {
         ToastUtils.showLong("开始")
         mMediaRecorder.start()
         timer.schedule(timerTask {
-           showSize?.post {
-               showSize?.text= "文件长度${fileName.length()}"
+           showSize.post {
+               showSize.text= "文件长度:${fileName.length()}"
            }
         },1000,1000)
     }

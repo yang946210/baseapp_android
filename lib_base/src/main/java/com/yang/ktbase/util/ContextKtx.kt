@@ -1,6 +1,9 @@
 package com.yang.ktbase.util
 
+import android.app.Activity
 import android.content.Context
+import android.widget.Toast
+import com.blankj.utilcode.util.ToastUtils
 
 
 /**
@@ -29,4 +32,13 @@ fun Context.dp2px(dp: Int): Int {
 fun Context.px2dp(px: Int): Int {
     val scale = resources.displayMetrics.density
     return (px / scale + 0.5f).toInt()
+}
+
+/**
+ * 简化一下toast
+ */
+fun Context.toastUtil(msg: String,duration:Int=Toast.LENGTH_LONG){
+    if (this is Activity){
+        Toast.makeText(this,msg,duration).show()
+    }
 }

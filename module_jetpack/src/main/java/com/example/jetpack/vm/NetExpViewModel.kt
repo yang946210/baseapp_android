@@ -1,8 +1,8 @@
 package com.example.jetpack.vm
 
-import com.yang.ktbase.network.ResponseData
+import com.yang.ktbase.net.ResponseData
 import com.google.gson.JsonArray
-import com.yang.ktbase.network.RetrofitApi
+import com.yang.ktbase.net.RetrofitApi
 import com.yang.ktbase.vm.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package com.example.avi.menusdkapi.mediarecorder
+package com.example.avi.android.mediarecorder
 
 import android.Manifest
 import android.annotation.SuppressLint

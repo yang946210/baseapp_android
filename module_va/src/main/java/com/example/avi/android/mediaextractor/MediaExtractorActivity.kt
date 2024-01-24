@@ -1,4 +1,4 @@
-package com.example.avi.menusdkapi.mediaextractor
+package com.example.avi.android.mediaextractor
 
 import android.annotation.SuppressLint
 import android.content.Intent

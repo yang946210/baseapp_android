@@ -1,4 +1,4 @@
-package com.example.avi.menusdkapi.mediarecorder
+package com.example.avi.android.mediarecorder
 
 
 import android.os.Build

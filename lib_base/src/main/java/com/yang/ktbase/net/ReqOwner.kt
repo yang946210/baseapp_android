@@ -1,4 +1,4 @@
-package com.yang.ktbase.network
+package com.yang.ktbase.net
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

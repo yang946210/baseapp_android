@@ -1,4 +1,4 @@
-package com.example.avi.menusdkapi.camerax
+package com.example.avi.android.camerax
 
 import android.Manifest
 import android.annotation.SuppressLint

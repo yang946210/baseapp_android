@@ -4,7 +4,7 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.network.ReqOwner
+import com.yang.ktbase.net.ReqOwner
 import com.yang.ktbase.util.inflateBindingWithGeneric
 
 /**
@@ -49,6 +49,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), ReqOwner {
      */
     override fun showLoading(msg: String) {
         progressDialog.show()
+        progressDialog.setTitle(msg)
     }
 
     /**

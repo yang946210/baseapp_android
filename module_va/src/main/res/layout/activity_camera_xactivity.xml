@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.avi.menusdkapi.camerax.CameraXActivity">
+    tools:context="com.example.avi.android.camerax.CameraXActivity">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/pv_mainView"

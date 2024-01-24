@@ -1,4 +1,4 @@
-package com.example.avi.menusdkapi.mediacodec
+package com.example.avi.android.mediacodec
 
 import android.content.Context
 import android.media.MediaCodec

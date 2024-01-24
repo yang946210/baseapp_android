@@ -1,4 +1,4 @@
-package com.example.avi.menusdkapi.image
+package com.example.avi.android.image
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

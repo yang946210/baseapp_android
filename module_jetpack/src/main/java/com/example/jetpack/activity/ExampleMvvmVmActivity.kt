@@ -5,9 +5,9 @@ import com.blankj.utilcode.util.ToastUtils
 import com.example.jetpack.vm.NetExpViewModel
 import com.example.lib_jetpack.databinding.ActivityExampleMvvmBinding
 import com.yang.ktbase.activity.BaseVmActivity
-import com.yang.ktbase.network.collectIn
-import com.yang.ktbase.network.request
-import com.yang.ktbase.network.requestWithCollect
+import com.yang.ktbase.net.collectIn
+import com.yang.ktbase.net.request
+import com.yang.ktbase.net.requestWithCollect
 
 /**
  * 网络封装示例

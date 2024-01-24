@@ -1,4 +1,4 @@
-package com.yang.ktbase.network
+package com.yang.ktbase.net
 
 import com.yang.base.BuildConfig
 import okhttp3.Cache

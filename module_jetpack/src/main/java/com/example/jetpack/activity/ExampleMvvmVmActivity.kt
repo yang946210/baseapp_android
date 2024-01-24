@@ -7,7 +7,7 @@ import com.example.lib_jetpack.databinding.ActivityExampleMvvmBinding
 import com.yang.ktbase.activity.BaseVmActivity
 import com.yang.ktbase.network.collectIn
 import com.yang.ktbase.network.request
-import com.yang.ktbase.network.requestAndCollect
+import com.yang.ktbase.network.requestWithCollect
 
 /**
  * 网络封装示例
@@ -27,17 +27,17 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
              * 请求1
              */
             btnGetNet1.setOnClickListener {
-                request (
-                    reqCall = mViewModel::getBanner1,
-                    showLoading = true,
-                )
-                request(reqCall = {mViewModel.getBanner1()})
+//                request (
+//                    reqCall = mViewModel::getBanner1,
+//                    showLoading = true,
+//                )
 
-                request{
+//                request(reqCall = {mViewModel.getBanner1()})
+                request {
                     mViewModel.getBanner1()
                 }
-
             }
+
 
             /**
              * 接收1的数据
@@ -46,10 +46,9 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
                 this@ExampleMvvmVmActivity,
                 //如果你想自己处理错误就添加这个参数
                 onError = {}
-            ){
-                tvShowTitle.text=it.toString()
+            ) {
+                tvShowTitle.text = it.toString()
             }
-
 
 
 
@@ -57,7 +56,7 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
              * 请求返回链式调用
              */
             btnGetNet2.setOnClickListener {
-                requestAndCollect(
+                requestWithCollect(
                     { mViewModel.getBanner2() },
                     showLoading = true,
                     onError = {

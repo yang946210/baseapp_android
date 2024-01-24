@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 
 /**
- * 请求挂载组件，哪个类要用请求就继承这个
+ * 请求挂载组件，哪个activity或fragment要用就实现这个
  */
 interface ReqOwner : LifecycleOwner {
 
@@ -28,8 +28,8 @@ interface ReqOwner : LifecycleOwner {
 /**
  * 请求/返回链式调用（mvvm的话最好用下面的标准些）
  */
-fun <T> ReqOwner.requestAndCollect(
-    requestBlock: suspend () -> ResponseData<T>,
+fun <T> ReqOwner.requestWithCollect(
+    reqCall: suspend () -> ResponseData<T>,
     showLoading: Boolean = false,
     loadingMsg:String="加载中",
     onError: (NetException) -> Unit = {},
@@ -37,10 +37,13 @@ fun <T> ReqOwner.requestAndCollect(
 ) {
     lifecycleScope.launch {
         flow {
-            emit(requestBlock())
+            emit(reqCall())
         }.onStart {
             if (showLoading) showLoading(loadingMsg)
         }.onCompletion {
+            it?.run {
+                onError(NetException("flow error：${it.message}"))
+            }
             if (showLoading) hideLoading()
         }.collect {
             it.parseData(onError,onSuccess)
@@ -98,7 +101,7 @@ private inline fun <T> ResponseData<T>.parseData(onError: (NetException) -> Unit
         if (it is NetException) {
             onError(it)
         } else {
-            onError(NetException(-1, it.message.toString()))
+            onError(NetException("response error:${it.message}"))
         }
     }
 }

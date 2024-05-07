@@ -1,6 +1,6 @@
 //include ':mvp'
 //include ':base'
-include ':appkt'
+include ':app'
 include ':lib_base'
 include ':lib_mpeg'
 include ':module_va'

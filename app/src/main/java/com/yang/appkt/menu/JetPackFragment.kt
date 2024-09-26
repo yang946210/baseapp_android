@@ -10,6 +10,7 @@ import com.example.jetpack.activity.ViewModelVmActivity
 import com.yang.appkt.JetPackViewModel
 import com.yang.appkt.databinding.FragmentJetpackBinding
 import com.yang.ktbase.fragment.BaseFragment
+import io.flutter.embedding.android.FlutterActivity
 
 class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>() {
 
@@ -33,6 +34,11 @@ class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>()
             }
             btnNetDemo.setOnClickListener {
                 startActivity(Intent(context,ExampleMvvmVmActivity::class.java))
+            }
+            btnFlutter.setOnClickListener {
+                startActivity(
+                    FlutterActivity.createDefaultIntent(requireContext())
+                )
             }
         }
         mViewModel.apply {

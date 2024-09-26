@@ -37,6 +37,7 @@ dependencies {
     implementation project(':lib_mpeg')
     implementation project(':module_va')
     implementation project(':module_jetpack')
+    implementation project(':flutter')
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

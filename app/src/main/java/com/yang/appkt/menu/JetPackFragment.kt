@@ -9,6 +9,7 @@ import com.example.jetpack.activity.LiveDataVmActivity
 import com.example.jetpack.activity.ViewModelVmActivity
 import com.yang.appkt.JetPackViewModel
 import com.yang.appkt.databinding.FragmentJetpackBinding
+import com.yang.appkt.util.FlutterEngineManager
 import com.yang.ktbase.fragment.BaseFragment
 import io.flutter.embedding.android.FlutterActivity
 
@@ -16,7 +17,9 @@ class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>()
 
 
     override fun initView(savedInstanceState: Bundle?) {
+
         mBinding.apply {
+
             btnScope.setOnClickListener {
                 startActivity(Intent(context,CoroutinesVmActivity::class.java))
             }
@@ -37,7 +40,7 @@ class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>()
             }
             btnFlutter.setOnClickListener {
                 startActivity(
-                    FlutterActivity.createDefaultIntent(requireContext())
+                    FlutterEngineManager.getEngine(requireContext())
                 )
             }
         }

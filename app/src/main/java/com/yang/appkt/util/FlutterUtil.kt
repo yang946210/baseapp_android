@@ -9,7 +9,9 @@ import io.flutter.embedding.engine.dart.DartExecutor
 
 object FlutterEngineManager {
 
-    // 保存
+    var mainEngin="id_engine_main"
+
+    //初始化一个flutter引擎
     fun registerEngine(context: Context) {
         // 创建并缓存Flutter引擎
         val flutterEngine = FlutterEngine(context)
@@ -22,13 +24,13 @@ object FlutterEngineManager {
         // 将Flutter引擎缓存起来
         FlutterEngineCache
             .getInstance()
-            .put("my_engine_id", flutterEngine)
+            .put(mainEngin, flutterEngine)
     }
 
-    // 获取intent
+    // 获取这个引擎
     fun getEngine(context: Context) : Intent {
         val intent = FlutterActivity
-            .withCachedEngine("my_engine_id")
+            .withCachedEngine(mainEngin)
             .build(context)
         return intent
     }

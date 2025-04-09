@@ -67,6 +67,14 @@
         android:layout_marginHorizontal="5dp"
         android:text="跳转到flutter页面"/>
 
+    <Button
+        android:id="@+id/btn_Scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:text="扫描二维码进入webview"/>
+
 
 
 

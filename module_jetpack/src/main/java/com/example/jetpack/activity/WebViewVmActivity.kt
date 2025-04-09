@@ -11,13 +11,14 @@ import com.yang.ktbase.util.logD
 
 class WebViewVmActivity : BaseVmActivity<BaseViewModel, ActivityWebViewBinding>() {
 
+
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled")
     override fun initView(savedInstanceState: Bundle?) {
 
+        val url=intent.getStringExtra("url");
         mBinding.apply {
-
             vwMain.apply {
-                loadUrl("file:///android_asset/show.html")
+                url?.let { loadUrl(it) }
                 webViewClient = MyWebViewClient()
                 webChromeClient = MyWebChromeClient()
                 addJavascriptInterface(JavaScriptInterface(),"native")
@@ -37,6 +38,14 @@ class WebViewVmActivity : BaseVmActivity<BaseViewModel, ActivityWebViewBinding>(
                     evaluateJavascript("javascript:test()") { it.logD() }
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (mBinding.vwMain.canGoBack()) {
+            mBinding.vwMain.goBack()
+        } else {
+            super.onBackPressed()
         }
     }
 }

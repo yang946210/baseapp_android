@@ -2,9 +2,11 @@ package com.yang.ktbase.activity
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.net.ReqOwner
+import com.yang.ktbase.util.colorStatusBar
 import com.yang.ktbase.util.inflateBindingWithGeneric
 
 /**
@@ -36,6 +38,11 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), ReqOwner {
         super.onCreate(savedInstanceState)
         setContentView(mBinding.root)
         initView(savedInstanceState)
+    }
+
+    override fun setContentView(view: View?) {
+        super.setContentView(view)
+        colorStatusBar(this)
     }
 
     /**

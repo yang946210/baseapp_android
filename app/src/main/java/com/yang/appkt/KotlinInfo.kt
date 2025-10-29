@@ -274,7 +274,7 @@ object BaseInfo {
     }
     class  BaseImp(private var la:String):Base{
 
-        val s:String by lazy { "3232" }
+        private val s:String by lazy { "3232" }
 
         override fun print() {
            println("$s$la")
@@ -287,7 +287,7 @@ object BaseInfo {
         companion object{
             @JvmStatic
             fun main(args: Array<String>) {
-                var baseImp=BaseImp("100")
+                val baseImp=BaseImp("100")
                 Device(baseImp).print()  //输出100
             }
         }

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.net.ReqOwner
+import com.yang.ktbase.net.NetOwner
 import com.yang.ktbase.util.colorStatusBar
 import com.yang.ktbase.util.inflateBindingWithGeneric
 
@@ -17,7 +17,7 @@ import com.yang.ktbase.util.inflateBindingWithGeneric
  * @param B: ViewBinding
  * @property mBinding B
  */
-abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), ReqOwner {
+abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), NetOwner {
 
     /**
      * viewBind

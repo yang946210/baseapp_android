@@ -8,7 +8,7 @@ import com.example.jetpack.activity.LifecycleActivity
 import com.example.jetpack.activity.LiveDataVmActivity
 import com.example.jetpack.activity.ViewModelVmActivity
 import com.google.zxing.integration.android.IntentIntegrator
-import com.yang.appkt.JetPackViewModel
+import com.yang.appkt.vm.JetPackViewModel
 import com.yang.appkt.databinding.FragmentJetpackBinding
 import com.yang.appkt.util.FlutterEngineManager
 import com.yang.ktbase.base.BaseFragment

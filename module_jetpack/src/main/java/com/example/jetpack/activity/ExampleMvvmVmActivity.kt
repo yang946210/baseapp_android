@@ -27,28 +27,22 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
              * 请求1
              */
             btnGetNet1.setOnClickListener {
-//                request (
-//                    reqCall = mViewModel::getBanner1,
-//                    showLoading = true,
-//                )
-
-//                request(reqCall = {mViewModel.getBanner1()})
-                request {
-                    mViewModel.getBanner1()
-                }
+                request (
+                    mViewModel::getBanner1,
+                    showLoading = true,
+                )
             }
-
-
             /**
              * 接收1的数据
              */
             mViewModel.titleData.collectIn(
                 this@ExampleMvvmVmActivity,
-                //如果你想自己处理错误就添加这个参数
                 onError = {}
             ) {
                 tvShowTitle.text = it.toString()
             }
+
+
 
 
 
@@ -61,11 +55,10 @@ class ExampleMvvmVmActivity : BaseVmActivity<NetExpViewModel, ActivityExampleMvv
                     showLoading = true,
                     onError = {
                         ToastUtils.showLong("请求失败:${it.message}${it.code}")
-                    }
+                    },
                 ) {
                     tvShowTitle.text = it.toString()
                 }
-
             }
         }
     }

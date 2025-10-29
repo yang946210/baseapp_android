@@ -40,4 +40,6 @@ class MainActivity : BaseActivity<ActivityVmBinding>() {
         }
     }
 
+
+
 }

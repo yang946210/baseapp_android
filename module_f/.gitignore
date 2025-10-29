@@ -1,4 +1,5 @@
 # Flutter generated files
+.metadata
 .dart_tool/
 .build/
 build/

@@ -1,9 +1,9 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=D:\Source\SdkFlutter\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\Project\baseapp_android\model_flutter"
+export "FLUTTER_ROOT=/Users/yang/Dev/Flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/yang/Public/WorkSpace/baseapp_android/module_f"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=lib\main.dart"
+export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
 export "FLUTTER_BUILD_NUMBER=1"

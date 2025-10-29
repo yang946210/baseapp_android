@@ -10,7 +10,7 @@ import android.media.AudioRecord
 import android.media.AudioTrack
 import android.media.MediaRecorder
 import com.blankj.utilcode.util.LogUtils
-import com.yang.ktbase.activity.BaseApp
+import com.yang.ktbase.base.BaseApp
 import java.io.File
 
 

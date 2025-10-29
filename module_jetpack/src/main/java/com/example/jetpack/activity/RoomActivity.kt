@@ -2,7 +2,7 @@ package com.example.jetpack.activity
 
 import android.os.Bundle
 import com.example.lib_jetpack.databinding.ActivityRoomBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.base.BaseActivity
 
 class RoomActivity : BaseActivity<ActivityRoomBinding>() {
 

@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 
 import com.example.lib_avi.databinding.ActivityRecordingBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.base.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import coil.load
 import com.example.jetpack.vm.CoroutineModel
 import com.example.lib_jetpack.databinding.ActivityCoroutinesBinding
-import com.yang.ktbase.activity.BaseVmActivity
+import com.yang.ktbase.base.BaseVmActivity
 import com.yang.ktbase.util.logD
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow

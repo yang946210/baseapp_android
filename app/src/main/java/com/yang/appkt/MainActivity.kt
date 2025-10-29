@@ -7,7 +7,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.jetpack.activity.WebViewVmActivity
 import com.google.zxing.integration.android.IntentIntegrator
 import com.yang.appkt.databinding.ActivityVmBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.base.BaseActivity
 
 
 class MainActivity : BaseActivity<ActivityVmBinding>() {

@@ -6,7 +6,7 @@ import com.blankj.utilcode.util.TimeUtils
 import com.example.jetpack.vm.LiveDataViewModel
 
 import com.example.lib_jetpack.databinding.ActivityLiveDataBinding
-import com.yang.ktbase.activity.BaseVmActivity
+import com.yang.ktbase.base.BaseVmActivity
 import com.yang.ktbase.util.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

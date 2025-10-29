@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.webkit.*
 import com.blankj.utilcode.util.ToastUtils
 import com.example.lib_jetpack.databinding.ActivityWebViewBinding
-import com.yang.ktbase.activity.BaseVmActivity
+import com.yang.ktbase.base.BaseVmActivity
 import com.yang.ktbase.vm.BaseViewModel
 import com.yang.ktbase.util.logD
 

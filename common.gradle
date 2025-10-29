@@ -2,11 +2,11 @@ apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -85,5 +85,4 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
     // CameraX View class[可选]最佳实践，最好用里面的PreviewView，它会自行判断用SurfaceView还是TextureView来实现
     implementation 'androidx.camera:camera-view:1.2.2'
-
 }

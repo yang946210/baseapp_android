@@ -9,7 +9,7 @@ import com.example.avi.android.mediacodec.MediaCodecActivity
 import com.example.avi.android.mediaextractor.MediaExtractorActivity
 import com.example.avi.android.mediarecorder.MediaRecorderActivity
 import com.yang.appkt.databinding.FragmentVaBinding
-import com.yang.ktbase.fragment.BaseBindFragment
+import com.yang.ktbase.base.BaseBindFragment
 
 class VaFragment : BaseBindFragment<FragmentVaBinding>() {
 

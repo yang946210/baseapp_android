@@ -3,7 +3,7 @@ package com.example.jetpack.activity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.lib_jetpack.databinding.ActivityFlowBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.util.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow

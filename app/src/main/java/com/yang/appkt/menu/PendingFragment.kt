@@ -2,7 +2,7 @@ package com.yang.appkt.menu
 
 import android.os.Bundle
 import com.yang.appkt.databinding.FragmentPendingBinding
-import com.yang.ktbase.fragment.BaseBindFragment
+import com.yang.ktbase.base.BaseBindFragment
 
 class PendingFragment : BaseBindFragment<FragmentPendingBinding>() {
 

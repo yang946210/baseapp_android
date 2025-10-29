@@ -1,4 +1,4 @@
-package com.yang.ktbase.activity
+package com.yang.ktbase.base
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -65,6 +65,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), ReqOwner {
     override fun hideLoading() {
         progressDialog.takeIf { it.isShowing }?.dismiss()
     }
+
 
 
 }

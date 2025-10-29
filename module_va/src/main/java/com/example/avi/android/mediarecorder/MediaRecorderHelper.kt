@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.tbruyelle.rxpermissions3.RxPermissions
-import com.yang.ktbase.activity.BaseApp
+import com.yang.ktbase.base.BaseApp
 import java.io.File
 import java.util.Timer
 import kotlin.concurrent.timerTask

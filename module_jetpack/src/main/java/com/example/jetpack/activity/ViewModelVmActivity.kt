@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.lib_jetpack.databinding.ActivityViewModelBinding
 import com.example.jetpack.vm.VmViewModel
-import com.yang.ktbase.activity.BaseVmActivity
+import com.yang.ktbase.base.BaseVmActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 

@@ -5,7 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import com.example.lib_jetpack.databinding.ActivityHandlerBinding
-import com.yang.ktbase.activity.BaseActivity
+import com.yang.ktbase.base.BaseActivity
 import com.yang.ktbase.util.logD
 import com.yang.ktbase.util.notNull
 import kotlinx.coroutines.*

@@ -1,6 +1,5 @@
 package com.yang.appkt.menu
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import com.example.jetpack.activity.ExampleMvvmVmActivity
@@ -12,7 +11,7 @@ import com.google.zxing.integration.android.IntentIntegrator
 import com.yang.appkt.JetPackViewModel
 import com.yang.appkt.databinding.FragmentJetpackBinding
 import com.yang.appkt.util.FlutterEngineManager
-import com.yang.ktbase.fragment.BaseFragment
+import com.yang.ktbase.base.BaseFragment
 
 
 class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>() {

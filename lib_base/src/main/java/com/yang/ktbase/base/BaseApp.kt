@@ -1,4 +1,4 @@
-package com.yang.ktbase.activity
+package com.yang.ktbase.base
 
 import android.app.Application
 import android.content.Context

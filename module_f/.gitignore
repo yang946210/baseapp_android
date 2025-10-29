@@ -1,49 +1,22 @@
-.DS_Store
+# Flutter generated files
 .dart_tool/
-
-.pub/
-
-.idea/
-.vagrant/
-.sconsign.dblite
-.svn/
-
-migrate_working_dir/
-
-*.swp
-profile
-
-DerivedData/
-
-.generated/
-
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-
-!default.pbxuser
-!default.mode1v3
-!default.mode2v3
-!default.perspectivev3
-
-xcuserdata
-
-*.moved-aside
-
-*.pyc
-*sync/
-Icon?
-.tags*
-
+.build/
 build/
-.android/
-.ios/
 .flutter-plugins
 .flutter-plugins-dependencies
+.packages
+pubspec.lock
 
-# Symbolication related
-app.*.symbols
+# Auto-generated platform projects
+.android/
+.ios/
 
-# Obfuscation related
-app.*.map.json
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs & temp
+*.log
+*.tmp
+*.bak

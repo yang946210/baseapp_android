@@ -1,0 +1,23 @@
+import 'package:flutter/foundation.dart';
+
+class Config{
+  /// Debug和Profile为false,ture,Release=>false
+  static const bool isDebug  = !kReleaseMode;
+
+  ///基础地址
+  static String get urlBase => isDebug?_urlTest:_urlRelease;
+
+  ///生产/测试地址
+  static const String _urlRelease = "http://sddsjapptest.scgsdsj.com:32881/";
+  static const String _urlTest = "http://sddsjapptest.scgsdsj.com:32881/";
+
+
+  ///隐私协议
+  static const String urlProtocol="http://dsjapp.scgsdsj.com:22580/privacy/蜀道大数据-隐私协议.html";
+  ///用户协议
+  static const String urlUser="http://dsjapp.scgsdsj.com:22580/privacy/蜀道大数据-用户协议.html";
+  ///公司简介
+  static  String urlIntroduction="${urlBase}app/h5/group-introduce/group.html";
+
+
+}

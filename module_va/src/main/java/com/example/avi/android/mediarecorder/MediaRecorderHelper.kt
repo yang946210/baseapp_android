@@ -1,6 +1,5 @@
 package com.example.avi.android.mediarecorder
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.media.MediaRecorder
 import android.os.Build
@@ -9,7 +8,6 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.tbruyelle.rxpermissions3.RxPermissions
 import com.yang.ktbase.base.BaseApp
 import java.io.File
 import java.util.Timer
@@ -61,10 +59,10 @@ object MediaRecorderHelper {
 
     @SuppressLint("CheckResult")
     fun getPermission(activity: FragmentActivity){
-        val rxp=RxPermissions(activity)
-        rxp.request(Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe {
-            ToastUtils.showLong("result====${it}")
-        }
+//        val rxp=RxPermissions(activity)
+//        rxp.request(Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe {
+//            ToastUtils.showLong("result====${it}")
+//        }
     }
 
     /**

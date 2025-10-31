@@ -1,7 +1,6 @@
 package com.example.jetpack.activity
 
 import android.os.Bundle
-import androidx.lifecycle.lifecycleScope
 import com.example.jetpack.vm.NetExpViewModel
 import com.example.lib_jetpack.databinding.ActivityExampleMvvmBinding
 import com.yang.ktbase.base.BaseVMActivity
@@ -17,7 +16,7 @@ import com.yang.ktbase.base.BaseVMActivity
  */
 class ExampleMvvmVMActivity : BaseVMActivity<NetExpViewModel, ActivityExampleMvvmBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         mBinding.run {
             /**
              * 请求1
@@ -37,11 +36,8 @@ class ExampleMvvmVMActivity : BaseVMActivity<NetExpViewModel, ActivityExampleMvv
     }
 
     override fun bindData() {
-        // 订阅 StateFlow 数据
-        lifecycleScope.launchWhenStarted {
-            mViewModel.titleData.collect { jsonArray ->
-                mBinding.tvShowTitle.text=jsonArray.toString()
-            }
+        collectData(mViewModel.titleData){
+            mBinding.tvShowTitle.text=it.toString()
         }
     }
 

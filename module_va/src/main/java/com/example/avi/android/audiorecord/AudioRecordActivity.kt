@@ -14,7 +14,7 @@ import kotlin.concurrent.timerTask
 class AudioRecordActivity : BaseActivity<ActivityAudioRecordBinding>() {
 
     @SuppressLint("SetTextI18n")
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 
 
         val audioManager=AudioRecordManager(this@AudioRecordActivity)

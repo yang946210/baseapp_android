@@ -7,7 +7,7 @@ import com.yang.ktbase.base.BaseActivity
 
 class LaunchActivity : BaseActivity<ActivityLaunchBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?){
+    override fun bindView(savedInstanceState: Bundle?){
 
     }
 

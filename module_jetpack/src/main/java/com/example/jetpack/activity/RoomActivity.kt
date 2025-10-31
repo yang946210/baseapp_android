@@ -6,7 +6,7 @@ import com.yang.ktbase.base.BaseActivity
 
 class RoomActivity : BaseActivity<ActivityRoomBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 //        viewModel.roomData.observe(this){
 //
 //        }

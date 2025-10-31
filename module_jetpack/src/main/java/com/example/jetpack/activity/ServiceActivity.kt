@@ -6,7 +6,7 @@ import com.yang.ktbase.base.BaseActivity
 
 class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 
     }
 }

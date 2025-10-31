@@ -22,7 +22,7 @@ class FlowActivity : BaseActivity<ActivityFlowBinding>() {
     var flow1:Flow<Int>?=null
     var flow2:Flow<Int>?=null
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         createFlow()
 
         mBinding.apply {

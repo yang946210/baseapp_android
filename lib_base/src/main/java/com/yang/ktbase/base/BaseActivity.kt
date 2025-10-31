@@ -28,7 +28,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(mBinding.root)
-        initView(savedInstanceState)
+        bindView(savedInstanceState)
     }
 
     override fun setContentView(view: View?) {
@@ -39,7 +39,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
     /**
      * UI初始化/绑定相关
      */
-    abstract fun initView(savedInstanceState: Bundle?)
+    abstract fun bindView(savedInstanceState: Bundle?)
 
 
 

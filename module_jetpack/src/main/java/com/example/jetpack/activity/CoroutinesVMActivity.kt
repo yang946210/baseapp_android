@@ -23,7 +23,7 @@ class CoroutinesVMActivity : BaseVMActivity<CoroutineModel, ActivityCoroutinesBi
     }
 
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         mBinding.tvRunBlockingStart.setOnClickListener { start() }
         mBinding.tvLaunchStart.setOnClickListener { launchStart() }
         mBinding.tvAsyncStart.setOnClickListener { flow() }

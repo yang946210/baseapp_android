@@ -4,20 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import com.yang.ktbase.net.NetException
 import com.yang.ktbase.net.ResponseData
 
-/**
- * UI 状态封装
- */
-sealed class UiState {
-    object Idle : UiState()
-    object Loading : UiState()
-    data class Success<T>(val data: T) : UiState()
-    data class Error(val message: String) : UiState()
-}
+
 
 /**
  * Base ViewModel
@@ -29,8 +20,6 @@ open class BaseViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
     val uiState: StateFlow<UiState> = _uiState
 
-    private val safeScope: CoroutineScope
-        get() = viewModelScope
 
 
     /**
@@ -41,13 +30,13 @@ open class BaseViewModel : ViewModel() {
         onSuccess: (T) -> Unit = {},
         onError: (NetException) -> Unit = {}
     ) {
-        safeScope.launch {
+        viewModelScope.launch {
             try {
                 _uiState.value = UiState.Loading
                 val result = reqCall()
                 result.parseData(
                     onError = {
-                        _uiState.value = UiState.Error(it.message ?: "未知错误")
+                        _uiState.value = UiState.Error(it.message)
                         onError(it)
                     },
                     onSuccess = {
@@ -65,7 +54,7 @@ open class BaseViewModel : ViewModel() {
 }
 
 /**
- * ResponseData 扩展解析方法
+ * 自定义response解析
  */
 private inline fun <T> ResponseData<T>.parseData(
     onError: (NetException) -> Unit,
@@ -81,6 +70,20 @@ private inline fun <T> ResponseData<T>.parseData(
     }
 }
 
+
+/**
+ * UI 状态封装
+ */
+sealed class UiState {
+    //空闲
+    object Idle : UiState()
+    //加载中
+    object Loading : UiState()
+    //加载成功
+    data class Success<T>(val data: T) : UiState()
+    //加载失败
+    data class Error(val message: String) : UiState()
+}
 
 
 

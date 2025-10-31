@@ -19,7 +19,7 @@ class MediaRecorderActivity :  BaseActivity<ActivityRecordingBinding>(), Corouti
     """.trimIndent()
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         mBinding.apply {
 
             tvTitle.text=title

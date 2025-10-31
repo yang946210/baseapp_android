@@ -20,7 +20,6 @@ import android.view.TextureView
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.blankj.utilcode.util.LogUtils
-import com.tbruyelle.rxpermissions3.RxPermissions
 import java.io.File
 import java.util.Arrays
 
@@ -102,63 +101,63 @@ class Camera2Manager(val context: Context) {
     //打开摄像机
     @SuppressLint("CheckResult", "MissingPermission")
     fun openCamera(fragmentActivity: FragmentActivity,textureView: TextureView){
-        kotlin.runCatching {
-            //权限请求
-            val rxPermissions=RxPermissions(fragmentActivity)
-            rxPermissions.request(Manifest.permission.CAMERA).subscribe { success ->
-                if (success){
-                    //打开相机
-                    mCameraManager.openCamera((if (mCameraId==null) mCameraManager.cameraIdList[0] else mCameraId)!!, object :CameraDevice.StateCallback(){
-                        override fun onOpened(camera: CameraDevice) {
-                            // 表示相机打开成功，可以真正开始使用相机，创建Capture会话
-                            mCameraDevice = camera
-                            // 创建预览请求
-                            createPreviewSession(textureView)
-                        }
-
-                        override fun onDisconnected(camera: CameraDevice) {
-                            //当相机断开连接时回调该方法，需要进行释放相机的操作
-                            camera.close()
-                            mCameraDevice = null
-                        }
-
-                        override fun onError(camera: CameraDevice, error: Int) {
-                            //当相机打开失败时，需要进行释放相机的操作
-                            camera.close()
-                            mCameraDevice = null
-                            LogUtils.d("camera error : $error")
-                        }
-
-                        override fun onClosed(camera: CameraDevice) {
-                            //调用Camera.close()后的回调方法
-                            super.onClosed(camera)
-                        }
-                    }, backgroundHandler)
-
-                    //设置预览图片监听
-                    textureView.surfaceTextureListener=object :TextureView.SurfaceTextureListener{
-                        override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
-                            LogUtils.d("onSurfaceTextureAvailable===>$width ==$height")
-                        }
-
-                        override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {
-                            LogUtils.d("onSurfaceTextureSizeChanged===>$width ==$height")
-                        }
-
-                        override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
-                            LogUtils.d("onSurfaceTextureDestroyed===$")
-                            return false
-                        }
-
-                        override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
-                            //LogUtils.d("onSurfaceTextureUpdated===")
-                        }
-                    }
-                }
-            }
-        }.onFailure {
-            LogUtils.d("open camera fail:${it.message}")
-        }
+//        kotlin.runCatching {
+//            //权限请求
+//            val rxPermissions=RxPermissions(fragmentActivity)
+//            rxPermissions.request(Manifest.permission.CAMERA).subscribe { success ->
+//                if (success){
+//                    //打开相机
+//                    mCameraManager.openCamera((if (mCameraId==null) mCameraManager.cameraIdList[0] else mCameraId)!!, object :CameraDevice.StateCallback(){
+//                        override fun onOpened(camera: CameraDevice) {
+//                            // 表示相机打开成功，可以真正开始使用相机，创建Capture会话
+//                            mCameraDevice = camera
+//                            // 创建预览请求
+//                            createPreviewSession(textureView)
+//                        }
+//
+//                        override fun onDisconnected(camera: CameraDevice) {
+//                            //当相机断开连接时回调该方法，需要进行释放相机的操作
+//                            camera.close()
+//                            mCameraDevice = null
+//                        }
+//
+//                        override fun onError(camera: CameraDevice, error: Int) {
+//                            //当相机打开失败时，需要进行释放相机的操作
+//                            camera.close()
+//                            mCameraDevice = null
+//                            LogUtils.d("camera error : $error")
+//                        }
+//
+//                        override fun onClosed(camera: CameraDevice) {
+//                            //调用Camera.close()后的回调方法
+//                            super.onClosed(camera)
+//                        }
+//                    }, backgroundHandler)
+//
+//                    //设置预览图片监听
+//                    textureView.surfaceTextureListener=object :TextureView.SurfaceTextureListener{
+//                        override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
+//                            LogUtils.d("onSurfaceTextureAvailable===>$width ==$height")
+//                        }
+//
+//                        override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {
+//                            LogUtils.d("onSurfaceTextureSizeChanged===>$width ==$height")
+//                        }
+//
+//                        override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
+//                            LogUtils.d("onSurfaceTextureDestroyed===$")
+//                            return false
+//                        }
+//
+//                        override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
+//                            //LogUtils.d("onSurfaceTextureUpdated===")
+//                        }
+//                    }
+//                }
+//            }
+//        }.onFailure {
+//            LogUtils.d("open camera fail:${it.message}")
+//        }
     }
 
 

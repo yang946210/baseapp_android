@@ -18,15 +18,6 @@ class JetPackVMFragment : BaseVMFragment<JetPackViewModel, FragmentJetpackBindin
 
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.apply {
-
-            btnScope.setOnClickListener {
-                val packageName = "com.glxx.sdapp" // 替换为目标应用程序的包名
-                val intent = Intent(Intent.ACTION_DELETE)
-                intent.setData(Uri.parse("package:$packageName"))
-                startActivity(intent)
-
-                //startActivity(Intent(context,CoroutinesVmActivity::class.java))
-            }
             btnFlow.setOnClickListener {
                 startActivity(Intent(context,FlowActivity::class.java))
             }

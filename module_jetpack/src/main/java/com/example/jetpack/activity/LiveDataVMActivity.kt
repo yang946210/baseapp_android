@@ -19,7 +19,7 @@ class LiveDataVMActivity : BaseVMActivity<LiveDataViewModel,ActivityLiveDataBind
         TODO("Not yet implemented")
     }
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 
         mViewModel.apply {
             mlLiveData1.observe(this@LiveDataVMActivity){

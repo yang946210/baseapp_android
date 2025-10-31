@@ -6,7 +6,7 @@ import com.yang.ktbase.base.BaseActivity
 
 class JavaMemoryActivity : BaseActivity<ActivityJavaMemoryBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 
         mBinding.apply {
         }

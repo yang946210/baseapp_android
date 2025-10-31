@@ -30,7 +30,7 @@ class HandlerActivity : BaseActivity<ActivityHandlerBinding>(), CoroutineScope b
     }
 
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         launch(Dispatchers.IO) {
             Looper.prepare()
             Looper.myLooper().notNull({ "========notNull".logD() }, { "=========Null".logD() })

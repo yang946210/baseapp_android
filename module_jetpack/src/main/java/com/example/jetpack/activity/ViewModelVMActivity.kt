@@ -15,7 +15,7 @@ class ViewModelVMActivity : BaseVMActivity<VmViewModel, ActivityViewModelBinding
         TODO("Not yet implemented")
     }
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         //创建viewModel
         createViewModel()
     }

@@ -11,7 +11,7 @@ var imageBitmap: Bitmap? = null
 var picBitmap: Bitmap? = null
 
 class PicShowActivity : BaseActivity<ActivityPicShowBinding>() {
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         kotlin.runCatching {
             //image加载图片
             imageBitmap = BitmapFactory.decodeStream(assets.open("image_info.webp"))

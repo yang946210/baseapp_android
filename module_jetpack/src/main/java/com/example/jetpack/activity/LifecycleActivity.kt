@@ -12,7 +12,7 @@ import com.yang.ktbase.util.logD
 
 class LifecycleActivity : BaseActivity<ActivityLifecycleBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 
         lifecycle.currentState.toString().logD()
         lifecycle.addObserver(MLifecycleObserver())

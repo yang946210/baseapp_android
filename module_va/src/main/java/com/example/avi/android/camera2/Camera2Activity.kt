@@ -11,7 +11,7 @@ class Camera2Activity : BaseActivity<ActivityCameraBinding>() {
     //自定义camera2 管理类
     private lateinit var cameraManager: Camera2Manager
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         mBinding.apply {
             //获取对应摄像头的基本信息
             tvGetInfo.setOnClickListener {

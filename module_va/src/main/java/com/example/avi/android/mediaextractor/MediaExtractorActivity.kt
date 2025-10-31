@@ -17,7 +17,7 @@ import com.yang.ktbase.util.getFilePath
  */
 class MediaExtractorActivity : BaseActivity<ActivityMediaExtractorBinding>() {
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         mBinding.apply {
             tvChoose.setOnClickListener {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)

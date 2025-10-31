@@ -16,7 +16,7 @@ class WebViewVMActivity : BaseVMActivity<BaseViewModel, ActivityWebViewBinding>(
 
 
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled")
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
 
         val url=intent.getStringExtra("url");
         mBinding.apply {

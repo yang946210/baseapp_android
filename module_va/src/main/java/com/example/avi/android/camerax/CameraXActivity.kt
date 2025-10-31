@@ -19,7 +19,7 @@ class CameraXActivity : BaseActivity<ActivityCameraXactivityBinding>() {
 
 
     @SuppressLint("CheckResult")
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun bindView(savedInstanceState: Bundle?) {
         //自定义相机管理类
         val cameraXManager=CameraXManager(this@CameraXActivity)
 

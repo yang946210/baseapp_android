@@ -19,10 +19,10 @@ class NetExpViewModel : BaseViewModel() {
     fun getUserInfo() {
         request{
             request { RetrofitApi.api.getBanner() }
-            onSuccess {
+            success {
                 _titleData.value=it;
             }
-            onError {
+            error {
                 ToastUtils.showLong("如果有错误就写${it}")
             }
         }

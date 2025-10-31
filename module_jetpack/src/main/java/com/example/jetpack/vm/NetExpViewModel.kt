@@ -1,5 +1,6 @@
 package com.example.jetpack.vm
 
+import com.blankj.utilcode.util.ToastUtils
 import com.google.gson.JsonArray
 import com.yang.ktbase.net.RetrofitApi
 import com.yang.ktbase.vm.BaseViewModel
@@ -16,15 +17,15 @@ class NetExpViewModel : BaseViewModel() {
     val titleData: StateFlow<JsonArray> = _titleData.asStateFlow()
 
     fun getUserInfo() {
-        launchRequest(
-            reqCall = { RetrofitApi.api.getBanner() },
-            onSuccess = { user ->
-                _titleData.value=user;
-            },
-            onError = {
-                // 额外错误处理（如果要）
+        request{
+            request { RetrofitApi.api.getBanner() }
+            onSuccess {
+                _titleData.value=it;
             }
-        )
+            onError {
+                ToastUtils.showLong("如果有错误就写${it}")
+            }
+        }
     }
 
 }

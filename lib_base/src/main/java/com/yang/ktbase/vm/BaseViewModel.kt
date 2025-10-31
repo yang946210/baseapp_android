@@ -6,8 +6,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import com.yang.ktbase.net.NetException
-import com.yang.ktbase.net.ResponseData
-
 
 
 /**
@@ -16,59 +14,45 @@ import com.yang.ktbase.net.ResponseData
  */
 open class BaseViewModel : ViewModel() {
 
-    // 公共 UI 状态，Activity/Fragment 订阅
+
+    /**
+     * 公共 UI状态，在Activity/Fragment 订阅
+     */
     private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
     val uiState: StateFlow<UiState> = _uiState
 
 
-
     /**
-     * 一次性网络请求
+     * 请求入口
      */
-    fun <T> launchRequest(
-        reqCall: suspend () -> ResponseData<T>,
-        onSuccess: (T) -> Unit = {},
-        onError: (NetException) -> Unit = {}
-    ) {
+    fun <T> request(build: RequestBuilder<T>.() -> Unit) {
+        val rb = RequestBuilder<T>().apply(build)
+        val req = requireNotNull(rb.request) { "request must be set " }
+
         viewModelScope.launch {
             try {
                 _uiState.value = UiState.Loading
-                val result = reqCall()
+                val result = req()
                 result.parseData(
                     onError = {
                         _uiState.value = UiState.Error(it.message)
-                        onError(it)
+                        rb.onError(it)
                     },
                     onSuccess = {
                         _uiState.value = UiState.Success(it)
-                        onSuccess(it)
+                        rb.onSuccess(it)
                     }
                 )
             } catch (e: Throwable) {
-                val netEx = if (e is NetException) e else NetException("request error: ${e.message}")
-                _uiState.value = UiState.Error(netEx.message ?: "未知错误")
-                onError(netEx)
+                e.printStackTrace()
+                val netEx = if (e is NetException) e else NetException("系统错误: ${e.message}")
+                _uiState.value = UiState.Error(netEx.message)
+                rb.onError(netEx)
             }
         }
     }
 }
 
-/**
- * 自定义response解析
- */
-private inline fun <T> ResponseData<T>.parseData(
-    onError: (NetException) -> Unit,
-    onSuccess: (T) -> Unit
-) {
-    runCatching {
-        if (isSuccess) {
-            data?.let(onSuccess) ?: onError(NetException(-1, "response data is null"))
-        } else throw NetException(errorCode, errorMsg)
-    }.onFailure {
-        val e = if (it is NetException) it else NetException("response error: ${it.message}")
-        onError(e)
-    }
-}
 
 
 /**
@@ -82,7 +66,7 @@ sealed class UiState {
     //加载成功
     data class Success<T>(val data: T) : UiState()
     //加载失败
-    data class Error(val message: String) : UiState()
+    data class Error(val message: String?="未知错误") : UiState()
 }
 
 

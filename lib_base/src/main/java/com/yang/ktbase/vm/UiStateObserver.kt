@@ -5,7 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.blankj.utilcode.util.ToastUtils
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -43,7 +43,7 @@ interface UiStateObserver : LifecycleOwner {
     }
 
     /**
-     * 订阅viewmodel中的状态及处理
+     * 订阅 loading状态
      */
     fun observeUiState(viewModel: BaseViewModel) {
         lifecycleScope.launch {
@@ -64,16 +64,23 @@ interface UiStateObserver : LifecycleOwner {
     }
 
     /**
-     * 简化数据绑定
+     * Flow 收集数据简易版
+     * followLifecycle跟随生命周期，followLifecycle=ture 后台时收不到数据
      */
-    fun <T> LifecycleOwner.collectData(
-        flow: StateFlow<T>,
+    fun <T> LifecycleOwner.collectFlow(
+        flow: Flow<T>,
+        followLifecycle: Boolean = true,
         collector: suspend (T) -> Unit
     ) {
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                flow.collect(collector)
+            if (followLifecycle) {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    flow.collectLatest(collector)
+                }
+            } else {
+                flow.collectLatest(collector)
             }
         }
     }
+
 }

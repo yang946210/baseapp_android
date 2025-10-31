@@ -36,7 +36,7 @@ class ExampleMvvmVMActivity : BaseVMActivity<NetExpViewModel, ActivityExampleMvv
     }
 
     override fun bindData() {
-        collectData(mViewModel.titleData){
+        collectFlow(mViewModel.titleData){
             mBinding.tvShowTitle.text=it.toString()
         }
     }

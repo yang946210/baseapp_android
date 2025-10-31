@@ -5,12 +5,15 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.lib_jetpack.databinding.ActivityViewModelBinding
 import com.example.jetpack.vm.VmViewModel
-import com.yang.ktbase.base.BaseVmActivity
+import com.yang.ktbase.base.BaseVMActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
 
-class ViewModelVmActivity : BaseVmActivity<VmViewModel, ActivityViewModelBinding>() ,CoroutineScope by MainScope() {
+class ViewModelVMActivity : BaseVMActivity<VmViewModel, ActivityViewModelBinding>() ,CoroutineScope by MainScope() {
+    override fun bindData() {
+        TODO("Not yet implemented")
+    }
 
     override fun initView(savedInstanceState: Bundle?) {
         //创建viewModel

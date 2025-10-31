@@ -1,12 +1,9 @@
 package com.example.avi.android.camerax
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.example.lib_avi.databinding.ActivityCameraXactivityBinding
-import com.tbruyelle.rxpermissions3.RxPermissions
 import com.yang.ktbase.base.BaseActivity
-import java.io.File
 
 
 val note="""
@@ -36,12 +33,12 @@ class CameraXActivity : BaseActivity<ActivityCameraXactivityBinding>() {
 
             //拍照
             tvTakePic.setOnClickListener {
-                val rxP= RxPermissions(this@CameraXActivity)
-                rxP.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe {
-                    if (it) {
-                        cameraXManager.takePic(File(getExternalFilesDir("camerax"),"pic${System.currentTimeMillis()}.JPEG"))
-                    }
-                }
+//                val rxP= RxPermissions(this@CameraXActivity)
+//                rxP.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe {
+//                    if (it) {
+//                        cameraXManager.takePic(File(getExternalFilesDir("camerax"),"pic${System.currentTimeMillis()}.JPEG"))
+//                    }
+//                }
             }
 
             //录像

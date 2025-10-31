@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingVertical="5dp"
     app:flexWrap="wrap"
-    tools:context=".menu.JetPackFragment">
+    tools:context=".view.menu.JetPackVMFragment">
 
 
     <Button

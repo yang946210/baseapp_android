@@ -1,4 +1,4 @@
-package com.yang.appkt.menu
+package com.yang.appkt.view.menu
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,9 @@ import com.example.avi.android.mediacodec.MediaCodecActivity
 import com.example.avi.android.mediaextractor.MediaExtractorActivity
 import com.example.avi.android.mediarecorder.MediaRecorderActivity
 import com.yang.appkt.databinding.FragmentVaBinding
-import com.yang.ktbase.base.BaseBindFragment
+import com.yang.ktbase.base.BaseFragment
 
-class VaFragment : BaseBindFragment<FragmentVaBinding>() {
+class VaFragment : BaseFragment<FragmentVaBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.apply {

@@ -1,20 +1,20 @@
-package com.yang.appkt.menu
+package com.yang.appkt.view.menu
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import com.example.jetpack.activity.ExampleMvvmVmActivity
+import com.example.jetpack.activity.ExampleMvvmVMActivity
 import com.example.jetpack.activity.FlowActivity
 import com.example.jetpack.activity.LifecycleActivity
-import com.example.jetpack.activity.LiveDataVmActivity
-import com.example.jetpack.activity.ViewModelVmActivity
+import com.example.jetpack.activity.LiveDataVMActivity
+import com.example.jetpack.activity.ViewModelVMActivity
 import com.google.zxing.integration.android.IntentIntegrator
 import com.yang.appkt.vm.JetPackViewModel
 import com.yang.appkt.databinding.FragmentJetpackBinding
 import com.yang.appkt.util.FlutterEngineManager
-import com.yang.ktbase.base.BaseFragment
+import com.yang.ktbase.base.BaseVMFragment
 
 
-class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>() {
+class JetPackVMFragment : BaseVMFragment<JetPackViewModel, FragmentJetpackBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.apply {
@@ -34,13 +34,13 @@ class JetPackFragment : BaseFragment<JetPackViewModel, FragmentJetpackBinding>()
                 startActivity(Intent(context,LifecycleActivity::class.java))
             }
             btnViewModel.setOnClickListener {
-                startActivity(Intent(context,ViewModelVmActivity::class.java))
+                startActivity(Intent(context,ViewModelVMActivity::class.java))
             }
             btnLiveData.setOnClickListener {
-                startActivity(Intent(context,LiveDataVmActivity::class.java))
+                startActivity(Intent(context,LiveDataVMActivity::class.java))
             }
             btnNetDemo.setOnClickListener {
-                startActivity(Intent(context,ExampleMvvmVmActivity::class.java))
+                startActivity(Intent(context,ExampleMvvmVMActivity::class.java))
             }
             btnFlutter.setOnClickListener {
                 startActivity(

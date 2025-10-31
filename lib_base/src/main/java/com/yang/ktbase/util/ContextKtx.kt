@@ -9,13 +9,13 @@ import com.blankj.utilcode.util.ToastUtils
 /**
  * 获取屏幕宽度
  */
-val Context.screenWidth
+val Context.getScreenWidth
     get() = resources.displayMetrics.widthPixels
 
 /**
  * 获取屏幕高度
  */
-val Context.screenHeight
+val Context.getScreenHeight
     get() = resources.displayMetrics.heightPixels
 
 /**

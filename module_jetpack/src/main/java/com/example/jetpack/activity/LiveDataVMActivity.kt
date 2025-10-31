@@ -6,26 +6,29 @@ import com.blankj.utilcode.util.TimeUtils
 import com.example.jetpack.vm.LiveDataViewModel
 
 import com.example.lib_jetpack.databinding.ActivityLiveDataBinding
-import com.yang.ktbase.base.BaseVmActivity
+import com.yang.ktbase.base.BaseVMActivity
 import com.yang.ktbase.util.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Date
 
-class LiveDataVmActivity : BaseVmActivity<LiveDataViewModel,ActivityLiveDataBinding>(){
+class LiveDataVMActivity : BaseVMActivity<LiveDataViewModel,ActivityLiveDataBinding>(){
 
     private var index=1
+    override fun bindData() {
+        TODO("Not yet implemented")
+    }
 
     override fun initView(savedInstanceState: Bundle?) {
 
         mViewModel.apply {
-            mlLiveData1.observe(this@LiveDataVmActivity){
+            mlLiveData1.observe(this@LiveDataVMActivity){
                 "md1 get $it".logD()
             }
-            mlLiveData2.observe(this@LiveDataVmActivity){
+            mlLiveData2.observe(this@LiveDataVMActivity){
                 "md2 get $it".logD()
             }
-            mdLiveData.observe(this@LiveDataVmActivity){
+            mdLiveData.observe(this@LiveDataVMActivity){
                 "md10086 get $it".logD()
             }
 

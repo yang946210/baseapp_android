@@ -1,31 +1,48 @@
 package com.yang.ktbase.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.util.getVmClazz
+import com.yang.ktbase.util.inflateBindingWithGeneric
+
 
 /***
- *  vm相关Fragment基类
- *  创建默认viewModel
- *  ...其他vm相关公共逻辑
+ *  UI相关Fragment基类
+ *  创建默认viewBind
+ *  ...其他UI相关公共逻辑
  */
-abstract class BaseFragment<M : ViewModel, B : ViewBinding> : BaseBindFragment<B>() {
+abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
-    protected lateinit var mViewModel: M
+    private var _binding: B? = null
 
+    protected val mBinding: B get() = _binding!!
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = inflateBindingWithGeneric(inflater, container, false)
+        return mBinding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        mViewModel = createViewModel()
         super.onViewCreated(view, savedInstanceState)
+        initView(savedInstanceState)
     }
 
     /**
-     * 创建viewModel
+     * 初始化布局
      */
-    private fun createViewModel(): M {
-        return ViewModelProvider(this)[getVmClazz(this)]
+    abstract fun initView(savedInstanceState: Bundle?)
+
+
+    /**
+     * 跟着就销毁了
+     */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
+
+
 }

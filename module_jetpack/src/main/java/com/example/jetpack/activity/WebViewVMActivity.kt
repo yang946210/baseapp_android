@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.webkit.*
 import com.blankj.utilcode.util.ToastUtils
 import com.example.lib_jetpack.databinding.ActivityWebViewBinding
-import com.yang.ktbase.base.BaseVmActivity
+import com.yang.ktbase.base.BaseVMActivity
 import com.yang.ktbase.vm.BaseViewModel
 import com.yang.ktbase.util.logD
 
-class WebViewVmActivity : BaseVmActivity<BaseViewModel, ActivityWebViewBinding>() {
+class WebViewVMActivity : BaseVMActivity<BaseViewModel, ActivityWebViewBinding>() {
+    override fun bindData() {
+        TODO("Not yet implemented")
+    }
 
 
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled")

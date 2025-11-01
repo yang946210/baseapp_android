@@ -13,9 +13,9 @@ class Config{
 
 
   ///隐私协议
-  static const String urlProtocol="http://dsjapp.scgsdsj.com:22580/privacy/蜀道大数据-隐私协议.html";
+  static const String urlProtocol="www.baicu.com";
   ///用户协议
-  static const String urlUser="http://dsjapp.scgsdsj.com:22580/privacy/蜀道大数据-用户协议.html";
+  static const String urlUser="www.baidu.com";
   ///公司简介
   static  String urlIntroduction="${urlBase}app/h5/group-introduce/group.html";
 

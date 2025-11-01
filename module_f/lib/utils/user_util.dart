@@ -57,12 +57,8 @@ class UserUtil {
 //{
 //     "user": {
 //         "commpanycode": "10029",
-//         "unitName": "蜀道智慧交通集团",
-//         "commpanyname": "智慧高速公司",
 //         "roleId": 1,
 //         "mobileno": "15228967773",
-//         "departname": "网络信息部",
-//         "groupName": "蜀道集团",
 //         "billUserId": "15228967773",
 //         "unitCode": "05031",
 //         "departid": "1002909",

@@ -3,7 +3,7 @@ include(":lib_base")
 include(":lib_mpeg")
 
 
-setBinding(new Binding([gradle: this]))
-evaluate(new File(settingsDir, "module_f/.android/include_flutter.groovy"))
+//setBinding(new Binding([gradle: this]))
+//evaluate(new File(settingsDir, "module_f/.android/include_flutter.groovy"))
 
 

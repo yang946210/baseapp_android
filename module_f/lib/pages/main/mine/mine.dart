@@ -315,7 +315,7 @@ class MinePageState extends State<MinePage> {
                                         children: [
                                           const Text("分享",style: TextStyle(color: Colors.white,fontSize: 28),),
                                           Gaps.hGap2,
-                                          const Text("蜀道大数据App",style: TextStyle(color: Colors.white,fontSize: 16),),
+                                          const Text("大数据App",style: TextStyle(color: Colors.white,fontSize: 16),),
                                           Gaps.hGap20,
                                           LoadImage(model.shareImage,width: 244,height: 244,fit: BoxFit.fill),
                                           Gaps.hGap20,

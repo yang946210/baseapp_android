@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       const Expanded(
                           child: Text(
-                        "蜀道大数据",
+                        "home",
                         style: TextStyle(color: Colours.color_0x0E0E0E, fontWeight: FontWeight.bold, fontSize: 24),
                       )),
                       Column(
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                   width: double.infinity,
                   child: GestureDetector(
                     onTap: () {
-                      RouterUtils.openWebView(context, Config.urlProtocol,title:  "蜀道集团");
+                      RouterUtils.openWebView(context, Config.urlProtocol,title:  "xx");
                     },
                     child: Stack(
                       children: [
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                             top: 70,
                             left: 16,
                             child: Text(
-                              "建设现代交通 服务治蜀兴川",
+                              "title",
                               style: TextStyle(color: Colors.white70, fontSize: 16),
                             )),
                         Positioned(

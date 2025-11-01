@@ -18,30 +18,31 @@ open class BaseViewModel : ViewModel() {
     /**
      * 公共 UI状态，在Activity/Fragment 订阅
      */
-    private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
+    protected val _uiState = MutableStateFlow<UiState>(UiState.Idle)
     val uiState: StateFlow<UiState> = _uiState
 
 
     /**
      * 请求入口
      */
-    fun <T> request(build: RequestBuilder<T>.() -> Unit) {
+    fun <T> launch(build: RequestBuilder<T>.() -> Unit) {
         val rb = RequestBuilder<T>().apply(build)
         val req = requireNotNull(rb.request) { "request must be set " }
 
         viewModelScope.launch {
             try {
-                _uiState.value = UiState.Loading
+                _uiState.value = UiState.ShowLoading
                 val result = req()
                 result.parseData(
+                    onSuccess = {
+                        _uiState.value = UiState.HideLoading
+                        rb.onSuccess(it)
+                    },
                     onError = {
                         _uiState.value = UiState.Error(it.message)
                         rb.onError(it)
                     },
-                    onSuccess = {
-                        _uiState.value = UiState.Success(it)
-                        rb.onSuccess(it)
-                    }
+                    onNullResult = rb.nullDefault
                 )
             } catch (e: Throwable) {
                 e.printStackTrace()
@@ -59,12 +60,12 @@ open class BaseViewModel : ViewModel() {
  * UI 状态封装
  */
 sealed class UiState {
-    //空闲
+    //初始
     object Idle : UiState()
     //加载中
-    object Loading : UiState()
+    object ShowLoading : UiState()
     //加载成功
-    data class Success<T>(val data: T) : UiState()
+    object HideLoading: UiState()
     //加载失败
     data class Error(val message: String?="未知错误") : UiState()
 }

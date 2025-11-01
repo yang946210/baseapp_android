@@ -1,15 +1,9 @@
-//include ':mvp'
-//include ':base'
-include ':app'
-include ':lib_base'
-include ':lib_mpeg'
-include ':module_va'
-include ':module_jetpack'
-include ':module_f'
-setBinding(new Binding([gradle: this]))                                // new
-evaluate(new File(                                                     // new
-        settingsDir.parentFile,                                            // new
-        'baseapp_android/module_f/.android/include_flutter.groovy'                   // new
-))
+include(":app")
+include(":lib_base")
+include(":lib_mpeg")
 
-include ':module_f'
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(settingsDir, "module_f/.android/include_flutter.groovy"))
+
+

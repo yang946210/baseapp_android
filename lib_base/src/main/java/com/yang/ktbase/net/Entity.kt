@@ -11,14 +11,27 @@ data class ResponseData<T>(
     val data: T?
 ) {
     fun parseData(
+        onSuccess: (T) -> Unit,
         onError: (NetException) -> Unit,
-        onSuccess: (T) -> Unit
+        onNullResult: (() -> T)?
     ) {
-        if (code == 0 && data != null) {
-            onSuccess(data)
+        if (isSuccess()) {
+            val value = data ?: onNullResult?.invoke()
+            if (value != null) {
+                onSuccess(value)
+            } else {
+                onError(NetException(message ?: "未知错误"))
+            }
         } else {
-            onError(NetException(message?:"未知错误"))
+            onError(NetException(message ?: "未知错误"))
         }
+    }
+
+    /**
+     * 请求成功
+     */
+    fun isSuccess():Boolean{
+        return code == 0
     }
 }
 

@@ -1,11 +1,8 @@
 package com.yang.appkt
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.jetpack.activity.WebViewVMActivity
-import com.google.zxing.integration.android.IntentIntegrator
 import com.yang.appkt.databinding.ActivityVmBinding
 import com.yang.ktbase.base.BaseActivity
 
@@ -28,17 +25,6 @@ class MainActivity : BaseActivity<ActivityVmBinding>() {
         }
     }
 
-    // 接收扫码结果
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
-            val intent=Intent(this,WebViewVMActivity::class.java);
-            intent.putExtra("url",result.contents)
-            startActivity(intent)
-
-        }
-    }
 
 
 

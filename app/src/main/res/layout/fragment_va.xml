@@ -11,45 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/tv_Recording"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mediaRecorder" />
-
-
-        <Button
-            android:id="@+id/tv_audio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/audio" />
-
-        <Button
-            android:id="@+id/tv_camera2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/camera2" />
-
-        <Button
-            android:id="@+id/tv_cameraX"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/camerax" />
-
-        <Button
-            android:id="@+id/tv_mediaExtractor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MediaExtractor解封装" />
-
-        <Button
-            android:id="@+id/tv_mediaCodec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MediaCodec硬编/硬解码" />
 
 
 

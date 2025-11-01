@@ -10,10 +10,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 /**
- * 统一封装 UI 状态观察与 Loading 控制
+ * UI状态观察与 Loading 控制
  */
 interface UiStateObserver : LifecycleOwner {
-
 
     /**
      * 展示弹窗(默认样式)
@@ -50,9 +49,9 @@ interface UiStateObserver : LifecycleOwner {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collectLatest { state ->
                     when (state) {
-                        UiState.Loading -> showLoading()
                         UiState.Idle -> hideLoading()
-                        is UiState.Success<*> -> hideLoading()
+                        UiState.ShowLoading -> showLoading()
+                        UiState.HideLoading -> showLoading()
                         is UiState.Error -> {
                             hideLoading()
                             showErrorMsg("请求失败 ${state.message}")

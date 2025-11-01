@@ -8,6 +8,6 @@ class App : BaseApp(){
     override fun onCreate() {
         super.onCreate()
         WebView.setWebContentsDebuggingEnabled(true)
-        FlutterEngineManager.registerEngine(this)
+        //FlutterEngineManager.registerEngine(this)
     }
 }

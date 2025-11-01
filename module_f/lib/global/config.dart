@@ -8,8 +8,8 @@ class Config{
   static String get urlBase => isDebug?_urlTest:_urlRelease;
 
   ///生产/测试地址
-  static const String _urlRelease = "http://sddsjapptest.scgsdsj.com:32881/";
-  static const String _urlTest = "http://sddsjapptest.scgsdsj.com:32881/";
+  static const String _urlRelease = "";
+  static const String _urlTest = "";
 
 
   ///隐私协议

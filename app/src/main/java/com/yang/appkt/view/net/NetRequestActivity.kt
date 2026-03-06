@@ -7,7 +7,7 @@ import com.yang.appkt.vm.NetRequestModel
 import com.yang.ktbase.base.BaseVMActivity
 import com.yang.ktbase.util.logD
 
-class NetRequestActivity : BaseVMActivity<NetRequestModel, ActivityNetRequestBinding>() {
+class NetRequestActivity : BaseVMActivity<ActivityNetRequestBinding,NetRequestModel>() {
     //进入自动加载数据
     override fun bindData() {
     }

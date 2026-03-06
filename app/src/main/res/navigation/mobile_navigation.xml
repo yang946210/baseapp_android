@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_jetpack"
-        android:name="com.yang.appkt.view.main.JetPackVMFragment"
+        android:name="com.yang.appkt.view.main.HomeFragment"
         android:label="@string/title_jetpack"
         tools:layout="@layout/fragment_jetpack" />
 

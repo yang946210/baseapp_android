@@ -13,7 +13,7 @@ import com.yang.ktbase.util.getVmClazz
  * 实现viewModel相关功能
  * ...其他vm相关逻辑实现
  */
-abstract class BaseVMActivity<M : BaseViewModel, B : ViewBinding> : BaseActivity<B>(), UiStateObserver {
+abstract class BaseVMActivity< B : ViewBinding,M : BaseViewModel> : BaseActivity<B>(), UiStateObserver {
 
 
     /**

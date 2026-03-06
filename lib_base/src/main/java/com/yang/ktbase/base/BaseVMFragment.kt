@@ -12,7 +12,7 @@ import com.yang.ktbase.util.getVmClazz
  *  创建默认viewModel
  *  ...其他vm相关公共逻辑
  */
-abstract class BaseVMFragment<M : ViewModel, B : ViewBinding> : BaseFragment<B>() {
+abstract class BaseVMFragment<B : ViewBinding,M : ViewModel> : BaseFragment<B>() {
 
     protected lateinit var mViewModel: M
 

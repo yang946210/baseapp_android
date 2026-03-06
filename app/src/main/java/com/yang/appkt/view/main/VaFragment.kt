@@ -1,4 +1,4 @@
-package com.yang.appkt.view.menu
+package com.yang.appkt.view.main
 
 
 import android.os.Bundle

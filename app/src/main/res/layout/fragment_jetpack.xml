@@ -7,73 +7,15 @@
     android:layout_height="match_parent"
     android:paddingVertical="5dp"
     app:flexWrap="wrap"
-    tools:context=".view.menu.JetPackVMFragment">
+    tools:context=".view.main.JetPackVMFragment">
 
 
     <Button
-        android:id="@+id/btn_scope"
+        android:id="@+id/btn_net"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:text="@string/scope"/>
-
-    <Button
-        android:id="@+id/btn_flow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:text="@string/flow" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <Button
-        android:id="@+id/btn_lifecycle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:text="@string/lifecycle"/>
-    <Button
-        android:id="@+id/btn_viewModel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:text="@string/viewModel"/>
-
-    <Button
-        android:id="@+id/btn_liveData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:text="@string/livedata"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <Button
-        android:id="@+id/btn_netDemo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:text="@string/net_mvvm_demo"/>
-
-
-    <Button
-        android:id="@+id/btn_flutter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:text="跳转到flutter页面"/>
-
-    <Button
-        android:id="@+id/btn_Scan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="5dp"
-        android:text="扫描二维码进入webview"/>
+        android:text="网络请求"/>
 
 
 

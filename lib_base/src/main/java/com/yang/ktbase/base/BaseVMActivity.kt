@@ -1,13 +1,11 @@
 package com.yang.ktbase.base
 
-import android.app.ProgressDialog
 import android.os.Bundle
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
+import com.yang.ktbase.vm.BaseViewModel
 import com.yang.ktbase.vm.UiStateObserver
 import com.yang.ktbase.util.getVmClazz
-import com.yang.ktbase.vm.BaseViewModel
 
 
 /**
@@ -15,7 +13,7 @@ import com.yang.ktbase.vm.BaseViewModel
  * 实现viewModel相关功能
  * ...其他vm相关逻辑实现
  */
-abstract class BaseVMActivity<M : ViewModel, B : ViewBinding> : BaseActivity<B>(), UiStateObserver {
+abstract class BaseVMActivity<M : BaseViewModel, B : ViewBinding> : BaseActivity<B>(), UiStateObserver {
 
 
     /**
@@ -27,7 +25,7 @@ abstract class BaseVMActivity<M : ViewModel, B : ViewBinding> : BaseActivity<B>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        observeUiState(mViewModel as BaseViewModel)
+        observeUiState(mViewModel)
         bindData()
     }
 

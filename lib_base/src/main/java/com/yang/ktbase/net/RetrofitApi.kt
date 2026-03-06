@@ -1,6 +1,7 @@
 package com.yang.ktbase.net
 
 import com.yang.base.BuildConfig
+import com.yang.ktbase.base.BaseApp
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +16,7 @@ object RetrofitApi {
      * 创建OkHttpClient
      */
     private val okHttpClient: OkHttpClient  by lazy{
+        val cacheDir = File(BaseApp.getAppCtx().cacheDir, "okhttp").apply { mkdirs() }
         val builder = OkHttpClient().newBuilder()
             .callTimeout(5, TimeUnit.SECONDS)  //完整请求超时时间
             .connectTimeout(5, TimeUnit.SECONDS)  //与服务器建立连接时长
@@ -22,7 +24,7 @@ object RetrofitApi {
             .writeTimeout(5, TimeUnit.SECONDS)  //像服务器写入数据时长
             .retryOnConnectionFailure(false)  //允许超时重连
             .followRedirects(true)  //允许重定向
-            .cache(Cache(File("sdcard/cache", "okhttp"), 1024))
+            .cache(Cache(cacheDir, 10L * 1024 * 1024))
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = when (BuildConfig.DEBUG) {
                     true  ->HttpLoggingInterceptor.Level.BODY
@@ -37,7 +39,7 @@ object RetrofitApi {
      */
     private val retrofit:Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl("http://www.wanandroid.com")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

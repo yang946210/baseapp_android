@@ -23,11 +23,8 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".view.HandlerActivity"
+            android:name=".view.net.NetRequestActivity"
             android:exported="false" />
-        <activity
-            android:name="io.flutter.embedding.android.FlutterActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_jetpack"
-        android:name="com.yang.appkt.view.menu.JetPackVMFragment"
+        android:name="com.yang.appkt.view.main.JetPackVMFragment"
         android:label="@string/title_jetpack"
         tools:layout="@layout/fragment_jetpack" />
 
     <fragment
         android:id="@+id/navigation_va"
-        android:name="com.yang.appkt.view.menu.VaFragment"
+        android:name="com.yang.appkt.view.main.VaFragment"
         android:label="@string/title_va"
         tools:layout="@layout/fragment_va" />
 
     <fragment
         android:id="@+id/navigation_pending"
-        android:name="com.yang.appkt.view.menu.PendingFragment"
+        android:name="com.yang.appkt.view.main.PendingFragment"
         android:label="@string/title_pending"
         tools:layout="@layout/fragment_pending" />
 </navigation>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:padding="10dp"
     android:layout_height="match_parent"
-    tools:context=".view.menu.VaFragment">
+    tools:context=".view.main.VaFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

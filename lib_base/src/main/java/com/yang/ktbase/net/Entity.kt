@@ -1,13 +1,17 @@
 package com.yang.ktbase.net
 
+import com.google.gson.annotations.SerializedName
 
 
 /**
  * 请求返回实体封装
  */
 data class ResponseData<T>(
+    @SerializedName(value = "errorCode", alternate = ["code"])
     val code: Int,
+    @SerializedName(value = "errorMsg", alternate = ["message", "msg"])
     val message: String?,
+    @SerializedName(value = "data", alternate = ["result", "body"])
     val data: T?
 ) {
     fun parseData(
@@ -15,6 +19,7 @@ data class ResponseData<T>(
         onError: (NetException) -> Unit,
         onNullResult: (() -> T)?
     ) {
+
         if (isSuccess()) {
             val value = data ?: onNullResult?.invoke()
             if (value != null) {
@@ -30,7 +35,7 @@ data class ResponseData<T>(
     /**
      * 请求成功
      */
-    fun isSuccess():Boolean{
+    private fun isSuccess():Boolean{
         return code == 0
     }
 }

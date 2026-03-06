@@ -51,7 +51,7 @@ interface UiStateObserver : LifecycleOwner {
                     when (state) {
                         UiState.Idle -> hideLoading()
                         UiState.ShowLoading -> showLoading()
-                        UiState.HideLoading -> showLoading()
+                        UiState.HideLoading -> hideLoading()
                         is UiState.Error -> {
                             hideLoading()
                             showErrorMsg("请求失败 ${state.message}")

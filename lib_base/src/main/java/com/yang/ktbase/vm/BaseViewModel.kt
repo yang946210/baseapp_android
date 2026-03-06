@@ -2,10 +2,12 @@ package com.yang.ktbase.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import com.yang.ktbase.net.NetException
+import com.yang.ktbase.util.logD
 
 
 /**
@@ -20,6 +22,10 @@ open class BaseViewModel : ViewModel() {
      */
     protected val _uiState = MutableStateFlow<UiState>(UiState.Idle)
     val uiState: StateFlow<UiState> = _uiState
+
+    protected fun <T> mutableEventFlow(extraBufferCapacity: Int = 1): MutableSharedFlow<T> {
+        return MutableSharedFlow(replay = 0, extraBufferCapacity = extraBufferCapacity)
+    }
 
 
     /**

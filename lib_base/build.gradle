@@ -11,14 +11,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
-        }
-        debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com\"")
-        }
-    }
 }
 dependencies {
     api fileTree(include: ['*.aar'], dir: 'libs')  // 自动引入所有aar

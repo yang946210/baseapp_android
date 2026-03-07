@@ -11,7 +11,7 @@ import java.lang.reflect.ParameterizedType
  */
 @Suppress("UNCHECKED_CAST")
 fun <M> getVmClazz(obj: Any): M {
-    return (obj.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as M
+    return (obj.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as M
 }
 
 

@@ -10,17 +10,21 @@ import kotlinx.coroutines.flow.asSharedFlow
 
 class NetRequestModel : BaseViewModel() {
 
-    private val _titleData = MutableSharedFlow<JsonArray>(replay = 1)
+
+    private val _titleData = MutableSharedFlow<JsonArray>()
     val titleData = _titleData.asSharedFlow()
 
     fun getUserInfo() {
-        launch{
+        launch(showLoading = false){
             request { RetrofitApi.api.getBanner() }
             success {
-                _titleData.tryEmit(it)
+                _titleData.emit(it)
             }
             error {
                 ToastUtils.showLong("如果有错误就写${it.message ?: it}")
+            }
+            nullDefault {
+                JsonArray()
             }
         }
     }

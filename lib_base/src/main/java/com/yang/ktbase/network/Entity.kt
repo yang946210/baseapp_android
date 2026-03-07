@@ -1,4 +1,4 @@
-package com.yang.ktbase.net
+package com.yang.ktbase.network
 
 import com.google.gson.annotations.SerializedName
 
@@ -40,5 +40,10 @@ data class ResponseData<T>(
     }
 }
 
-
+fun <T> ResponseData<T>.dataOrThrow(): T {
+    if (code != 0) {
+        throw RuntimeException(message)
+    }
+    return data!!
+}
 class NetException(message: String) : Exception(message)

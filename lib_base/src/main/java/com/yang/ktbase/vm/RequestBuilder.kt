@@ -1,7 +1,7 @@
 package com.yang.ktbase.vm
 
-import com.yang.ktbase.net.NetException
-import com.yang.ktbase.net.ResponseData
+import com.yang.ktbase.network.NetException
+import com.yang.ktbase.network.ResponseData
 
 typealias RequestBlock<T> = suspend () -> ResponseData<T>
 typealias SuccessBlock<T> = suspend (T) -> Unit

@@ -2,16 +2,15 @@ package com.yang.appkt.vm
 
 
 import com.blankj.utilcode.util.ToastUtils
-import com.google.gson.JsonArray
-import com.yang.ktbase.net.RetrofitApi
+import com.yang.ktbase.network.Banner
+import com.yang.ktbase.network.RetrofitApi
 import com.yang.ktbase.vm.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 class NetRequestModel : BaseViewModel() {
 
-
-    private val _titleData = MutableSharedFlow<JsonArray>()
+    private val _titleData = MutableSharedFlow<List<Banner>>()
     val titleData = _titleData.asSharedFlow()
 
     fun getUserInfo() {
@@ -23,9 +22,7 @@ class NetRequestModel : BaseViewModel() {
             error {
                 ToastUtils.showLong("如果有错误就写${it.message ?: it}")
             }
-            nullDefault {
-                JsonArray()
-            }
+
         }
     }
 

@@ -70,5 +70,14 @@ sealed class UiState {
     data class Error(val message: String?="未知错误") : UiState()
 }
 
+sealed class UiState2<out T> {
+
+    object Loading : UiState2<Nothing>()
+
+    data class Success<T>(val data: T) : UiState2<T>()
+
+    data class Error(val throwable: Throwable) : UiState2<Nothing>()
+}
+
 
 

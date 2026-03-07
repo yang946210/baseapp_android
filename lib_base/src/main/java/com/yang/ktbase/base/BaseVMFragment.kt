@@ -6,13 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.util.getVmClazz
+import com.yang.ktbase.vm.BaseViewModel
 
 /***
  *  vm相关Fragment基类
  *  创建默认viewModel
  *  ...其他vm相关公共逻辑
  */
-abstract class BaseVMFragment<B : ViewBinding,M : ViewModel> : BaseFragment<B>() {
+abstract class BaseVMFragment<B : ViewBinding,M : BaseViewModel> : BaseFragment<B>() {
 
     protected lateinit var mViewModel: M
 

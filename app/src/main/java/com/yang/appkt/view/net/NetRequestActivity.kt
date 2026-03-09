@@ -3,28 +3,22 @@ package com.yang.appkt.view.net
 import android.os.Bundle
 import com.yang.appkt.databinding.ActivityNetRequestBinding
 import com.yang.appkt.vm.NetRequestModel
-
 import com.yang.ktbase.base.BaseVMActivity
-import com.yang.ktbase.util.logD
 
-class NetRequestActivity : BaseVMActivity<ActivityNetRequestBinding,NetRequestModel>() {
-    //进入自动加载数据
-    override fun bindData() {
-    }
+class NetRequestActivity : BaseVMActivity<ActivityNetRequestBinding, NetRequestModel>() {
 
     override fun bindView(savedInstanceState: Bundle?) {
         mBinding.apply {
-            //点击加载
             tvGetNet.setOnClickListener {
                 mBinding.tvNetValue.text=null
-                mViewModel.getUserInfo()
+                mViewModel.getBanner()
             }
-        }
-
-        collectFlow(mViewModel.titleData){
-            it.toString().logD("net")
-            mBinding.tvNetValue.text=it.toString()
         }
     }
 
+    override fun bindData() {
+        collectNetState(mViewModel.bannerState) {
+            mBinding.tvNetValue.text=it.toString()
+        }
+    }
 }

@@ -3,8 +3,6 @@ package com.yang.ktbase.base
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.yang.ktbase.vm.BaseViewModel
-import com.yang.ktbase.vm.UiStateObserver
 import com.yang.ktbase.util.getVmClazz
 
 
@@ -13,23 +11,22 @@ import com.yang.ktbase.util.getVmClazz
  * 实现viewModel相关功能
  * ...其他vm相关逻辑实现
  */
-abstract class BaseVMActivity< B : ViewBinding,M : BaseViewModel> : BaseActivity<B>(), UiStateObserver {
+abstract class BaseVMActivity< B : ViewBinding,M : BaseViewModel> : BaseActivity<B>(),
+    StateObserver {
 
 
-    /**
-     * 初始化ViewModel
-     */
+
     protected val mViewModel: M by lazy {
         ViewModelProvider(this)[getVmClazz(this)]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        observeLoading(mViewModel)
+        observeLoadingState(mViewModel)
         bindData()
     }
 
-    //绑定数据
+    //数据绑定
     abstract fun bindData()
 
 }

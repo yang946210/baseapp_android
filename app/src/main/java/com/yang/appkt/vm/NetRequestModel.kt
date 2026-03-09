@@ -1,29 +1,18 @@
 package com.yang.appkt.vm
 
-
-import com.blankj.utilcode.util.ToastUtils
 import com.yang.ktbase.network.Banner
 import com.yang.ktbase.network.RetrofitApi
-import com.yang.ktbase.vm.BaseViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import com.yang.ktbase.base.BaseViewModel
+import com.yang.ktbase.state.NetState
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class NetRequestModel : BaseViewModel() {
 
-    private val _titleData = MutableSharedFlow<List<Banner>>()
-    val titleData = _titleData.asSharedFlow()
+    private val _bannerState = MutableStateFlow<NetState<List<Banner>>>(NetState.Idle)
+    val bannerState = _bannerState.asStateFlow()
 
-    fun getUserInfo() {
-        launch(showLoading = false){
-            request { RetrofitApi.api.getBanner() }
-            success {
-                _titleData.emit(it)
-            }
-            error {
-                ToastUtils.showLong("如果有错误就写${it.message ?: it}")
-            }
-
-        }
+    fun getBanner() {
+        launchRequest(_bannerState) {RetrofitApi.api.getBanner() }
     }
-
 }

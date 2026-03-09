@@ -1,4 +1,4 @@
-package com.yang.ktbase.vm
+package com.yang.ktbase.util
 
 import android.app.Activity
 import android.app.Dialog

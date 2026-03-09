@@ -25,7 +25,7 @@ abstract class BaseVMActivity< B : ViewBinding,M : BaseViewModel> : BaseActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        observeUiState(mViewModel)
+        observeLoading(mViewModel)
         bindData()
     }
 

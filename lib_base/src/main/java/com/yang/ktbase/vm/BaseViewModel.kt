@@ -3,9 +3,9 @@ package com.yang.ktbase.vm
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import com.yang.ktbase.network.NetException
+import com.yang.ktbase.network.ResponseData
+import com.yang.ktbase.network.dataOrThrow
 
 
 /**
@@ -14,65 +14,34 @@ import com.yang.ktbase.network.NetException
  */
 open class BaseViewModel : ViewModel() {
 
-
     /**
      * 公共 UI状态，在Activity/Fragment 订阅
      */
-    private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
-    val uiState: StateFlow<UiState> = _uiState
+    val loadingState = MutableStateFlow(false)
 
 
-    /**
-     * 请求入口
-     */
-    fun <T> launch(showLoading: Boolean = true, build: RequestBuilder<T>.() -> Unit) {
-        val rb = RequestBuilder<T>().apply(build)
-        val req = requireNotNull(rb.request) { "request must be set " }
-
+    fun <T> launchRequest(
+        state: MutableStateFlow<UiState2<T>>,
+        showLoading:Boolean=false,
+        block: suspend () -> ResponseData<T>
+    ) {
         viewModelScope.launch {
+            if (showLoading)loadingState.value = true
             try {
-                if (showLoading) _uiState.value = UiState.ShowLoading
-                val result = req()
-                result.parseData(
-                    onSuccess = {
-                        if (showLoading) _uiState.value = UiState.HideLoading
-                        viewModelScope.launch { rb.onSuccess(it) }
-                    },
-                    onError = {
-                        if (showLoading) _uiState.value = UiState.Error(it.message)
-                        viewModelScope.launch { rb.onError(it) }
-                    },
-                    onNullResult = rb.nullDefault
-                )
-            } catch (e: Throwable) {
-                e.printStackTrace()
-                val netEx = if (e is NetException) e else NetException("系统错误: ${e.message}")
-                if (showLoading) _uiState.value = UiState.Error(netEx.message)
-                viewModelScope.launch { rb.onError(netEx) }
+                val response = block()
+                val data=response.dataOrThrow()
+                state.value = UiState2.Success(data)
+            } catch (e: Exception) {
+                state.value = UiState2.Error(e)
+            } finally {
+                if (showLoading)loadingState.value = true
             }
         }
     }
 }
 
 
-
-/**
- * UI 状态封装
- */
-sealed class UiState {
-    //初始
-    object Idle : UiState()
-    //加载中
-    object ShowLoading : UiState()
-    //加载成功
-    object HideLoading: UiState()
-    //加载失败
-    data class Error(val message: String?="未知错误") : UiState()
-}
-
 sealed class UiState2<out T> {
-
-    object Loading : UiState2<Nothing>()
 
     data class Success<T>(val data: T) : UiState2<T>()
 

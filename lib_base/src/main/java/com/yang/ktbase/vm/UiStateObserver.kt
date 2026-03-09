@@ -17,46 +17,35 @@ interface UiStateObserver : LifecycleOwner {
     /**
      * 展示弹窗(默认样式)
      */
-    fun showLoading(msg: String = "加载中..."){
+    fun showLoading(msg: String = "加载中...") {
         val ctx = when (this) {
             is androidx.fragment.app.Fragment -> this.requireContext()
             is android.app.Activity -> this
             else -> return
         }
-        DefaultLoadingManager.show(ctx, msg)
+        LoadingManager.show(ctx, msg)
     }
 
     /**
      * 隐藏弹窗(默认样式)
      */
-    fun hideLoading(){
-        DefaultLoadingManager.hide()
+    fun hideLoading() {
+        LoadingManager.hide()
     }
-
 
     /**
      * 展示错误信息
      */
-    fun showErrorMsg(msg: String= "未知错误"){
+    fun showErrorMsg(msg: String = "未知错误") {
         ToastUtils.showLong(msg)
     }
 
-    /**
-     * 订阅 loading状态
-     */
-    fun observeUiState(viewModel: BaseViewModel) {
+    fun observeLoading(viewModel: BaseViewModel) {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collectLatest { state ->
-                    when (state) {
-                        UiState.Idle -> hideLoading()
-                        UiState.ShowLoading -> showLoading()
-                        UiState.HideLoading -> hideLoading()
-                        is UiState.Error -> {
-                            hideLoading()
-                            showErrorMsg("请求失败 ${state.message}")
-                        }
-                    }
+                viewModel.loadingState.collect {
+                    if (it) showLoading()
+                    else hideLoading()
                 }
             }
         }
@@ -81,5 +70,4 @@ interface UiStateObserver : LifecycleOwner {
             }
         }
     }
-
 }

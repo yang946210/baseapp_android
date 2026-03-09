@@ -7,20 +7,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.yang.ktbase.util.getVmClazz
 import com.yang.ktbase.vm.BaseViewModel
+import com.yang.ktbase.vm.UiStateObserver
 
 /***
  *  vm相关Fragment基类
  *  创建默认viewModel
  *  ...其他vm相关公共逻辑
  */
-abstract class BaseVMFragment<B : ViewBinding,M : BaseViewModel> : BaseFragment<B>() {
+abstract class BaseVMFragment<B : ViewBinding,M : BaseViewModel> : BaseFragment<B>(),UiStateObserver {
 
     protected lateinit var mViewModel: M
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mViewModel = createViewModel()
         super.onViewCreated(view, savedInstanceState)
+        observeLoading(mViewModel)
     }
 
     /**

@@ -13,8 +13,10 @@ import java.lang.ref.WeakReference
 /**
  * 全局默认loading弹窗
  */
-object DefaultLoadingManager {
+object LoadingManager {
+
     private var dialog: Dialog? = null
+
     private var hostActivityRef: WeakReference<Activity>? = null
 
     fun show(context: Context, msg: String = "加载中...") {

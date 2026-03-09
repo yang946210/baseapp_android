@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import com.yang.ktbase.network.ResponseData
 import com.yang.ktbase.network.dataOrThrow
-import com.yang.ktbase.state.LoadingState
-import com.yang.ktbase.state.NetState
+import com.yang.ktbase.network.UiState
+import com.yang.ktbase.util.LoadingManager
 
 
 /**
@@ -17,30 +17,39 @@ import com.yang.ktbase.state.NetState
 open class BaseViewModel : ViewModel() {
 
     /**
-     * 公共 UI状态，在Activity/Fragment 订阅
+     * 请求入口
      */
-     val loadingState = MutableStateFlow<LoadingState<Nothing>>(LoadingState.Idle)
-
-
-    fun <T> launchRequest(
-        state: MutableStateFlow<NetState<T>>,
+    fun <T> request(
+        uiState: MutableStateFlow<UiState<T>>,
         showLoading: Boolean = true,
         loadingMsg: String = "加载中...",
         block: suspend () -> ResponseData<T>
     ) {
         viewModelScope.launch {
-            if (showLoading) loadingState.value = LoadingState.Loading(true, loadingMsg)
             try {
-                state.value = NetState.Prepare
+                // 1. 准备/初始化状态
+                uiState.value = UiState.Prepare
+
+                // 2. 显示 Loading
+                if (showLoading)uiState.value = UiState.Loading(true, loadingMsg)
+
+                // 3. 执行请求
                 val response = block()
                 val data = response.dataOrThrow()
-                state.value = NetState.Success(data)
+
+                // 4. 请求成功
+                uiState.value = UiState.Success(data)
             } catch (e: Exception) {
-                state.value = NetState.Error(e)
-            } finally {
-                if (showLoading) loadingState.value = LoadingState.Idle
+
+                //请求失败
+                uiState.value = UiState.Error(e)
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        LoadingManager.hide()
     }
 }
 

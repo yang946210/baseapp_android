@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.yang.appkt.databinding.ActivityNetRequestBinding
 import com.yang.appkt.vm.NetRequestModel
 import com.yang.ktbase.base.BaseVMActivity
+import com.yang.ktbase.network.UiState
 
 class NetRequestActivity : BaseVMActivity<ActivityNetRequestBinding, NetRequestModel>() {
 
@@ -17,8 +18,15 @@ class NetRequestActivity : BaseVMActivity<ActivityNetRequestBinding, NetRequestM
     }
 
     override fun bindData() {
-        collectNetState(mViewModel.bannerState) {
+        mViewModel.bannerState.observeState {
             mBinding.tvNetValue.text=it.toString()
+        }
+
+        mViewModel.bannerState.observe {
+            when(it){
+                is UiState.Success->{}
+                else->{}
+            }
         }
     }
 }

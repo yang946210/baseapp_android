@@ -19,7 +19,6 @@ abstract class BaseVMFragment<B : ViewBinding,M : BaseViewModel> : BaseFragment<
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mViewModel = createViewModel()
         super.onViewCreated(view, savedInstanceState)
-        observeLoadingState(mViewModel)
     }
 
     /**

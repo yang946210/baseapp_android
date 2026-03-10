@@ -1,4 +1,4 @@
-package com.yang.appkt.view.main
+package com.yang.app.ui.main
 
 import android.os.Bundle
 import com.yang.appkt.databinding.FragmentPendingBinding

@@ -1,4 +1,4 @@
-package com.yang.appkt.util
+package com.yang.app.util
 
 //import android.content.Context
 //import android.content.Intent

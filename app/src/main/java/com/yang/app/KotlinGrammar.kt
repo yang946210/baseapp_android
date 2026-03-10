@@ -1,4 +1,4 @@
-package com.yang.appkt
+package com.yang.app
 
 import android.util.Log
 import kotlin.random.Random

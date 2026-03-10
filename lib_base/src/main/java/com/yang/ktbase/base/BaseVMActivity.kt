@@ -15,7 +15,6 @@ abstract class BaseVMActivity< B : ViewBinding,M : BaseViewModel> : BaseActivity
     StateObserver {
 
 
-
     protected val mViewModel: M by lazy {
         ViewModelProvider(this)[getVmClazz(this)]
     }

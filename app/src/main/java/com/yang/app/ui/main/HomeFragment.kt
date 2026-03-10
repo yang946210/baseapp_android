@@ -1,13 +1,12 @@
-package com.yang.appkt.view.main
+package com.yang.app.ui.main
 import android.content.Intent
 import android.os.Bundle
+import com.yang.app.ui.net_exp.NetRequestActivity
 import com.yang.appkt.databinding.FragmentHomeBinding
-import com.yang.appkt.view.net.NetRequestActivity
-import com.yang.appkt.vm.NetRequestModel
 import com.yang.ktbase.base.BaseVMFragment
 
 
-class HomeFragment : BaseVMFragment<FragmentHomeBinding, NetRequestModel>() {
+class HomeFragment : BaseVMFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.apply {
@@ -15,6 +14,7 @@ class HomeFragment : BaseVMFragment<FragmentHomeBinding, NetRequestModel>() {
                 startActivity(Intent(context,NetRequestActivity::class.java))
             }
         }
+        mViewModel.getData()
     }
 }
 

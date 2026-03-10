@@ -1,7 +1,9 @@
-package com.yang.ktbase.network
+package com.yang.app.network
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.yang.ktbase.network.Banner
+import com.yang.ktbase.network.ResponseData
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -11,10 +13,8 @@ interface ApiService {
     suspend fun getBanner(): ResponseData<List<Banner>>
 
     @GET("user/lg/private_articles/{page}/json")
-    suspend fun getData(@Path("page") pageId:Int): ResponseData<JsonArray>
+    suspend fun getData(@Path("page") pageId: Int): ResponseData<JsonArray>
 
     @GET("article/list/{page}/json")
     suspend fun getAnt(@Path("page") pageNo: Int): ResponseData<JsonObject>
-
-
 }

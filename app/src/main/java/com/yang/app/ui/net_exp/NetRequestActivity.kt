@@ -1,8 +1,7 @@
-package com.yang.appkt.view.net
+package com.yang.app.ui.net_exp
 
 import android.os.Bundle
-import com.yang.appkt.databinding.ActivityNetRequestBinding
-import com.yang.appkt.vm.NetRequestModel
+import com.yang.app.databinding.ActivityNetRequestBinding
 import com.yang.ktbase.base.BaseVMActivity
 import com.yang.ktbase.network.UiState
 

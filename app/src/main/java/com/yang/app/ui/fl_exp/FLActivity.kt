@@ -26,5 +26,4 @@ class FLActivity : BaseVMActivity<ActivityFlactivityBinding,FlViewModule>() {
     override fun bindView(savedInstanceState: Bundle?) {
         mBinding.tvTest.text="9527"
     }
-
 }

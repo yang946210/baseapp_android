@@ -12,7 +12,7 @@ class NetRequestModel : BaseViewModel() {
     val bannerState = stateOf<List<Banner>>()
 
     fun getBanner() {
-        request(bannerState, defaultNull = { arrayListOf()}) {
+        request(bannerState) {
             RetrofitApi.api.getBanner()
         }
     }

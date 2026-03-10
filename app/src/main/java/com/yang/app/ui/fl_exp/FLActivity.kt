@@ -8,6 +8,7 @@ import com.yang.ktbase.network.UiState
 
 
 class FLActivity : BaseVMActivity<ActivityFlactivityBinding,FlViewModule>() {
+
     override fun bindData() {
 
         mViewModel.banner.observe {

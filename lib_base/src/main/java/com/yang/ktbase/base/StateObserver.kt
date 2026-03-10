@@ -66,10 +66,10 @@ interface StateObserver : LifecycleOwner {
         lifecycleScope.launch {
             if (followLifecycle) {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    this@observe.collectLatest(collector)
+                    collectLatest(collector)
                 }
             } else {
-                this@observe.collectLatest(collector)
+                collectLatest(collector)
             }
         }
     }

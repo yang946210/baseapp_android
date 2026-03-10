@@ -2,7 +2,7 @@ package com.yang.app.ui.main
 import android.content.Intent
 import android.os.Bundle
 import com.yang.app.ui.net_exp.NetRequestActivity
-import com.yang.appkt.databinding.FragmentHomeBinding
+import com.yang.app.databinding.FragmentHomeBinding
 import com.yang.ktbase.base.BaseVMFragment
 
 

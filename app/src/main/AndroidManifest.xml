@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yang.appkt">
+    package="com.yang.app">
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 是否可以使用蓝牙 -->
     <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 蓝牙扫描 -->

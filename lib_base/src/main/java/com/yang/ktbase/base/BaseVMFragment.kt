@@ -12,7 +12,7 @@ import com.yang.ktbase.util.getVmClazz
  *  ...其他vm相关公共逻辑
  */
 abstract class BaseVMFragment<B : ViewBinding,M : BaseViewModel> : BaseFragment<B>(),
-    StateObserver {
+    ViewAbility {
 
     protected lateinit var mViewModel: M
 

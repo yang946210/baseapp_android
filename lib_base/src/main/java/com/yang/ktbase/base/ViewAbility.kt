@@ -14,58 +14,53 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-/**
- * UI状态观察与 Loading 控制
- */
-interface StateObserver : LifecycleOwner {
+interface ViewAbility {
+
+    /**
+     * 编译期验证继承是否合规
+     */
+    private val scopeLifecycleOwner: LifecycleOwner
+        get() = (this as? LifecycleOwner)
+            ?: throw IllegalStateException("ViewAbility 必须由 LifecycleOwner (Activity/Fragment) 实现")
 
     /**
      * 展示弹窗(默认样式)
      */
     fun showLoading(msg: String = "加载中...") {
-        getUiContext()?.let { ctx ->
-            LoadingManager.show(ctx, msg)
+        getUiContext(scopeLifecycleOwner)?.let { ctx ->
+             LoadingManager.show(ctx, msg)
         }
     }
 
     /**
-     * 隐藏弹窗(默认样式)
+     * 隐藏弹窗
      */
     fun hideLoading() {
-        LoadingManager.hide()
+         LoadingManager.hide()
     }
 
     /**
-     * 错误处理
+     * 安全获取 Context
      */
-    fun onErrorDefault(msg: String? = "未知错误") {
-        ToastUtils.showLong(msg)
-    }
-
-
-    /**
-     * context获取
-     */
-    private fun LifecycleOwner.getUiContext(): Context? {
-        return when (this) {
-            is Activity -> this
-            is Fragment -> this.context
+    private fun getUiContext(owner: LifecycleOwner): Context? {
+        return when (owner) {
+            is Activity -> owner
+            is Fragment -> owner.context
             else -> null
         }
     }
 
-
     /**
-     * 基础 Flow
-     * flow.observe {}
+     * flow收集
      */
     fun <T> Flow<T>.observe(
         followLifecycle: Boolean = true,
         collector: suspend (T) -> Unit
     ) {
-        lifecycleScope.launch {
+        val owner = scopeLifecycleOwner
+        owner.lifecycleScope.launch {
             if (followLifecycle) {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                owner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     collectLatest(collector)
                 }
             } else {
@@ -75,12 +70,12 @@ interface StateObserver : LifecycleOwner {
     }
 
     /**
-     * 基础 Flow 外添加一些默认处理
+     * uiState 更新
      */
     fun <T> Flow<UiState<T>>.observeState(
         followLifecycle: Boolean = true,
         onPrepare: () -> Unit = {},
-        onError: (Throwable) -> Unit = { onErrorDefault(it.message) },
+        onError: (Throwable) -> Unit = {  ToastUtils.showLong(it.message) },
         onSuccess: (T) -> Unit,
     ) {
         this.observe(followLifecycle) { state ->

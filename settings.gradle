@@ -1,9 +1,11 @@
 include(":app")
 include(":lib_base")
+include ':module_flutter'
+project(':module_flutter').projectDir = new File('../module_flutter')
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(settingsDir.parentFile, 'module_flutter/.android/include_flutter.groovy'))
 
 
-
-//setBinding(new Binding([gradle: this]))
-//evaluate(new File(settingsDir, "module_f/.android/include_flutter.groovy"))
 
 

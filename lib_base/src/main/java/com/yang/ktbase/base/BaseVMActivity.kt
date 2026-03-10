@@ -12,7 +12,7 @@ import com.yang.ktbase.util.getVmClazz
  * ...其他vm相关逻辑实现
  */
 abstract class BaseVMActivity< B : ViewBinding,M : BaseViewModel> : BaseActivity<B>(),
-    StateObserver {
+    ViewAbility {
 
 
     protected val mViewModel: M by lazy {

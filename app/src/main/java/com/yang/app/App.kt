@@ -8,7 +8,7 @@ class App : BaseApp() {
     override fun onCreate() {
         super.onCreate()
         RetrofitApi.init(
-            baseUrl = "http://www.wanandroid.com",
+            baseUrl = AppConfig.BASE_URL,
             cacheDir = cacheDir
         )
         WebView.setWebContentsDebuggingEnabled(true)

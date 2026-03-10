@@ -1,6 +1,7 @@
 package com.yang.app.ui.net_exp
 
 import android.os.Bundle
+import com.blankj.utilcode.util.ToastUtils
 import com.yang.app.databinding.ActivityNetRequestBinding
 import com.yang.ktbase.base.BaseVMActivity
 import com.yang.ktbase.network.UiState
@@ -17,13 +18,15 @@ class NetRequestActivity : BaseVMActivity<ActivityNetRequestBinding, NetRequestM
     }
 
     override fun bindData() {
-        mViewModel.bannerState.observeState {
+        mViewModel.bannerState.observeState{
             mBinding.tvNetValue.text=it.toString()
         }
 
-        mViewModel.bannerState.observe {
+        mViewModel.bannerState.observe{
             when(it){
-                is UiState.Success->{}
+                is UiState.Success->{
+                    ToastUtils.showLong(it.data.toString())
+                }
                 else->{}
             }
         }
